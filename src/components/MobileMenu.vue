@@ -4,10 +4,11 @@
       <IconClose @click="closeMenu" class="closeIcon"> </IconClose>
     </div>
     <div class="mobile-menu__image">
-      <img src="../image//logo_new.jpg" alt="logo" />
+      <img src="../image/logo_new.jpg" alt="logo" />
     </div>
     <nav class="navigation">
       <RouterLink to="/">Головна</RouterLink>
+      <RouterLink to="/">Каталог сумок</RouterLink>
       <RouterLink to="/">Доставка та оплата</RouterLink>
       <RouterLink to="/">Гарантія</RouterLink>
       <RouterLink to="/about">Контакти</RouterLink>

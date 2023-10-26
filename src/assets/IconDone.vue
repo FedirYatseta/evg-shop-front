@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="t508__checkmark"
     style="width: 55px; height: 55px"
     fill="#dae4e5"
     xmlns="http://www.w3.org/2000/svg"

@@ -23,9 +23,11 @@
     <div class="block-3">
       <div class="container">
         <div v-for="item in text" :key="item.title" class="block-conditions">
-          <IconBase width="38" height="38">
-            <IconDone />
-          </IconBase>
+          <div class="block-conditions__svg">
+            <icon-base width="45" height="45" icon-name="write">
+              <icon-done />
+            </icon-base>
+          </div>
 
           <div class="description-block">
             <h4>{{ item.title }}</h4>
@@ -103,6 +105,7 @@ import cond from '@/config/condition.json'
 import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
 import IconBase from '@/assets/IconBase.vue'
+
 export default defineComponent({
   components: {
     IconDone,
@@ -157,6 +160,9 @@ export default defineComponent({
 </script>
 
 <style>
+.block-conditions__svg {
+  display: flex;
+}
 .panel__icon {
   display: flex;
   border-radius: 50%;
