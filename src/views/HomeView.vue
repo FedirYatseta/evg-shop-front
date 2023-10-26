@@ -1,0 +1,291 @@
+<template>
+  <main>
+    <div class="block-1">
+      <div class="container">
+        <img src="../image/photo_1.jpg" alt="Organization Logo" class="imageIcon" />
+        <div class="conditions">
+          <h3>ШВИДКА ДОСТАВКА</h3>
+          <p>- Новою поштою <strong>та</strong> Укрпоштою</p>
+          <p>- по Україні від 1 - 3 робочих днів</p>
+        </div>
+        <div class="cond-text">
+          <p>БЕЗ ПЕРЕДОПЛАТИ + ПЕРЕВІРКА ТОВАРУ ДО ОПЛАТИ</p>
+        </div>
+      </div>
+    </div>
+    <div class="block-2">
+      <div class="container">
+        <p class="block-2__text">
+          Обмін, повернення товару 14 календарних днів без заморочок та складностей
+        </p>
+      </div>
+    </div>
+    <div class="block-3">
+      <div class="container">
+        <div v-for="item in text" :key="item.title" class="block-conditions">
+          <icon-base width="38" height="38">
+            <IconDone />
+          </icon-base>
+
+          <div class="description-block">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block-4">
+      <div class="container">
+        <div class="grid">
+          <div class="block-product" v-for="prod in product" :key="prod">
+            <div>
+              <div class="image-element">
+                <img :src="prod.imageSrc" />
+              </div>
+              <p class="title">
+                {{ prod.title }}
+              </p>
+              <p class="size">
+                Розмір <span> {{ prod.size + ' см' }}</span>
+              </p>
+              <p class="old-price">{{ prod.oldPrice }}</p>
+              <p class="price">{{ prod.price }} грн</p>
+            </div>
+            <div>
+              <MyButton style="background-color: #f7f7f7; color: #000; margin-bottom: 10px"
+                >Детальніше</MyButton
+              >
+              <MyButton style="background-color: #000; color: #fff">Купити</MyButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block-5">
+      <div class="container">
+        <div class="block-5__title">ЧАСТІ ЗАПИТАННЯ</div>
+        <div v-for="(question, index) in questions" :key="question.title" class="Section">
+          <div class="section-btn">
+            <button
+              :class="['Panel', { Active: question.isExpanded }]"
+              @click="handleAccordion(index)"
+            >
+              {{ question.title }}
+            </button>
+            <IconPlus
+              :style="{
+                transform: `rotate(${activeIndex === index ? rotation : 0}deg)`,
+                transition: `transform 0.3s`
+              }"
+            />
+          </div>
+
+          <Collapse as="section" :when="question.isExpanded">
+            <p class="CollapseContent">
+              {{ question.answer }}
+            </p>
+          </Collapse>
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script lang="ts">
+import IconDone from '@/assets/IconDone.vue'
+import MyButton from '@/components/MyButton.vue'
+import axios from 'axios'
+import { defineComponent, ref, reactive } from 'vue'
+import data from '@/config/collapse.json'
+import cond from '@/config/condition.json'
+import { Collapse } from 'vue-collapsed'
+import IconPlus from '@/assets/IconPlus.vue'
+
+export default defineComponent({
+  components: {
+    IconDone,
+    MyButton,
+    Collapse,
+    IconPlus
+  },
+  setup() {
+    const product = ref<any>([])
+    const collapseData = ref<any>(data)
+    const rotation = ref(45)
+    const activeIndex = ref(-1)
+
+    const fetchProd = async () => {
+      const response = await axios.get(
+        'http://localhost:3000/product/getall/5ea83cc0918220edc7bdf4cc09a7e61a'
+      )
+      product.value = response.data.data
+    }
+    fetchProd()
+
+    const text = ref(cond)
+    const questions = reactive(
+      collapseData.value.map(({ title, answer }: any, index: any) => ({
+        title,
+        answer,
+        isExpanded: false // Initial values, display expanded on mount
+      }))
+    )
+    function handleAccordion(selectedIndex: number) {
+      questions.forEach((_: any, index: any) => {
+        if (activeIndex.value === selectedIndex) {
+          activeIndex.value = -1 // Закрити активне питання
+        } else {
+          activeIndex.value = selectedIndex // Відкрити нове питання
+        }
+        questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
+      })
+    }
+    return {
+      text,
+      product,
+      fetchProd,
+      handleAccordion,
+      questions,
+      rotation,
+      activeIndex
+    }
+  }
+})
+</script>
+
+<style>
+.block-5__title {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 50px 0;
+}
+.section-btn {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.Panel {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  text-align: start;
+}
+.CollapseContent {
+  padding: 0 10px 10px;
+  margin: 0;
+  font-size: 1rem;
+}
+.Section {
+  width: 100%;
+  border-top: 1px solid #000;
+  margin: 0;
+}
+.Section:last-of-type {
+  border-bottom: 1px solid #000;
+}
+.Section button {
+  width: 100%;
+  padding: 10px 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.conditions {
+  margin-bottom: 30px;
+}
+
+.conditions h3 {
+  text-align: center;
+}
+.imageIcon {
+  width: 100%;
+  height: auto;
+}
+
+.block-conditions {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.description-block {
+  padding-left: 10px;
+}
+
+.description-block p {
+  font-size: 14px;
+  font-weight: 300;
+}
+.description-block h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.block-2 {
+  background-color: #e5f0ff;
+  padding: 10px 0;
+}
+
+.block-1,
+.block-2,
+.block-3,
+.block-4,
+.block-5 {
+  margin-bottom: 30px;
+}
+
+.block-2__text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cond-text {
+  display: flex;
+}
+
+.cond-text p {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.image-element img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-width: 100px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+}
+
+.size {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.size span {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.old-price {
+  color: red;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+
+.price {
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.block-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+</style>
