@@ -64,6 +64,7 @@ export default defineComponent({
   display: flex;
   justify-content: end;
   width: 100%;
+  cursor: pointer;
 }
 .navigation {
   display: flex;

@@ -31,4 +31,8 @@ button {
   font-size: 14px;
   max-height: 45px;
 }
+
+button:hover {
+  cursor: pointer;
+}
 </style>

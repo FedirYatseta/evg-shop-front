@@ -23,9 +23,9 @@
     <div class="block-3">
       <div class="container">
         <div v-for="item in text" :key="item.title" class="block-conditions">
-          <icon-base width="38" height="38">
+          <IconBase width="38" height="38">
             <IconDone />
-          </icon-base>
+          </IconBase>
 
           <div class="description-block">
             <h4>{{ item.title }}</h4>
@@ -40,7 +40,7 @@
           <div class="block-product" v-for="prod in product" :key="prod">
             <div>
               <div class="image-element">
-                <img :src="prod.imageSrc" />
+                <img :src="prod.imageSrc[0]" />
               </div>
               <p class="title">
                 {{ prod.title }}
@@ -70,14 +70,16 @@
               :class="['Panel', { Active: question.isExpanded }]"
               @click="handleAccordion(index)"
             >
-              {{ question.title }}
+              <p>{{ question.title }}</p>
+              <div class="panel__icon">
+                <IconPlus
+                  :style="{
+                    transform: `rotate(${activeIndex === index ? rotation : 0}deg)`,
+                    transition: `transform 0.3s`
+                  }"
+                />
+              </div>
             </button>
-            <IconPlus
-              :style="{
-                transform: `rotate(${activeIndex === index ? rotation : 0}deg)`,
-                transition: `transform 0.3s`
-              }"
-            />
           </div>
 
           <Collapse as="section" :when="question.isExpanded">
@@ -100,13 +102,14 @@ import data from '@/config/collapse.json'
 import cond from '@/config/condition.json'
 import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
-
+import IconBase from '@/assets/IconBase.vue'
 export default defineComponent({
   components: {
     IconDone,
     MyButton,
     Collapse,
-    IconPlus
+    IconPlus,
+    IconBase
   },
   setup() {
     const product = ref<any>([])
@@ -154,6 +157,12 @@ export default defineComponent({
 </script>
 
 <style>
+.panel__icon {
+  display: flex;
+  border-radius: 50%;
+  background-color: #fafafa;
+  padding: 5px;
+}
 .block-5__title {
   font-size: 28px;
   font-weight: 600;
@@ -169,6 +178,9 @@ export default defineComponent({
   font-weight: 400;
   color: #000;
   text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .CollapseContent {
   padding: 0 10px 10px;
