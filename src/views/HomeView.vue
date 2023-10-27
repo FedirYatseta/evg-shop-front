@@ -38,29 +38,7 @@
     </div>
     <div class="block-4">
       <div class="container">
-        <div class="grid">
-          <div class="block-product" v-for="prod in product" :key="prod">
-            <div>
-              <div class="image-element">
-                <img :src="prod.imageSrc[0]" />
-              </div>
-              <p class="title">
-                {{ prod.title }}
-              </p>
-              <p class="size">
-                Розмір <span> {{ prod.size + ' см' }}</span>
-              </p>
-              <p class="old-price">{{ prod.oldPrice }}</p>
-              <p class="price">{{ prod.price }} грн</p>
-            </div>
-            <div>
-              <MyButton style="background-color: #f7f7f7; color: #000; margin-bottom: 10px"
-                >Детальніше</MyButton
-              >
-              <MyButton style="background-color: #000; color: #fff">Купити</MyButton>
-            </div>
-          </div>
-        </div>
+        <product-card />
       </div>
     </div>
     <div class="block-5">
@@ -103,8 +81,7 @@
 
 <script lang="ts">
 import IconDone from '@/assets/IconDone.vue'
-import MyButton from '@/components/MyButton.vue'
-import * as axiosServices from '@/services/api.ts'
+
 import { defineComponent, ref, reactive } from 'vue'
 import data from '@/config/collapse.json'
 import cond from '@/config/condition.json'
@@ -112,28 +89,20 @@ import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
 import IconBase from '@/assets/IconBase.vue'
 import BasicCarousel from '@/components/BasicCarousel.vue'
-
+import ProductCard from '@/components/ProductCard.vue'
 export default defineComponent({
   components: {
     IconDone,
-    MyButton,
     Collapse,
     IconPlus,
     IconBase,
-    BasicCarousel
+    BasicCarousel,
+    ProductCard
   },
   setup() {
-    const product = ref<any>([])
     const collapseData = ref<any>(data)
     const rotation = ref(45)
     const activeIndex = ref(-1)
-    const SHOP_ID = import.meta.env.VITE_SHOP_ID
-
-    const fetchProd = async () => {
-      const response = await axiosServices.instance.get(`product/getall/${SHOP_ID}`)
-      product.value = response.data.data
-    }
-    fetchProd()
 
     const text = ref(cond)
     const questions = reactive(
@@ -155,8 +124,7 @@ export default defineComponent({
     }
     return {
       text,
-      product,
-      fetchProd,
+
       handleAccordion,
       questions,
       rotation,
@@ -283,47 +251,5 @@ export default defineComponent({
 .cond-text p {
   font-size: 10px;
   font-weight: 700;
-}
-
-.image-element img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-width: 100px;
-}
-
-.title {
-  font-weight: 600;
-  font-size: 20px;
-  color: #000;
-}
-
-.size {
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.size span {
-  font-weight: 300;
-  font-size: 15px;
-}
-
-.old-price {
-  color: red;
-  font-size: 16px;
-  text-decoration: line-through;
-}
-
-.price {
-  font-weight: 400;
-  font-size: 26px;
-}
-
-.block-product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
 }
 </style>

@@ -1,6 +1,6 @@
 export const pathConfig = [
     { name: 'Головна', path: '/' },
-    { name: 'Каталог сумок', path: '/catalog' },
+    { name: 'Каталог сумок', path: '/product' },
     { name: 'Доставка та оплата', path: '/delivery' },
     { name: 'Гарантія', path: '/warranty  ' },
     { name: 'Контакти', path: '/contact' },

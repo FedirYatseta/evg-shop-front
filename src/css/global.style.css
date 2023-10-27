@@ -15,11 +15,26 @@ main {
   height: 100%;
 }
 
+header {
+  line-height: 1.5;
+  background-color: #000;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.header__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .container {
   max-width: 1200px;
   margin: auto;
   width: 100%;
   height: 100%;
+}
+.header__block-desc {
+  display: none;
 }
 
 .list-footer {
@@ -71,6 +86,16 @@ main {
   .list-footer {
     flex-direction: row;
   }
+  .header__block {
+    display: none;
+  }
+  header {
+    position: relative;
+    background-color: #fff;
+  }
+  .header__block-desc {
+    display: block;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -80,5 +105,12 @@ main {
   }
   .list-footer {
     flex-direction: row;
+  }
+  .header__block {
+    display: none;
+  }
+  header {
+    position: relative;
+    background-color: #fff;
   }
 }

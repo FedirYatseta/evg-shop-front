@@ -9,26 +9,26 @@
     <nav class="navigation">
       <ul>
         <li v-for="item in pathConfig" :key="item.path">
-          <RouterLink :to="item.path" class="nav-link">{{ item.name }}</RouterLink>
+          <router-link :to="item.path" class="nav-link">{{ item.name }}</router-link>
         </li>
       </ul>
     </nav>
     <div class="block-social">
-      <RouterLink to="#" class="social-icon">
+      <router-link to="#" class="social-icon">
         <icon-base>
           <icon-face-book />
         </icon-base>
-      </RouterLink>
-      <RouterLink to="#" class="social-icon">
+      </router-link>
+      <router-link to="#" class="social-icon">
         <icon-base>
           <icon-inst />
         </icon-base>
-      </RouterLink>
-      <RouterLink to="#" class="social-icon">
+      </router-link>
+      <router-link to="#" class="social-icon">
         <icon-base>
           <icon-teleg />
         </icon-base>
-      </RouterLink>
+      </router-link>
     </div>
     <p class="delivered">Доставка без передоплати</p>
     <a class="tel" href="tel:+380632563677">+380 63 256 3677</a>
