@@ -1,5 +1,5 @@
 <template>
-  <select v-model="localSelected">
+  <select v-model="localSelected" @change="changeOption">
     <option disabled value="">Вибрати варіант</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}
@@ -14,8 +14,8 @@ type Option = {
   name: string
 }
 export default defineComponent({
-  name: 'MySelect', // Перейменовано на "MySelect"
-  emits: ['update:selected'], // Перейменовано на "update:selected"
+  name: 'MySelect',
+  emits: ['update:selected'],
   props: {
     selected: {
       type: String
@@ -26,11 +26,13 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    // Використано props і emit
     const localSelected = ref(props.selected)
 
     const changeOption = (event: any) => {
+      console.log('event', event)
+
       localSelected.value = event.target.value
+
       emit('update:selected', localSelected.value)
     }
 
@@ -45,7 +47,7 @@ export default defineComponent({
 <style scoped>
 select {
   width: 100%;
-  border: 1px solid teal;
+  border: 1px solid rgb(58, 58, 58);
   padding: 10px;
 }
 </style>

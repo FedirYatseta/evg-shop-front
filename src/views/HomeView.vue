@@ -38,7 +38,7 @@
     </div>
     <div class="block-4">
       <div class="container">
-        <product-card />
+        <product-card :products="product" />
       </div>
     </div>
     <div class="block-5">
@@ -90,6 +90,7 @@ import IconPlus from '@/assets/IconPlus.vue'
 import IconBase from '@/assets/IconBase.vue'
 import BasicCarousel from '@/components/BasicCarousel.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import { mapState } from 'vuex'
 export default defineComponent({
   components: {
     IconDone,
@@ -98,6 +99,11 @@ export default defineComponent({
     IconBase,
     BasicCarousel,
     ProductCard
+  },
+  computed: {
+    ...mapState({
+      product: (state) => state.product.product
+    })
   },
   setup() {
     const collapseData = ref<any>(data)

@@ -20,7 +20,7 @@ export default defineComponent({
 
 <style scoped>
 input {
-  border: 1px solid teal;
+  border: 1px solid rgb(58, 58, 58);
   padding: 10px;
 }
 </style>

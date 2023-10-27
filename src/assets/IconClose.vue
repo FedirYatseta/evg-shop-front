@@ -1,18 +1,28 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M18 6L6 18"
-      stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M6 6L18 18"
-      stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+  <svg
+    class="t-popup__close-icon"
+    width="23px"
+    height="23px"
+    viewBox="0 0 23 23"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <g stroke="none" stroke-width="1" fill="#000000" fill-rule="evenodd">
+      <rect
+        transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
+        x="10.3137085"
+        y="-3.6862915"
+        width="2"
+        height="30"
+      ></rect>
+      <rect
+        transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) "
+        x="10.3137085"
+        y="-3.6862915"
+        width="2"
+        height="30"
+      ></rect>
+    </g>
   </svg>
 </template>

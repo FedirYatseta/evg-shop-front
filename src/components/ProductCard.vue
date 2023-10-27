@@ -1,7 +1,7 @@
 <template>
   <div class="grid">
-    <div class="block-product" v-for="prod in product" :key="prod">
-      <div>
+    <div class="block-product" v-for="prod in products" :key="prod.title">
+      <div class="product-content">
         <div class="image-element">
           <img :src="prod.imageSrc[0]" />
         </div>
@@ -15,7 +15,9 @@
         <p class="price">{{ prod.price }} грн</p>
       </div>
       <div>
-        <MyButton style="background-color: #f7f7f7; color: #000; margin-bottom: 10px"
+        <MyButton
+          @click="passId(prod._id)"
+          style="background-color: #f7f7f7; color: #000; margin-bottom: 10px"
           >Детальніше</MyButton
         >
         <MyButton style="background-color: #000; color: #fff">Купити</MyButton>
@@ -25,29 +27,45 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import * as axiosServices from '@/services/api.ts'
+import { defineComponent } from 'vue'
 import MyButton from '@/UI/MyButton.vue'
+
+interface Product {
+  _id: string
+  id: string
+  title: string
+  size: number
+  oldPrice: number
+  price: number
+  imageSrc: string[]
+}
+import { useStore } from 'vuex'
 export default defineComponent({
   components: {
     MyButton
   },
-  setup() {
-    const product = ref<any>([])
-    const SHOP_ID = import.meta.env.VITE_SHOP_ID
-    const fetchProd = async () => {
-      const response = await axiosServices.instance.get(`product/getall/${SHOP_ID}`)
-      product.value = response.data.data
+  props: {
+    products: {
+      type: Array as () => Product[],
+      required: true
     }
-    fetchProd()
+  },
+  setup() {
+    const store = useStore()
+
     return {
-      product
+      passId: (id: string) => store.dispatch('product/getProductId', id)
     }
   }
 })
 </script>
 
 <style scoped>
+.product-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .block-product {
   display: flex;
   flex-direction: column;

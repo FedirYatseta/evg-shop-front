@@ -7,13 +7,17 @@
     "src/config/*.ts",
     "src/config/*.json",
     "src/**/*.ts",
-    "src/services/*.ts"
+    "src/services/*.ts",
+    "src/store/*.ts",
+    "src/**/*.d.ts",
+    "src/mixins/*.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "composite": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
