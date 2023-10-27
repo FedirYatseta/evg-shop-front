@@ -28,9 +28,9 @@ export default defineComponent({
     <div class="container">
       <div class="header__block">
         <!-- <HelloWorld msg="доставка без предоплати" /> -->
-        <BurgerButton @toggle-menu="toggleMenu" />
-        <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
         <h2 class="logo">Men`s bugs</h2>
+        <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
+        <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>
     </div>
   </header>

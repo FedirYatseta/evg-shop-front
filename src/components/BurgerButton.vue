@@ -1,5 +1,5 @@
 <template>
-  <div class="burger-button" @click="toggleMenu">
+  <div class="burger-button" @click="toggleMenu" :class="{ active: menuVisible }">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
@@ -10,6 +10,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  props: {
+    menuVisible: Boolean // Приймаємо проп "menuVisible"
+  },
   emits: ['toggle-menu'],
   methods: {
     toggleMenu() {
@@ -31,5 +34,17 @@ export default defineComponent({
   background-color: #e2e2e2;
   margin: 4px 0;
   transition: 0.4s;
+}
+
+.burger-button.active .bar:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-button.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.active .bar:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 </style>
