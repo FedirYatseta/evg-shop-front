@@ -1,33 +1,35 @@
 <template>
   <div class="footer">
     <div class="container">
-      <div class="social-icon">
-        <icon-base iconColor="white" class="icon">
-          <icon-viber />
-        </icon-base>
-        <icon-base iconColor="white" class="icon">
-          <icon-telegram />
-        </icon-base>
-        <icon-base iconColor="white" class="icon">
-          <icon-whats-app />
-        </icon-base>
+      <div class="footer-content">
+        <div class="social-icon">
+          <icon-base iconColor="white" class="icon">
+            <icon-viber />
+          </icon-base>
+          <icon-base iconColor="white" class="icon">
+            <icon-telegram />
+          </icon-base>
+          <icon-base iconColor="white" class="icon">
+            <icon-whats-app />
+          </icon-base>
+        </div>
+        <ul class="list-footer">
+          <li v-for="item in pathFooter" :key="item.path">
+            <RouterLink :to="item.path">{{ item.name }}</RouterLink>
+          </li>
+        </ul>
+        <div class="copyright_text">
+          <span>
+            <strong
+              >© NOSKAR, 2023. Всі дизайни захищені стародавнім мольфарським закляттям на
+              слабкістьпрутня.</strong
+            >
+          </span>
+        </div>
+        <picture>
+          <img src="../image/payment-methods0.png" alt="pay-method" class="img-method" />
+        </picture>
       </div>
-      <ul class="list-footer">
-        <li v-for="item in pathFooter" :key="item.path">
-          <RouterLink :to="item.path">{{ item.name }}</RouterLink>
-        </li>
-      </ul>
-      <div class="copyright_text">
-        <span>
-          <strong
-            >© NOSKAR, 2023. Всі дизайни захищені стародавнім мольфарським закляттям на
-            слабкістьпрутня.</strong
-          >
-        </span>
-      </div>
-      <picture>
-        <img src="../image/payment-methods0.png" alt="pay-method" class="img-method" />
-      </picture>
     </div>
   </div>
 </template>
@@ -55,6 +57,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .icon {
   margin: 0 10px;
 }
@@ -77,18 +85,12 @@ strong {
   width: 100%;
   height: auto;
   object-fit: contain;
+  max-width: 400px;
 }
+
 .footer {
   background-color: #000;
   padding: 50px 0;
-}
-.list-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  list-style-type: none;
 }
 
 .list-footer li {

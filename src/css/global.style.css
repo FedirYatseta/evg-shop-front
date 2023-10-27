@@ -22,6 +22,15 @@ main {
   height: 100%;
 }
 
+.list-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  list-style-type: none;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Для мобільних пристроїв: 2 колонки */
@@ -59,11 +68,17 @@ main {
   .container {
     max-width: 900px;
   }
+  .list-footer {
+    flex-direction: row;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .container {
     max-width: 1100px;
+  }
+  .list-footer {
+    flex-direction: row;
   }
 }
