@@ -6,12 +6,13 @@
     "src/**/*.vue",
     "src/config/*.ts",
     "src/config/*.json",
-    "src/services/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "allowImportingTsExtensions": true,
     "paths": {
       "@/*": ["./src/*"]
     }
