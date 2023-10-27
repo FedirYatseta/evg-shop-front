@@ -65,14 +65,13 @@
     </div>
     <div class="block-5">
       <div class="container">
-        <div class="block-5__title">ЧАСТІ ЗАПИТАННЯ</div>
         <div v-for="(question, index) in questions" :key="question.title" class="Section">
           <div class="section-btn">
             <button
               :class="['Panel', { Active: question.isExpanded }]"
               @click="handleAccordion(index)"
             >
-              <p>{{ question.title }}</p>
+              <p class="section-title">{{ question.title }}</p>
               <div class="panel__icon">
                 <IconPlus
                   :style="{
@@ -160,6 +159,11 @@ export default defineComponent({
 </script>
 
 <style>
+.section-title {
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+}
 .block-conditions__svg {
   display: flex;
 }
@@ -195,11 +199,12 @@ export default defineComponent({
 }
 .Section {
   width: 100%;
-  border-top: 1px solid #000;
+  border-top: 1px solid #eee;
   margin: 0;
+  background-color: #fff;
 }
 .Section:last-of-type {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #eee;
 }
 .Section button {
   width: 100%;
@@ -249,6 +254,11 @@ export default defineComponent({
 .block-4,
 .block-5 {
   margin-bottom: 30px;
+}
+
+.block-5 {
+  background-color: #eee;
+  padding: 50px 0;
 }
 
 .block-2__text {

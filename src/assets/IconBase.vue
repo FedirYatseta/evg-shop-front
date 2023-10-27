@@ -3,11 +3,13 @@
     xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    viewBox="0 0 18 18"
+    viewBox="0 0 100 100"
     :aria-labelledby="iconName"
     role="presentation"
   >
-    <slot />
+    <g>
+      <slot />
+    </g>
   </svg>
 </template>
 
@@ -21,11 +23,11 @@ export default defineComponent({
     },
     width: {
       type: [Number, String],
-      default: 10
+      default: 25
     },
     height: {
       type: [Number, String],
-      default: 10
+      default: 25
     },
     iconColor: {
       type: String,

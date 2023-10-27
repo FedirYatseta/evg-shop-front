@@ -13,6 +13,23 @@
         </li>
       </ul>
     </nav>
+    <div class="block-social">
+      <RouterLink to="#" class="social-icon">
+        <icon-base>
+          <icon-face-book />
+        </icon-base>
+      </RouterLink>
+      <RouterLink to="#" class="social-icon">
+        <icon-base>
+          <icon-inst />
+        </icon-base>
+      </RouterLink>
+      <RouterLink to="#" class="social-icon">
+        <icon-base>
+          <icon-teleg />
+        </icon-base>
+      </RouterLink>
+    </div>
     <p class="delivered">Доставка без передоплати</p>
     <a class="tel" href="tel:+380632563677">+380 63 256 3677</a>
   </div>
@@ -20,12 +37,18 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-//import IconClose from '@/assets/IconClose.vue'
+import IconBase from '@/assets/IconBase.vue'
+import IconFaceBook from '@/assets/IconFaceBook.vue'
+import IconInst from '@/assets/IconInst.vue'
+import IconTeleg from '@/assets/IconTeleg.vue'
 import { pathConfig } from '@/config/path'
 export default defineComponent({
-  // components: {
-  //   IconClose
-  // },
+  components: {
+    IconBase,
+    IconFaceBook,
+    IconInst,
+    IconTeleg
+  },
   props: {
     menuVisible: Boolean // Приймаємо проп "menuVisible"
   },
@@ -42,7 +65,14 @@ export default defineComponent({
   }
 })
 </script>
+
 <style scoped>
+.social-icon {
+  padding: 0 10px;
+}
+.block-social {
+  padding-top: 20px;
+}
 .mobile-menu__image img {
   width: 100%;
   height: auto;
@@ -108,7 +138,7 @@ export default defineComponent({
 .tel {
   font-weight: 700;
   font-size: 22px;
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -116,5 +146,6 @@ export default defineComponent({
   font-size: 13px;
   font-weight: 300;
   padding: 20px 0;
+  color: white;
 }
 </style>
