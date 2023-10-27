@@ -91,6 +91,13 @@
         </div>
       </div>
     </div>
+    <div class="block-6">
+      <div class="container">
+        <div class="carousel-block">
+          <basic-carousel />
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -104,6 +111,7 @@ import cond from '@/config/condition.json'
 import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
 import IconBase from '@/assets/IconBase.vue'
+import BasicCarousel from '@/components/BasicCarousel.vue'
 
 export default defineComponent({
   components: {
@@ -111,7 +119,8 @@ export default defineComponent({
     MyButton,
     Collapse,
     IconPlus,
-    IconBase
+    IconBase,
+    BasicCarousel
   },
   setup() {
     const product = ref<any>([])
@@ -158,6 +167,9 @@ export default defineComponent({
 </script>
 
 <style>
+.carousel-block {
+  padding: 20px 0;
+}
 .section-title {
   font-size: 20px;
   color: #000;
