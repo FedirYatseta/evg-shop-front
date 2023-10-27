@@ -7,7 +7,7 @@
     :aria-labelledby="iconName"
     role="presentation"
   >
-    <g>
+    <g :fill="iconColor">
       <slot />
     </g>
   </svg>

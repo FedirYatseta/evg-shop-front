@@ -97,7 +97,7 @@
 <script lang="ts">
 import IconDone from '@/assets/IconDone.vue'
 import MyButton from '@/components/MyButton.vue'
-import axios from 'axios'
+import * as axiosServices from '@/services/api.ts'
 import { defineComponent, ref, reactive } from 'vue'
 import data from '@/config/collapse.json'
 import cond from '@/config/condition.json'
@@ -118,11 +118,10 @@ export default defineComponent({
     const collapseData = ref<any>(data)
     const rotation = ref(45)
     const activeIndex = ref(-1)
+    const SHOP_ID = import.meta.env.VITE_SHOP_ID
 
     const fetchProd = async () => {
-      const response = await axios.get(
-        'http://localhost:3000/product/getall/5ea83cc0918220edc7bdf4cc09a7e61a'
-      )
+      const response = await axiosServices.instance.get(`product/getall/${SHOP_ID}`)
       product.value = response.data.data
     }
     fetchProd()
@@ -251,8 +250,7 @@ export default defineComponent({
 .block-1,
 .block-2,
 .block-3,
-.block-4,
-.block-5 {
+.block-4 {
   margin-bottom: 30px;
 }
 
