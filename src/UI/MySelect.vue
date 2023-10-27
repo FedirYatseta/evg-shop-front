@@ -29,7 +29,7 @@ export default defineComponent({
     // Використано props і emit
     const localSelected = ref(props.selected)
 
-    const changeOption = (event) => {
+    const changeOption = (event: any) => {
       localSelected.value = event.target.value
       emit('update:selected', localSelected.value)
     }
