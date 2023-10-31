@@ -1,52 +1,56 @@
 <template>
   <main>
-    <div class="block-1">
-      <div class="container">
-        <img src="../image/photo_1.jpg" alt="Organization Logo" class="imageIcon" />
-        <div class="conditions">
+    <div class="w-full">
+      <div class="container mx-auto">
+        <img src="../image/photo_1.jpg" alt="Organization Logo" class="w-full" />
+        <div class="px-2">
           <h3>ШВИДКА ДОСТАВКА</h3>
           <p>- Новою поштою <strong>та</strong> Укрпоштою</p>
           <p>- по Україні від 1 - 3 робочих днів</p>
         </div>
-        <div class="cond-text">
+        <div class="px-2">
           <p>БЕЗ ПЕРЕДОПЛАТИ + ПЕРЕВІРКА ТОВАРУ ДО ОПЛАТИ</p>
         </div>
       </div>
     </div>
-    <div class="block-2">
+    <div class="w-full bg-stone-400 py-5">
       <div class="container">
-        <p class="block-2__text">
+        <p class="text-center">
           Обмін, повернення товару 14 календарних днів без заморочок та складностей
         </p>
       </div>
     </div>
-    <div class="block-3">
-      <div class="container">
-        <div v-for="item in text" :key="item.title" class="block-conditions">
-          <div class="block-conditions__svg">
+    <div class="w-full">
+      <div class="container mx-auto">
+        <div v-for="item in text" :key="item.title" class="flex p-4">
+          <div>
             <icon-base width="45" height="45" icon-name="write">
               <icon-done />
             </icon-base>
           </div>
 
-          <div class="description-block">
+          <div class="block ml-3">
             <h4>{{ item.title }}</h4>
             <p>{{ item.description }}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="block-4">
-      <div class="container">
+    <div class="w-full">
+      <div class="container mx-auto my-10">
         <product-card :products="product" />
       </div>
     </div>
-    <div class="block-5">
-      <div class="container">
-        <div v-for="(question, index) in questions" :key="question.title" class="Section">
-          <div class="section-btn">
+    <div class="w-full bg-stone-200 py-5">
+      <div class="container mx-auto max-w-[760px]">
+        <div
+          v-for="(question, index) in questions"
+          :key="question.title"
+          class="w-full divide-y px-3"
+        >
+          <div class="bg-stone-100 w-full">
             <button
-              :class="['Panel', { Active: question.isExpanded }]"
+              :class="['flex w-full  justify-between p-3  ', { Active: question.isExpanded }]"
               @click="handleAccordion(index)"
             >
               <p class="section-title">{{ question.title }}</p>
@@ -60,18 +64,17 @@
               </div>
             </button>
           </div>
-
           <Collapse as="section" :when="question.isExpanded">
-            <p class="CollapseContent">
+            <p class="p-3 bg-stone-100 w-full">
               {{ question.answer }}
             </p>
           </Collapse>
         </div>
       </div>
     </div>
-    <div class="block-6">
-      <div class="container">
-        <div class="carousel-block">
+    <div class="w-full">
+      <div class="container mx-auto">
+        <div class="my-10">
           <basic-carousel />
         </div>
       </div>
@@ -140,122 +143,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-.carousel-block {
-  padding: 20px 0;
-}
-.section-title {
-  font-size: 20px;
-  color: #000;
-  font-weight: 600;
-}
-.block-conditions__svg {
-  display: flex;
-}
-.panel__icon {
-  display: flex;
-  border-radius: 50%;
-  background-color: #fafafa;
-  padding: 5px;
-}
-.block-5__title {
-  font-size: 28px;
-  font-weight: 600;
-  padding: 50px 0;
-}
-.section-btn {
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
-}
-.Panel {
-  font-size: 24px;
-  font-weight: 400;
-  color: #000;
-  text-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.CollapseContent {
-  padding: 0 10px 10px;
-  margin: 0;
-  font-size: 1rem;
-}
-.Section {
-  width: 100%;
-  border-top: 1px solid #eee;
-  margin: 0;
-  background-color: #fff;
-}
-.Section:last-of-type {
-  border-bottom: 1px solid #eee;
-}
-.Section button {
-  width: 100%;
-  padding: 10px 5px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-.conditions {
-  margin-bottom: 30px;
-}
-
-.conditions h3 {
-  text-align: center;
-}
-.imageIcon {
-  width: 100%;
-  height: auto;
-}
-
-.block-conditions {
-  display: flex;
-  padding-bottom: 20px;
-}
-
-.description-block {
-  padding-left: 10px;
-}
-
-.description-block p {
-  font-size: 14px;
-  font-weight: 300;
-}
-.description-block h4 {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.block-2 {
-  background-color: #e5f0ff;
-  padding: 10px 0;
-}
-
-.block-1,
-.block-2,
-.block-3,
-.block-4 {
-  margin-bottom: 30px;
-}
-
-.block-5 {
-  background-color: #eee;
-  padding: 50px 0;
-}
-
-.block-2__text {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.cond-text {
-  display: flex;
-}
-
-.cond-text p {
-  font-size: 10px;
-  font-weight: 700;
-}
-</style>
+<style></style>

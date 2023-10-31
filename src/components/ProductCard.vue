@@ -1,26 +1,28 @@
 <template>
-  <div class="grid">
-    <div class="block-product" v-for="prod in products" :key="prod.title">
-      <div class="product-content">
-        <div class="image-element">
-          <img :src="prod.imageSrc[0]" />
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-y-20 gap-x-1">
+    <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
+      <div class="block text-center">
+        <div class="w-full h-auto">
+          <img :src="prod.imageSrc[0]" alt="iconProduct" class="mx-auto" />
         </div>
-        <p class="title">
+        <p class="font-bold text-md md:text-lg">
           {{ prod.title }}
         </p>
-        <p class="size">
+        <p class="text-xs md:text-lg">
           Розмір <span> {{ prod.size + ' см' }}</span>
         </p>
-        <p class="old-price">{{ prod.oldPrice }}</p>
-        <p class="price">{{ prod.price }} грн</p>
+        <p class="line-through text-red-500 text-xs md:text-lg">{{ prod.oldPrice }} грн</p>
+        <p class="price text-xs md:text-lg">{{ prod.price }} грн</p>
       </div>
-      <div>
+      <div class="grid grid-col md:grid-cols-2 gap-4">
         <MyButton
-          @click="passId(prod._id)"
-          style="background-color: #f7f7f7; color: #000; margin-bottom: 10px"
+          @click="showDescribe(prod._id)"
+          class="bg-slate-50 hover:bg-slate-100 text-slate-950"
           >Детальніше</MyButton
         >
-        <MyButton style="background-color: #000; color: #fff">Купити</MyButton>
+        <MyButton class="bg-slate-950 hover:bg-slate-800 text-white" @click="buyProduct(prod._id)"
+          >Купити</MyButton
+        >
       </div>
     </div>
   </div>
@@ -54,57 +56,11 @@ export default defineComponent({
     const store = useStore()
 
     return {
-      passId: (id: string) => store.dispatch('product/getProductId', id)
+      showDescribe: (id: string) => store.dispatch('product/getProductId', id),
+      buyProduct: (id: string) => store.commit('product/setProductToOrder', id)
     }
   }
 })
 </script>
 
-<style scoped>
-.product-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.block-product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.image-element img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-width: 100px;
-}
-
-.title {
-  font-weight: 600;
-  font-size: 20px;
-  color: #000;
-}
-
-.size {
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.size span {
-  font-weight: 300;
-  font-size: 15px;
-}
-
-.old-price {
-  color: red;
-  font-size: 16px;
-  text-decoration: line-through;
-}
-
-.price {
-  font-weight: 400;
-  font-size: 26px;
-}
-</style>
+<style scoped></style>

@@ -1,24 +1,24 @@
 <template>
-  <div class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="social-icon">
-          <icon-base iconColor="white" class="icon">
+  <div class="w-full bg-gray-950 p-5">
+    <div class="container mx-auto">
+      <div class="grid grid-col gap-4 my-10">
+        <div class="flex w-full items-center justify-center">
+          <icon-base iconColor="white" class="mx-2">
             <icon-viber />
           </icon-base>
-          <icon-base iconColor="white" class="icon">
+          <icon-base iconColor="white" class="mx-2">
             <icon-telegram />
           </icon-base>
-          <icon-base iconColor="white" class="icon">
+          <icon-base iconColor="white" class="mx-2">
             <icon-whats-app />
           </icon-base>
         </div>
-        <ul class="list-footer">
-          <li v-for="item in pathFooter" :key="item.path">
-            <RouterLink :to="item.path">{{ item.name }}</RouterLink>
+        <ul class="grid grid-col md:grid-flow-col gap-1 text-center justify-center">
+          <li v-for="item in pathFooter" :key="item.path" class="px-2">
+            <RouterLink :to="item.path" class="text-white text-xs">{{ item.name }}</RouterLink>
           </li>
         </ul>
-        <div class="copyright_text">
+        <div class="text-white text-center my-5 text-xs">
           <span>
             <strong
               >© NOSKAR, 2023. Всі дизайни захищені стародавнім мольфарським закляттям на
@@ -26,7 +26,7 @@
             >
           </span>
         </div>
-        <picture>
+        <picture class="block mx-auto">
           <img src="../image/payment-methods0.png" alt="pay-method" class="img-method" />
         </picture>
       </div>
@@ -56,51 +56,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.icon {
-  margin: 0 10px;
-}
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.copyright_text {
-  text-align: center;
-  padding: 20px 0;
-}
-strong {
-  font-weight: 700;
-  font-size: 14px;
-  color: #fff;
-}
-.img-method {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-width: 400px;
-}
-
-.footer {
-  background-color: #000;
-  padding: 50px 0;
-}
-
-.list-footer li {
-  padding: 5px 10px;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.list-footer li a {
-  color: #fff;
-  text-decoration: none;
-}
-</style>
+<style scoped></style>

@@ -4,9 +4,4 @@
   </div>
 </template>
 
-<style>
-.about {
-  display: flex;
-  align-items: center;
-}
-</style>
+<style></style>

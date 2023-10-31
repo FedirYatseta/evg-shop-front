@@ -1,13 +1,15 @@
 <template>
-  <div class="nav-block">
+  <div class="flex w-full items-center justify-between">
     <div>Доставка без предоплати</div>
-    <img src="../image/logo_new.jpg" alt="logo-desc" />
+    <img src="../image/logo_new.jpg" alt="logo-desc" class="max-w-[250px]" />
     <a href="tel:+380632563677">+380632563677</a>
   </div>
-  <nav class="navigation-desc">
-    <ul>
+  <nav class="block mx-auto w-full">
+    <ul class="flex justify-center py-3">
       <li v-for="item in pathConfig" :key="item.path">
-        <router-link :to="item.path" class="nav-link-desc">{{ item.name }}</router-link>
+        <router-link :to="item.path" class="px-2 lg:text-3xl font-light">{{
+          item.name
+        }}</router-link>
       </li>
     </ul>
   </nav>
@@ -23,42 +25,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.nav-block {
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-block a {
-  font-weight: 700;
-  text-decoration: none;
-  color: #000;
-  font-size: 22px;
-}
-.nav-block img {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-.navigation-desc ul {
-  display: flex;
-  list-style-type: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.navigation-desc li {
-  padding: 0 10px;
-}
-
-.navigation-desc a {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.5;
-  text-transform: uppercase;
-  color: #000;
-}
-</style>
+<style scoped></style>

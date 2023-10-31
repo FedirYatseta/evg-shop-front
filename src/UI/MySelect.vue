@@ -44,10 +44,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-select {
-  width: 100%;
-  border: 1px solid rgb(58, 58, 58);
-  padding: 10px;
-}
-</style>
+<style scoped></style>

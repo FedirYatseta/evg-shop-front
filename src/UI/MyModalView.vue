@@ -11,7 +11,7 @@
 import toggleMixin from '@/mixins/toggleMixin'
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'my-dialog',
+  name: 'my-modal',
   mixins: [toggleMixin]
 })
 </script>

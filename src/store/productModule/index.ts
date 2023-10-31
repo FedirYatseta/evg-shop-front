@@ -8,8 +8,10 @@ const state: ProductState = {
     showModal: false,
     product: [],
     selectedProduct: [],
+    buyProduct: [],
     selectedSort: '',
     searchQuery: '',
+    showModalBuy: false,
     shop: import.meta.env.VITE_SHOP_ID,
     sortOptions: [
         { value: 'title', name: 'По назві' },

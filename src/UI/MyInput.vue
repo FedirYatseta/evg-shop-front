@@ -18,9 +18,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-input {
-  border: 1px solid rgb(58, 58, 58);
-  padding: 10px;
-}
-</style>
+<style scoped></style>

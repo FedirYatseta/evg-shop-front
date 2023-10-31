@@ -14,7 +14,6 @@ export const actions: ActionTree<any, any> = {
     },
     async getProductId({ state, commit }: any, id: any) {
 
-        console.log('IDDDD', id)
         try {
             const response = await apiServices.instance.get(`${PRODUCT_URL}/${id}`)
             commit('setSelectedProduct', response.data)

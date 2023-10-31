@@ -61,9 +61,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.block-product {
-  width: 100%;
-  padding: 50px 0;
-}
-</style>
+<style scoped></style>

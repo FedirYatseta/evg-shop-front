@@ -1,5 +1,5 @@
 <template>
-  <button @click="actionBtn">
+  <button @click="actionBtn" class="w-full uppercase p-2 text-xs md:text-sm">
     <slot />
   </button>
 </template>
@@ -20,19 +20,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-button {
-  width: 100%;
-  height: 100%;
-  text-transform: uppercase;
-  padding: 10px 5px;
-  border: 1px solid transparent;
-  font-weight: 700;
-  font-size: 14px;
-  max-height: 45px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-</style>
+<style scoped></style>

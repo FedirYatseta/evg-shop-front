@@ -8,6 +8,8 @@ import { useRouter } from 'vue-router'
 import MyDialog from './UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
 import DescribeProduct from './components/DescribeProduct.vue'
+import MyModalView from './UI/MyModalView.vue'
+import BuyForm from './components/BuyForm.vue'
 export default defineComponent({
   components: {
     MyFooter,
@@ -15,7 +17,9 @@ export default defineComponent({
     MobileMenu,
     DescTopMenu,
     MyDialog,
-    DescribeProduct
+    DescribeProduct,
+    MyModalView,
+    BuyForm
   },
 
   setup() {
@@ -41,7 +45,8 @@ export default defineComponent({
   },
   computed: {
     ...mapState({
-      showModal: (state) => state.product.showModal
+      showModal: (state) => state.product.showModal,
+      showModalBuy: (state) => state.product.showModalBuy
     })
   }
 })
@@ -49,32 +54,29 @@ export default defineComponent({
 
 <template>
   <header>
-    <div class="container">
-      <div class="header__block">
-        <h2 class="logo">Men`s bugs</h2>
+    <div class="container mx-auto">
+      <div class="relative flex md:hidden w-full justify-between bg-black items-center px-2">
+        <h2 class="text-white">Men`s bugs</h2>
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>
-      <div class="header__block-desc">
+      <div class="hidden md:block">
         <DescTopMenu />
       </div>
     </div>
   </header>
-  <div class="pages">
+  <div class="">
     <router-view> </router-view>
-    <my-dialog v-model:show="showModal"> <describe-product /></my-dialog>
+    <my-dialog v-model:show="showModal">
+      <describe-product />
+    </my-dialog>
+    <MyModalView v-model:show="showModalBuy">
+      <BuyForm></BuyForm>
+    </MyModalView>
   </div>
   <footer>
     <MyFooter />
   </footer>
 </template>
 
-<style scoped>
-.pages {
-  padding-top: 45px;
-}
-
-.logo {
-  color: #fff;
-}
-</style>
+<style scoped></style>
