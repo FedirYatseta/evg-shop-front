@@ -1,18 +1,22 @@
 <template>
-  <div class="fixed w-full h-full inset-0 bg-white" v-if="show" @click.stop="hideDialog">
+  <div
+    class="fixed inset-0 flex items-center justify-center backdrop-blur"
+    v-if="show"
+    @click.stop="hideDialog"
+  >
     <div class="absolute inset-0 w-full h-full"></div>
-    <div @click.stop class="relative h-full overflow-auto">
+    <div @click.stop class="relative h-full overflow-auto flex w-full md:max-w-[50%] max-h-[80%]">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import toggleMixin from '@/mixins/toggleMixin'
+import toggleMixinBuy from '@/mixins/toggleMixinBuy'
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'my-modal',
-  mixins: [toggleMixin]
+  mixins: [toggleMixinBuy]
 })
 </script>
 

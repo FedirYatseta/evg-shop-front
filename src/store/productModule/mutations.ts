@@ -27,36 +27,72 @@ export const mutations: MutationTree<any, any> = {
     },
 
     setProductToOrder(state: any, data: any) {
-
         if (!state.showModalBuy) {
             document.body.classList.add('modal-open');
         }
         else {
             document.body.classList.remove('modal-open');
         }
-        state.showModalBuy = true
-        const [product] = state.product.filter(x => x._id === data)
-        state.buyProduct = [...state.buyProduct, {
-            id: product._id, title: product.title,
-            image: product.imageSrc[0],
-            price: product.price, count: 1
-        }]
-    },
+        state.showModalBuy = true;
+        // Шукаємо товар за ід
+        const product = state.product.find(x => x._id === data);
+        if (product) {
+            // Якщо товар знайдено, додаємо його до списку куплених товарів
+            const existingProduct = state.buyProduct.find(item => item.id === product._id);
+
+            if (existingProduct) {
+                // Якщо товар вже існує у списку, збільшуємо кількість
+                existingProduct.count++;
+            } else {
+                // Якщо товар ще не існує у списку, додаємо його
+                state.buyProduct.push({
+                    id: product._id,
+                    title: product.title,
+                    image: product.imageSrc[0],
+                    price: product.price,
+                    count: 1
+                });
+            }
+        }
+    }
+    ,
 
     setShowBuyModal(state: any, value: any) {
+        if (!state.showModalBuy) {
+            document.body.classList.add('modal-open');
+        }
+        else {
+            document.body.classList.remove('modal-open');
+        }
         state.showModalBuy = value
     },
 
-    decrease(state: any, id: any) {
+    setDecrease(state: any, id: any) {
 
         const newArr = state.buyProduct.map(item => {
 
             if (item.id === id)
-                item.count + 1
+                item.count -= 1
             return item
         })
-        console.log('Arr', newArr)
-        state.buyProduct
+
+
+    },
+    setIncrease(state: any, id: any) {
+
+        const newArr = state.buyProduct.map(item => {
+
+            if (item.id === id)
+                item.count += 1
+            return item
+        })
+
+
+    },
+
+    deleteProduct(state: any, id: any) {
+        const data = state.buyProduct.filter(i => i.id !== id)
+        state.buyProduct = data
     }
 
 }

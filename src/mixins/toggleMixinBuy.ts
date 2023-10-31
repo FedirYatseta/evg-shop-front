@@ -8,16 +8,13 @@ export default {
     },
     methods: {
         ...mapMutations({
-            setShowModal: 'product/setShowModal',
-
+            setShowBuyModal: 'product/setShowBuyModal'
         }),
         hideDialog() {
-
-            this.setShowModal(false)
+            this.setShowBuyModal(false)
         },
         closeModal() {
-
-            this.setShowModal(false);
+            this.setShowBuyModal(false)
         }
     },
 
