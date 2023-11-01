@@ -1,10 +1,12 @@
 export const pathConfig = [
     { name: 'Головна', path: '/' },
-    { name: 'Каталог сумок', path: '/product' },
-    { name: 'Доставка та оплата', path: '/delivery' },
-    { name: 'Гарантія', path: '/warranty  ' },
-    { name: 'Контакти', path: '/contact' },
-    { name: 'Відгуки', path: '/reviews' }
+    { name: 'Всі сумки', path: '/product' },
+    { name: 'Бананки', path: '/delivery' },
+    { name: 'Слінги', path: '/warranty  ' },
+    { name: 'Клатчі та гаманці', path: '/contact' },
+    { name: 'Ключчниці', path: '/reviews' },
+    { name: 'Відгуки', path: '/reviews' },
+    { name: 'Часті питання', path: '/reviews' }
 ]
 
 export const pathFooter = [
@@ -13,4 +15,18 @@ export const pathFooter = [
     { name: 'Доставка та оплата', path: '/delivery' },
     { name: 'Політика конфіденційності', path: '/policy  ' },
     { name: 'Договір пблічної оферти', path: '/' },
+]
+
+export const pathConfigNew = [
+    { name: 'Головна', path: '/' },
+    { name: 'Хіти', path: '/' },
+    { name: 'Новинки', path: '/' },
+    { name: 'Знижки', path: '/' },
+    { name: 'Всі сумки', path: '/product' },
+    { name: 'Бананки', path: '/delivery' },
+    { name: 'Слінги', path: '/warranty  ' },
+    { name: 'Клатчі та гаманці', path: '/contact' },
+    { name: 'Ключчниці', path: '/reviews' },
+    { name: 'Відгуки', path: '/reviews' },
+    { name: 'Часті питання', path: '/reviews' }
 ]

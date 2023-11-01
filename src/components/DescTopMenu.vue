@@ -7,9 +7,11 @@
   <nav class="block mx-auto w-full">
     <ul class="flex justify-center py-3">
       <li v-for="item in pathConfig" :key="item.path">
-        <router-link :to="item.path" class="px-2 lg:text-2xl font-light uppercase">{{
-          item.name
-        }}</router-link>
+        <router-link
+          :to="item.path"
+          class="px-2 md:text-xs lg:text-lg xl:text-2xl font-light uppercase"
+          >{{ item.name }}</router-link
+        >
       </li>
     </ul>
   </nav>

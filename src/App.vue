@@ -53,9 +53,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <header>
-    <div class="container mx-auto">
-      <div class="relative flex md:hidden w-full justify-between bg-black items-center px-2">
+  <header class="block h-11 md:h-52">
+    <div class="container mx-auto block h-full">
+      <div class="fixed flex md:hidden w-full justify-between bg-black items-center px-2 z-50">
         <h2 class="text-white">Men`s bugs</h2>
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />

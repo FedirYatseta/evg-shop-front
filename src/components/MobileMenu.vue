@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ block: menuVisible, hidden: !menuVisible }"
-    class="fixed bg-[rgb(255,187,153)] w-full h-full inset-x-0 bottom-0 top-11 px-2"
+    class="fixed bg-[rgb(255,187,153)] w-full h-full inset-x-0 bottom-0 top-11 px-2 z-50"
   >
     <div class="p-2 mt-10">
       <img src="../image/logo_2.png" alt="logo" />

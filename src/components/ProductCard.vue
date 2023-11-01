@@ -17,7 +17,7 @@
       <div class="grid grid-col md:grid-cols-2 gap-4">
         <MyButton
           @click="showDescribe(prod._id)"
-          class="bg-slate-50 hover:bg-slate-100 text-slate-950"
+          class="bg-slate-100 hover:bg-slate-200 text-slate-950"
           >Детальніше</MyButton
         >
         <MyButton class="bg-slate-950 hover:bg-slate-800 text-white" @click="buyProduct(prod._id)"
