@@ -1,10 +1,12 @@
+import icon1 from '@/image/2.jpg'
 export const pathConfig = [
     { name: 'Головна', path: '/' },
     { name: 'Всі сумки', path: '/product' },
-    { name: 'Бананки', path: '/delivery' },
-    { name: 'Слінги', path: '/warranty  ' },
-    { name: 'Клатчі та гаманці', path: '/contact' },
-    { name: 'Ключчниці', path: '/reviews' },
+    { name: 'Бананки', path: '/product/bana' },
+    { name: 'Слінги', path: '/product/sling' },
+    { name: 'Месенджери', path: '/product/mess' },
+    { name: 'Клатчі та гаманці', path: '/product/wallet' },
+    { name: 'Ключчниці', path: '/product/klutch' },
     { name: 'Відгуки', path: '/reviews' },
     { name: 'Часті питання', path: '/reviews' }
 ]
@@ -19,14 +21,23 @@ export const pathFooter = [
 
 export const pathConfigNew = [
     { name: 'Головна', path: '/' },
-    { name: 'Хіти', path: '/' },
-    { name: 'Новинки', path: '/' },
-    { name: 'Знижки', path: '/' },
+    { name: 'Хіти', path: '/product' },
+    { name: 'Новинки', path: '/product' },
+    { name: 'Знижки', path: '/product' },
     { name: 'Всі сумки', path: '/product' },
-    { name: 'Бананки', path: '/delivery' },
-    { name: 'Слінги', path: '/warranty  ' },
-    { name: 'Клатчі та гаманці', path: '/contact' },
-    { name: 'Ключчниці', path: '/reviews' },
+    { name: 'Бананки', path: '/product/bana' },
+    { name: 'Слінги', path: '/product/sling' },
+    { name: 'Месенджери', path: '/product/mess' },
+    { name: 'Клатчі та гаманці', path: '/product/wallet' },
+    { name: 'Ключчниці', path: '/product/klutch' },
     { name: 'Відгуки', path: '/reviews' },
     { name: 'Часті питання', path: '/reviews' }
+]
+
+export const categoryProduct = [
+    { name: 'Бананки', path: '/product/bana', image: icon1 },
+    { name: 'Слінги', path: '/product/sling', image: icon1 },
+    { name: 'Месенджери', path: '/product/mess', image: icon1 },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon1 },
+    { name: 'Ключчниці', path: '/product/klutch', image: icon1 },
 ]

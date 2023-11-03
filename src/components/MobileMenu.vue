@@ -1,14 +1,14 @@
 <template>
   <div
     :class="{ block: menuVisible, hidden: !menuVisible }"
-    class="fixed bg-[rgb(255,187,153)] w-full h-full inset-x-0 bottom-0 top-11 px-2 z-50"
+    class="fixed bg-[rgb(255,187,153)] w-full h-full inset-x-0 bottom-0 top-11 px-2 z-30"
   >
-    <div class="p-2 mt-10">
+    <div class="p-2 mt-5">
       <img src="../image/logo_2.png" alt="logo" />
     </div>
     <nav class="flex items-center justify-center mt-5">
       <ul class="flex flex-col items-center">
-        <li v-for="item in pathConfig" :key="item.path" class="my-2">
+        <li v-for="item in pathConfig" :key="item.path" class="my-1">
           <router-link :to="item.path" class="text-white">{{ item.name }}</router-link>
         </li>
       </ul>

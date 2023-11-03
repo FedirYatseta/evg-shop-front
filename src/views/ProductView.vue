@@ -19,12 +19,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount } from 'vue'
+import { defineComponent, onBeforeMount, watch } from 'vue'
 import ProductCard from '@/components/ProductCard.vue'
 import MyInput from '@/UI/MyInput.vue'
 import MySelect from '@/UI/MySelect.vue'
 import { useStore } from 'vuex'
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import { useRoute } from 'vue-router'
 export default defineComponent({
   components: {
     ProductCard,
@@ -33,9 +34,18 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-
+    const route = useRoute()
+    watch(
+      () => route.params.id,
+      async (newId, oldId) => {
+        if (newId !== oldId) {
+          // Викликаємо метод при зміні шляху
+          await store.dispatch('product/fetchProduct', newId)
+        }
+      }
+    )
     onBeforeMount(async () => {
-      await store.dispatch('product/fetchProduct') // 'product' - це ім'я вашого модулю Vuex
+      await store.dispatch('product/fetchProduct', route.params.id) // 'product' - це ім'я вашого модулю Vuex
     })
     return {}
   },

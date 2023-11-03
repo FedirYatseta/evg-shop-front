@@ -4,7 +4,7 @@ import BurgerButton from '@/components/BurgerButton.vue'
 import MobileMenu from '@/components/MobileMenu.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import DescTopMenu from '@/components/DescTopMenu.vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import MyDialog from './UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
 import DescribeProduct from './components/DescribeProduct.vue'
@@ -25,6 +25,7 @@ export default defineComponent({
   setup() {
     const menuVisible = ref(false)
     const router = useRouter()
+
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
     }

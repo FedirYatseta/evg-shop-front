@@ -4,7 +4,7 @@
       <div class="before:content-['←'] before:pr-1 flex uppercase text-xs">
         <div @click="setShowModal">Назад до каталогу</div>
       </div>
-      <div class="cancel-btn">
+      <div>
         <IconClose @click="setShowModal" />
       </div>
     </div>

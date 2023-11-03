@@ -2,25 +2,20 @@
   <main>
     <div class="w-full">
       <div class="container mx-auto relative">
-        <img
-          src="../image/_13.jpg"
-          alt="Organization Logo"
-          class="w-full h-auto max-w-[800px] md:hidden"
-        />
-        <img
-          src="../image/photo_1.jpg"
-          alt="Organization Logo"
-          class="w-full h-auto max-w-[800px] hidden md:block"
-        />
+        <div>
+          <img
+            src="../image/photo_1.jpg"
+            alt="Organization Logo"
+            class="w-full h-[400px] object-cover md:h-auto max-w-[800px]"
+          />
+        </div>
         <div class="px-2 absolute top-20">
-          <h3 class="text-white md:text-slate-950 font-bold text-lg md:text-4xl">
-            Шкіряні чоловічічі сумки чкі підчеркнуть твій стиль
+          <h3 class="text-slate-950 font-bold text-lg md:text-4xl">
+            Шкіряні чоловічі сумки які підчеркнуть твій стиль
           </h3>
         </div>
         <div class="px-2 absolute top-40">
-          <p class="text-white font-light md:text-slate-950 md:text-2xl">
-            До -35% на всі позиції до 01.01.24
-          </p>
+          <p class="font-light text-slate-950 md:text-2xl">До -35% на всі позиції до 01.01.24</p>
         </div>
         <div class="px-2 absolute bottom-10 md:right-10 grid grid-col md:grid-cols-2 gap-2">
           <router-link to="/category" class="p-3 bg-slate-200 uppercase w-max">
@@ -33,7 +28,7 @@
       </div>
     </div>
     <div class="w-full py-5">
-      <div class="container px-5">
+      <div class="container mx-auto px-5">
         <div
           class="w-full block relative text-center after:content-[''] after:absolute after:top-1/2 after:left-0 after:right-0 after:h-[1px] after:bg-slate-950"
         >
@@ -41,21 +36,14 @@
             Шкіряні сумки
           </a>
         </div>
-        <p class="text-center text-3xl font-light py-5">
+        <p class="text-center text-3xl font-light py-5 my-5">
           Наші сумки, натуральна шкіра, якісна фурнітура, топ топскій купуй і не пожалкуєш
         </p>
         <div class="border-t border-slate-950"></div>
       </div>
     </div>
-    <!-- <div class="w-full bg-stone-400 py-5">
-      <div class="container">
-        <p class="text-center">
-          Обмін, повернення товару 14 календарних днів без заморочок та складностей
-        </p>
-      </div>
-    </div> -->
-    <div class="w-full bg-stone-200 py-10">
-      <div class="container px-4">
+    <div class="w-full py-10">
+      <div class="container mx-auto px-4">
         <p class="text-center font-bold uppercase text-3xl">Про якість наших сумок</p>
         <p class="text-center font-light text-xl">
           або "Чому найкраще купити кігурумі саме у нас?"
@@ -67,7 +55,7 @@
         >
           <div>
             <icon-base width="45" height="45">
-              <icon-heart />
+              <icon-done />
             </icon-base>
           </div>
           <div class="pl-4">
@@ -77,7 +65,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full py-10">
+    <!-- <div class="w-full py-10">
       <div class="container mx-auto">
         <div v-for="item in dataItems.cond" :key="item.title" class="flex p-4">
           <div>
@@ -92,7 +80,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="w-full">
       <div class="container mx-auto my-10">
         <div class="inline-block w-full text-3xl text-center font-bold mb-10">
@@ -166,7 +154,6 @@ import IconPlus from '@/assets/IconPlus.vue'
 import IconBase from '@/assets/IconBase.vue'
 import BasicCarousel from '@/components/BasicCarousel.vue'
 import ProductCard from '@/components/ProductCard.vue'
-import IconHeart from '@/assets/IconHeart.vue'
 import { pathConfigNew } from '@/config/path'
 import { mapState } from 'vuex'
 export default defineComponent({
@@ -176,8 +163,7 @@ export default defineComponent({
     IconPlus,
     IconBase,
     BasicCarousel,
-    ProductCard,
-    IconHeart
+    ProductCard
   },
   computed: {
     ...mapState({

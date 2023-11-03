@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed w-full h-full inset-0 bg-white" v-if="show" @click.stop="hideDialog">
+  <div class="fixed w-full h-full inset-0 bg-white z-50" v-if="show" @click.stop="hideDialog">
     <div class="absolute inset-0 w-full h-full"></div>
     <div @click.stop class="relative h-full overflow-auto">
       <slot></slot>

@@ -93,6 +93,10 @@ export const mutations: MutationTree<any, any> = {
     deleteProduct(state: any, id: any) {
         const data = state.buyProduct.filter(i => i.id !== id)
         state.buyProduct = data
+    },
+    setOrder(state: any, res: any) {
+
+        state.message = res
     }
 
 }
