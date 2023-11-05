@@ -1,6 +1,6 @@
 import * as apiServices from '@/services/api';
 import ActionTree from 'vuex'
-import { PRODUCTS_URL, PRODUCT_URL, ORDER_URL } from './constants';
+import { PRODUCTS_URL, PRODUCT_URL, ORDER_URL, CONFIGURE_URL } from './constants';
 
 
 export const actions: ActionTree<any, any> = {
@@ -12,6 +12,14 @@ export const actions: ActionTree<any, any> = {
                 }
             })
             commit('setProduct', response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    },
+    async fetchConf({ state, commit }: any) {
+        try {
+            const response = await apiServices.instance.get(`${CONFIGURE_URL}/${state.shop || ''}`)
+            commit('setConf', response.data)
         } catch (e) {
             console.log(e)
         }

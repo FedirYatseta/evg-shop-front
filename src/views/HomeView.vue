@@ -50,7 +50,7 @@
         </p>
         <div
           class="flex py-3 items-center justify-center"
-          v-for="val in dataItems.quality"
+          v-for="val in conf[0]?.quality"
           :key="val.title"
         >
           <div>
@@ -60,7 +60,7 @@
           </div>
           <div class="pl-4">
             <p class="font-bold text-lg">{{ val.title }}</p>
-            <p class="font-light text-xs">{{ val.desc }}</p>
+            <p class="font-light text-xs">{{ val.description }}</p>
           </div>
         </div>
       </div>
@@ -101,23 +101,20 @@
         <product-card :products="product" />
       </div>
     </div>
+
     <div class="w-full bg-stone-200 py-5">
       <div class="container mx-auto max-w-[760px]">
-        <div
-          v-for="(question, index) in questions"
-          :key="question.title"
-          class="w-full divide-y px-3"
-        >
+        <div v-for="(question, index) in questions" :key="index" class="w-full divide-y px-3">
           <div class="bg-stone-100 w-full">
             <button
               :class="['flex w-full  justify-between p-3  ', { Active: question.isExpanded }]"
-              @click="handleAccordion(index)"
+              @click="() => handleAccordion(index)"
             >
               <p class="section-title">{{ question.title }}</p>
               <div class="panel__icon">
                 <IconPlus
                   :style="{
-                    transform: `rotate(${activeIndex === index ? rotation : 0}deg)`,
+                    transform: `rotate(${question.isExpanded ? rotation : 0}deg)`,
                     transition: `transform 0.3s`
                   }"
                 />
@@ -126,7 +123,7 @@
           </div>
           <Collapse as="section" :when="question.isExpanded">
             <p class="p-3 bg-stone-100 w-full">
-              {{ question.answer }}
+              {{ question.description }}
             </p>
           </Collapse>
         </div>
@@ -144,9 +141,7 @@
 
 <script lang="ts">
 import IconDone from '@/assets/IconDone.vue'
-
-import { defineComponent, ref, reactive } from 'vue'
-import data from '@/config/collapse.json'
+import { defineComponent, ref, watchEffect, reactive, computed } from 'vue'
 import cond from '@/config/condition.json'
 import quality from '@/config/quality.json'
 import { Collapse } from 'vue-collapsed'
@@ -155,7 +150,7 @@ import IconBase from '@/assets/IconBase.vue'
 import BasicCarousel from '@/components/BasicCarousel.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import { pathConfigNew } from '@/config/path'
-import { mapState } from 'vuex'
+import { useStore } from 'vuex'
 export default defineComponent({
   components: {
     IconDone,
@@ -165,31 +160,46 @@ export default defineComponent({
     BasicCarousel,
     ProductCard
   },
-  computed: {
-    ...mapState({
-      product: (state) => state.product.product
-    })
-  },
+
   setup() {
-    const dataItems = ref<any>({ data, quality, cond, pathConfigNew })
+    const store = useStore()
+    const dataItems = ref<any>({
+      quality,
+      cond,
+      pathConfigNew
+    })
+
     const rotation = ref(45)
     const activeIndex = ref(-1)
+    const questions = reactive<any>([]) // Початково порожній масив для питань
 
-    const questions = reactive(
-      dataItems.value.data.map(({ title, answer }: any, index: any) => ({
-        title,
-        answer,
-        isExpanded: false // Initial values, display expanded on mount
-      }))
-    )
-    function handleAccordion(selectedIndex: number) {
-      questions.forEach((_: any, index: any) => {
-        if (activeIndex.value === selectedIndex) {
-          activeIndex.value = -1 // Закрити активне питання
-        } else {
-          activeIndex.value = selectedIndex // Відкрити нове питання
+    watchEffect(() => {
+      // Викликається при зміні store.state.product.confShop
+      if (store.state.product.confShop.length > 0) {
+        // Якщо дані завантажені
+        questions.length = 0 // Очищаємо попередні питання
+        const confShop = store.state.product.confShop[0]
+        if (confShop && confShop.collapse) {
+          questions.push(
+            ...confShop.collapse.map(({ title, description }: any) => ({
+              title,
+              description,
+              isExpanded: false
+            }))
+          )
         }
-        questions[index].isExpanded = index === selectedIndex ? !questions[index].isExpanded : false
+      }
+    })
+
+    const handleAccordion = (selectedIndex: number) => {
+      questions.forEach((question, index) => {
+        if (index === selectedIndex) {
+          // Якщо це питання, яке ми відкриваємо
+          question.isExpanded = !question.isExpanded
+        } else {
+          // Інакше, закриваємо всі інші питання
+          question.isExpanded = false
+        }
       })
     }
     return {
@@ -197,7 +207,9 @@ export default defineComponent({
       handleAccordion,
       questions,
       rotation,
-      activeIndex
+      activeIndex,
+      product: computed(() => store.state.product.product),
+      conf: computed(() => store.state.product.confShop)
     }
   }
 })

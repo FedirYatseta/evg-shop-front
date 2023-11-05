@@ -13,10 +13,17 @@ const state: ProductState = {
     searchQuery: '',
     showModalBuy: false,
     shop: import.meta.env.VITE_SHOP_ID,
+    confShop: [],
     sortOptions: [
         { value: 'title', name: 'По назві' },
         { value: 'size', name: 'По розміру' },
-        { value: 'type', name: 'По типу' }
+        { value: 'type', name: 'По типу' },
+        { value: 'hitProduct', name: 'Нові товари' },
+        { value: 'newProduct', name: 'Хіт' },
+
+    ],
+    sortOptions2: [
+
     ]
 }
 

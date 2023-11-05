@@ -5,7 +5,7 @@
         <div
           class="h-9 w-9 text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
         >
-          {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Top' : 'sale' }}
+          {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
         </div>
         <div
           class="w-full h-auto"

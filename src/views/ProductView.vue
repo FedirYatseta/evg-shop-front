@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <div class="container mx-auto px-2">
-      <div class="grid grid-col md:grid-cols-2 gap-2 my-5">
+      <div class="grid grid-col md:grid-cols-3 gap-2 my-5">
         <my-input
           placeholder="Пошук"
           :model-value="searchQuery"
@@ -52,7 +52,8 @@ export default defineComponent({
   methods: {
     ...mapMutations({
       setSearchQuery: 'product/setSearchQuery',
-      setSelectedSort: 'product/setSelectedSort'
+      setSelectedSort: 'product/setSelectedSort',
+      setSelectedSortNewHit: 'product/setSelectedSortNewHit'
     })
   },
   computed: {
@@ -60,11 +61,11 @@ export default defineComponent({
       product: (state) => state.product.product,
       searchQuery: (state) => state.product.searchQuery,
       sortOptions: (state) => state.product.sortOptions,
+      sortOptions2: (state) => state.product.sortOptions2,
       selectedSort: (state) => state.product.selectedSort
     }),
 
     ...mapGetters({
-      sortedProducts: 'product/sortedProducts',
       sortedAndSearchProducts: 'product/sortedAndSearchProducts'
     })
   }

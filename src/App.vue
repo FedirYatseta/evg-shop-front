@@ -32,7 +32,8 @@ export default defineComponent({
     const store = useStore()
 
     onBeforeMount(async () => {
-      await store.dispatch('product/fetchProduct') // 'product' - це ім'я вашого модулю Vuex
+      await store.dispatch('product/fetchProduct')
+      await store.dispatch('product/fetchConf') // 'product' - це ім'я вашого модулю Vuex
     })
 
     watch(

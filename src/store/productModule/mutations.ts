@@ -5,7 +5,6 @@ export const mutations: MutationTree<any, any> = {
         state.product = prod.data
     },
     setSelectedSort(state: any, selectedSort: any) {
-        console.log('Sort', selectedSort)
 
         state.selectedSort = selectedSort
     },
@@ -97,6 +96,11 @@ export const mutations: MutationTree<any, any> = {
     setOrder(state: any, res: any) {
 
         state.message = res
-    }
+    },
+
+    setConf(state: any, data: any) {
+        state.confShop = data.data
+    },
+
 
 }

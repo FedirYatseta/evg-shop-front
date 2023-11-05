@@ -3,11 +3,13 @@ export interface ProductState {
     product: []
     shop: string
     showModalBuy: boolean
-    selectedSort: string
+    selectedSort: string | number | boolean
     buyProduct: []
     searchQuery: string
+    confShop: []
     selectedProduct: []
     sortOptions: SortOption[]
+    sortOptions2: SortOption[]
 }
 
 export interface SortOption {
