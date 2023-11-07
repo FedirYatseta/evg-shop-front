@@ -41,7 +41,9 @@
         <div class="text-xl font-bold mt-5">{{ selectedProduct.title }}</div>
         <div class="line-through text-red-500 mt-5">{{ selectedProduct.oldPrice + ' грн' }}</div>
         <div class="new-price-content">{{ selectedProduct.price + ' грн' }}</div>
-        <MyButton class="bg-slate-50 hover:bg-slate-100 text-slate-950 mt-5"
+        <MyButton
+          @click="goToBuy(selectedProduct._id)"
+          class="bg-slate-50 hover:bg-slate-100 text-slate-950 mt-5"
           >Швидке замовлення</MyButton
         >
         <div class="text-lg font-bold"><strong>Опис</strong></div>
@@ -89,12 +91,19 @@ export default defineComponent({
 
       currentSlide.value = val
     }
+
+    const goToBuy = (id) => {
+      store.commit('product/setShowModal', false)
+      store.commit('product/setProductToOrder', id)
+    }
+
     return {
       currentSlide,
       slideTo,
       goBack,
       selectedProduct: computed(() => store.state.product.selectedProduct),
-      setShowModal: () => store.commit('product/setShowModal')
+      setShowModal: () => store.commit('product/setShowModal'),
+      goToBuy
     }
   }
 })

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <div class="container mx-auto px-2">
-      <div class="grid grid-col md:grid-cols-3 gap-2 my-5">
+      <div class="grid grid-col md:grid-cols-2 gap-2 my-5">
         <my-input
           placeholder="Пошук"
           :model-value="searchQuery"
@@ -13,6 +13,7 @@
           @update:selected="setSelectedSort"
         />
       </div>
+
       <product-card :products="sortedAndSearchProducts" />
     </div>
   </div>

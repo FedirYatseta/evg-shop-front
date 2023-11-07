@@ -8,6 +8,7 @@
     <ul class="flex justify-center py-3">
       <li v-for="item in pathConfig" :key="item.path">
         <router-link
+          @click="handleReviewsClick(item)"
           :to="item.path"
           class="px-2 md:text-[10px] lg:text-[14px] xl:text-xl font-light uppercase"
           >{{ item.name }}</router-link
@@ -20,9 +21,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { pathConfig } from '@/config/path'
+import useScrollToElement from '@/hooks/useScrollToElement'
 export default defineComponent({
   setup() {
-    return { pathConfig }
+    const { handleReviewsClick } = useScrollToElement()
+
+    return { pathConfig, handleReviewsClick }
   }
 })
 </script>

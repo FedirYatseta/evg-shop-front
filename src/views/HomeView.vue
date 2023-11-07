@@ -90,6 +90,7 @@
           <div class="px-2 w-full text-center pb-3">
             <router-link
               class="px-2 inline-block md:text-xl"
+              @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
               :to="path.path"
@@ -102,7 +103,7 @@
       </div>
     </div>
 
-    <div class="w-full bg-stone-200 py-5">
+    <div id="question" class="w-full bg-stone-200 py-5">
       <div class="container mx-auto max-w-[760px]">
         <div v-for="(question, index) in questions" :key="index" class="w-full divide-y px-3">
           <div class="bg-stone-100 w-full">
@@ -129,7 +130,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full">
+    <div id="feedback" class="w-full">
       <div class="container mx-auto">
         <div class="my-10">
           <basic-carousel />
@@ -151,6 +152,7 @@ import BasicCarousel from '@/components/BasicCarousel.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import { pathConfigNew } from '@/config/path'
 import { useStore } from 'vuex'
+import useScrollToElement from '@/hooks/useScrollToElement'
 export default defineComponent({
   components: {
     IconDone,
@@ -162,6 +164,7 @@ export default defineComponent({
   },
 
   setup() {
+    const { handleReviewsClick } = useScrollToElement()
     const store = useStore()
     const dataItems = ref<any>({
       quality,
@@ -209,7 +212,8 @@ export default defineComponent({
       rotation,
       activeIndex,
       product: computed(() => store.state.product.product),
-      conf: computed(() => store.state.product.confShop)
+      conf: computed(() => store.state.product.confShop),
+      handleReviewsClick
     }
   }
 })

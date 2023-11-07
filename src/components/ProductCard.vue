@@ -1,47 +1,49 @@
 <template>
   <div class="grid grid-cols-2 md:grid-cols-3 gap-y-20 gap-x-1">
-    <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
-      <div class="block text-center relative">
-        <div
-          class="h-9 w-9 text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
-        >
-          {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
+    <TransitionGroup name="product-list">
+      <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
+        <div class="block text-center relative">
+          <div
+            class="h-9 w-9 text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
+          >
+            {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
+          </div>
+          <div
+            class="w-full h-auto"
+            @mouseover="showSecondImage[prod.id] = true"
+            @mouseleave="showSecondImage[prod.id] = false"
+          >
+            <img
+              :src="
+                showSecondImage[prod.id] && prod.imageSrc.length > 1
+                  ? prod.imageSrc[1]
+                  : prod.imageSrc[0]
+              "
+              alt="iconProduct"
+              class="mx-auto max-h-[500px]"
+            />
+          </div>
+          <p class="font-bold text-md md:text-lg">
+            {{ prod.title }}
+          </p>
+          <p class="text-xs md:text-lg">
+            Розмір <span> {{ prod.size + ' см' }}</span>
+          </p>
+          <p class="line-through text-red-500 text-xs md:text-lg">{{ prod.oldPrice }} грн</p>
+          <p class="price text-xs md:text-lg">{{ prod.price }} грн</p>
         </div>
-        <div
-          class="w-full h-auto"
-          @mouseover="showSecondImage[prod.id] = true"
-          @mouseleave="showSecondImage[prod.id] = false"
-        >
-          <img
-            :src="
-              showSecondImage[prod.id] && prod.imageSrc.length > 1
-                ? prod.imageSrc[1]
-                : prod.imageSrc[0]
-            "
-            alt="iconProduct"
-            class="mx-auto max-h-[500px]"
-          />
+        <div class="grid grid-col md:grid-cols-2 gap-4">
+          <MyButton
+            @click="showDescribe(prod._id)"
+            class="bg-slate-100 hover:bg-slate-200 text-slate-950"
+            >Детальніше</MyButton
+          >
+          <MyButton class="bg-slate-950 hover:bg-slate-800 text-white" @click="buyProduct(prod._id)"
+            >Купити</MyButton
+          >
         </div>
-        <p class="font-bold text-md md:text-lg">
-          {{ prod.title }}
-        </p>
-        <p class="text-xs md:text-lg">
-          Розмір <span> {{ prod.size + ' см' }}</span>
-        </p>
-        <p class="line-through text-red-500 text-xs md:text-lg">{{ prod.oldPrice }} грн</p>
-        <p class="price text-xs md:text-lg">{{ prod.price }} грн</p>
       </div>
-      <div class="grid grid-col md:grid-cols-2 gap-4">
-        <MyButton
-          @click="showDescribe(prod._id)"
-          class="bg-slate-100 hover:bg-slate-200 text-slate-950"
-          >Детальніше</MyButton
-        >
-        <MyButton class="bg-slate-950 hover:bg-slate-800 text-white" @click="buyProduct(prod._id)"
-          >Купити</MyButton
-        >
-      </div>
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -74,7 +76,6 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const showSecondImage = ref<Record<string, boolean>>({})
-    console.log('showSecondImage', showSecondImage)
 
     return {
       showDescribe: (id: string) => store.dispatch('product/getProductId', id),
@@ -85,4 +86,24 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.product-list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.product-list-enter-active,
+.product-list-leave-active {
+  transition: all 1s ease;
+}
+
+.product-list-enter-from,
+.product-list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.product-list-move {
+  transition: transform 0.4s ease;
+}
+</style>

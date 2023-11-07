@@ -18,8 +18,8 @@ const state: ProductState = {
         { value: 'title', name: 'По назві' },
         { value: 'size', name: 'По розміру' },
         { value: 'type', name: 'По типу' },
-        { value: 'hitProduct', name: 'Нові товари' },
-        { value: 'newProduct', name: 'Хіт' },
+        { value: 'hitProduct', name: 'Хіт' },
+        { value: 'newProduct', name: 'Нові товари' },
 
     ],
     sortOptions2: [

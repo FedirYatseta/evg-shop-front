@@ -4,7 +4,7 @@ import BurgerButton from '@/components/BurgerButton.vue'
 import MobileMenu from '@/components/MobileMenu.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import DescTopMenu from '@/components/DescTopMenu.vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter, useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router'
 import MyDialog from './UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
 import DescribeProduct from './components/DescribeProduct.vue'
@@ -25,24 +25,23 @@ export default defineComponent({
   setup() {
     const menuVisible = ref(false)
     const router = useRouter()
+    const route = useRoute()
+    console.log('router', router, route)
 
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
     }
     const store = useStore()
 
+    router.afterEach((to, from) => {
+      menuVisible.value = false
+    })
+
     onBeforeMount(async () => {
       await store.dispatch('product/fetchProduct')
       await store.dispatch('product/fetchConf') // 'product' - це ім'я вашого модулю Vuex
     })
 
-    watch(
-      () => router.currentRoute.value,
-      () => {
-        // Закрити меню при зміні маршруту
-        menuVisible.value = false
-      }
-    )
     return { menuVisible, toggleMenu }
   },
   computed: {

@@ -7,8 +7,8 @@ export const pathConfig = [
     { name: 'Месенджери', path: '/product/mess' },
     { name: 'Клатчі та гаманці', path: '/product/wallet' },
     { name: 'Ключчниці', path: '/product/klutch' },
-    { name: 'Відгуки', path: '/reviews' },
-    { name: 'Часті питання', path: '/reviews' }
+    { name: 'Відгуки', path: '/', id: 'question' },
+    { name: 'Часті питання', path: '/', id: 'feedback' }
 ]
 
 export const pathFooter = [
@@ -30,8 +30,8 @@ export const pathConfigNew = [
     { name: 'Месенджери', path: '/product/mess' },
     { name: 'Клатчі та гаманці', path: '/product/wallet' },
     { name: 'Ключчниці', path: '/product/klutch' },
-    { name: 'Відгуки', path: '/reviews' },
-    { name: 'Часті питання', path: '/reviews' }
+    { name: 'Відгуки', path: '/', id: 'question' },
+    { name: 'Часті питання', path: '/', id: 'feedback' }
 ]
 
 export const categoryProduct = [

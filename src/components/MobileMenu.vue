@@ -9,7 +9,9 @@
     <nav class="flex items-center justify-center mt-5">
       <ul class="flex flex-col items-center">
         <li v-for="item in pathConfig" :key="item.path" class="my-1">
-          <router-link :to="item.path" class="text-white">{{ item.name }}</router-link>
+          <router-link :to="item.path" @click="handleReviewsClick(item)" class="text-white">{{
+            item.name
+          }}</router-link>
         </li>
       </ul>
     </nav>
@@ -44,6 +46,7 @@ import IconFaceBook from '@/assets/IconFaceBook.vue'
 import IconInst from '@/assets/IconInst.vue'
 import IconTeleg from '@/assets/IconTeleg.vue'
 import { pathConfig } from '@/config/path'
+import useScrollToElement from '@/hooks/useScrollToElement'
 export default defineComponent({
   components: {
     IconBase,
@@ -55,8 +58,11 @@ export default defineComponent({
     menuVisible: Boolean // Приймаємо проп "menuVisible"
   },
   setup() {
+    const { handleReviewsClick } = useScrollToElement()
+
     return {
-      pathConfig
+      pathConfig,
+      handleReviewsClick
     }
   },
   emits: ['toggle-menu'],

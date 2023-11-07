@@ -10,7 +10,8 @@
     "src/services/*.ts",
     "src/store/*.ts",
     "src/**/*.d.ts",
-    "src/mixins/*.ts"
+    "src/mixins/*.ts",
+    "src/hooks/*.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
