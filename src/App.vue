@@ -1,15 +1,17 @@
 <script lang="ts">
-import { defineComponent, ref, watch, onBeforeMount } from 'vue'
+import { defineComponent, ref, onBeforeMount } from 'vue'
 import BurgerButton from '@/components/BurgerButton.vue'
 import MobileMenu from '@/components/MobileMenu.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import DescTopMenu from '@/components/DescTopMenu.vue'
-import { useRouter, useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import MyDialog from './UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
 import DescribeProduct from './components/DescribeProduct.vue'
 import MyModalView from './UI/MyModalView.vue'
 import BuyForm from './components/BuyForm.vue'
+
+import IconLogo from './assets/IconLogo.vue'
 export default defineComponent({
   components: {
     MyFooter,
@@ -19,7 +21,9 @@ export default defineComponent({
     MyDialog,
     DescribeProduct,
     MyModalView,
-    BuyForm
+    BuyForm,
+
+    IconLogo
   },
 
   setup() {
@@ -54,10 +58,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <header class="block h-11 md:h-52">
+  <header class="block">
     <div class="container mx-auto block h-full">
-      <div class="fixed flex md:hidden w-full justify-between bg-black items-center px-2 z-50">
-        <h2 class="text-white">Men`s bugs</h2>
+      <div
+        class="fixed flex md:hidden w-full h-[94px] justify-between bg-main top-0 items-end pb-4 px-6 z-50"
+      >
+        <h2 class="text-white text-3xl">Bags7</h2>
+
+        <icon-logo />
+
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>
@@ -66,7 +75,7 @@ export default defineComponent({
       </div>
     </div>
   </header>
-  <div class="">
+  <div>
     <router-view> </router-view>
     <my-dialog v-model:show="showModal">
       <describe-product />

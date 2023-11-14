@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <main class="w-full mt-[96px]">
     <div class="container mx-auto px-2">
       <div class="grid grid-col md:grid-cols-2 gap-2 my-5">
         <my-input
@@ -16,7 +16,7 @@
 
       <product-card :products="sortedAndSearchProducts" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -53,8 +53,7 @@ export default defineComponent({
   methods: {
     ...mapMutations({
       setSearchQuery: 'product/setSearchQuery',
-      setSelectedSort: 'product/setSelectedSort',
-      setSelectedSortNewHit: 'product/setSelectedSortNewHit'
+      setSelectedSort: 'product/setSelectedSort'
     })
   },
   computed: {

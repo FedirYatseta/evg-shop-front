@@ -4,9 +4,12 @@
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
         <div class="block text-center relative">
           <div
-            class="h-9 w-9 text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
+            class="text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
           >
-            {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
+            <icon-circle />
+            <div class="absolute text-sm font-bold">
+              {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
+            </div>
           </div>
           <div
             class="w-full h-auto"
@@ -23,23 +26,32 @@
               class="mx-auto max-h-[500px]"
             />
           </div>
-          <p class="font-bold text-md md:text-lg">
+          <p class="font-bold text-sm md:text-lg">
             {{ prod.title }}
           </p>
-          <p class="text-xs md:text-lg">
+          <p class="text-xs md:text-lg text-black-150">
             Розмір <span> {{ prod.size + ' см' }}</span>
           </p>
-          <p class="line-through text-red-500 text-xs md:text-lg">{{ prod.oldPrice }} грн</p>
-          <p class="price text-xs md:text-lg">{{ prod.price }} грн</p>
+          <div class="flex">
+            <span
+              class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
+            >
+              <p class="text-black-200 text-lg md:text-lg">{{ prod.oldPrice }} UAH</p>
+            </span>
+
+            <p class="text-lg md:text-lg text-red">{{ prod.price }} UAH</p>
+          </div>
         </div>
         <div class="grid grid-col md:grid-cols-2 gap-4">
           <MyButton
             @click="showDescribe(prod._id)"
-            class="bg-slate-100 hover:bg-slate-200 text-slate-950"
+            class="bg-brown-50 hover:bg-brown-50 text-white font-serif"
             >Детальніше</MyButton
           >
-          <MyButton class="bg-slate-950 hover:bg-slate-800 text-white" @click="buyProduct(prod._id)"
-            >Купити</MyButton
+          <MyButton
+            class="bg-white hover:bg-slate-800 text-brown-50 border-brown-50 border-[1.4px] font-serif"
+            @click="buyProduct(prod._id)"
+            >Замовити</MyButton
           >
         </div>
       </div>
@@ -63,9 +75,11 @@ interface Product {
   imageSrc: string[]
 }
 import { useStore } from 'vuex'
+import IconCircle from '@/assets/IconCircle.vue'
 export default defineComponent({
   components: {
-    MyButton
+    MyButton,
+    IconCircle
   },
   props: {
     products: {

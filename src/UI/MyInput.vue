@@ -1,5 +1,8 @@
 <template>
-  <input class="border p-2" :value="modelValue" @input="updateInput" />
+  <div class="w-full relative">
+    <input :value="modelValue" @input="updateInput" class="w-full" />
+    <div class="absolute top-[25%] right-[8px]"><slot /></div>
+  </div>
 </template>
 
 <script lang="ts">

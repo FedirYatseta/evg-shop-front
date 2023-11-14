@@ -1,5 +1,5 @@
 <template>
-  <select v-model="localSelected" @change="changeOption" class="border p-2 h-[42px]">
+  <select v-model="localSelected" @change="changeOption" class="p-2 h-[42px] w-full">
     <option disabled value="">Вибрати варіант</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}

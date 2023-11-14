@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full items-center justify-center container mx-auto px-4 py-8">
     <div class="text-xs font-light">Доставка без предоплати</div>
-    <img src="../image/logo_new.jpg" alt="logo-desc" class="max-w-[250px] mx-20" />
+    <icon-logo />
     <a class="text-3xl font-bold" href="tel:+380632563677">+380632563677</a>
   </div>
   <nav class="block mx-auto w-full">
@@ -22,7 +22,11 @@
 import { defineComponent } from 'vue'
 import { pathConfig } from '@/config/path'
 import useScrollToElement from '@/hooks/useScrollToElement'
+import IconLogo from '@/assets/IconLogo.vue'
 export default defineComponent({
+  components: {
+    IconLogo
+  },
   setup() {
     const { handleReviewsClick } = useScrollToElement()
 

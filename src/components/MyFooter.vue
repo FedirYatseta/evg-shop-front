@@ -1,7 +1,11 @@
 <template>
-  <div class="w-full bg-gray-950 p-5">
+  <div class="w-full bg-brown-50 p-5">
     <div class="container mx-auto">
-      <div class="grid grid-col gap-4 my-10">
+      <div class="grid grid-col gap-4 my-5 justify-center">
+        <div class="w-full flex items-center justify-center">
+          <icon-logo />
+        </div>
+
         <div class="flex w-full items-center justify-center">
           <icon-base iconColor="white" class="mx-2">
             <icon-viber />
@@ -13,13 +17,18 @@
             <icon-whats-app />
           </icon-base>
         </div>
-        <ul class="grid grid-col md:grid-flow-col gap-1 text-center justify-center">
-          <li v-for="item in pathFooter" :key="item.path" class="px-2">
-            <RouterLink :to="item.path" class="text-white text-xs">{{ item.name }}</RouterLink>
+        <ul class="grid grid-cols-4 md:grid-flow-col text-center justify-center">
+          <li v-for="item in pathFooter" :key="item.path">
+            <RouterLink
+              @click="handleReviewsClick(item)"
+              :to="item.path"
+              class="text-white text-[10px] font-serif uppercase whitespace-nowrap"
+              >{{ item.name }}</RouterLink
+            >
           </li>
         </ul>
-        <div class="text-white text-center my-5 text-xs">
-          <span>
+        <div class="text-center my-2 text-xs">
+          <span class="text-opacityWhite">
             <strong
               >© NOSKAR, 2023. Всі дизайни захищені стародавнім мольфарським закляттям на
               слабкістьпрутня.</strong
@@ -41,16 +50,21 @@ import IconBase from '@/assets/IconBase.vue'
 import IconViber from '@/assets/IconViber.vue'
 import IconTelegram from '@/assets/IconTelegram.vue'
 import IconWhatsApp from '@/assets/IconWhatsApp.vue'
+import IconLogo from '@/assets/IconLogo.vue'
+import useScrollToElement from '@/hooks/useScrollToElement'
 export default defineComponent({
   components: {
     IconBase,
     IconViber,
     IconTelegram,
-    IconWhatsApp
+    IconWhatsApp,
+    IconLogo
   },
   setup() {
+    const { handleReviewsClick } = useScrollToElement()
     return {
-      pathFooter
+      pathFooter,
+      handleReviewsClick
     }
   }
 })

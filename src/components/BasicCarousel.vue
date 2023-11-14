@@ -1,20 +1,19 @@
 <template>
-  <Carousel :items-to-show="2.5" :wrap-around="true">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item">{{ slide }}</div>
+  <Carousel :wrap-around="true">
+    <Slide v-for="slide in array" :key="slide.image">
+      <img :src="slide.image" class="carousel__item" />
     </Slide>
 
     <template #addons>
       <Pagination />
-      <Navigation />
     </template>
   </Carousel>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { Carousel, Navigation, Slide, Pagination } from 'vue3-carousel'
-
+import { defineComponent, ref } from 'vue'
+import { Carousel, Slide, Pagination } from 'vue3-carousel'
+import { feedback } from '@/config/path'
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({
@@ -22,8 +21,13 @@ export default defineComponent({
   components: {
     Carousel,
     Slide,
-    Navigation,
     Pagination
+  },
+  setup() {
+    const array = ref(feedback)
+    return {
+      array
+    }
   },
   data: () => ({
     // carousel settings
@@ -36,7 +40,7 @@ export default defineComponent({
     breakpoints: {
       // 700px and up
       700: {
-        itemsToShow: 3.5,
+        itemsToShow: 1,
         snapAlign: 'center'
       },
       // 1024 and up
@@ -51,9 +55,17 @@ export default defineComponent({
 
 <style scoped>
 .carousel__item {
-  height: 200px;
+  height: auto;
   background-color: aqua;
-  width: 100%;
-  margin: 0 5px;
+  width: 90%;
+  padding: 10px;
+  margin: 25px 5px;
+  background: #fff;
+  box-shadow:
+    0px 1px 3px 0px rgba(0, 0, 0, 0.25),
+    0px 6px 6px 0px rgba(0, 0, 0, 0.21),
+    0px 12px 7px 0px rgba(0, 0, 0, 0.13),
+    0px 22px 9px 0px rgba(0, 0, 0, 0.04),
+    0px 35px 10px 0px rgba(0, 0, 0, 0);
 }
 </style>

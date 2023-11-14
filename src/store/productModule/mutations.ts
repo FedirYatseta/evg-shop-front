@@ -47,8 +47,10 @@ export const mutations: MutationTree<any, any> = {
                 state.buyProduct.push({
                     id: product._id,
                     title: product.title,
+                    size: product.size,
                     image: product.imageSrc[0],
                     price: product.price,
+                    oldPrice: product.oldPrice,
                     count: 1
                 });
             }

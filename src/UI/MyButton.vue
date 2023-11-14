@@ -1,5 +1,5 @@
 <template>
-  <button @click="actionBtn" class="w-full uppercase p-2 text-xs md:text-sm">
+  <button @click="actionBtn" class="w-full uppercase p-2 text-sm md:text-lg">
     <slot />
   </button>
 </template>

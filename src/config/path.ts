@@ -1,4 +1,5 @@
 import icon1 from '@/image/2.jpg'
+import icon2 from '@/image/Group 678.png'
 export const pathConfig = [
     { name: 'Головна', path: '/' },
     { name: 'Всі сумки', path: '/product' },
@@ -12,11 +13,10 @@ export const pathConfig = [
 ]
 
 export const pathFooter = [
-    { name: 'Про нас', path: '/about' },
-    { name: 'Контакти', path: '/contact' },
-    { name: 'Доставка та оплата', path: '/delivery' },
-    { name: 'Політика конфіденційності', path: '/policy  ' },
-    { name: 'Договір пблічної оферти', path: '/' },
+    { name: 'Головна', path: '/' },
+    { name: 'Всі Сумки', path: '/product' },
+    { name: 'Відгуки', path: '/', id: 'question' },
+    { name: 'Часті питання', path: '/', id: 'feedback' }
 ]
 
 export const pathConfigNew = [
@@ -40,4 +40,8 @@ export const categoryProduct = [
     { name: 'Месенджери', path: '/product/mess', image: icon1 },
     { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon1 },
     { name: 'Ключчниці', path: '/product/klutch', image: icon1 },
+]
+
+export const feedback = [
+    { image: icon2 }, { image: icon2 }, { image: icon2 }
 ]
