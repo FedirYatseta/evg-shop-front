@@ -58,7 +58,7 @@
             id="name"
             class="border border-solid border-brown w-full h-10"
           />
-          <p class="text-red-500">{{ errors.name }}</p>
+          <p class="text-red">{{ errors.name }}</p>
         </div>
         <div class="my-2">
           <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
@@ -66,9 +66,9 @@
             v-bind="phone"
             name="phone"
             id="phone"
-            class="border border-solid border-brown w-full h-10"
+            class="border border-solid border-brown-50 w-full h-10"
           />
-          <p class="text-red-500">{{ errors.phone }}</p>
+          <p class="text-red">{{ errors.phone }}</p>
         </div>
         <div class="my-2 flex">
           <Field
@@ -76,13 +76,13 @@
             type="checkbox"
             id="policy"
             :value="true"
-            class="border border-solid border-slate-950 h-8 w-8 mr-4"
+            class="border border-solid border-brown-50 h-8 w-8 mr-4"
           />
-          <p class="text-red-500">{{ errors.policy }}</p>
+          <p class="text-red">{{ errors.policy }}</p>
           <label
             for="phone"
             class="text-sm font-light"
-            :class="errors.policy ? 'text-red-500' : 'text-slate-950'"
+            :class="errors.policy ? 'text-red' : 'text-brown-50'"
           >
             Я згоден(а) з Політикою конфіденційності та обробкою моїх персональних даних
           </label>

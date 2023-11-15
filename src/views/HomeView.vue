@@ -135,7 +135,7 @@
               </button>
               <Collapse :when="nested.second">
                 <my-select
-                  class="max-w-xs"
+                  class="max-w-xs shadow-4xl rounded-md appearance-none mb-2"
                   :options="sortOptions"
                   :selected="selectedSort"
                   @update:selected="setSelectedSort"
@@ -148,7 +148,7 @@
               </button>
               <Collapse :when="nested.third">
                 <my-select
-                  class="max-w-xs"
+                  class="max-w-xs shadow-4xl rounded-md px-4 appearance-none mb-2"
                   :options="sortOptions"
                   :selected="selectedSort"
                   @update:selected="setSelectedSort"

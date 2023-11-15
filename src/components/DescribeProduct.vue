@@ -39,22 +39,29 @@
       </div>
       <div class="block md:px-5">
         <div class="text-xl font-bold mt-5">{{ selectedProduct.title }}</div>
-        <div class="line-through text-red-500 mt-5">{{ selectedProduct.oldPrice + ' грн' }}</div>
-        <div class="new-price-content">{{ selectedProduct.price + ' грн' }}</div>
+        <div class="flex px-2 flex-wrap">
+          <span
+            class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
+          >
+            <p class="text-black-200 text-sm md:text-lg">{{ selectedProduct.oldPrice }} UAH</p>
+          </span>
+
+          <p class="text-sm md:text-lg text-red">{{ selectedProduct.price }} UAH</p>
+        </div>
         <MyButton
           @click="goToBuy(selectedProduct._id)"
-          class="bg-slate-50 hover:bg-slate-100 text-slate-950 mt-5"
+          class="text-brawn-50 border border-brawn-50 mt-5 p-2"
           >Швидке замовлення</MyButton
         >
         <div class="text-lg font-bold"><strong>Опис</strong></div>
         <div class="text-xs font-light">{{ selectedProduct.describe }}</div>
         <div class="text-lg font-bold"><strong> Характеристики</strong></div>
         <ul class="text-xs font-light list-disc pl-5">
-          <li>Матеріал: натуральна овеча шкіра</li>
+          <li v-for="item in selectedProduct.specification" :key="item">{{ item }}</li>
         </ul>
         <div class="text-lg font-bold"><strong>Структура</strong></div>
         <ul class="text-xs font-light list-disc pl-5">
-          <li>одне основне відділення на молнії;</li>
+          <li v-for="item in selectedProduct.structure" :key="item">{{ item }}</li>
         </ul>
         <div class="text-xs font-light py-10">Обмін та повернення протягом 14 календарних днів</div>
       </div>

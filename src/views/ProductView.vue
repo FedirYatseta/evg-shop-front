@@ -1,13 +1,15 @@
 <template>
-  <main class="w-full mt-[96px] mb-16">
+  <main class="w-full mt-[96px] py-10">
     <div class="container mx-auto px-2">
-      <div class="grid grid-col md:grid-cols-2 gap-2 my-5">
+      <div class="grid grid-col md:grid-cols-2 gap-2 mb-3">
         <my-input
           placeholder="Пошук"
           :model-value="searchQuery"
           @update:model-value="setSearchQuery"
+          class="px-3 h-[40px] border border-brown-50 rounded-md"
         />
         <my-select
+          class="rounded-md appearance-none leading-tight border border-brown-50 focus:outline-none focus:border-brown-100"
           :options="sortOptions"
           :selected="selectedSort"
           @update:selected="setSelectedSort"
