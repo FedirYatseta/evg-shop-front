@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mt-[96px]">
+  <main class="w-full mt-[96px] mb-16">
     <div class="container mx-auto px-2">
       <div class="grid grid-col md:grid-cols-2 gap-2 my-5">
         <my-input

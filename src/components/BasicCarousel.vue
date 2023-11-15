@@ -1,7 +1,9 @@
 <template>
-  <Carousel :wrap-around="true">
+  <Carousel :wrap-around="true" :v-bind="settings" :breakpoints="breakpoints">
     <Slide v-for="slide in array" :key="slide.image">
-      <img :src="slide.image" class="carousel__item" />
+      <div class="px-2">
+        <img :src="slide.image" class="carousel__item" />
+      </div>
     </Slide>
 
     <template #addons>
@@ -40,12 +42,12 @@ export default defineComponent({
     breakpoints: {
       // 700px and up
       700: {
-        itemsToShow: 1,
+        itemsToShow: 3,
         snapAlign: 'center'
       },
       // 1024 and up
       1024: {
-        itemsToShow: 5,
+        itemsToShow: 3,
         snapAlign: 'start'
       }
     }
@@ -56,10 +58,9 @@ export default defineComponent({
 <style scoped>
 .carousel__item {
   height: auto;
-  background-color: aqua;
-  width: 90%;
   padding: 10px;
   margin: 25px 5px;
+
   background: #fff;
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.25),

@@ -2,11 +2,11 @@
   <div class="w-full bg-brown-50 p-5">
     <div class="container mx-auto">
       <div class="grid grid-col gap-4 my-5 justify-center">
-        <div class="w-full flex items-center justify-center">
+        <div class="w-full flex items-center justify-center md:hidden">
           <icon-logo />
         </div>
 
-        <div class="flex w-full items-center justify-center">
+        <div class="flex w-full items-center justify-center mb-8">
           <icon-base iconColor="white" class="mx-2">
             <icon-viber />
           </icon-base>
@@ -22,12 +22,12 @@
             <RouterLink
               @click="handleReviewsClick(item)"
               :to="item.path"
-              class="text-white text-[10px] font-serif uppercase whitespace-nowrap"
+              class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
               >{{ item.name }}</RouterLink
             >
           </li>
         </ul>
-        <div class="text-center my-2 text-xs">
+        <div class="text-center my-2 text-xs md:text-xl">
           <span class="text-opacityWhite">
             <strong
               >© NOSKAR, 2023. Всі дизайни захищені стародавнім мольфарським закляттям на

@@ -1,8 +1,8 @@
 <template>
   <main class="w-full mx-auto px-3">
-    <div class="container">
+    <div class="container mx-auto">
       <p class="my-4 text-center text-3xl font-bold">Категорії</p>
-      <div class="grid grid-col md:grid-cols-3 gap-4 md:gap-6 my-4">
+      <div class="grid grid-col lg:grid-cols-3 gap-4 md:gap-6 my-4">
         <div v-for="item in items" :key="item.path" class="shadow-lg">
           <router-link :to="item.path">
             <img :src="item.image" :alt="item.path" />

@@ -1,11 +1,14 @@
 <template>
   <div
-    class="fixed inset-0 flex items-center justify-center backdrop-blur"
+    class="fixed inset-0 flex items-center justify-center backdrop-blur z-50"
     v-if="show"
     @click.stop="hideDialog"
   >
     <div class="absolute inset-0 w-full h-full"></div>
-    <div @click.stop class="relative h-full overflow-auto flex w-full md:max-w-[50%] max-h-[80%]">
+    <div
+      @click.stop
+      class="relative h-full overflow-auto flex w-full md:max-w-[70%] md:max-h-[80%]"
+    >
       <slot></slot>
     </div>
   </div>

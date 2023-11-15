@@ -1,36 +1,42 @@
 <template>
-  <div class="flex w-full items-center justify-center container mx-auto px-4 py-8">
-    <div class="text-xs font-light">Доставка без предоплати</div>
-    <icon-logo />
-    <a class="text-3xl font-bold" href="tel:+380632563677">+380632563677</a>
+  <div class="flex w-full items-center justify-center container mx-auto px-14 py-3">
+    <img src="@/image/logo_header.png" alt="logo-header" class="w-[123px] h-[42px]" />
+    <nav class="block mx-auto w-full">
+      <ul class="flex justify-center py-3">
+        <li v-for="item in pathFooter" :key="item.path">
+          <router-link
+            @click="handleReviewsClick(item)"
+            :to="item.path"
+            class="font-serif px-2 md:text-[10px] lg:text-[14px] xl:text-xl font-light uppercase text-white"
+            >{{ item.name }}</router-link
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="min-w-[200px] mx-10">
+      <count-down />
+    </div>
+
+    <div class="flex flex-col">
+      <a class="text-xl font-bold text-white mb-3" href="tel:+380632563677">+380632563677</a>
+      <a class="text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
+    </div>
   </div>
-  <nav class="block mx-auto w-full">
-    <ul class="flex justify-center py-3">
-      <li v-for="item in pathConfig" :key="item.path">
-        <router-link
-          @click="handleReviewsClick(item)"
-          :to="item.path"
-          class="px-2 md:text-[10px] lg:text-[14px] xl:text-xl font-light uppercase"
-          >{{ item.name }}</router-link
-        >
-      </li>
-    </ul>
-  </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { pathConfig } from '@/config/path'
+import { pathFooter } from '@/config/path'
 import useScrollToElement from '@/hooks/useScrollToElement'
-import IconLogo from '@/assets/IconLogo.vue'
+import CountDown from './CountDown.vue'
 export default defineComponent({
   components: {
-    IconLogo
+    CountDown
   },
   setup() {
     const { handleReviewsClick } = useScrollToElement()
 
-    return { pathConfig, handleReviewsClick }
+    return { pathFooter, handleReviewsClick }
   }
 })
 </script>

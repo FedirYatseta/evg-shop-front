@@ -43,5 +43,6 @@ export const categoryProduct = [
 ]
 
 export const feedback = [
+    { image: icon2 }, { image: icon2 }, { image: icon2 },
     { image: icon2 }, { image: icon2 }, { image: icon2 }
 ]

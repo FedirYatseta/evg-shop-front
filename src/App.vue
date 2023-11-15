@@ -11,7 +11,6 @@ import DescribeProduct from './components/DescribeProduct.vue'
 import MyModalView from './UI/MyModalView.vue'
 import BuyForm from './components/BuyForm.vue'
 
-import IconLogo from './assets/IconLogo.vue'
 export default defineComponent({
   components: {
     MyFooter,
@@ -21,9 +20,7 @@ export default defineComponent({
     MyDialog,
     DescribeProduct,
     MyModalView,
-    BuyForm,
-
-    IconLogo
+    BuyForm
   },
 
   setup() {
@@ -59,18 +56,15 @@ export default defineComponent({
 
 <template>
   <header class="block">
-    <div class="container mx-auto block h-full">
+    <div class="block h-full">
       <div
         class="fixed flex md:hidden w-full h-[94px] justify-between bg-main top-0 items-end pb-4 px-6 z-50"
       >
-        <h2 class="text-white text-3xl">Bags7</h2>
-
-        <icon-logo />
-
+        <img src="@/image/logo_header.png" alt="logo-header" class="w-[123px] h-[42px]" />
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>
-      <div class="hidden md:block">
+      <div class="hidden md:block bg-main">
         <DescTopMenu />
       </div>
     </div>

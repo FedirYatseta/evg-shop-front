@@ -1,8 +1,10 @@
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-y-20 gap-x-1">
+  <div
+    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-1 lg:gap-x-20 lg:gap-y-5"
+  >
     <TransitionGroup name="product-list">
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
-        <div class="block text-center relative">
+        <div class="block text-start relative">
           <div
             class="text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
           >
@@ -26,30 +28,29 @@
               class="mx-auto max-h-[500px]"
             />
           </div>
-          <p class="font-bold text-sm md:text-lg">
+          <p class="font-bold text-sm md:text-lg lg:text-2xl md:mb-2">
             {{ prod.title }}
           </p>
-          <p class="text-xs md:text-lg text-black-150">
+          <p class="text-xs md:text-lg text-black-150 lg:text-xl md:mb-2">
             Розмір <span> {{ prod.size + ' см' }}</span>
           </p>
-          <div class="flex">
+          <div class="flex md:mb-3">
             <span
-              class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
+              class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-2"
             >
-              <p class="text-black-200 text-lg md:text-lg">{{ prod.oldPrice }} UAH</p>
+              <p class="text-black-200 text-lg md:text-lg lg:text-2xl">{{ prod.oldPrice }} UAH</p>
             </span>
-
-            <p class="text-lg md:text-lg text-red">{{ prod.price }} UAH</p>
+            <p class="text-lg md:text-lg lg:text-2xl text-red">{{ prod.price }} UAH</p>
           </div>
         </div>
         <div class="grid grid-col md:grid-cols-2 gap-4">
           <MyButton
             @click="showDescribe(prod._id)"
-            class="bg-brown-50 hover:bg-brown-50 text-white font-serif"
+            class="bg-brown-50 hover:bg-brown-50 text-white font-serif p-2"
             >Детальніше</MyButton
           >
           <MyButton
-            class="bg-white hover:bg-slate-800 text-brown-50 border-brown-50 border-[1.4px] font-serif"
+            class="bg-white hover:bg-slate-800 text-brown-50 border-brown-50 border-[1.4px] font-serif p-2"
             @click="buyProduct(prod._id)"
             >Замовити</MyButton
           >

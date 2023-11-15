@@ -1,8 +1,10 @@
 <template>
-  <div class="w-full relative">
-    <input :value="modelValue" @input="updateInput" class="w-full" />
-    <div class="absolute top-[25%] right-[8px]"><slot /></div>
-  </div>
+  <input
+    :value="modelValue"
+    @input="updateInput"
+    class="w-full h-full px-15"
+    :class="shadow ? 'shadow-4xl rounded-xl' : 'shadow-none'"
+  />
 </template>
 
 <script lang="ts">
@@ -11,7 +13,8 @@ export default defineComponent({
   name: 'my-input',
   emits: ['update:modelValue'],
   props: {
-    modelValue: [String, Number]
+    modelValue: [String, Number],
+    shadow: Boolean
   },
   methods: {
     updateInput(event: any) {
