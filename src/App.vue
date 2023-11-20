@@ -58,7 +58,7 @@ export default defineComponent({
   <header class="block">
     <div class="block h-full">
       <div
-        class="fixed flex md:hidden w-full h-[94px] justify-between bg-main top-0 items-end pb-4 px-6 z-50"
+        class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-4 px-6 z-50"
       >
         <img src="@/image/logo_header.png" alt="logo-header" class="w-[123px] h-[42px]" />
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />

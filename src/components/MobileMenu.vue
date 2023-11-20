@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ block: menuVisible, hidden: !menuVisible }"
-    class="fixed w-full h-full inset-x-0 bottom-0 bg-white top-[94px] px-2 z-30"
+    class="fixed w-full h-full inset-x-0 bottom-0 bg-white top-[77px] px-2 z-30"
   >
     <nav class="flex items-center justify-center mt-5">
       <ul class="flex flex-col items-center">

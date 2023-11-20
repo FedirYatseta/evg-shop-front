@@ -7,19 +7,21 @@
           <router-link
             @click="handleReviewsClick(item)"
             :to="item.path"
-            class="font-serif px-2 md:text-[10px] lg:text-[14px] xl:text-xl font-light uppercase text-white"
+            class="font-serif px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
             >{{ item.name }}</router-link
           >
         </li>
       </ul>
     </nav>
-    <div class="min-w-[200px] mx-10">
+    <div class="min-w-max xl:min-w-[200px] mx-2 lg:mx-10">
       <count-down />
     </div>
 
     <div class="flex flex-col">
-      <a class="text-xl font-bold text-white mb-3" href="tel:+380632563677">+380632563677</a>
-      <a class="text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
+      <a class="text-sm lg:text-xl font-bold text-white mb-3" href="tel:+380632563677"
+        >+380632563677</a
+      >
+      <a class="text-sm lg:text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
     </div>
   </div>
 </template>

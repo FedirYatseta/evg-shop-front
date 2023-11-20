@@ -1,5 +1,10 @@
-import icon1 from '@/image/2.jpg'
-import icon2 from '@/image/Group 678.png'
+import icon1 from '@/image/1.png'
+import icon2 from '@/image/Image1.jpg'
+import icon3 from '@/image/Image2.jpg'
+import icon4 from '@/image/Image3.jpg'
+import icon5 from '@/image/Image4.jpg'
+import icon6 from '@/image/Image5.jpg'
+
 export const pathConfig = [
     { name: 'Головна', path: '/' },
     { name: 'Всі сумки', path: '/product' },
@@ -35,14 +40,14 @@ export const pathConfigNew = [
 ]
 
 export const categoryProduct = [
-    { name: 'Бананки', path: '/product/bana', image: icon1 },
-    { name: 'Слінги', path: '/product/sling', image: icon1 },
-    { name: 'Месенджери', path: '/product/mess', image: icon1 },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon1 },
-    { name: 'Ключчниці', path: '/product/klutch', image: icon1 },
+    { name: 'Бананки', path: '/product/bana', image: icon2 },
+    { name: 'Слінги', path: '/product/sling', image: icon3 },
+    { name: 'Месенджери', path: '/product/mess', image: icon4 },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon5 },
+    { name: 'Ключчниці', path: '/product/klutch', image: icon6 },
 ]
 
 export const feedback = [
-    { image: icon2 }, { image: icon2 }, { image: icon2 },
-    { image: icon2 }, { image: icon2 }, { image: icon2 }
+    { image: icon1 }, { image: icon1 }, { image: icon1 },
+    { image: icon1 }, { image: icon1 }, { image: icon1 }
 ]

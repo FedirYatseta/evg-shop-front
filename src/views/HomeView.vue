@@ -226,8 +226,6 @@
 import IconEllipse from '@/assets/IconEllipse.vue'
 import IconEllipseLg from '@/assets/IconEllipseLg.vue'
 import { defineComponent, ref, watchEffect, reactive, computed } from 'vue'
-import cond from '@/config/condition.json'
-import quality from '@/config/quality.json'
 import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
 import BasicCarousel from '@/components/BasicCarousel.vue'
@@ -237,7 +235,6 @@ import { useStore, mapGetters } from 'vuex'
 import useScrollToElement from '@/hooks/useScrollToElement'
 import CountDown from '@/components/CountDown.vue'
 import IconFilter from '@/assets/IconFilter.vue'
-//import IconBase from '@/assets/IconBase.vue'
 import MyInput from '@/UI/MyInput.vue'
 import IconSearch from '@/assets/IconSearch.vue'
 import MySelect from '@/UI/MySelect.vue'
@@ -265,8 +262,6 @@ export default defineComponent({
       third: false
     })
     const dataItems = ref<any>({
-      quality,
-      cond,
       pathConfigNew
     })
 

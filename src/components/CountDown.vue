@@ -4,15 +4,15 @@
     <div class="grid grid-cols-3 gap-1 text-white">
       <div class="bg-brown-100 rounded-md p-2">
         <div class="text-md font-bold leading-6">{{ countdown.days }}</div>
-        <div class="text-md leading-4">дн</div>
+        <div class="text-xs md:text-sm leading-4">дн</div>
       </div>
       <div class="bg-brown-100 rounded-md p-2">
         <div class="text-md font-bold leading-6">{{ countdown.hours }}</div>
-        <div class="text-md leading-4">год.</div>
+        <div class="text-xs md:text-sm leading-4">год.</div>
       </div>
       <div class="bg-brown-100 rounded-md p-2">
         <div class="text-md font-bold leading-6">{{ countdown.minutes }}</div>
-        <div class="text-md leading-4">хв.</div>
+        <div class="text-xs md:text-sm leading-4">хв.</div>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ interface Countdown {
 }
 export default defineComponent({
   setup() {
-    const targetDate = new Date('2023-11-15T23:59:59')
+    const targetDate = new Date('2023-12-15T23:59:59')
     const currentTime = ref(new Date())
     const countdown = ref<Countdown>({ days: 0, hours: 0, minutes: 0 })
 
