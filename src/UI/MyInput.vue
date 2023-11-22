@@ -2,7 +2,7 @@
   <input
     :value="modelValue"
     @input="updateInput"
-    class="w-full h-full px-15"
+    class="px-15 w-full"
     :class="shadow ? 'shadow-4xl rounded-xl' : 'shadow-none'"
   />
 </template>

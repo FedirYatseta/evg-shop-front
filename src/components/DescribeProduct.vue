@@ -54,15 +54,14 @@
           >Швидке замовлення</MyButton
         >
         <div class="text-lg font-bold"><strong>Опис</strong></div>
-        <div class="text-xs font-light">{{ selectedProduct.describe }}</div>
-        <div class="text-lg font-bold"><strong> Характеристики</strong></div>
-        <ul class="text-xs font-light list-disc pl-5">
-          <li v-for="item in selectedProduct.specification" :key="item">{{ item }}</li>
-        </ul>
-        <div class="text-lg font-bold"><strong>Структура</strong></div>
-        <ul class="text-xs font-light list-disc pl-5">
-          <li v-for="item in selectedProduct.structure" :key="item">{{ item }}</li>
-        </ul>
+        <div class="text-xs font-light">
+          <QuillEditor
+            theme="snow"
+            v-model:content="selectedProduct.describe"
+            contentType="html"
+            readOnly="true"
+          />
+        </div>
         <div class="text-xs font-light py-10">Обмін та повернення протягом 14 календарних днів</div>
       </div>
     </div>

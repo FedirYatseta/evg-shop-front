@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref, onBeforeMount } from 'vue'
+import { defineComponent, ref, onMounted, watch } from 'vue'
 import BurgerButton from '@/components/BurgerButton.vue'
 import MobileMenu from '@/components/MobileMenu.vue'
 import MyFooter from '@/components/MyFooter.vue'
@@ -27,20 +27,38 @@ export default defineComponent({
     const menuVisible = ref(false)
     const router = useRouter()
     const route = useRoute()
-    console.log('router', router, route)
 
+    const urlParams = new URLSearchParams(window.location.search)
+    const param1 = urlParams.get('name')
+
+    const store = useStore()
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
     }
-    const store = useStore()
 
     router.afterEach((to, from) => {
       menuVisible.value = false
     })
+    watch(
+      route,
+      async (to, from) => {
+        if (to.query.name !== from?.query.name || route.query.name) {
+          await store.dispatch('product/fetchProduct', to.query.name)
+        }
+      },
+      { immediate: true }
+    )
+    onMounted(async () => {
+      if (param1) {
+        console.log('111111111')
 
-    onBeforeMount(async () => {
-      await store.dispatch('product/fetchProduct')
-      await store.dispatch('product/fetchConf') // 'product' - це ім'я вашого модулю Vuex
+        await store.dispatch('product/fetchProduct', param1)
+      } else {
+        console.log('222222222')
+        await store.dispatch('product/fetchProduct')
+      }
+
+      await store.dispatch('product/fetchConf')
     })
 
     return { menuVisible, toggleMenu }

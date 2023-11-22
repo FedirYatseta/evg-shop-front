@@ -1,5 +1,8 @@
 <template>
-  <div class="p-4 md:p-12 bg-white w-full flex flex-col h-full overflow-auto z-50">
+  <div
+    v-if="!successOrder"
+    class="p-4 md:p-12 bg-white w-full flex flex-col h-full overflow-auto z-50"
+  >
     <div class="text-xl font-bold border-brown-50 py-5">Корзина замовлень</div>
     <div class="absolute right-4 top-5">
       <IconClose @click="closeModal" />
@@ -56,17 +59,20 @@
             v-bind="name"
             name="name"
             id="name"
-            class="border border-solid border-brown w-full h-10"
+            class="border border-solid border-brown h-8 md:h-10 px-2"
           />
           <p class="text-red">{{ errors.name }}</p>
         </div>
         <div class="my-2">
           <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
           <my-input
+            placeholder="+380 (97) 406 67 72"
             v-bind="phone"
             name="phone"
             id="phone"
-            class="border border-solid border-brown-50 w-full h-10"
+            type="tel"
+            v-mask="'+380 (##) ### ## ##'"
+            class="border border-solid border-brown-50 h-8 md:h-10 px-2"
           />
           <p class="text-red">{{ errors.phone }}</p>
         </div>
@@ -80,7 +86,7 @@
           />
           <p class="text-red">{{ errors.policy }}</p>
           <label
-            for="phone"
+            for="policy"
             class="text-sm font-light"
             :class="errors.policy ? 'text-red' : 'text-brown-50'"
           >
@@ -93,6 +99,9 @@
         >
       </form>
     </div>
+  </div>
+  <div class="p-4 md:p-12 flex items-center justify-center z-50" v-if="successOrder">
+    <p class="p-2 md:p-12 bg-white text-3xl text-center rounded-md">Дякуюмо за замовлення!</p>
   </div>
 </template>
 
@@ -111,7 +120,6 @@ export default defineComponent({
   components: {
     IconBase,
     IconDel,
-
     MyButton,
     MyInput,
     IconClose,
@@ -120,6 +128,7 @@ export default defineComponent({
   name: 'BuyForm',
   setup() {
     const store = useStore()
+    const successOrder = ref(false)
     const total = computed(() => {
       // Збираємо загальну суму на основі count та price
       return store.state.product.buyProduct.reduce((acc, item) => {
@@ -148,7 +157,15 @@ export default defineComponent({
       }
       console.log(newObj)
       store.dispatch('product/createOrder', newObj)
-      store.commit('product/setShowBuyModal', false)
+
+      setTimeout(() => {
+        successOrder.value = true
+      }, 2000)
+      successOrder.value = true
+      setTimeout(() => {
+        store.commit('product/setShowBuyModal', false)
+        successOrder.value = false
+      }, 2000)
     })
 
     const name = defineInputBinds('name')
@@ -166,7 +183,8 @@ export default defineComponent({
       phone,
       policy,
       errors,
-      values
+      values,
+      successOrder
     }
   }
 })

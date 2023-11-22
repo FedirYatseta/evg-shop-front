@@ -255,6 +255,7 @@ export default defineComponent({
 
   setup() {
     const { handleReviewsClick } = useScrollToElement()
+
     const store = useStore()
     const nested = reactive({
       first: false, // Initial value

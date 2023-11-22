@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vueup/vue-quill": "^1.2.0",
     "axios": "^1.5.1",
     "terser": "^5.24.0",
     "type-check": "^0.4.0",
@@ -21,6 +22,7 @@
     "vue": "^3.3.4",
     "vue-collapsed": "^1.2.9",
     "vue-router": "^4.2.5",
+    "vue-the-mask": "^0.11.1",
     "vue3-carousel": "^0.3.1",
     "vue3-flip-countdown": "^0.1.6",
     "vuex": "^4.1.0",

@@ -7,7 +7,7 @@
     <div class="absolute inset-0 w-full h-full"></div>
     <div
       @click.stop
-      class="relative h-full overflow-auto flex w-full md:max-w-[70%] md:max-h-[80%]"
+      class="relative h-full overflow-auto flex items-center justify-center w-full md:max-w-[70%] md:max-h-[80%]"
     >
       <slot></slot>
     </div>

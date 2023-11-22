@@ -6,11 +6,25 @@
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
         <div class="block text-start relative">
           <div
-            class="text-white absolute uppercase rounded-full top-1 right-1 bg-stone-400 text-xs font-light flex items-center justify-center"
+            class="text-white absolute uppercase rounded-full top-1 right-2 bg-stone-400 text-xs font-light flex flex-col items-center justify-center"
           >
-            <icon-circle />
-            <div class="absolute text-sm font-bold">
-              {{ prod.newProduct ? 'New' : prod.hitProduct ? 'Хіт' : 'sale' }}
+            <div v-if="prod.sale" class="relative my-1">
+              <icon-circle />
+              <div class="absolute inset-0 text-sm font-bold flex items-center justify-center">
+                sale
+              </div>
+            </div>
+            <div v-if="prod.newProduct" class="relative my-1">
+              <icon-circle :color="'#DAAE00'" />
+              <div class="absolute inset-0 text-sm font-bold flex items-center justify-center">
+                New
+              </div>
+            </div>
+            <div v-if="prod.hitProduct" class="relative my-1">
+              <icon-circle :color="'#979797'" />
+              <div class="absolute inset-0 text-sm font-bold flex items-center justify-center">
+                Хіт
+              </div>
             </div>
           </div>
           <div
@@ -74,6 +88,7 @@ interface Product {
   newProduct: boolean
   hitProduct: boolean
   imageSrc: string[]
+  sale: boolean
 }
 import { useStore } from 'vuex'
 import IconCircle from '@/assets/IconCircle.vue'

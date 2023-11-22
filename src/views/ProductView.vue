@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, watch } from 'vue'
+import { defineComponent, onBeforeMount, onMounted, watch } from 'vue'
 import ProductCard from '@/components/ProductCard.vue'
 import MyInput from '@/UI/MyInput.vue'
 import MySelect from '@/UI/MySelect.vue'
@@ -38,6 +38,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const route = useRoute()
+
     watch(
       () => route.params.id,
       async (newId, oldId) => {
@@ -47,7 +48,7 @@ export default defineComponent({
         }
       }
     )
-    onBeforeMount(async () => {
+    onMounted(async () => {
       await store.dispatch('product/fetchProduct', route.params.id) // 'product' - це ім'я вашого модулю Vuex
     })
     return {}

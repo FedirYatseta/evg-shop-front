@@ -5,6 +5,8 @@ import { PRODUCTS_URL, PRODUCT_URL, ORDER_URL, CONFIGURE_URL } from './constants
 
 export const actions: ActionTree<any, any> = {
     async fetchProduct({ state, commit }: any, query?: any) {
+
+
         try {
             const response = await apiServices.instance.get(`${PRODUCTS_URL}/${state.shop || ''}`, {
                 params: {
