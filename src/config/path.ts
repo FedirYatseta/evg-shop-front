@@ -13,15 +13,15 @@ export const pathConfig = [
     { name: 'Месенджери', path: '/product/mess' },
     { name: 'Клатчі та гаманці', path: '/product/wallet' },
     { name: 'Ключчниці', path: '/product/klutch' },
-    { name: 'Відгуки', path: '/', id: 'question' },
-    { name: 'Часті питання', path: '/', id: 'feedback' }
+    { name: 'Відгуки', path: '/', id: 'feedback' },
+    { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const pathFooter = [
     { name: 'Головна', path: '/' },
     { name: 'Всі Сумки', path: '/product' },
-    { name: 'Відгуки', path: '/', id: 'question' },
-    { name: 'Часті питання', path: '/', id: 'feedback' }
+    { name: 'Відгуки', path: '/', id: 'feedback' },
+    { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const pathConfigNew = [
@@ -35,8 +35,8 @@ export const pathConfigNew = [
     { name: 'Месенджери', path: '/product/mess' },
     { name: 'Клатчі та гаманці', path: '/product/wallet' },
     { name: 'Ключчниці', path: '/product/klutch' },
-    { name: 'Відгуки', path: '/', id: 'question' },
-    { name: 'Часті питання', path: '/', id: 'feedback' }
+    { name: 'Відгуки', path: '/', id: 'feedback ' },
+    { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const categoryProduct = [

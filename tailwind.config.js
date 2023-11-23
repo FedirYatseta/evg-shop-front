@@ -4,6 +4,7 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",],
   theme: {
 
+
     fontFamily: {
       'sans': ['Ruda', 'sans-serif'],
       'serif': ['Open Sans', 'sans-serif']

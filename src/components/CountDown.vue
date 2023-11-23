@@ -1,18 +1,20 @@
 <template>
   <div class="text-center flex flex-col items-center justify-center bg-brown-50 rounded p-3">
-    <p class="uppercase text-white">До кінця Акції</p>
+    <p :class="textColor ? 'text-brown-50' : 'text-white'" class="uppercase font-bold">
+      До кінця Акції
+    </p>
     <div class="grid grid-cols-3 gap-1 text-white">
-      <div class="bg-brown-100 rounded-md p-2">
+      <div class="bg-brown-100 rounded-md p-2 md:py-1">
         <div class="text-md font-bold leading-6">{{ countdown.days }}</div>
-        <div class="text-xs md:text-sm leading-4">дн</div>
+        <div class="text-xs md:text-md leading-4">дн.</div>
       </div>
-      <div class="bg-brown-100 rounded-md p-2">
+      <div class="bg-brown-100 rounded-md p-2 md:py-1">
         <div class="text-md font-bold leading-6">{{ countdown.hours }}</div>
-        <div class="text-xs md:text-sm leading-4">год.</div>
+        <div class="text-xs md:text-md leading-4">год.</div>
       </div>
-      <div class="bg-brown-100 rounded-md p-2">
+      <div class="bg-brown-100 rounded-md p-2 md:py-1">
         <div class="text-md font-bold leading-6">{{ countdown.minutes }}</div>
-        <div class="text-xs md:text-sm leading-4">хв.</div>
+        <div class="text-xs md:text-md leading-4">хв.</div>
       </div>
     </div>
   </div>
@@ -26,6 +28,11 @@ interface Countdown {
   minutes: number
 }
 export default defineComponent({
+  props: {
+    textColor: {
+      type: Boolean
+    }
+  },
   setup() {
     const targetDate = new Date('2023-12-15T23:59:59')
     const currentTime = ref(new Date())

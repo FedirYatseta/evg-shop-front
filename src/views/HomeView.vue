@@ -31,7 +31,7 @@
       <div class="border-t border-b border-black-50">
         <div class="container mx-auto">
           <div class="grid grid-cols-2 md:grid-cols-1 justify-items-center gap-2 items-center p-5">
-            <div class="md:hidden"><count-down /></div>
+            <div class="md:hidden"><count-down :textColor="false" /></div>
             <p class="text-sm md:text-3xl text-justify leading-6">
               Наші сумки, натуральна шкіра, якісна фурнітура, топ топскій купуй і не пожалкуєш
             </p>
