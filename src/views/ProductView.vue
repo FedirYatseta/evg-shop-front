@@ -17,6 +17,14 @@
       </div>
 
       <product-card :products="sortedAndSearchProducts" />
+      <div class="px-5 flex items-center justify-center my-5">
+        <button
+          @click="fetchNextProduct"
+          class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
+        >
+          Завантажити ще...
+        </button>
+      </div>
     </div>
   </main>
 </template>
@@ -38,7 +46,11 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const route = useRoute()
+    const fetchNextProduct = () => {
+      const { _id } = store.state.product.product[store.state.product.product.length - 1]
 
+      store.dispatch('product/fetchProduct', { id: _id })
+    }
     watch(
       () => route.params.id,
       async (newId, oldId) => {
@@ -51,7 +63,7 @@ export default defineComponent({
     onMounted(async () => {
       await store.dispatch('product/fetchProduct', route.params.id) // 'product' - це ім'я вашого модулю Vuex
     })
-    return {}
+    return { fetchNextProduct }
   },
   methods: {
     ...mapMutations({

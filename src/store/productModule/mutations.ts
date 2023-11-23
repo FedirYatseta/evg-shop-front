@@ -4,6 +4,10 @@ export const mutations: MutationTree<any, any> = {
     setProduct(state: any, prod: any) {
         state.product = prod.data
     },
+
+    setProductNew(state: any, prod: any) {
+        state.product = [...state.product, ...prod.data]
+    },
     setSelectedSort(state: any, selectedSort: any) {
 
         state.selectedSort = selectedSort

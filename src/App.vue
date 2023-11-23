@@ -26,7 +26,6 @@ export default defineComponent({
   setup() {
     const menuVisible = ref(false)
     const router = useRouter()
-    const route = useRoute()
 
     const urlParams = new URLSearchParams(window.location.search)
     const param1 = urlParams.get('name')
@@ -39,22 +38,19 @@ export default defineComponent({
     router.afterEach((to, from) => {
       menuVisible.value = false
     })
-    watch(
-      route,
-      async (to, from) => {
-        if (to.query.name !== from?.query.name || route.query.name) {
-          await store.dispatch('product/fetchProduct', to.query.name)
-        }
-      },
-      { immediate: true }
-    )
+    // watch(
+    //   route,
+    //   async (to, from) => {
+    //     if (to.query.name !== from?.query.name || route.query.name) {
+    //       await store.dispatch('product/fetchProduct', to.query.name)
+    //     }
+    //   },
+    //   { immediate: true }
+    // )
     onMounted(async () => {
       if (param1) {
-        console.log('111111111')
-
-        await store.dispatch('product/fetchProduct', param1)
+        await store.dispatch('product/fetchProduct', { type: param1 })
       } else {
-        console.log('222222222')
         await store.dispatch('product/fetchProduct')
       }
 

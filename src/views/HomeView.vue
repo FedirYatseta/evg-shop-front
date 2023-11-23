@@ -159,7 +159,10 @@
         </div>
         <product-card :products="sortedAndSearchProducts" />
         <div class="px-5 flex items-center justify-center my-5">
-          <button class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm">
+          <button
+            @click="fetchNextProduct"
+            class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
+          >
             Завантажити ще...
           </button>
         </div>
@@ -299,6 +302,12 @@ export default defineComponent({
         }
       })
     }
+
+    const fetchNextProduct = () => {
+      const { _id } = store.state.product.product[store.state.product.product.length - 1]
+
+      store.dispatch('product/fetchProduct', { id: _id })
+    }
     return {
       dataItems,
       handleAccordion,
@@ -313,7 +322,8 @@ export default defineComponent({
       sortOptions: computed(() => store.state.product.sortOptions),
       setSearchQuery: (e) => store.commit('product/setSearchQuery', e),
       setSelectedSort: (e) => store.commit('product/setSelectedSort', e),
-      nested
+      nested,
+      fetchNextProduct
     }
   },
   computed: {

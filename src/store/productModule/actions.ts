@@ -5,15 +5,20 @@ import { PRODUCTS_URL, PRODUCT_URL, ORDER_URL, CONFIGURE_URL } from './constants
 
 export const actions: ActionTree<any, any> = {
     async fetchProduct({ state, commit }: any, query?: any) {
-
+        console.log('query', query)
 
         try {
             const response = await apiServices.instance.get(`${PRODUCTS_URL}/${state.shop || ''}`, {
                 params: {
-                    type: query
+                    type: query?.type,
+                    limit: 10,
+                    cursor: query?.id
                 }
             })
-            commit('setProduct', response.data)
+            if (!query?.id) {
+                commit('setProduct', response.data)
+            } else commit('setProductNew', response.data)
+
         } catch (e) {
             console.log(e)
         }
