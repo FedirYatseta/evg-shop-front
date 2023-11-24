@@ -2,7 +2,7 @@
   <Carousel :wrap-around="true" :v-bind="settings" :breakpoints="breakpoints">
     <Slide v-for="slide in array" :key="slide.image">
       <div class="px-2">
-        <img :src="slide.image" class="carousel__item" />
+        <img :src="slide.image" class="carousel__item" alt="slider image" />
       </div>
     </Slide>
 
@@ -57,10 +57,10 @@ export default defineComponent({
 
 <style scoped>
 .carousel__item {
-  height: auto;
+  height: 100%;
   padding: 10px;
   margin: 25px 5px;
-
+  width: 100%;
   background: #fff;
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.25),

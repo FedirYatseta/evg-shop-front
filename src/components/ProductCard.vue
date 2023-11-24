@@ -39,7 +39,7 @@
                   : prod.imageSrc[0]
               "
               alt="iconProduct"
-              class="mx-auto max-h-[500px]"
+              class="w-full h-full"
             />
           </div>
           <p class="font-bold text-sm md:text-lg lg:text-2xl md:mb-2">

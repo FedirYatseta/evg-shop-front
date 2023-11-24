@@ -36,7 +36,7 @@
           </span>
         </div>
         <picture class="block mx-auto">
-          <img src="../image/payment-methods0.png" alt="pay-method" class="img-method" />
+          <img src="../image/payment-methods0.png" alt="pay-method" class="w-full h-full" />
         </picture>
       </div>
     </div>

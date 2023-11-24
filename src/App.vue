@@ -49,9 +49,9 @@ export default defineComponent({
     // )
     onMounted(async () => {
       if (param1) {
-        await store.dispatch('product/fetchProduct', { type: param1 })
+        await store.dispatch('product/fetchProduct', { limit: 10, type: param1 })
       } else {
-        await store.dispatch('product/fetchProduct')
+        await store.dispatch('product/fetchProduct', { limit: 10 })
       }
 
       await store.dispatch('product/fetchConf')

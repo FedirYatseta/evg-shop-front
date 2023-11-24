@@ -9,13 +9,9 @@ export const actions: ActionTree<any, any> = {
 
         try {
             const response = await apiServices.instance.get(`${PRODUCTS_URL}/${state.shop || ''}`, {
-                params: {
-                    type: query?.type,
-                    limit: 10,
-                    cursor: query?.id
-                }
+                params: query
             })
-            if (!query?.id) {
+            if (!query?.limit) {
                 commit('setProduct', response.data)
             } else commit('setProductNew', response.data)
 

@@ -241,6 +241,7 @@ import IconFilter from '@/assets/IconFilter.vue'
 import MyInput from '@/UI/MyInput.vue'
 import IconSearch from '@/assets/IconSearch.vue'
 import MySelect from '@/UI/MySelect.vue'
+import { useRoute } from 'vue-router'
 export default defineComponent({
   components: {
     IconEllipse,
@@ -258,7 +259,7 @@ export default defineComponent({
 
   setup() {
     const { handleReviewsClick } = useScrollToElement()
-
+    const route = useRoute()
     const store = useStore()
     const nested = reactive({
       first: false, // Initial value
@@ -304,9 +305,11 @@ export default defineComponent({
     }
 
     const fetchNextProduct = () => {
+      console.log('MAINPAGE')
+
       const { _id } = store.state.product.product[store.state.product.product.length - 1]
 
-      store.dispatch('product/fetchProduct', { id: _id })
+      store.dispatch('product/fetchProduct', { limit: 10, cursor: _id })
     }
     return {
       dataItems,

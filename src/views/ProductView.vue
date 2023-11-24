@@ -48,20 +48,33 @@ export default defineComponent({
     const route = useRoute()
     const fetchNextProduct = () => {
       const { _id } = store.state.product.product[store.state.product.product.length - 1]
+      let param = {}
+      if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale') {
+        param[route.params.id] = true
+      } else param = { type: route.params.id }
 
-      store.dispatch('product/fetchProduct', { id: _id })
+      store.dispatch('product/fetchProduct', { limit: 10, cursor: _id, ...param })
     }
     watch(
       () => route.params.id,
       async (newId, oldId) => {
         if (newId !== oldId) {
+          let param = {}
+          if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale')
+            param[route.params.id] = true
+          else param = { type: route.params.id }
           // Викликаємо метод при зміні шляху
-          await store.dispatch('product/fetchProduct', newId)
+          await store.dispatch('product/fetchProduct', param)
         }
       }
     )
     onMounted(async () => {
-      await store.dispatch('product/fetchProduct', route.params.id) // 'product' - це ім'я вашого модулю Vuex
+      let param = {}
+      if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale')
+        param[route.params.id] = true
+      else param = { type: route.params.id }
+
+      await store.dispatch('product/fetchProduct', param) // 'product' - це ім'я вашого модулю Vuex
     })
     return { fetchNextProduct }
   },

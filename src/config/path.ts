@@ -26,9 +26,9 @@ export const pathFooter = [
 
 export const pathConfigNew = [
     { name: 'Головна', path: '/' },
-    { name: 'Хіти', path: '/product' },
-    { name: 'Новинки', path: '/product' },
-    { name: 'Знижки', path: '/product' },
+    { name: 'Хіти', path: '/product/hit' },
+    { name: 'Новинки', path: '/product/new' },
+    { name: 'Знижки', path: '/product/sale' },
     { name: 'Всі сумки', path: '/product' },
     { name: 'Бананки', path: '/product/bana' },
     { name: 'Слінги', path: '/product/sling' },
