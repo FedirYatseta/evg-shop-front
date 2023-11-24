@@ -168,9 +168,9 @@
         </div>
       </div>
     </div>
-    <div id="feedback" class="w-full">
+    <div id="feedback" class="w-full md:shadow-5xl py-5 mb-16">
       <div class="container mx-auto">
-        <div class="my-10">
+        <div class="my-5">
           <basic-carousel />
         </div>
       </div>
@@ -259,7 +259,7 @@ export default defineComponent({
 
   setup() {
     const { handleReviewsClick } = useScrollToElement()
-    const route = useRoute()
+
     const store = useStore()
     const nested = reactive({
       first: false, // Initial value

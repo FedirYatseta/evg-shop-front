@@ -1,15 +1,15 @@
 <script lang="ts">
-import { defineComponent, ref, onMounted, watch } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import BurgerButton from '@/components/BurgerButton.vue'
 import MobileMenu from '@/components/MobileMenu.vue'
 import MyFooter from '@/components/MyFooter.vue'
 import DescTopMenu from '@/components/DescTopMenu.vue'
-import { useRouter, useRoute } from 'vue-router'
-import MyDialog from './UI/MyDialog.vue'
+import { useRouter } from 'vue-router'
+import MyDialog from '@/UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
-import DescribeProduct from './components/DescribeProduct.vue'
-import MyModalView from './UI/MyModalView.vue'
-import BuyForm from './components/BuyForm.vue'
+import DescribeProduct from '@/components/DescribeProduct.vue'
+import MyModalView from '@/UI/MyModalView.vue'
+import BuyForm from '@/components/BuyForm.vue'
 
 export default defineComponent({
   components: {

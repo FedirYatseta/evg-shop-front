@@ -8,7 +8,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <g stroke="none" stroke-width="1" fill="#000000" fill-rule="evenodd">
+    <g stroke="none" stroke-width="1" :fill="color || '#000000'" fill-rule="evenodd">
       <rect
         transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) "
         x="10.3137085"
@@ -26,3 +26,14 @@
     </g>
   </svg>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  props: {
+    color: {
+      type: String
+    }
+  }
+})
+</script>

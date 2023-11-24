@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, onMounted, watch } from 'vue'
+import { defineComponent, onMounted, watch } from 'vue'
 import ProductCard from '@/components/ProductCard.vue'
 import MyInput from '@/UI/MyInput.vue'
 import MySelect from '@/UI/MySelect.vue'

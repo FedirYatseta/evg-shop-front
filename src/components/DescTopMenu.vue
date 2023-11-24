@@ -30,7 +30,7 @@
 import { defineComponent } from 'vue'
 import { pathFooter } from '@/config/path'
 import useScrollToElement from '@/hooks/useScrollToElement'
-import CountDown from './CountDown.vue'
+import CountDown from '@/components/CountDown.vue'
 export default defineComponent({
   components: {
     CountDown
