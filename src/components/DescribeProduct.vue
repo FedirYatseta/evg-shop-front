@@ -11,13 +11,24 @@
     <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 gap-4">
       <div class="flex flex-col justify-center mx-auto">
         <Carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
-          <Slide v-for="slide in selectedProduct.imageSrc" :key="slide">
+          <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
             <div class="w-full h-auto mb-2">
               <img
+                v-if="index !== videoUrlToArray.length - 1"
                 :src="slide"
                 alt="image-product-slide"
                 class="rounded-b-md max-h-[510px] mx-auto"
               />
+              <iframe
+                v-else
+                width="100%"
+                height="100%"
+                :src="slide"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
           </Slide>
         </Carousel>
@@ -29,14 +40,27 @@
           v-model="currentSlide"
           ref="carousel"
         >
-          <Slide v-for="(slide, index) in selectedProduct.imageSrc" :key="slide">
+          <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
             <div @click="slideTo(index)" class="mx-2 pt-5">
               <img
+                v-if="index !== videoUrlToArray.length - 1"
                 class="opacity-10 rounded-md"
                 :src="slide"
                 alt="image-product-slide"
                 :class="{ 'opacity-100': index === currentSlide }"
               />
+              <iframe
+                v-else
+                width="100%"
+                height="100%"
+                :src="slide"
+                title="YouTube video player"
+                frameborder="0"
+                allowfullscreen
+                class="opacity-10 rounded-md"
+                :class="{ 'opacity-100': index === currentSlide }"
+                @click="stopVideo"
+              ></iframe>
             </div>
           </Slide>
         </Carousel>
@@ -106,6 +130,12 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const currentSlide = ref<any>(0)
+    const videoUrlToArray = ref([
+      ...store.state.product.selectedProduct.imageSrc,
+      store.state.product.selectedProduct.videoUrl
+    ])
+
+    console.log('videoUrlToArray', videoUrlToArray.value)
 
     const goBack = () => {
       router.go(-1)
@@ -121,13 +151,19 @@ export default defineComponent({
       store.commit('product/setProductToOrder', id)
     }
 
+    const stopVideo = (e) => {
+      e.stopPropagation()
+    }
+
     return {
       currentSlide,
       slideTo,
       goBack,
       selectedProduct: computed(() => store.state.product.selectedProduct),
       setShowModal: () => store.commit('product/setShowModal'),
-      goToBuy
+      videoUrlToArray,
+      goToBuy,
+      stopVideo
     }
   }
 })

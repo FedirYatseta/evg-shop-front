@@ -24,7 +24,9 @@ strong {
 main {
   height: 100%;
 }
-
+.carousel__slide {
+  align-items: stretch !important;
+}
 .carousel__pagination-button::after {
   border-radius: 50% !important;
   width: 10px !important;

@@ -18,8 +18,8 @@ export default defineConfig(({ command, mode }) => {
       manifest: true,
       rollupOptions: {
         output: {
-          chunkFileNames: isProduction ? 'assets/js/[name]-[contenthash].js' : 'assets/js/[name].js',
-          entryFileNames: isProduction ? 'assets/js/[name]-[contenthash].js' : 'assets/js/[name].js',
+          chunkFileNames: isProduction ? 'assets/js/[name]-[hash].js' : 'assets/js/[name].js',
+          entryFileNames: isProduction ? 'assets/js/[name]-[hash].js' : 'assets/js/[name].js',
 
           assetFileNames: ({ name }) => {
             if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {

@@ -25,6 +25,9 @@ export default defineComponent({
     Slide,
     Pagination
   },
+  props: {
+    videoUrl: String
+  },
   setup() {
     const array = ref(feedback)
     return {
