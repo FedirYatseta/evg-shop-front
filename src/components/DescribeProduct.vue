@@ -10,7 +10,7 @@
     </div>
     <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 gap-4">
       <div class="flex flex-col justify-center mx-auto">
-        <Carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
+        <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
           <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
             <div class="w-full h-auto mb-2">
               <img
@@ -21,7 +21,7 @@
               />
               <iframe
                 v-else
-                class="rounded-md w-full h-full"
+                class="rounded-b-md w-full h-full"
                 :src="slide"
                 title="YouTube video player"
                 frameborder="0"
@@ -40,11 +40,7 @@
           ref="carousel"
         >
           <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
-            <div
-              @click="slideTo(index)"
-              class="mx-2 pt-5"
-              v-if="index !== videoUrlToArray.length - 1"
-            >
+            <div @click="slideTo(index)" class="mx-2 pt-5 max-h-[200px] md:max-h-[500px]">
               <img
                 v-if="index !== videoUrlToArray.length - 1"
                 class="opacity-10 rounded-md h-full object-cover"
@@ -149,7 +145,7 @@ export default defineComponent({
       // 1024 and up
       1024: {
         itemsToShow: 5,
-        snapAlign: 'start'
+        snapAlign: 'center'
       }
     })
 

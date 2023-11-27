@@ -1,6 +1,8 @@
 <template>
   <div class="flex w-full items-center justify-center container mx-auto px-14 py-3">
-    <img src="@/image/logo_header.png" alt="logo-header" class="w-[123px] h-[42px]" />
+    <router-link to="/" class="w-full h-auto max-w-[123px]">
+      <img src="@/image/logo_header.png" alt="logo-header" class="w-full h-full object-contain" />
+    </router-link>
     <nav class="block mx-auto w-full">
       <ul class="flex justify-center py-3">
         <li v-for="item in pathFooter" :key="item.path">
