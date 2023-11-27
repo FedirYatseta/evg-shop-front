@@ -1,5 +1,5 @@
 <template>
-  <Carousel :wrap-around="true" :v-bind="settings" :breakpoints="breakpoints">
+  <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
     <Slide v-for="slide in array" :key="slide.image">
       <div class="px-2">
         <img :src="slide.image" class="carousel__item" alt="slider image" />
@@ -25,9 +25,6 @@ export default defineComponent({
     Slide,
     Pagination
   },
-  props: {
-    videoUrl: String
-  },
   setup() {
     const array = ref(feedback)
     return {
@@ -35,13 +32,6 @@ export default defineComponent({
     }
   },
   data: () => ({
-    // carousel settings
-    settings: {
-      itemsToShow: 1,
-      snapAlign: 'center'
-    },
-    // breakpoints are mobile first
-    // any settings not specified will fallback to the carousel settings
     breakpoints: {
       // 700px and up
       700: {
@@ -60,8 +50,8 @@ export default defineComponent({
 
 <style scoped>
 .carousel__item {
-  height: 100%;
   padding: 10px;
+  object-fit: contain;
   margin: 25px 5px;
   width: 100%;
   background: #fff;

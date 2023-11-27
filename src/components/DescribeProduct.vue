@@ -21,8 +21,7 @@
               />
               <iframe
                 v-else
-                width="100%"
-                height="100%"
+                class="rounded-md w-full h-full"
                 :src="slide"
                 title="YouTube video player"
                 frameborder="0"
@@ -35,32 +34,35 @@
 
         <Carousel
           id="thumbnails"
-          :items-to-show="4"
+          :breakpoints="breakpoints"
           :wrap-around="true"
           v-model="currentSlide"
           ref="carousel"
         >
           <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
-            <div @click="slideTo(index)" class="mx-2 pt-5">
+            <div
+              @click="slideTo(index)"
+              class="mx-2 pt-5"
+              v-if="index !== videoUrlToArray.length - 1"
+            >
               <img
                 v-if="index !== videoUrlToArray.length - 1"
-                class="opacity-10 rounded-md"
+                class="opacity-10 rounded-md h-full object-cover"
                 :src="slide"
                 alt="image-product-slide"
                 :class="{ 'opacity-100': index === currentSlide }"
               />
-              <iframe
-                v-else
-                width="100%"
-                height="100%"
-                :src="slide"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen
-                class="opacity-10 rounded-md"
-                :class="{ 'opacity-100': index === currentSlide }"
-                @click="stopVideo"
-              ></iframe>
+              <div v-else class="w-full h-full">
+                <div class="absolute inset-0 z-50"></div>
+                <iframe
+                  :src="slide"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allowfullscreen
+                  class="opacity-10 rounded-md w-full h-full"
+                  :class="{ 'opacity-100': index === currentSlide }"
+                ></iframe>
+              </div>
             </div>
           </Slide>
         </Carousel>
@@ -134,6 +136,22 @@ export default defineComponent({
       ...store.state.product.selectedProduct.imageSrc,
       store.state.product.selectedProduct.videoUrl
     ])
+    const breakpoints = ref({
+      250: {
+        itemsToShow: 2,
+        snapAlign: 'center'
+      },
+      // 700px and up
+      700: {
+        itemsToShow: 3.5,
+        snapAlign: 'center'
+      },
+      // 1024 and up
+      1024: {
+        itemsToShow: 5,
+        snapAlign: 'start'
+      }
+    })
 
     console.log('videoUrlToArray', videoUrlToArray.value)
 
@@ -163,7 +181,8 @@ export default defineComponent({
       setShowModal: () => store.commit('product/setShowModal'),
       videoUrlToArray,
       goToBuy,
-      stopVideo
+      stopVideo,
+      breakpoints
     }
   }
 })
