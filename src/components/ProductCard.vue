@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-1 lg:gap-x-20 lg:gap-y-5"
+    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-1 md:gap-x-10 md:gap-y-10 xl:gap-x-20 xl:gap-y-10"
   >
     <TransitionGroup name="product-list">
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
@@ -42,7 +42,7 @@
               class="w-full h-full"
             />
           </div>
-          <p class="font-bold text-sm md:text-lg lg:text-2xl md:mb-2">
+          <p class="font-bold text-sm md:text-lg lg:text-2xl md:mb-2 pt-5">
             {{ prod.title }}
           </p>
           <p class="text-xs md:text-lg text-black-150 lg:text-xl md:mb-2">

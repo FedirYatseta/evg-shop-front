@@ -1,5 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    :width="width || 45"
+    :height="height || 45"
+    viewBox="0 0 45 45"
+    fill="none"
+  >
     <g filter="url(#filter0_i_130_163)">
       <circle cx="22.5" cy="22.5" r="22.5" fill="#372929" />
     </g>
@@ -36,3 +42,18 @@
     </defs>
   </svg>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    width: {
+      type: String
+    },
+    height: {
+      type: String
+    }
+  }
+})
+</script>

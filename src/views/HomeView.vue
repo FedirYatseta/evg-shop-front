@@ -22,7 +22,7 @@
           <img
             src="../image/image.png"
             alt="main image"
-            class="h-full object-fill w-full max-h-[640px] max-w-[346px] md:max-w-[616px] px-5"
+            class="h-full object-contain w-full h-full max-h-[340px] max-w-[346px] md:max-h-[400px] md:max-w-[616px] px-5"
           />
         </div>
       </div>
@@ -45,29 +45,42 @@
           <p class="text-center font-bold text-2xl md:text-[53px] md:mb-5">
             Про якість наших сумок
           </p>
-          <p class="text-center font-light text-sm md:text-xl mb-5 md:mb-32">
+          <p class="text-center font-light text-sm md:text-xl mb-5 lg:mb-16 xl:mb-32">
             Або "Чому купити сумку саме у нас буде кращим рішенням?"
           </p>
-          <div class="grid grid-col md:grid-cols-2 gap-3 md:gap-10 pb-6">
+          <div class="grid grid-col md:grid-cols-2 gap-3 md:gap-10 pb-6 md:px-16">
             <div
               class="flex items-center justify-start pb-6 h-full"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
-              <div
-                class="flex items-center justify-center relative w-full h-full max-w-[45px] md:max-w-[111px] mr-3 md:mr-10"
-              >
-                <div class="absolute md:hidden w-[45px] h-[45px]">
-                  <icon-ellipse />
+              <div class="flex items-center justify-center relative h-full mr-3">
+                <div class="absolute block md:hidden">
+                  <icon-ellipse :width="45" :height="45" />
                 </div>
-                <div class="absolute hidden md:block w-[111px] h-[111px]"><icon-ellipse-lg /></div>
-                <div class="text-white text-2xl md:text-[51px] z-10">0{{ index + 1 }}</div>
+
+                <div class="absolute hidden md:block xl:hidden">
+                  <icon-ellipse :width="60" :height="60" />
+                </div>
+                <div class="absolute hidden xl:block">
+                  <icon-ellipse :width="111" :height="111" />
+                </div>
+
+                <div
+                  class="text-white text-center text-xl md:text-3xl xl:text-5xl z-10 w-[45px] md:w-[80px] xl:w-[111px]"
+                >
+                  0{{ index + 1 }}
+                </div>
               </div>
               <div>
-                <p class="font-bold text-sm md:text-[42px] normal-case leading-none mb-1">
+                <p
+                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none mb-1"
+                >
                   {{ val.title }}
                 </p>
-                <p class="font-light text-xs md:text-[30px] leading-none">{{ val.description }}</p>
+                <p class="font-light text-xs md:text-sm xl:text-xl leading-none">
+                  {{ val.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -76,15 +89,15 @@
     </div>
     <div class="w-full">
       <div
-        class="inline-block w-full text-2xl md:text-[53px] text-center mb-3 md:mb-10 text-white bg-main p-5 md:p-10"
+        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-3 md:mb-10 text-white bg-main p-5 md:p-10"
       >
         <p class="container mx-auto">Сумки з натуральної шкіри</p>
       </div>
-      <div class="container mx-auto my-10">
+      <div class="container mx-auto my-10 md:px-12 xl:px-0">
         <div>
           <div class="px-2 w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 py-2 inline-flex text-sm md:text-3xl font-semibold md:font-bold rounded-[70px] shadow-3xl"
+              class="m-1 px-4 py-2 inline-flex text-sm md:text-xl xl:text-3xl font-semibold md:font-bold rounded-[70px] shadow-3xl"
               @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
@@ -157,6 +170,7 @@
             </div>
           </Collapse>
         </div>
+
         <product-card :products="sortedAndSearchProducts" />
         <div class="px-5 flex items-center justify-center my-5">
           <button
@@ -179,10 +193,14 @@
       <div class="container mx-auto">
         <div class="px-5 grid grid-col lg:grid-cols-2 gap-5">
           <div>
-            <p class="text-2xl md:text-[53px] font-bold text-brown-50 md:leading-[63px] md:mb-5">
+            <p
+              class="text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 md:leading-[63px] md:mb-5"
+            >
               Відповіді на запитання, які часто задають
             </p>
-            <p class="text-lg md:text-2xl font-normal text-brown-50 md:leading-10 md:mb-5">
+            <p
+              class="text-lg md:text-xl xl:text-2xl font-normal text-brown-50 md:leading-10 md:mb-5"
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <img
@@ -213,9 +231,10 @@
                 </button>
               </div>
               <Collapse as="section" :when="question.isExpanded">
-                <p class="p-3 bg-stone-100 md:text-2xl w-full border-b border-l border-r">
-                  {{ question.description }}
-                </p>
+                <div
+                  class="p-3 bg-stone-100 md:text-2xl w-full border-b border-l border-r"
+                  v-html="processTextWithEmojis(question.description)"
+                ></div>
               </Collapse>
             </div>
           </div>
@@ -227,7 +246,6 @@
 
 <script lang="ts">
 import IconEllipse from '@/assets/IconEllipse.vue'
-import IconEllipseLg from '@/assets/IconEllipseLg.vue'
 import { defineComponent, ref, watchEffect, reactive, computed } from 'vue'
 import { Collapse } from 'vue-collapsed'
 import IconPlus from '@/assets/IconPlus.vue'
@@ -241,7 +259,7 @@ import IconFilter from '@/assets/IconFilter.vue'
 import MyInput from '@/UI/MyInput.vue'
 import IconSearch from '@/assets/IconSearch.vue'
 import MySelect from '@/UI/MySelect.vue'
-import { useRoute } from 'vue-router'
+
 export default defineComponent({
   components: {
     IconEllipse,
@@ -251,7 +269,6 @@ export default defineComponent({
     ProductCard,
     CountDown,
     IconFilter,
-    IconEllipseLg,
     MyInput,
     IconSearch,
     MySelect
@@ -273,6 +290,11 @@ export default defineComponent({
     const rotation = ref(45)
     const activeIndex = ref(-1)
     const questions = reactive<any>([]) // Початково порожній масив для питань
+    function processTextWithEmojis(text) {
+      const lines = text.split('\n')
+      const paragraphs = lines.map((line) => `<p>${line}</p>`)
+      return paragraphs.join('')
+    }
 
     watchEffect(() => {
       // Викликається при зміні store.state.product.confShop
@@ -326,7 +348,8 @@ export default defineComponent({
       setSearchQuery: (e) => store.commit('product/setSearchQuery', e),
       setSelectedSort: (e) => store.commit('product/setSelectedSort', e),
       nested,
-      fetchNextProduct
+      fetchNextProduct,
+      processTextWithEmojis
     }
   },
   computed: {
