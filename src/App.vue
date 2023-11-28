@@ -74,7 +74,13 @@ export default defineComponent({
       <div
         class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-4 px-6 z-50"
       >
-        <img src="@/image/logo_header.png" alt="logo-header" class="w-[123px] h-[42px]" />
+        <router-link to="/" class="w-full h-auto max-w-[123px]">
+          <img
+            src="@/image/logo_header.png"
+            alt="logo-header"
+            class="w-full h-full object-contain"
+          />
+        </router-link>
         <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>

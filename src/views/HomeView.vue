@@ -142,8 +142,8 @@
                 />
               </Collapse>
             </div>
-            <div class="border-y border-gray">
-              <button @click="nested.third = !nested.third" class="py-1 w-full text-start">
+            <div class="border-b border-gray">
+              <!-- <button @click="nested.third = !nested.third" class="py-1 w-full text-start">
                 Наявність
               </button>
               <Collapse :when="nested.third">
@@ -153,7 +153,7 @@
                   :selected="selectedSort"
                   @update:selected="setSelectedSort"
                 />
-              </Collapse>
+              </Collapse> -->
             </div>
           </Collapse>
         </div>

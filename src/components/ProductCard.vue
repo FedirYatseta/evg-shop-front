@@ -4,7 +4,7 @@
   >
     <TransitionGroup name="product-list">
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
-        <div class="block text-start relative">
+        <div class="block text-start relative cursor-pointer" @click="showDescribe(prod._id)">
           <div
             class="text-white absolute uppercase rounded-full top-1 right-2 bg-stone-400 text-xs font-light flex flex-col items-center justify-center"
           >
