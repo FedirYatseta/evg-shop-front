@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-1 md:gap-x-10 md:gap-y-10 xl:gap-x-20 xl:gap-y-10"
+    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-1 md:gap-2 lg:gap-5 xl:gap-6"
   >
     <TransitionGroup name="product-list">
       <div class="p-1 flex flex-col justify-between" v-for="prod in products" :key="prod.title">
@@ -42,22 +42,22 @@
               class="w-full h-full"
             />
           </div>
-          <p class="font-bold text-sm md:text-lg lg:text-2xl md:mb-2 pt-5">
+          <p class="font-bold text-center text-sm md:text-lg lg:text-2xl pt-1 md:pt-2">
             {{ prod.title }}
           </p>
-          <p class="text-xs md:text-lg text-black-150 lg:text-xl md:mb-2">
+          <p class="text-xs text-center md:text-lg text-black-150 lg:text-xl pt-1 md:pt-2">
             Розмір <span> {{ prod.size + ' см' }}</span>
           </p>
-          <div class="flex md:mb-3">
+          <div class="flex pt-1 md:pt-2 justify-center">
             <span
               class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-2"
             >
-              <p class="text-black-200 text-lg md:text-lg lg:text-2xl">{{ prod.oldPrice }} UAH</p>
+              <p class="text-black-200 text-base md:text-lg lg:text-2xl">{{ prod.oldPrice }} UAH</p>
             </span>
-            <p class="text-lg md:text-lg lg:text-2xl text-red">{{ prod.price }} UAH</p>
+            <p class="text-base md:text-lg lg:text-2xl text-red">{{ prod.price }} UAH</p>
           </div>
         </div>
-        <div class="grid grid-col md:grid-cols-2 gap-4">
+        <div class="grid grid-col md:grid-cols-2 gap-4 pt-1">
           <MyButton
             @click="showDescribe(prod._id)"
             class="bg-brown-50 hover:bg-brown-50 text-white font-serif p-2"

@@ -6,7 +6,7 @@
           <icon-logo />
         </div>
 
-        <div class="flex w-full items-center justify-center mb-8">
+        <div class="flex w-full items-center justify-center mb-4 md:mb-8">
           <icon-base iconColor="white" class="mx-2">
             <icon-viber />
           </icon-base>
@@ -17,12 +17,12 @@
             <icon-whats-app />
           </icon-base>
         </div>
-        <ul class="grid grid-cols-4 md:grid-flow-col text-center justify-center">
+        <ul class="grid grid-cols-5 text-center justify-center">
           <li v-for="item in pathFooter" :key="item.path">
             <RouterLink
               @click="handleReviewsClick(item)"
               :to="item.path"
-              class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
+              class="text-white text-[8px] md:text-lg font-serif uppercase whitespace-nowrap"
               >{{ item.name }}</RouterLink
             >
           </li>

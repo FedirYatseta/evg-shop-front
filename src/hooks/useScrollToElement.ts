@@ -29,6 +29,15 @@ const useScrollToElement = () => {
                 scrollToElement('feedback')
             }, 500);
 
+        }
+        else if (item.id === 'home') {
+
+            // Перехід до розділу з ID "feedback" на сторінці "Головна"
+
+            setTimeout(() => {
+                scrollToElement('home')
+            }, 500);
+
         } else {
             // Зазвичай переход за маршрутом
 

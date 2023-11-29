@@ -69,7 +69,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <header class="block">
+  <header class="block" id="home">
     <div class="block h-full">
       <div
         class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-4 px-6 z-50"

@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mt-[96px] py-10">
+  <main class="w-full mt-[70px] md:mt-2 py-10">
     <div class="container mx-auto px-2">
       <div class="grid grid-col md:grid-cols-2 gap-2 mb-3">
         <my-input
