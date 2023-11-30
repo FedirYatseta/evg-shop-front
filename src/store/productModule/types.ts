@@ -9,7 +9,7 @@ export interface ProductState {
     confShop: []
     selectedProduct: []
     sortOptions: SortOption[]
-    sortOptions2: SortOption[]
+
 }
 
 export interface SortOption {

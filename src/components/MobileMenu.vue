@@ -16,17 +16,17 @@
       </ul>
     </nav>
     <div class="flex w-full items-center justify-center mt-8">
-      <a href="https://t.me/moiseev_stom" class="mx-2">
+      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="FaceBook number">
         <icon-base>
           <icon-fb />
         </icon-base>
       </a>
-      <a href="https://t.me/moiseev_stom" class="mx-2">
+      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="Inst Link ">
         <icon-base>
           <icon-inst />
         </icon-base>
       </a>
-      <a href="https://t.me/moiseev_stom" class="mx-2">
+      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="Telegram number">
         <icon-base>
           <icon-teleg />
         </icon-base>

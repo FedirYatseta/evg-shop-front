@@ -1,6 +1,11 @@
 <template>
-  <select v-model="localSelected" @change="changeOption" class="p-2 h-[40px] w-full">
-    <option disabled value="">Вибрати варіант</option>
+  <select
+    v-model="localSelected"
+    @change="changeOption"
+    class="p-2 h-[40px] w-full"
+    aria-label="Фільтр"
+  >
+    <option disabled value="">Сортування</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}
     </option>

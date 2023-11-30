@@ -5,7 +5,7 @@
         <div @click="setShowModal">Назад до каталогу</div>
       </div>
       <div>
-        <IconClose @click="setShowModal" />
+        <icon-close @click="setShowModal" />
       </div>
     </div>
     <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 gap-4">
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div v-if="selectedProduct.sale">
-              <count-down class="bg-white" :textColor="true" />
+              <count-down class="bg-white" :textColor="true" :saleTime="saleTime" />
             </div>
           </div>
 
@@ -146,8 +146,6 @@ export default defineComponent({
       }
     })
 
-    console.log('videoUrlToArray', videoUrlToArray.value)
-
     const goBack = () => {
       router.go(-1)
     }
@@ -175,7 +173,8 @@ export default defineComponent({
       videoUrlToArray,
       goToBuy,
       stopVideo,
-      breakpoints
+      breakpoints,
+      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime)
     }
   }
 })

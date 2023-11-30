@@ -64,7 +64,7 @@ export default defineComponent({
   <div>
     <router-view> </router-view>
     <my-dialog v-model:show="showModal">
-      <describe-product />
+      <desc-product />
     </my-dialog>
     <my-modal v-model:show="showModalBuy">
       <order-form></order-form>

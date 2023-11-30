@@ -21,7 +21,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, ref, watch } from 'vue'
+
 interface Countdown {
   days: number
   hours: number
@@ -32,26 +33,54 @@ export default defineComponent({
   props: {
     textColor: {
       type: Boolean
+    },
+    saleTime: {
+      type: String
     }
   },
-  setup() {
-    const targetDate = new Date('2023-12-15T23:59:59')
+  setup(props) {
+    const date = ref(props.saleTime)
+
     const currentTime = ref(new Date())
     const countdown = ref<Countdown>({ days: 0, hours: 0, minutes: 0 })
 
-    setInterval(() => {
-      const timeDiff = targetDate.getTime() - currentTime.value.getTime()
-      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
+    const startTimer = () => {
+      console.log('START1')
 
-      countdown.value = {
-        days: addLeadingZero(days),
-        hours: addLeadingZero(hours),
-        minutes: addLeadingZero(minutes)
+      if (!date.value) return // Перевірка наявності значення date перед запуском таймера
+
+      const targetDate = new Date(date.value)
+      //clearInterval(timerInterval) // Очищення попереднього інтервалу, якщо він вже існує
+
+      setInterval(() => {
+        const timeDiff = targetDate.getTime() - new Date().getTime()
+        if (timeDiff <= 0) {
+          // Якщо час вже минув, зупиняємо таймер
+          //clearInterval(timerInterval)
+          countdown.value = { days: 0, hours: 0, minutes: 0 }
+          return
+        }
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
+
+        countdown.value = {
+          days: addLeadingZero(days),
+          hours: addLeadingZero(hours),
+          minutes: addLeadingZero(minutes)
+        }
+      }, 1000)
+    }
+
+    watch(
+      () => props.saleTime,
+      (val) => {
+        date.value = val
+        console.log('START2')
+        startTimer() // Почати таймер при зміні значення дати
       }
-    }, 1000)
-
+    )
     const addLeadingZero = (number) => {
       return number < 10 ? '0' + number : number.toString()
     }
@@ -59,7 +88,7 @@ export default defineComponent({
     const updateCurrentTime = () => {
       currentTime.value = new Date()
     }
-
+    startTimer()
     onMounted(() => {
       setInterval(updateCurrentTime, 1000)
     })
@@ -68,5 +97,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped></style>

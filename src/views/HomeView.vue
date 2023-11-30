@@ -109,8 +109,12 @@
             >
           </div>
         </div>
-        <div class="h-[41px] relative max-w-[661px] container mx-auto my-8 hidden md:flex">
+        <div
+          id="search"
+          class="h-[41px] relative max-w-[661px] container mx-auto my-8 hidden md:flex"
+        >
           <my-input
+            aria-labelledby="search"
             placeholder="Пошук"
             :model-value="searchQuery"
             @update:model-value="setSearchQuery"
@@ -123,7 +127,6 @@
             <icon-search />
           </div>
         </div>
-
         <div class="px-5 flex justify-between py-2">
           <button class="flex items-center" @click="nested.first = !nested.first">
             <div class="mr-2"><icon-filter /></div>
@@ -158,19 +161,7 @@
                 />
               </Collapse>
             </div>
-            <div class="border-b border-gray">
-              <!-- <button @click="nested.third = !nested.third" class="py-1 w-full text-start">
-                Наявність
-              </button>
-              <Collapse :when="nested.third">
-                <my-select
-                  class="max-w-xs shadow-4xl rounded-md px-4 appearance-none mb-2"
-                  :options="sortOptions"
-                  :selected="selectedSort"
-                  @update:selected="setSelectedSort"
-                />
-              </Collapse> -->
-            </div>
+            <div class="border-b border-gray"></div>
           </Collapse>
         </div>
 

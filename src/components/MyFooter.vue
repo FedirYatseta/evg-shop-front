@@ -3,17 +3,17 @@
     <div class="container mx-auto">
       <div class="grid grid-col gap-4 my-5 justify-center">
         <div class="flex w-full items-center justify-center mb-4 md:mb-8">
-          <a href="viber://chat?number=+380680666996">
+          <a href="viber://chat?number=+380680666996" aria-label="Viber number">
             <icon-base iconColor="white" class="mx-2">
               <icon-viber />
             </icon-base>
           </a>
-          <a href="https://t.me/moiseev_stom">
+          <a href="https://t.me/moiseev_stom" aria-label="Telegram number">
             <icon-base iconColor="white" class="mx-2">
               <icon-telegram />
             </icon-base>
           </a>
-          <a href="https://wa.me/+380680666996">
+          <a href="https://wa.me/+380680666996" aria-label="WhatsApp number">
             <icon-base iconColor="white" class="mx-2">
               <icon-whatsapp />
             </icon-base>

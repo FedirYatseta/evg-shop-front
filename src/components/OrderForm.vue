@@ -3,7 +3,7 @@
     <div
       class="absolute top-0 w-full bg-brown-100 lg:bg-white h-[51px] flex items-center justify-end px-3"
     >
-      <IconClose @click="closeModal" :color="'#fff'" class="cursor-pointer md:hidden" />
+      <icon-close @click="closeModal" :color="'#fff'" class="cursor-pointer md:hidden" />
     </div>
     <div v-if="!successOrder" class="p-4 md:p-12 mt-10 lg:mt-0 bg-white w-full flex flex-col z-50">
       <div class="text-xl font-bold border-brown-50 py-5">Корзина замовлень</div>
@@ -106,7 +106,7 @@
     >
       <div class="m-auto flex flex-col items-center justify-center">
         <div>
-          <IconBags />
+          <icon-bags />
         </div>
         <p class="p-2 md:p-12 text-3xl text-center uppercase">Дякуємо, що обрали саме нас!</p>
         <p class="text-xl text-black-300 text-center max-w-[652px]">

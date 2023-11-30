@@ -38,7 +38,7 @@
       </ul>
     </nav>
     <div class="min-w-max xl:min-w-[200px] mx-2 lg:mx-10">
-      <count-down />
+      <count-down :saleTime="saleTime" />
     </div>
 
     <div class="flex flex-col">
@@ -51,14 +51,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import { pathFooter } from '@/config/path'
 import useScrollToElement from '@/hooks/useScrollToElement'
-
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'desc-menu',
 
   setup() {
+    const store = useStore()
     const { handleReviewsClick } = useScrollToElement()
     const showModal = ref(false)
     const currentSubPath = ref<any>([])
@@ -77,7 +78,8 @@ export default defineComponent({
       handleMouseLeave,
       handleMouseEnter,
       showModal,
-      currentSubPath
+      currentSubPath,
+      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime)
     }
   }
 })

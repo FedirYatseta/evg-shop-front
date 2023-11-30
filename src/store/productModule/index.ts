@@ -22,9 +22,7 @@ const state: ProductState = {
         { value: 'newProduct', name: 'Нові товари' },
 
     ],
-    sortOptions2: [
 
-    ]
 }
 
 
