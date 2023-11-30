@@ -30,6 +30,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
+  name: 'icon-close',
   props: {
     color: {
       type: String

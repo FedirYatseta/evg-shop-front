@@ -97,10 +97,10 @@
           </div>
           <div class="border-brown-50 border-t md:mt-16"></div>
         </div>
-        <MyButton
+        <my-button
           @click="goToBuy(selectedProduct._id)"
           class="text-white border bg-brown-50 mt-5 p-2"
-          >ДОДАТИ У КОШИК</MyButton
+          >ДОДАТИ У КОШИК</my-button
         >
       </div>
     </div>
@@ -108,21 +108,18 @@
 </template>
 
 <script lang="ts">
-import MyButton from '@/UI/MyButton.vue'
 import { defineComponent, computed, ref } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-import IconClose from '@/assets/IconClose.vue'
+
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import CountDown from './CountDown.vue'
+
 export default defineComponent({
+  name: 'desc-product',
   components: {
     Carousel,
-    Slide,
-    MyButton,
-    IconClose,
-    CountDown
+    Slide
   },
   setup() {
     const store = useStore()

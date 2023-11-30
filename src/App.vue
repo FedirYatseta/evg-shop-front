@@ -1,32 +1,13 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
-import BurgerButton from '@/components/BurgerButton.vue'
-import MobileMenu from '@/components/MobileMenu.vue'
-import MyFooter from '@/components/MyFooter.vue'
-import DescTopMenu from '@/components/DescTopMenu.vue'
 import { useRouter } from 'vue-router'
-import MyDialog from '@/UI/MyDialog.vue'
 import { useStore, mapState } from 'vuex'
-import DescribeProduct from '@/components/DescribeProduct.vue'
-import MyModalView from '@/UI/MyModalView.vue'
-import BuyForm from '@/components/BuyForm.vue'
 
 export default defineComponent({
-  components: {
-    MyFooter,
-    BurgerButton,
-    MobileMenu,
-    DescTopMenu,
-    MyDialog,
-    DescribeProduct,
-    MyModalView,
-    BuyForm
-  },
-
+  name: 'my-app',
   setup() {
     const menuVisible = ref(false)
     const router = useRouter()
-
     const urlParams = new URLSearchParams(window.location.search)
     const param1 = urlParams.get('name')
 
@@ -38,20 +19,11 @@ export default defineComponent({
     router.afterEach((to, from) => {
       menuVisible.value = false
     })
-    // watch(
-    //   route,
-    //   async (to, from) => {
-    //     if (to.query.name !== from?.query.name || route.query.name) {
-    //       await store.dispatch('product/fetchProduct', to.query.name)
-    //     }
-    //   },
-    //   { immediate: true }
-    // )
     onMounted(async () => {
       if (param1) {
-        await store.dispatch('product/fetchProduct', { limit: 10, type: param1 })
+        await store.dispatch('product/fetchProduct', { limit: 12, type: param1 })
       } else {
-        await store.dispatch('product/fetchProduct', { limit: 10 })
+        await store.dispatch('product/fetchProduct', { limit: 12 })
       }
 
       await store.dispatch('product/fetchConf')
@@ -74,18 +46,18 @@ export default defineComponent({
       <div
         class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-4 px-6 z-50"
       >
-        <router-link to="/" class="w-full h-auto max-w-[123px]">
+        <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[120px]">
           <img
-            src="@/image/logo_header.png"
+            src="@/image/bags7.shop.png"
             alt="logo-header"
             class="w-full h-full object-contain"
           />
         </router-link>
-        <BurgerButton @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
-        <MobileMenu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
+        <burger-btn @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
+        <mobile-menu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
       </div>
       <div class="hidden md:block bg-main">
-        <DescTopMenu />
+        <desc-menu />
       </div>
     </div>
   </header>
@@ -94,12 +66,12 @@ export default defineComponent({
     <my-dialog v-model:show="showModal">
       <describe-product />
     </my-dialog>
-    <MyModalView v-model:show="showModalBuy">
-      <BuyForm></BuyForm>
-    </MyModalView>
+    <my-modal v-model:show="showModalBuy">
+      <order-form></order-form>
+    </my-modal>
   </div>
   <footer>
-    <MyFooter />
+    <my-footer />
   </footer>
 </template>
 

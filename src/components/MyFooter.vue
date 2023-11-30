@@ -2,20 +2,22 @@
   <div class="w-full bg-brown-50 p-5">
     <div class="container mx-auto">
       <div class="grid grid-col gap-4 my-5 justify-center">
-        <div class="w-full flex items-center justify-center md:hidden">
-          <icon-logo />
-        </div>
-
         <div class="flex w-full items-center justify-center mb-4 md:mb-8">
-          <icon-base iconColor="white" class="mx-2">
-            <icon-viber />
-          </icon-base>
-          <icon-base iconColor="white" class="mx-2">
-            <icon-telegram />
-          </icon-base>
-          <icon-base iconColor="white" class="mx-2">
-            <icon-whats-app />
-          </icon-base>
+          <a href="viber://chat?number=+380680666996">
+            <icon-base iconColor="white" class="mx-2">
+              <icon-viber />
+            </icon-base>
+          </a>
+          <a href="https://t.me/moiseev_stom">
+            <icon-base iconColor="white" class="mx-2">
+              <icon-telegram />
+            </icon-base>
+          </a>
+          <a href="https://wa.me/+380680666996">
+            <icon-base iconColor="white" class="mx-2">
+              <icon-whatsapp />
+            </icon-base>
+          </a>
         </div>
         <ul class="grid grid-cols-5 text-center justify-center">
           <li v-for="item in pathFooter" :key="item.path">
@@ -34,6 +36,14 @@
               слабкістьпрутня.</strong
             >
           </span>
+          <div>
+            <RouterLink
+              to="/public"
+              class="font-serif text-white uppercase text-[8px] sm:text-xs font-light"
+            >
+              Публічна Оферта
+            </RouterLink>
+          </div>
         </div>
         <picture class="block mx-auto">
           <img src="../image/payment-methods0.png" alt="pay-method" class="w-full h-full" />
@@ -46,20 +56,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { pathFooter } from '@/config/path'
-import IconBase from '@/assets/IconBase.vue'
-import IconViber from '@/assets/IconViber.vue'
-import IconTelegram from '@/assets/IconTelegram.vue'
-import IconWhatsApp from '@/assets/IconWhatsApp.vue'
-import IconLogo from '@/assets/IconLogo.vue'
 import useScrollToElement from '@/hooks/useScrollToElement'
 export default defineComponent({
-  components: {
-    IconBase,
-    IconViber,
-    IconTelegram,
-    IconWhatsApp,
-    IconLogo
-  },
+  name: 'my-footer',
+
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     return {

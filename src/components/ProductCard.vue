@@ -58,15 +58,15 @@
           </div>
         </div>
         <div class="grid grid-col md:grid-cols-2 gap-4 pt-1">
-          <MyButton
+          <my-button
             @click="showDescribe(prod._id)"
             class="bg-brown-50 hover:bg-brown-50 text-white font-serif p-2"
-            >Детальніше</MyButton
+            >Детальніше</my-button
           >
-          <MyButton
+          <my-button
             class="bg-white hover:bg-slate-800 text-brown-50 border-brown-50 border-[1.4px] font-serif p-2"
             @click="buyProduct(prod._id)"
-            >Замовити</MyButton
+            >Замовити</my-button
           >
         </div>
       </div>
@@ -76,9 +76,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import MyButton from '@/UI/MyButton.vue'
 
-interface Product {
+export interface Product {
   _id: string
   id: string
   title: string
@@ -91,12 +90,9 @@ interface Product {
   sale: boolean
 }
 import { useStore } from 'vuex'
-import IconCircle from '@/assets/IconCircle.vue'
+
 export default defineComponent({
-  components: {
-    MyButton,
-    IconCircle
-  },
+  name: 'product-card',
   props: {
     products: {
       type: Array as () => Product[],

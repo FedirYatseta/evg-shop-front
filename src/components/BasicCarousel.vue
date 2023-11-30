@@ -19,7 +19,7 @@ import { feedback } from '@/config/path'
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({
-  name: 'WrapAround',
+  name: 'basic-carousel',
   components: {
     Carousel,
     Slide,

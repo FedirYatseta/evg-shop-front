@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full h-full items-center justify-center container mx-auto px-14 py-3">
-    <router-link to="/" class="w-full h-auto max-w-[123px]">
-      <img src="@/image/logo_header.png" alt="logo-header" class="w-full h-full object-contain" />
+    <router-link to="/" class="w-full h-auto min-w-[180px] max-w-[250px]">
+      <img src="@/image/bags7.shop.png" alt="logo-header" class="w-full h-full object-contain" />
     </router-link>
     <nav class="flex mx-auto w-full h-full justify-center">
       <ul class="flex justify-center py-3 relative h-full">
@@ -54,11 +54,10 @@
 import { defineComponent, ref } from 'vue'
 import { pathFooter } from '@/config/path'
 import useScrollToElement from '@/hooks/useScrollToElement'
-import CountDown from '@/components/CountDown.vue'
+
 export default defineComponent({
-  components: {
-    CountDown
-  },
+  name: 'desc-menu',
+
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     const showModal = ref(false)

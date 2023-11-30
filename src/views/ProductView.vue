@@ -31,18 +31,10 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, watch } from 'vue'
-import ProductCard from '@/components/ProductCard.vue'
-import MyInput from '@/UI/MyInput.vue'
-import MySelect from '@/UI/MySelect.vue'
 import { useStore } from 'vuex'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import { useRoute } from 'vue-router'
 export default defineComponent({
-  components: {
-    ProductCard,
-    MyInput,
-    MySelect
-  },
   setup() {
     const store = useStore()
     const route = useRoute()

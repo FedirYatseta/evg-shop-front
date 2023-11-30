@@ -20,7 +20,16 @@
             >
           </div>
           <div class="px-5 w-full h-full md:max-h-[350px] lg:max-h-[450px] xl:max-h-[550px]">
-            <img src="../image/image.png" alt="main image" class="w-full h-full object-cover" />
+            <img
+              src="../image/image.png"
+              alt="main image"
+              class="w-full h-full object-cover lg:hidden"
+            />
+            <img
+              src="../image/imageDesc.png"
+              alt="main image"
+              class="w-full h-full object-cover hidden lg:block"
+            />
           </div>
         </div>
       </div>
@@ -183,7 +192,7 @@
         </div>
       </div>
     </div>
-    <div id="question" class="w-full mb-16">
+    <div id="question" class="w-full mb-4 lg:mb-16">
       <div class="container mx-auto">
         <div class="px-5 grid grid-col lg:grid-cols-2 gap-5">
           <div>
@@ -197,11 +206,6 @@
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <img
-              src="@/image/logo_header.png"
-              alt="logo-header"
-              class="w-[276px] h-[94px] hidden md:block"
-            />
           </div>
           <div>
             <div v-for="(question, index) in questions" :key="index" class="w-full my-3">
@@ -210,12 +214,12 @@
                 :class="[question.isExpanded ? 'border-b-0 ' : '']"
               >
                 <button
-                  :class="['flex w-full  justify-between p-3 items-center  ']"
+                  :class="['flex w-full  justify-between p-3 items-center text-start ']"
                   @click="() => handleAccordion(index)"
                 >
                   <p class="text-sm md:text-2xl font-bold">{{ question.title }}</p>
                   <div class="panel__icon">
-                    <IconPlus
+                    <icon-plus
                       :style="{
                         transform: `rotate(${question.isExpanded ? rotation : 0}deg)`,
                         transition: `transform 0.3s`
@@ -235,7 +239,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full mb-16">
+    <div class="w-full mb-16 md:shadow-5xl py-2 lg:py-16">
       <div class="container mx-auto px-5">
         <div
           class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-24"
@@ -279,33 +283,17 @@
 <script lang="ts">
 import { defineComponent, ref, watchEffect, reactive, computed } from 'vue'
 import { Collapse } from 'vue-collapsed'
-import IconPlus from '@/assets/IconPlus.vue'
-import BasicCarousel from '@/components/BasicCarousel.vue'
-import ProductCard from '@/components/ProductCard.vue'
 import { categoryProduct, pathConfigNew } from '@/config/path'
 import { useStore, mapGetters } from 'vuex'
 import useScrollToElement from '@/hooks/useScrollToElement'
-import CountDown from '@/components/CountDown.vue'
-import IconFilter from '@/assets/IconFilter.vue'
-import MyInput from '@/UI/MyInput.vue'
-import IconSearch from '@/assets/IconSearch.vue'
-import MySelect from '@/UI/MySelect.vue'
-import IconWhere from '@/assets/IconWhere.vue'
 import IconOrder from '@/assets/IconOrder.vue'
 import IconMoney from '@/assets/IconMoney.vue'
+import IconWhere from '@/assets/IconWhere.vue'
 import IconReload from '@/assets/IconReload.vue'
 
 export default defineComponent({
   components: {
-    Collapse,
-    IconPlus,
-    BasicCarousel,
-    ProductCard,
-    CountDown,
-    IconFilter,
-    MyInput,
-    IconSearch,
-    MySelect
+    Collapse
   },
 
   setup() {

@@ -14,7 +14,7 @@ type Option = {
   name: string
 }
 export default defineComponent({
-  name: 'MySelect',
+  name: 'my-select',
   emits: ['update:selected'],
   props: {
     selected: {

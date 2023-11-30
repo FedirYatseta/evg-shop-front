@@ -8,6 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'my-button',
   emits: ['toggle-menu'],
   setup() {
     return {}

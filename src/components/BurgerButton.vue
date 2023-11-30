@@ -10,6 +10,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'burger-btn',
   props: {
     menuVisible: Boolean // Приймаємо проп "menuVisible"
   },

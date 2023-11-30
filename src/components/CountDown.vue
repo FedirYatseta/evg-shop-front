@@ -28,6 +28,7 @@ interface Countdown {
   minutes: number
 }
 export default defineComponent({
+  name: 'count-down',
   props: {
     textColor: {
       type: Boolean

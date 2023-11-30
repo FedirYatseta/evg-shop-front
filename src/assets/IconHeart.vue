@@ -6,3 +6,9 @@
     d="M25.542 33.421a1.5 1.5 0 0 0-2.121.037c-4.548 4.71-4.548 12.374 0 17.084a1.496 1.496 0 0 0 2.121.037 1.5 1.5 0 0 0 .037-2.121c-3.439-3.561-3.439-9.355 0-12.916a1.5 1.5 0 0 0-.037-2.121z"
   />
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'icon-heart'
+})
+</script>

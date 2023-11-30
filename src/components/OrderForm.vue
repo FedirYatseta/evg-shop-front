@@ -127,26 +127,15 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from 'vue'
 import { useStore } from 'vuex'
-import IconBase from '@/assets/IconBase.vue'
-
-import IconDel from '@/assets/IconDel.vue'
-import MyButton from '@/UI/MyButton.vue'
-import MyInput from '@/UI/MyInput.vue'
-import IconClose from '@/assets/IconClose.vue'
 import { useForm, Field } from 'vee-validate'
 import * as yup from 'yup'
-import IconBags from '@/assets/IconBags.vue'
+
 export default defineComponent({
+  name: 'order-form',
   components: {
-    IconBase,
-    IconDel,
-    MyButton,
-    MyInput,
-    IconClose,
-    Field,
-    IconBags
+    Field
   },
-  name: 'BuyForm',
+
   setup() {
     const store = useStore()
     const successOrder = ref(false)
