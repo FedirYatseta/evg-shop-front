@@ -21,12 +21,12 @@
           </div>
           <div class="px-5 w-full h-full md:max-h-[350px] lg:max-h-[450px] xl:max-h-[550px]">
             <img
-              src="../image/image.png"
+              src="../image/image.webp"
               alt="main image"
               class="w-full h-full object-cover lg:hidden"
             />
             <img
-              src="../image/imageDesc.png"
+              src="../image/imageDesc.webp"
               alt="main image"
               class="w-full h-full object-cover hidden lg:block"
             />

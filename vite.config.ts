@@ -25,7 +25,7 @@ export default defineConfig(({ command, mode }) => {
           entryFileNames: isProduction ? 'assets/js/[name]-[hash].js' : 'assets/js/[name].js',
 
           assetFileNames: ({ name }) => {
-            if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
+            if (/\.(gif|jpe?g|png|svg|webp)$/.test(name ?? '')) {
               return 'assets/images/[name][extname]';
             }
             if (/\.css$/.test(name ?? '')) {
@@ -44,6 +44,7 @@ export default defineConfig(({ command, mode }) => {
         includeAssets: ['favicon.ico',
           'image/*.png',
           'image/*.jpg',
+          'image/*.webp',
           'mask-icon.svg'],
         workbox: {
           runtimeCaching: [
