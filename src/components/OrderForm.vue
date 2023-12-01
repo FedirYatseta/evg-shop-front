@@ -165,7 +165,7 @@ export default defineComponent({
         phone: values.phone,
         order: [...store.state.product.buyProduct]
       }
-      console.log(newObj)
+
       store.dispatch('product/createOrder', newObj)
 
       setTimeout(() => {

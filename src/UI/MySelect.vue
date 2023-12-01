@@ -34,8 +34,6 @@ export default defineComponent({
     const localSelected = ref(props.selected)
 
     const changeOption = (event: any) => {
-      console.log('event', event)
-
       localSelected.value = event.target.value
 
       emit('update:selected', localSelected.value)

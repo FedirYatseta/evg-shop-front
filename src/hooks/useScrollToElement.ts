@@ -8,7 +8,7 @@ const useScrollToElement = () => {
         // Ваша логіка прокрутки до елемента з вказаним ID на сторінці "Головна"
         // Ви можете використовувати JavaScript, наприклад, такий метод:
         const element = document.getElementById(id)
-        console.log('element', element)
+
 
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' })

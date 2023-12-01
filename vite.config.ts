@@ -42,14 +42,8 @@ export default defineConfig(({ command, mode }) => {
         registerType: 'autoUpdate',
         strategies: 'generateSW',
         includeAssets: ['favicon.ico',
-          'image/1.png',
-          'image/bags7.shop.png',
-          'image/payment-methods0.png',
-          'image/imageDesc.png',
-          'image/Image1.jpg',
-          'image/Image2.jpg',
-          'image/Image3.jpg',
-          'image/Image4.jpg',
+          'image/*.png',
+          'image/*.jpg',
           'mask-icon.svg'],
         workbox: {
           runtimeCaching: [
@@ -60,7 +54,7 @@ export default defineConfig(({ command, mode }) => {
                 cacheName: 'google-fonts-cache',
                 expiration: {
                   maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
                 },
                 cacheableResponse: {
                   statuses: [0, 200]

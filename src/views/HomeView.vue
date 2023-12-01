@@ -38,7 +38,7 @@
       <div class="border-t border-b border-black-50">
         <div class="container mx-auto">
           <div class="grid grid-cols-2 md:grid-cols-1 justify-items-center gap-2 items-center p-5">
-            <div class="md:hidden"><count-down :textColor="false" /></div>
+            <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
             <p class="text-sm md:text-3xl text-justify leading-6">
               Наші сумки, натуральна шкіра, якісна фурнітура, топ топскій купуй і не пожалкуєш
             </p>
@@ -259,7 +259,7 @@
             <router-link :to="item.path">
               <img :src="item.image" :alt="item.path" />
               <p
-                class="absolute top-2/4 left-2/4 -translate-x-2/4 text-white text-md md:text-lg lg:text-3xl"
+                class="absolute w-full text-center top-2/4 left-2/4 -translate-x-2/4 text-white text-md md:text-2xl lg:text-4xl uppercase"
               >
                 {{ item.name }}
               </p>
@@ -367,7 +367,8 @@ export default defineComponent({
       fetchNextProduct,
       processTextWithEmojis,
       items,
-      stages
+      stages,
+      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime)
     }
   },
   computed: {

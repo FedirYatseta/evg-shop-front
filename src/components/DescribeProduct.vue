@@ -150,8 +150,6 @@ export default defineComponent({
       router.go(-1)
     }
     const slideTo = (val) => {
-      console.log('val', val)
-
       currentSlide.value = val
     }
 

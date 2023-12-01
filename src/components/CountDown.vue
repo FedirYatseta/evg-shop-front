@@ -45,8 +45,6 @@ export default defineComponent({
     const countdown = ref<Countdown>({ days: 0, hours: 0, minutes: 0 })
 
     const startTimer = () => {
-      console.log('START1')
-
       if (!date.value) return // Перевірка наявності значення date перед запуском таймера
 
       const targetDate = new Date(date.value)
@@ -77,7 +75,7 @@ export default defineComponent({
       () => props.saleTime,
       (val) => {
         date.value = val
-        console.log('START2')
+
         startTimer() // Почати таймер при зміні значення дати
       }
     )
