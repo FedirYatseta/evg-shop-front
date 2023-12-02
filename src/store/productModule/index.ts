@@ -5,13 +5,11 @@ import type { ProductState } from "./types"
 import Module from 'vuex'
 
 const state: ProductState = {
-    showModal: false,
     product: [],
     selectedProduct: [],
     buyProduct: [],
     selectedSort: '',
     searchQuery: '',
-    showModalBuy: false,
     shop: import.meta.env.VITE_SHOP_ID,
     confShop: [],
     sortOptions: [

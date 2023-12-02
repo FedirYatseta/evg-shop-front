@@ -1,8 +1,9 @@
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const useScrollToElement = () => {
     const router = useRouter()
-    const route = useRoute()
+    console.log('router', router)
+
 
     const scrollToElement = (id) => {
         // Ваша логіка прокрутки до елемента з вказаним ID на сторінці "Головна"

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useStore, mapState } from 'vuex'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'my-app',
@@ -21,21 +21,17 @@ export default defineComponent({
     })
     onMounted(async () => {
       if (param1) {
+        console.log('APP1')
         await store.dispatch('product/fetchProduct', { limit: 12, type: param1 })
       } else {
-        await store.dispatch('product/fetchProduct', { limit: 12 })
+        console.log('APP12')
+        await store.dispatch('product/fetchProduct')
       }
 
       await store.dispatch('product/fetchConf')
     })
 
     return { menuVisible, toggleMenu }
-  },
-  computed: {
-    ...mapState({
-      showModal: (state) => state.product.showModal,
-      showModalBuy: (state) => state.product.showModalBuy
-    })
   }
 })
 </script>
@@ -44,7 +40,7 @@ export default defineComponent({
   <header class="block" id="home">
     <div class="block h-full">
       <div
-        class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-4 px-6 z-50"
+        class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-2 px-6 z-50"
       >
         <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[120px]">
           <img
@@ -61,15 +57,9 @@ export default defineComponent({
       </div>
     </div>
   </header>
-  <div>
+  <main>
     <router-view> </router-view>
-    <my-dialog v-model:show="showModal">
-      <desc-product />
-    </my-dialog>
-    <my-modal v-model:show="showModalBuy">
-      <order-form></order-form>
-    </my-modal>
-  </div>
+  </main>
   <footer>
     <my-footer />
   </footer>

@@ -41,10 +41,7 @@
       <count-down :saleTime="saleTime" />
     </div>
 
-    <div class="flex flex-col">
-      <a class="text-sm lg:text-xl font-bold text-white mb-3" href="tel:+380632563677"
-        >+380632563677</a
-      >
+    <div class="flex flex-col justify-center">
       <a class="text-sm lg:text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
     </div>
   </div>

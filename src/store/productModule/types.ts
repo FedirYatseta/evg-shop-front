@@ -1,8 +1,8 @@
 export interface ProductState {
-    showModal: boolean;
+
     product: []
     shop: string
-    showModalBuy: boolean
+
     selectedSort: string | number | boolean
     buyProduct: []
     searchQuery: string

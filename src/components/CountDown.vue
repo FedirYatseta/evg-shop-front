@@ -1,20 +1,20 @@
 <template>
   <div class="text-center flex flex-col items-center justify-center bg-brown-50 rounded p-3">
-    <p :class="textColor ? 'text-brown-50' : 'text-white'" class="uppercase font-bold">
+    <p :class="textColor ? 'text-brown-50' : 'text-white'" class="uppercase font-bold lg:text-2xl">
       До кінця Акції
     </p>
-    <div class="grid grid-cols-3 gap-1 text-white">
+    <div class="grid grid-cols-3 gap-2 xl:gap-3 text-white">
       <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold leading-6">{{ countdown.days }}</div>
-        <div class="text-xs md:text-md leading-4">дн.</div>
+        <div class="text-md font-bold lg:text-xl leading-6">{{ countdown.days }}</div>
+        <div class="text-xs md:text-md lg:text-xl leading-4">дн.</div>
       </div>
       <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold leading-6">{{ countdown.hours }}</div>
-        <div class="text-xs md:text-md leading-4">год.</div>
+        <div class="text-md font-bold lg:text-xl leading-6">{{ countdown.hours }}</div>
+        <div class="text-xs md:text-md lg:text-xl leading-4">год.</div>
       </div>
       <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold leading-6">{{ countdown.minutes }}</div>
-        <div class="text-xs md:text-md leading-4">хв.</div>
+        <div class="text-md font-bold lg:text-xl leading-6">{{ countdown.minutes }}</div>
+        <div class="text-xs md:text-md lg:text-xl leading-4">хв.</div>
       </div>
     </div>
   </div>

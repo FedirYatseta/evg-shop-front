@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mx-auto px-3">
+  <div class="w-full mx-auto px-3">
     <div class="container mx-auto pt-20 lg:pt-2">
       <div class="block_more_info text-sm px-4 py-5 md:py-10">
         <h1 class="text-lg">Політика конфіденційності</h1>
@@ -95,7 +95,7 @@
         зв'язку із застосуванням Політики конфіденційності, підлягає застосування права України.<br />
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">

@@ -7,21 +7,18 @@ body {
   height: 100%;
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+.ql-toolbar.ql-snow {
+  display: none;
+}
 strong {
   font-weight: 600 !important;
 }
-#app,
-main {
+#app {
   height: 100%;
 }
 .carousel__slide {
@@ -50,4 +47,57 @@ main {
 
 .ql-container.ql-snow {
   border: hidden !important;
+}
+
+#gallery .carousel__item {
+  height: 390px;
+}
+
+#thumbnails .carousel__item {
+  min-height: 100px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 767px) {
+  .ql-editor.ql-blank {
+    font-size: 14px;
+    /* інші стилі для маленьких екранів */
+  }
+  #gallery .carousel__item {
+    height: 390px;
+  }
+}
+
+/* Медіа-запит для екранів шириною більше або рівно 768px (великі екрани) */
+@media screen and (min-width: 768px) {
+  .ql-editor.ql-blank {
+    font-size: 12px;
+    /* інші стилі для більших екранів */
+  }
+  #gallery .carousel__item {
+    height: 510px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ql-editor.ql-blank {
+    font-size: 14px;
+    /* інші стилі для більших екранів */
+  }
+  #gallery .carousel__item {
+    height: 610px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .ql-editor.ql-blank {
+    font-size: 18px;
+    /* інші стилі для більших екранів */
+  }
+  #gallery .carousel__item {
+    height: auto;
+    width: 100%;
+  }
 }

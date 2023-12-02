@@ -63,13 +63,18 @@ export const pathConfigNew = [
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
+export const mainUrlOfFooter = [
+    { name: 'Головна', path: '/', id: 'home' },
+    { name: 'Відгуки', path: '/', id: 'feedback ' },
+    { name: 'Часті питання', path: '/', id: 'question' }]
+
 export const categoryProduct = [
-    { name: 'Бананки', path: '/product/bana', image: icon1 },
-    { name: 'Слінги', path: '/product/sling', image: icon2 },
     { name: 'Новинки', path: '/product/new', image: icon3 },
     { name: 'Хіти', path: '/product/hit', image: icon4 },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon5 },
+    { name: 'Бананки', path: '/product/bana', image: icon1 },
+    { name: 'Слінги', path: '/product/sling', image: icon2 },
     { name: 'Месенджери', path: '/product/mess', image: icon6 },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon5 },
 ]
 
 export const feedback = [

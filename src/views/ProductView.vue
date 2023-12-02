@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mt-[70px] md:mt-2 py-10">
+  <div class="w-full mt-[70px] md:mt-2 py-10">
     <div class="container mx-auto px-2">
       <div class="grid grid-col md:grid-cols-2 gap-2 mb-3">
         <my-input
@@ -26,7 +26,7 @@
         </button>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">
@@ -44,6 +44,7 @@ export default defineComponent({
       if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale') {
         param[route.params.id] = true
       } else param = { type: route.params.id }
+      console.log('fetchNextProduct')
 
       store.dispatch('product/fetchProduct', { limit: 10, cursor: _id, ...param })
     }
@@ -54,7 +55,10 @@ export default defineComponent({
           let param = {}
           if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale')
             param[route.params.id] = true
-          else param = { type: route.params.id }
+          else {
+            console.log('fetchNextProduct')
+            param = { type: route.params.id, limit: 10 }
+          }
           // Викликаємо метод при зміні шляху
           await store.dispatch('product/fetchProduct', param)
         }

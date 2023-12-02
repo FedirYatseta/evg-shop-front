@@ -15,28 +15,21 @@ export const mutations: MutationTree<any, any> = {
     setSearchQuery(state: any, searchQuery: any) {
         state.searchQuery = searchQuery
     },
-    setShowModal(state: any, value: any,) {
-        if (!state.showModal) {
-            document.body.classList.add('modal-open');
-        }
-        else {
-            document.body.classList.remove('modal-open');
-        }
-        state.showModal = value;
-    },
+
 
     setSelectedProduct(state: any, data: any) {
+
         state.selectedProduct = data.data
+    },
+    getProductId(state: any, data: any) {
+        console.log('data', data)
+
+        const product = state.product.find(x => x._id === data);
+        state.selectedProduct = product
     },
 
     setProductToOrder(state: any, data: any) {
-        if (!state.showModalBuy) {
-            document.body.classList.add('modal-open');
-        }
-        else {
-            document.body.classList.remove('modal-open');
-        }
-        state.showModalBuy = true;
+
         // Шукаємо товар за ід
         const product = state.product.find(x => x._id === data);
         if (product) {
@@ -62,15 +55,7 @@ export const mutations: MutationTree<any, any> = {
     }
     ,
 
-    setShowBuyModal(state: any, value: any) {
-        if (!state.showModalBuy) {
-            document.body.classList.add('modal-open');
-        }
-        else {
-            document.body.classList.remove('modal-open');
-        }
-        state.showModalBuy = value
-    },
+
 
     setDecrease(state: any, id: any) {
 

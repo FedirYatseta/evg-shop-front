@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full mx-auto px-3">
+  <div class="w-full mx-auto px-3">
     <div class="container mx-auto pt-16 lg:pt-2">
       <p class="my-4 text-center text-3xl font-bold">Категорії</p>
       <div class="grid grid-col lg:grid-cols-3 gap-4 md:gap-6 my-4">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">

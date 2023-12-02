@@ -1,9 +1,9 @@
 <template>
-  <main class="mt-[78px] md:mt-6">
+  <div class="mt-[78px] md:mt-6">
     <div class="w-full">
       <div class="container mx-auto py-8">
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
-          <div class="pb-3 px-5">
+          <div class="pb-3 px-5 flex flex-col justify-center">
             <h3
               class="text-main font-bold text-4xl font-bold lg:text-[51px] xl:text-[71px] uppercase md:leading-[55.2px] xl:leading-[85.2px] mb-3 md:mb-9"
             >
@@ -14,12 +14,14 @@
             </p>
             <router-link
               to="/category"
-              class="p-3 border border-brawn border-[1.4px] uppercase w-max hidden md:block"
+              class="p-3 bg-brown-100 border-[1.4px] text-white uppercase w-max hidden md:block"
             >
               Переглянути каталог</router-link
             >
           </div>
-          <div class="px-5 w-full h-full md:max-h-[350px] lg:max-h-[450px] xl:max-h-[550px]">
+          <div
+            class="px-5 w-full h-full max-h-[250px] md:max-h-[350px] lg:max-h-[450px] xl:max-h-[550px]"
+          >
             <img
               src="../image/image.webp"
               alt="main image"
@@ -77,7 +79,7 @@
               </div>
               <div>
                 <p
-                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-1"
+                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-3"
                 >
                   {{ val.title }}
                 </p>
@@ -90,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full">
+    <div class="w-full shadow-5xl">
       <div
         class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-3 md:mb-10 text-white bg-main p-5 md:p-10"
       >
@@ -166,7 +168,8 @@
         </div>
 
         <product-card :products="sortedAndSearchProducts" />
-        <div class="px-5 flex items-center justify-center my-5">
+
+        <div class="px-5 flex items-center justify-center py-5 lg:py-10">
           <button
             @click="fetchNextProduct"
             class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
@@ -176,8 +179,38 @@
         </div>
       </div>
     </div>
+    <div class="w-full py-2 lg:py-10 mb-6">
+      <div class="container mx-auto px-5">
+        <div
+          class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-12"
+        >
+          Этапи оформлення замовлення
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+          <div v-for="(item, index) in stages" :key="index" class="flex flex-col items-center">
+            <div class="w-16 h-16 xl:w-24 xl:h-24 mb-6">
+              <component :is="item.image" />
+            </div>
+            <p class="text-xl md:text-2xl lg:text-3xl font-bold">
+              {{ conf[0]?.condition[index].title }}
+            </p>
+            <p class="font-serif text-xs md:text-sm lg:text-xl font-light">
+              {{ conf[0]?.condition[index].description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto">
+      <div class="container mx-auto px-5">
+        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
+          Відгуки наших покупців
+        </h1>
+        <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
+          Даруємо <strong>10%</strong> знижки за відмітку в нас у себе в соц. мережах "Іnstagram,
+          Facebook"
+        </p>
         <div class="my-5">
           <basic-carousel />
         </div>
@@ -185,17 +218,12 @@
     </div>
     <div id="question" class="w-full mb-4 lg:mb-16">
       <div class="container mx-auto">
-        <div class="px-5 grid grid-col lg:grid-cols-2 gap-5">
-          <div>
+        <div class="px-5 grid grid-col gap-5">
+          <div class="flex items-center justify-center">
             <p
-              class="text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 md:leading-[63px] md:mb-5"
+              class="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-brown-50 md:leading-[63px] md:mb-5"
             >
-              Відповіді на запитання, які часто задають
-            </p>
-            <p
-              class="text-lg md:text-xl xl:text-2xl font-normal text-brown-50 md:leading-10 md:mb-5"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Часті питання від наших клієнтів:
             </p>
           </div>
           <div>
@@ -208,7 +236,9 @@
                   :class="['flex w-full  justify-between p-3 items-center text-start ']"
                   @click="() => handleAccordion(index)"
                 >
-                  <p class="text-sm md:text-2xl font-bold">{{ question.title }}</p>
+                  <p class="text-sm md:text-2xl font-bold w-full text-center">
+                    {{ question.title }}
+                  </p>
                   <div class="panel__icon">
                     <icon-plus
                       :style="{
@@ -230,28 +260,6 @@
         </div>
       </div>
     </div>
-    <div class="w-full mb-16 md:shadow-5xl py-2 lg:py-16">
-      <div class="container mx-auto px-5">
-        <div
-          class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-24"
-        >
-          Этапи оформлення замовлення
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-          <div v-for="(item, index) in stages" :key="index" class="flex flex-col items-center">
-            <div class="w-16 h-16 xl:w-24 xl:h-24 mb-6">
-              <component :is="item.image" />
-            </div>
-            <p class="text-xl md:text-2xl lg:text-3xl font-bold">
-              {{ conf[0]?.condition[index].title }}
-            </p>
-            <p class="font-serif text-xs md:text-sm lg:text-xl font-light">
-              {{ conf[0]?.condition[index].description }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="w-full mb-16">
       <div class="container mx-auto">
         <div class="grid grid-cols-2 lg:grid-cols-3 my-4">
@@ -268,7 +276,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">
@@ -277,10 +285,6 @@ import { Collapse } from 'vue-collapsed'
 import { categoryProduct, pathConfigNew } from '@/config/path'
 import { useStore, mapGetters } from 'vuex'
 import useScrollToElement from '@/hooks/useScrollToElement'
-import IconOrder from '@/assets/IconOrder.vue'
-import IconMoney from '@/assets/IconMoney.vue'
-import IconWhere from '@/assets/IconWhere.vue'
-import IconReload from '@/assets/IconReload.vue'
 
 export default defineComponent({
   components: {
@@ -290,10 +294,10 @@ export default defineComponent({
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     const stages = ref([
-      { image: IconOrder }, // Функція, що імпортує Vue компонент
-      { image: IconMoney },
-      { image: IconWhere },
-      { image: IconReload }
+      { image: 'icon-order' }, // Функція, що імпортує Vue компонент
+      { image: 'icon-money' },
+      { image: 'icon-where' },
+      { image: 'icon-reload' }
     ])
     const items = ref(categoryProduct)
     const store = useStore()
