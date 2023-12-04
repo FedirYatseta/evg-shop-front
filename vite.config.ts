@@ -26,10 +26,10 @@ export default defineConfig(({ command, mode }) => {
 
           assetFileNames: ({ name }) => {
             if (/\.(gif|jpe?g|png|svg|webp)$/.test(name ?? '')) {
-              return 'assets/images/[name][extname]';
+              return 'assets/images/[name]-[hash][extname]';
             }
             if (/\.css$/.test(name ?? '')) {
-              return 'assets/css/[name]-[extname]';
+              return 'assets/css/[name]-[hash][extname]';
             }
             return 'assets/[name]';
           },

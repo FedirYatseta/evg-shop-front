@@ -1,11 +1,11 @@
 <template>
   <div class="w-full md:mt-2 py-10">
-    <div class="container mx-auto pt-12 pb-24 lg:pb-64 lg:pt-0 relative">
+    <div class="container mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0 relative">
       <div class="absolute top-5 w-full h-[51px] flex items-center justify-end px-3">
         <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
       </div>
       <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50">
-        <div class="text-xl font-bold border-brown-50 py-5">Корзина замовлень</div>
+        <div class="text-xl font-bold border-brown-50 py-5">Кошик замовлень</div>
         <div class="grid grid-col md:grid-cols-2 gap-1 md:gap-8">
           <div class="border-t">
             <div v-for="item in items" :key="item.id" class="flex py-10 border-b border-brown-50">
@@ -22,7 +22,7 @@
                   <icon-del></icon-del>
                 </icon-base>
                 <div class="flex items-center">
-                  <div class="grid grid-cols-3 gap-2 items-center justify-items-center">
+                  <!-- <div class="grid grid-cols-3 gap-2 items-center justify-items-center">
                     <my-button
                       class="cursor-pointer w-6 h-6 md:w-7 md:h-7 p-0 bg-brown-100 text-white text-xl text-center rounded-full"
                       :disabled="item.count === 0"
@@ -37,15 +37,15 @@
                     >
                       <div class="leading-none">+</div>
                     </my-button>
-                  </div>
-                  <div class="flex px-2 flex-wrap">
+                  </div> -->
+                  <div class="flex flex-wrap items-center">
                     <span
                       class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
                     >
-                      <p class="text-black-200 text-sm md:text-lg">{{ item.oldPrice }} UAH</p>
+                      <p class="text-black-200 text-base md:text-lg">{{ item.oldPrice }} UAH</p>
                     </span>
 
-                    <p class="text-sm md:text-lg text-red">{{ item.price }} UAH</p>
+                    <p class="text-lg md:text-lg text-red">{{ item.price }} UAH</p>
                   </div>
                 </div>
               </div>
@@ -53,7 +53,7 @@
           </div>
           <form @submit.prevent @submit="onSubmit">
             <div class="my-2">
-              <label for="name" class="text-sm font-light text-brown">Ім’я та фамілія*</label>
+              <label for="name" class="text-sm font-light text-brown">Ім’я </label>
               <my-input
                 placeholder="Ваше І'мя"
                 v-bind="name"
@@ -66,7 +66,7 @@
             <div class="my-2">
               <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
               <my-input
-                placeholder="+380 (97) 406 67 72"
+                placeholder="+380 (99) 999 99 99"
                 v-bind="phone"
                 name="phone"
                 id="phone"
@@ -76,18 +76,18 @@
               />
               <p class="text-red">{{ errors.phone }}</p>
             </div>
-            <div class="my-2 flex">
+            <div class="my-2 flex items-center relative">
               <Field
                 name="policy"
                 type="checkbox"
                 id="policy"
                 :value="true"
-                class="border border-solid border-brown-50 h-8 w-8 mr-4"
+                class="border border-solid border-brown-50 h-10 w-10 lg:h-6 lg:w-6 mr-4"
               />
-              <p class="text-red">{{ errors.policy }}</p>
+
               <label
                 for="policy"
-                class="text-sm font-light"
+                class="text-xs md:text-sm font-light"
                 :class="errors.policy ? 'text-red' : 'text-brown-50'"
               >
                 Я згоден(а) з Політикою конфіденційності та обробкою моїх персональних даних
@@ -150,7 +150,7 @@ export default defineComponent({
     const total = computed(() => {
       // Збираємо загальну суму на основі count та price
       return store.state.product.buyProduct.reduce((acc, item) => {
-        return acc + item.count * item.price
+        return acc + item.price
       }, 0)
     })
     const schema = yup.object({

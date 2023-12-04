@@ -13,13 +13,13 @@
         <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 lg:gap-10">
           <div class="grid grid-col gap-4 mx-auto">
             <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
-              <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
+              <Slide v-for="slide in productEl.imageSrc" :key="slide">
                 <div class="carousel__item">
                   <img
-                    v-if="index !== videoUrlToArray.length - 1"
+                    v-if="isImage(slide)"
                     :src="slide"
                     alt="image-product-slide"
-                    class="rounded-b-md w-full h-full mx-auto"
+                    class="rounded-b-md"
                   />
                   <iframe
                     v-else
@@ -41,11 +41,11 @@
               v-model="currentSlide"
               ref="carousel"
             >
-              <Slide v-for="(slide, index) in videoUrlToArray" :key="slide">
-                <div @click="slideTo(index)" class="carousel__item">
+              <Slide v-for="(slide, index) in productEl.imageSrc" :key="slide">
+                <div @click="slideTo(index)" class="carousel__item px-2 max-h-[150px] md:max-h-fit">
                   <img
-                    v-if="index !== videoUrlToArray.length - 1"
-                    class="opacity-10 rounded-md object-cover w-[90%] h-full"
+                    v-if="isImage(slide)"
+                    class="opacity-10 rounded-md object-cover h-full"
                     :src="slide"
                     alt="image-product-slide"
                     :class="{ 'opacity-100': index === currentSlide }"
@@ -66,31 +66,31 @@
             </Carousel>
           </div>
           <div class="flex flex-col justify-start mx-auto relative">
-            <div>
+            <div class="pt-8 lg:pt-0">
               <div class="grid grid-col gap-4">
                 <div class="w-full">
                   <div class="text-xl lg:text-4xl font-bold mb-2 lg:mb-5">
-                    {{ selectedProduct?.title }}
+                    {{ productEl?.title }}
                   </div>
                   <div class="flex lg:px-2 flex-wrap mb-2 lg:mb-5 items-center">
                     <span
                       class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-4"
                     >
                       <p class="text-black-200 text-xl md:text-lg xl:text-3xl">
-                        {{ selectedProduct?.oldPrice }} UAH
+                        {{ productEl?.oldPrice }} UAH
                       </p>
                     </span>
                     <p class="text-2xl md:text-lg xl:text-4xl text-red">
-                      {{ selectedProduct?.price }} UAH
+                      {{ productEl?.price }} UAH
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div v-if="selectedProduct?.describe">
+              <div v-if="productEl?.describe">
                 <QuillEditor
                   theme="snow"
-                  v-model:content="selectedProduct.describe"
+                  v-model:content="productEl.describe"
                   contentType="html"
                   :readOnly="true"
                 />
@@ -98,7 +98,7 @@
               <div class="border-brown-50 border-t md:mt-16 mt-5"></div>
             </div>
             <router-link
-              :to="'/order/' + selectedProduct._id"
+              :to="'/order/' + productEl?._id"
               class="text-white text-center border bg-brown-50 mt-5 px-24 py-4 lg:text-2xl"
               >Замовити</router-link
             >
@@ -127,16 +127,14 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
-    const videoUrlToArray = ref<any>([])
-    onMounted(async () => {
-      await store.commit('product/getProductId', route.params.id)
-      videoUrlToArray.value = [
-        ...store.state.product.selectedProduct.imageSrc,
-        store.state.product.selectedProduct.videoUrl
-      ]
-    })
-
     const currentSlide = ref<any>(0)
+    const isImage = (src) => {
+      return /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(src)
+    }
+
+    onMounted(async () => {
+      await store.dispatch('product/getProductId', route.params.id)
+    })
 
     const breakpoints = ref({
       250: {
@@ -174,15 +172,15 @@ export default defineComponent({
       currentSlide,
       slideTo,
       goBack,
-      selectedProduct: computed(() => store.state.product.selectedProduct),
+      productEl: computed(() => store.state.product.selectedProduct),
       buyProduct: (id: string) => store.commit('product/setProductToOrder', id),
       setShowModal: () => store.commit('product/setShowModal'),
-      videoUrlToArray,
       goToBuy,
       stopVideo,
       breakpoints,
       saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
-      router
+      router,
+      isImage
     }
   }
 })

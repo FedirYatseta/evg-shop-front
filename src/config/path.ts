@@ -21,21 +21,22 @@ import icon5 from '@/image/5.webp'
 import icon6 from '@/image/6.webp'
 
 export const pathConfig = [
-    { name: 'Головна', path: '/', id: 'home' },
-    { name: 'Всі сумки', path: '/product', id: 'home' },
-    { name: 'Бананки', path: '/product/bana', id: 'home' },
-    { name: 'Слінги', path: '/product/sling', id: 'home' },
-    { name: 'Месенджери', path: '/product/mess', id: 'home' },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', id: 'home' },
-    { name: 'Ключчниці', path: '/product/klutch', id: 'home' },
+    { name: 'Головна', path: '/', },
+    { name: 'Бананки', path: '/product/bana', },
+    { name: 'Слінги', path: '/product/sling', },
+    { name: 'Месенджери', path: '/product/mess', },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', },
+    { name: 'Ключчниці', path: '/product/klutch', },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const pathFooter = [
-    { name: 'Головна', path: '/', id: 'home' },
+    { name: 'Головна', path: '/' },
     {
-        name: 'Каталог', path: '/category', id: 'home', subPath: [
+        name: 'Каталог', path: '/category', subPath: [
+            { name: 'Хіти', path: '/product/hit', },
+            { name: 'Новинки', path: '/product/new', },
             { name: 'Бананки', path: '/product/bana' },
             { name: 'Слінги', path: '/product/sling' },
             { name: 'Месенджери', path: '/product/mess' },
@@ -43,29 +44,27 @@ export const pathFooter = [
             { name: 'Ключчниці', path: '/product/klutch' },
         ]
     },
-    { name: 'Всі Сумки', path: '/product', id: 'home' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const pathConfigNew = [
-    { name: 'Головна', path: '/', id: 'home' },
-    { name: 'Хіти', path: '/product/hit', id: 'home' },
-    { name: 'Новинки', path: '/product/new', id: 'home' },
-    { name: 'Знижки', path: '/product/sale', id: 'home' },
-    { name: 'Всі сумки', path: '/product', id: 'home' },
-    { name: 'Бананки', path: '/product/bana', id: 'home' },
-    { name: 'Слінги', path: '/product/sling', id: 'home' },
-    { name: 'Месенджери', path: '/product/mess', id: 'home' },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', id: 'home' },
-    { name: 'Ключчниці', path: '/product/klutch', id: 'home' },
-    { name: 'Відгуки', path: '/', id: 'feedback ' },
+    { name: 'Головна', path: '/' },
+    { name: 'Хіти', path: '/product/hit' },
+    { name: 'Новинки', path: '/product/new' },
+    { name: 'Знижки', path: '/product/sale' },
+    { name: 'Бананки', path: '/product/bana' },
+    { name: 'Слінги', path: '/product/sling' },
+    { name: 'Месенджери', path: '/product/mess' },
+    { name: 'Клатчі та гаманці', path: '/product/wallet' },
+    { name: 'Ключчниці', path: '/product/klutch', },
+    { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
 
 export const mainUrlOfFooter = [
     { name: 'Головна', path: '/', id: 'home' },
-    { name: 'Відгуки', path: '/', id: 'feedback ' },
+    { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }]
 
 export const categoryProduct = [

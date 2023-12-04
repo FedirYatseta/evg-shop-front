@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full h-full items-center justify-center container mx-auto px-14 py-3">
-    <router-link to="/" class="w-full h-auto min-w-[180px] max-w-[250px]">
+    <router-link to="/" class="w-full h-auto min-w-[140px] max-w-[200px]">
       <img src="@/image/bags7.shop.png" alt="logo-header" class="w-full h-full object-contain" />
     </router-link>
     <nav class="flex mx-auto w-full h-full justify-center">

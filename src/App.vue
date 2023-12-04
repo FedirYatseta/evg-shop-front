@@ -21,10 +21,8 @@ export default defineComponent({
     })
     onMounted(async () => {
       if (param1) {
-        console.log('APP1')
         await store.dispatch('product/fetchProduct', { limit: 12, type: param1 })
       } else {
-        console.log('APP12')
         await store.dispatch('product/fetchProduct')
       }
 
@@ -40,9 +38,9 @@ export default defineComponent({
   <header class="block" id="home">
     <div class="block h-full">
       <div
-        class="fixed flex md:hidden w-full justify-between bg-main top-0 items-end py-2 px-6 z-50"
+        class="fixed flex md:hidden w-full justify-between items-center bg-main top-0 items-end py-2 px-6 z-50"
       >
-        <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[120px]">
+        <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[100px]">
           <img
             src="@/image/bags7.shop.png"
             alt="logo-header"

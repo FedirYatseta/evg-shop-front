@@ -2,7 +2,7 @@ import { useRouter } from 'vue-router'
 
 const useScrollToElement = () => {
     const router = useRouter()
-    console.log('router', router)
+
 
 
     const scrollToElement = (id) => {
@@ -16,6 +16,7 @@ const useScrollToElement = () => {
         }
     }
     const handleReviewsClick = (item) => {
+
 
         if (item.id === 'question') {
             // Перехід до розділу з ID "question" на сторінці "Головна"
@@ -31,17 +32,9 @@ const useScrollToElement = () => {
             }, 500);
 
         }
-        else if (item.id === 'home') {
-
-            // Перехід до розділу з ID "feedback" на сторінці "Головна"
-
-            setTimeout(() => {
-                scrollToElement('home')
-            }, 500);
-
-        } else {
+        else {
             // Зазвичай переход за маршрутом
-
+            console.log('SCROLLLPUSH')
             router.push(item.path)
         }
     }

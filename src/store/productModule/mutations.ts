@@ -17,16 +17,19 @@ export const mutations: MutationTree<any, any> = {
     },
 
 
-    setSelectedProduct(state: any, data: any) {
+    setSelectedProduct(state: any, payload: any) {
+        console.log('payload', payload)
 
-        state.selectedProduct = data.data
-    },
-    getProductId(state: any, data: any) {
-        console.log('data', data)
+        state.selectedProduct = []
+        const newObj = {
+            ...payload.data,
+            imageSrc: payload.data.videoUrl ? [...payload.data.imageSrc, payload.data.videoUrl] : [...payload.data.imageSrc]
+        }
+        state.selectedProduct = newObj
+        console.log('state', state.selectedProduct)
 
-        const product = state.product.find(x => x._id === data);
-        state.selectedProduct = product
     },
+
 
     setProductToOrder(state: any, data: any) {
 

@@ -49,14 +49,14 @@ strong {
   border: hidden !important;
 }
 
-#gallery .carousel__item {
+/* #gallery .carousel__item {
   height: 390px;
 }
 
 #thumbnails .carousel__item {
   min-height: 100px;
   cursor: pointer;
-}
+} */
 
 @media screen and (min-width: 767px) {
   .ql-editor.ql-blank {
@@ -65,6 +65,10 @@ strong {
   }
   #gallery .carousel__item {
     height: 390px;
+  }
+  #thumbnails .carousel__item {
+    min-height: 100px;
+    cursor: pointer;
   }
 }
 

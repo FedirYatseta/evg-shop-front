@@ -34,7 +34,7 @@ module.exports = {
         '3xl': '0px 0px 13.9px 0px rgba(0, 0, 0, 0.15)',
         '4xl': '0px 1px 9px 0px rgba(0, 0, 0, 0.25) inset',
         '5xl': '0px 3px 19px 0px rgba(0, 0, 0, 0.25)',
-        '6xl': '0px 37px 40px 37px rgba(55, 41, 41, 0.89) inset'
+        '6xl': '0px 37px 40px 37px rgba(55, 41, 41, 0.79) inset'
       },
     }
   },

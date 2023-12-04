@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[78px] md:mt-6">
     <div class="w-full">
-      <div class="container mx-auto py-8">
+      <div class="container mx-auto pt-4 pb-6">
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
           <div class="pb-3 px-5 flex flex-col justify-center">
             <h3
@@ -37,49 +37,47 @@
       </div>
     </div>
     <div class="w-full">
-      <div class="border-t border-b border-black-50">
+      <div class="border-t border-b border-black-50 mb-8 lg:mb-16 xl:mb-24">
         <div class="container mx-auto">
           <div class="grid grid-cols-2 md:grid-cols-1 justify-items-center gap-2 items-center p-5">
             <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
-            <p class="text-sm md:text-3xl text-justify leading-6">
+            <p class="text-sm md:text-xl xl:text-3xl text-justify leading-6">
               Наші сумки, натуральна шкіра, якісна фурнітура, топ топскій купуй і не пожалкуєш
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="w-full pt-10">
+    <div class="w-full">
       <div class="container mx-auto">
-        <div class="px-10">
-          <p class="text-center font-bold text-2xl md:text-[53px] md:mb-5">
+        <div class="px-6 lg:px-10">
+          <p class="text-center font-bold text-2xl md:text-4xl xl:text-[53px] mb-2 md:mb-5">
             Про якість наших сумок
           </p>
-          <p class="text-center font-light text-sm md:text-xl mb-5 lg:mb-16 xl:mb-32">
+          <p class="text-center font-light text-xs md:text-lg xl:text-xl mb-8 lg:mb-16 xl:mb-20">
             Або "Чому купити сумку саме у нас буде кращим рішенням?"
           </p>
-          <div class="grid grid-col md:grid-cols-2 gap-3 md:gap-4 pb-6 md:px-4 lg:px-6">
+          <div class="grid grid-col gap-3 md:gap-4 pb-6 md:px-4 lg:px-48 lg:mb-16">
             <div
-              class="flex items-center justify-start pb-6 h-full"
+              class="flex items-center justify-start pb-2 lg:pb-6 h-full"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
-              <div class="flex items-center justify-center relative h-full mr-3 xl:mr-10">
+              <div class="flex items-start justify-center relative h-full mr-3 xl:mr-10">
                 <div class="absolute block md:hidden rounded-full h-8 w-8 shadow-6xl"></div>
-
                 <div
                   class="absolute hidden md:block xl:hidden rounded-full h-12 w-12 shadow-6xl"
                 ></div>
-                <div class="absolute hidden xl:block rounded-full h-24 w-24 shadow-6xl"></div>
-
+                <div class="absolute hidden xl:block rounded-full h-20 w-20 shadow-6xl"></div>
                 <div
-                  class="text-white text-center text-md md:text-2xl xl:text-5xl z-10 w-[45px] md:w-[80px] xl:w-[111px]"
+                  class="text-white flex items-center justify-center text-center text-md md:text-2xl xl:text-4xl z-10 w-[32px] h-[32px] md:w-[48px] md:h-[48px] xl:w-[80px] xl:h-[80px]"
                 >
-                  0{{ index + 1 }}
+                  <p>0{{ index + 1 }}</p>
                 </div>
               </div>
               <div>
                 <p
-                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-3"
+                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-2 lg:mb-3"
                 >
                   {{ val.title }}
                 </p>
@@ -216,7 +214,7 @@
         </div>
       </div>
     </div>
-    <div id="question" class="w-full mb-4 lg:mb-16">
+    <div id="question" class="w-full mb-12 lg:mb-16">
       <div class="container mx-auto">
         <div class="px-5 grid grid-col gap-5">
           <div class="flex items-center justify-center">
@@ -260,9 +258,9 @@
         </div>
       </div>
     </div>
-    <div class="w-full mb-16">
+    <div class="w-full">
       <div class="container mx-auto">
-        <div class="grid grid-cols-2 lg:grid-cols-3 my-4">
+        <div class="grid grid-cols-2 lg:grid-cols-3">
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
             <router-link :to="item.path">
               <img :src="item.image" :alt="item.path" />

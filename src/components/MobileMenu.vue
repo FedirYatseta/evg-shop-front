@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ block: menuVisible, hidden: !menuVisible }"
-    class="fixed w-full h-full inset-x-0 bottom-0 bg-white top-[80px] px-2 z-30"
+    class="fixed w-full h-full inset-x-0 bottom-0 bg-white top-[60px] px-2 z-30"
   >
     <nav class="flex items-center justify-center mt-5">
       <ul class="flex flex-col items-center">
@@ -15,24 +15,17 @@
         </li>
       </ul>
     </nav>
-    <div class="flex w-full items-center justify-center mt-8">
-      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="FaceBook number">
-        <icon-base>
-          <icon-fb />
-        </icon-base>
-      </a>
-      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="Inst Link ">
-        <icon-base>
-          <icon-inst />
-        </icon-base>
-      </a>
-      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="Telegram number">
+    <div class="flex w-full items-center justify-center mt-8 mb-4">
+      <a href="https://t.me/moiseev_stom" class="mx-2 h-[25px]" aria-label="Telegram number">
         <icon-base>
           <icon-teleg />
         </icon-base>
       </a>
+      <a href="viber://chat?number=+380680666996" class="mx-2" aria-label="Viber number">
+        <icon-viber :color="'#000'" :width="'25px'" :height="'25px'" />
+      </a>
     </div>
-    <p class="text-main text-center mt-auto">Доставка без передоплати</p>
+
     <div class="text-center w-full">
       <a class="text-main" href="tel:+380680666996">+380 68 066 69 96</a>
     </div>

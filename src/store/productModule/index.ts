@@ -2,7 +2,7 @@ import { actions } from "./actions"
 import { getters } from "./getters"
 import { mutations } from "./mutations"
 import type { ProductState } from "./types"
-import Module from 'vuex'
+import ModuleTree from 'vuex'
 
 const state: ProductState = {
     product: [],
@@ -13,8 +13,7 @@ const state: ProductState = {
     shop: import.meta.env.VITE_SHOP_ID,
     confShop: [],
     sortOptions: [
-        { value: 'title', name: 'По назві' },
-        { value: 'size', name: 'По розміру' },
+        { value: 'price', name: 'По ціні ' },
         { value: 'type', name: 'По типу' },
         { value: 'hitProduct', name: 'Хіт' },
         { value: 'newProduct', name: 'Нові товари' },
@@ -24,7 +23,7 @@ const state: ProductState = {
 }
 
 
-export const product: Module<any, any> = {
+export const product: ModuleTree<any> = {
     state,
     getters,
     actions,
