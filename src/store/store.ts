@@ -12,7 +12,6 @@ const orderProduct = createPersistedState({
 const productModule = {
     namespaced: true,
     ...product,
-
 };
 
 const storeOptions = {

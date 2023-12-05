@@ -2,57 +2,53 @@
   <div class="w-full bg-brown-50 p-5">
     <div class="container mx-auto">
       <div class="flex flex-col gap-4 my-5 justify-center">
-        <div class="grid grid-cols-3 gap-2 align-items-start justify-items-center mb-4">
-          <ul class="flex flex-col text-start">
-            <li v-for="item in mainUrlOfFooter" :key="item.path" class="lg:pb-4">
+        <div
+          class="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-y-10 align-items-start justify-items-center mb-4"
+        >
+          <ul class="flex flex-col md:flex-row gap-1 md:gap-4 text-start">
+            <li v-for="item in mainUrlOfFooter" :key="item.path">
               <router-link
                 @click="handleReviewsClick(item)"
                 :to="item.path"
-                class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
+                class="text-white text-[10px] md:text-lg lg:text-2xl font-serif uppercase whitespace-nowrap"
                 >{{ item.name }}</router-link
               >
             </li>
           </ul>
-          <ul class="flex flex-col text-start">
-            <li v-for="item in categoryProduct" :key="item.path" class="lg:pb-4">
-              <router-link
-                @click="handleReviewsClick(item)"
-                :to="item.path"
-                class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
-                >{{ item.name }}</router-link
-              >
+
+          <ul
+            class="flex flex-col md:flex-row gap-1 md:gap-4 md:text-center text-start text-[10px] md:text-xs lg:text-sm xl:text-xl uppercase whitespace-nowrap"
+          >
+            <li class="h-6 flex items-center">
+              <p class="text-white font-serif">Наші контакти:</p>
             </li>
-          </ul>
-          <ul class="flex flex-col text-start">
-            <li class="h-6 flex items-center mb-2">
-              <p class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap">
-                Наші контакти:
-              </p>
-            </li>
-            <li class="flex mb-2 lg:py-4">
-              <a href="viber://chat?number=+380680666996" aria-label="Viber number" class="pr-4">
-                <icon-viber />
-              </a>
-              <a href="https://t.me/moiseev_stom" aria-label="Telegram number">
-                <icon-telegram />
-              </a>
-            </li>
-            <li class="lg:pb-4">
-              <a
-                href="mailto:bags7@urk.net"
-                aria-label="Email"
-                class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
-              >
+            <li class="h-6 flex items-center">
+              <div><icon-viber /></div>
+
+              <a href="mailto:bags7@urk.net" aria-label="Email" class="text-white font-serif px-2">
                 bags7.ukr@gmail.com
               </a>
             </li>
-            <li>
+            <li class="h-6 flex items-center">
+              <icon-telegram />
               <a
                 href="tel:+380632563677"
                 aria-label="Phone number"
-                class="text-white text-[10px] md:text-lg font-serif uppercase whitespace-nowrap"
+                class="text-white font-serif px-2"
                 >+380632563677
               </a>
+            </li>
+            <li class="h-6 flex items-center">
+              <a href="viber://chat?number=+380680666996" aria-label="Viber number">
+                <icon-viber />
+              </a>
+              <p class="text-white font-serif px-2">Viber</p>
+            </li>
+            <li class="h-6 flex items-center">
+              <a href="https://t.me/moiseev_stom" aria-label="Telegram number">
+                <icon-telegram />
+              </a>
+              <p class="text-white font-serif px-2">Telegram</p>
             </li>
           </ul>
         </div>

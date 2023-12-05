@@ -64,6 +64,7 @@ export const pathConfigNew = [
 
 export const mainUrlOfFooter = [
     { name: 'Головна', path: '/', id: 'home' },
+    { name: 'Каталог', path: '/category', },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }]
 

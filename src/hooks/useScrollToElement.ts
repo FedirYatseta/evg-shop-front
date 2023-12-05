@@ -34,7 +34,7 @@ const useScrollToElement = () => {
         }
         else {
             // Зазвичай переход за маршрутом
-            console.log('SCROLLLPUSH')
+
             router.push(item.path)
         }
     }

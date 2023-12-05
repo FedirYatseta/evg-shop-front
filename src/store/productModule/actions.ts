@@ -37,14 +37,14 @@ export const actions: ActionTree<any, any> = {
             console.log(e)
         }
     },
-    async getProductId({ commit }: any, id: any) {
+    // async getProductId({ commit }: any, id: any) {
 
-        try {
-            const response = await apiServices.instance.get(`${PRODUCT_URL}/${id}`)
-            commit('setSelectedProduct', response.data)
+    //     try {
+    //         const response = await apiServices.instance.get(`${PRODUCT_URL}/${id}`)
+    //         commit('setSelectedProduct', response.data)
 
-        } catch (e) {
-            console.log(e)
-        }
-    },
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // },
 }

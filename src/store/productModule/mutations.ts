@@ -1,3 +1,4 @@
+import { product } from './index';
 import MutationTree from 'vuex'
 
 export const mutations: MutationTree<any, any> = {
@@ -16,19 +17,28 @@ export const mutations: MutationTree<any, any> = {
         state.searchQuery = searchQuery
     },
 
+    setProductId(state: any, id: any) {
 
-    setSelectedProduct(state: any, payload: any) {
-        console.log('payload', payload)
-
-        state.selectedProduct = []
+        const product = state.product.find(val => val._id === id)
         const newObj = {
-            ...payload.data,
-            imageSrc: payload.data.videoUrl ? [...payload.data.imageSrc, payload.data.videoUrl] : [...payload.data.imageSrc]
+            ...product,
+            imageSrc: product.videoUrl ? [...product.imageSrc, product.videoUrl] : [...product.imageSrc]
         }
         state.selectedProduct = newObj
-        console.log('state', state.selectedProduct)
-
     },
+
+
+    // setSelectedProduct(state: any, payload: any) {
+
+    //     state.selectedProduct = []
+    //     const newObj = {
+    //         ...payload.data,
+    //         imageSrc: payload.data.videoUrl ? [...payload.data.imageSrc, payload.data.videoUrl] : [...payload.data.imageSrc]
+    //     }
+    //     state.selectedProduct = newObj
+
+
+    // },
 
 
     setProductToOrder(state: any, data: any) {

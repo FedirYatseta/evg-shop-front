@@ -133,7 +133,7 @@ export default defineComponent({
     }
 
     onMounted(async () => {
-      await store.dispatch('product/getProductId', route.params.id)
+      await store.commit('product/setProductId', route.params.id)
     })
 
     const breakpoints = ref({
