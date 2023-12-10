@@ -1,7 +1,19 @@
 <template>
   <div class="w-full mt-[70px] md:mt-2 py-10">
     <div class="container mx-auto px-2">
-      <div class="grid grid-col gap-2 mb-3">
+      <div class="grid grid-co gap-2 mb-3">
+        <div>
+          <div class="w-full text-center pb-3">
+            <router-link
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[70px] shadow-3xl"
+              @click="handleReviewsClick(path)"
+              v-for="path in dataItems.pathConfigNew"
+              :key="path.name"
+              :to="path.path"
+              >{{ path.name }}</router-link
+            >
+          </div>
+        </div>
         <div class="px-5 flex justify-between py-2">
           <button class="flex items-center" @click="nested.first = !nested.first">
             <div class="mr-2"><icon-filter /></div>
@@ -59,7 +71,7 @@ import { defineComponent, onMounted, reactive, ref, watch, watchEffect } from 'v
 import { useStore } from 'vuex'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import { useRoute } from 'vue-router'
-import { categoryProduct, pathConfigNew } from '@/config/path'
+import { pathConfigNew } from '@/config/path'
 import { Collapse } from 'vue-collapsed'
 export default defineComponent({
   components: {
@@ -67,6 +79,9 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute()
+    const dataItems = ref<any>({
+      pathConfigNew
+    })
     const fetchNextProduct = () => {
       const { _id } = store.state.product.product[store.state.product.product.length - 1]
       let param = {}
@@ -99,15 +114,12 @@ export default defineComponent({
 
       await store.dispatch('product/fetchProduct', param) // 'product' - це ім'я вашого модулю Vuex
     })
-    const items = ref(categoryProduct)
+
     const store = useStore()
     const nested = reactive({
       first: false, // Initial value
       second: false,
       third: false
-    })
-    const dataItems = ref<any>({
-      pathConfigNew
     })
 
     const rotation = ref(45)
@@ -143,7 +155,7 @@ export default defineComponent({
         }
       })
     }
-    return { fetchNextProduct, handleAccordion, rotation, activeIndex, nested }
+    return { fetchNextProduct, handleAccordion, rotation, activeIndex, nested, dataItems }
   },
   methods: {
     ...mapMutations({

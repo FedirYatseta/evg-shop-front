@@ -132,7 +132,23 @@ import { useStore } from 'vuex'
 import { useForm, Field } from 'vee-validate'
 import * as yup from 'yup'
 import { useRoute, useRouter } from 'vue-router'
+import { event } from 'vue-gtag'
 
+interface IOrder {
+  name: String
+  phone: String
+  order: [
+    {
+      count: Number
+      id: String
+      image: String
+      oldPrice: Number
+      price: Number
+      size: String
+      title: String
+    }
+  ]
+}
 export default defineComponent({
   name: 'order-form',
   components: {
@@ -144,6 +160,13 @@ export default defineComponent({
     const successOrder = ref(false)
     const router = useRouter()
     const route = useRoute()
+    const track = (id: IOrder) => {
+      event('conversion', {
+        event_category: 'order',
+        event_label: 'Success',
+        value: id
+      })
+    }
     onMounted(async () => {
       await store.commit('product/setProductToOrder', route.params.id)
     })
@@ -175,15 +198,9 @@ export default defineComponent({
       }
 
       store.dispatch('product/createOrder', newObj)
+      track(newObj.order[0].id)
 
-      setTimeout(() => {
-        successOrder.value = true
-      }, 2000)
       successOrder.value = true
-      setTimeout(() => {
-        store.commit('product/setShowBuyModal', false)
-        successOrder.value = false
-      }, 2000)
     })
 
     const name = defineInputBinds('name')

@@ -8,6 +8,7 @@ import VueTheMask from 'vue-the-mask'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { iconsSvg } from './assets';
+import VueGtag from 'vue-gtag';
 import { componentsUI } from './UI';
 const app = createApp(App)
 
@@ -24,6 +25,11 @@ iconsSvg.forEach(component => {
 
 app
     .component('QuillEditor', QuillEditor)
+    .use(VueGtag, {
+        config: { id: 'AW-11432602863' }, // Замініть це значення на ваш ID Google Analytics
+        appName: 'Bags7',
+        enabled: true, // Увімкніть відстеження
+    }, router)
     .use(VueTheMask)
     .use(store)
     .use(router)

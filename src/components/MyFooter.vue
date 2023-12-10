@@ -15,7 +15,6 @@
               >
             </li>
           </ul>
-
           <ul
             class="flex flex-col md:flex-row gap-1 md:gap-4 md:text-center text-start text-[10px] md:text-xs lg:text-sm xl:text-xl uppercase whitespace-nowrap"
           >

@@ -21,6 +21,7 @@
     "vee-validate": "^4.11.8",
     "vue": "^3.3.4",
     "vue-collapsed": "^1.2.9",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.2.5",
     "vue-the-mask": "^0.11.1",
     "vue3-carousel": "^0.3.1",

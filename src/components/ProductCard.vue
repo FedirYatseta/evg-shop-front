@@ -58,6 +58,7 @@
           </p>
           <div class="flex md:pt-2 mb-1 justify-center">
             <span
+              v-show="prod.oldPrice"
               class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-2"
             >
               <p class="text-black-200 text-base md:text-2xl xl:text-3xl">
