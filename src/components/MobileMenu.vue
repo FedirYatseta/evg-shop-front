@@ -15,19 +15,17 @@
         </li>
       </ul>
     </nav>
-    <div class="flex w-full items-center justify-center mt-8 mb-4">
-      <a href="https://t.me/moiseev_stom" class="mx-2 h-[25px]" aria-label="Telegram number">
-        <icon-base>
-          <icon-teleg />
-        </icon-base>
+    <div class="flex w-full items-center justify-center mt-8 mb-2">
+      <a href="https://t.me/moiseev_stom" class="mx-2" aria-label="Telegram number">
+        <icon-telegram :height="50" :width="50" />
       </a>
-      <a href="viber://chat?number=+380680666996" class="mx-2" aria-label="Viber number">
-        <icon-viber :color="'#000'" :width="'25px'" :height="'25px'" />
+      <a href="viber://chat?number=+380632563677" class="mx-2" aria-label="Viber number">
+        <icon-viber :height="50" :width="50" />
       </a>
     </div>
 
     <div class="text-center w-full">
-      <a class="text-main" href="tel:+380680666996">+380 68 066 69 96</a>
+      <a class="text-main" href="tel:+380632563677">+380632563677</a>
     </div>
   </div>
 </template>

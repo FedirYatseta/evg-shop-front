@@ -7,10 +7,10 @@
             <h3
               class="text-main font-bold text-4xl font-bold lg:text-[51px] xl:text-[71px] uppercase md:leading-[55.2px] xl:leading-[85.2px] mb-3 md:mb-9"
             >
-              Твій характер в кожній сумці
+              Характер в кожній сумці
             </h3>
             <p class="font-light text-main md:text-2xl lg:text-3xl md:mb-9">
-              Якісні шкіряні чоловічі сумки, які підчеркнуть твій стиль
+              Якісні шкіряні чоловічі сумки, які підкреслять твій стиль
             </p>
             <router-link
               to="/category"
@@ -41,8 +41,8 @@
         <div class="container mx-auto">
           <div class="grid grid-cols-2 md:grid-cols-1 justify-items-center gap-2 items-center p-5">
             <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
-            <p class="text-sm md:text-xl xl:text-3xl text-justify leading-6">
-              Наші сумки, натуральна шкіра, якісна фурнітура, топ топскій купуй і не пожалкуєш
+            <p class="text-sm md:text-lg lg:text-xl xl:text-2xl text-justify leading-6">
+              Сумки з натуральної шкіри та аксесуари, до 43% знижки!
             </p>
           </div>
         </div>
@@ -59,7 +59,7 @@
           </p>
           <div class="grid grid-col gap-3 md:gap-4 pb-6 md:px-4 lg:px-48 lg:mb-16">
             <div
-              class="flex items-center justify-start pb-2 lg:pb-6 h-full"
+              class="flex items-center justify-start pb-2 lg:pb-6 h-full px-4"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
@@ -206,7 +206,7 @@
           Відгуки наших покупців
         </h1>
         <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
-          Даруємо <strong>10%</strong> знижки за відмітку в нас у себе в соц. мережах "Іnstagram,
+          Даруємо <strong>10%</strong> знижки за відмітку нас себе в соц. мережах "Іnstagram,
           Facebook"
         </p>
         <div class="my-5">

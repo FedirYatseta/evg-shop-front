@@ -1,6 +1,6 @@
 import * as apiServices from '@/services/api';
 import ActionTree from 'vuex'
-import { PRODUCTS_URL, PRODUCT_URL, ORDER_URL, CONFIGURE_URL } from './constants';
+import { PRODUCTS_URL, ORDER_URL, CONFIGURE_URL } from './constants';
 
 
 export const actions: ActionTree<any, any> = {
@@ -37,14 +37,5 @@ export const actions: ActionTree<any, any> = {
             console.log(e)
         }
     },
-    // async getProductId({ commit }: any, id: any) {
 
-    //     try {
-    //         const response = await apiServices.instance.get(`${PRODUCT_URL}/${id}`)
-    //         commit('setSelectedProduct', response.data)
-
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // },
 }

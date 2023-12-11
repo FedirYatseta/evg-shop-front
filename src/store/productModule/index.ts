@@ -8,16 +8,16 @@ const state: ProductState = {
     product: [],
     selectedProduct: [],
     buyProduct: [],
-    selectedSort: '',
+    selectedSort: 'hitProduct',
     searchQuery: '',
     shop: import.meta.env.VITE_SHOP_ID,
     confShop: [],
     sortOptions: [
-        { value: 'price', name: 'По ціні ' },
+        { value: 'price', name: 'По ціні' },
         { value: 'type', name: 'По типу' },
         { value: 'hitProduct', name: 'Хіт' },
         { value: 'newProduct', name: 'Нові товари' },
-
+        { value: 'sale', name: 'Скидки' },
     ],
 
 }

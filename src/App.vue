@@ -21,7 +21,7 @@ export default defineComponent({
     })
     onMounted(async () => {
       if (param1) {
-        await store.dispatch('product/fetchProduct', { limit: 12, type: param1 })
+        await store.dispatch('product/fetchProduct', { type: param1 })
       } else {
         await store.dispatch('product/fetchProduct')
       }

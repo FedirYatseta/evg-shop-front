@@ -4,6 +4,7 @@ import IconCircleVue from "./IconCircle.vue"
 import IconCloseVue from "./IconClose.vue"
 import IconDelVue from "./IconDel.vue"
 import IconDoneVue from "./IconDone.vue"
+import IconEmailVue from "./IconEmail.vue"
 import IconFaceBookVue from "./IconFaceBook.vue"
 import IconFilterVue from "./IconFilter.vue"
 import IconHeartVue from "./IconHeart.vue"
@@ -12,6 +13,7 @@ import IconLogoVue from "./IconLogo.vue"
 import IconMinusVue from "./IconMinus.vue"
 import IconMoneyVue from "./IconMoney.vue"
 import IconOrderVue from "./IconOrder.vue"
+import IconPhoneVue from "./IconPhone.vue"
 import IconPlusVue from "./IconPlus.vue"
 import IconPlusCircleVue from "./IconPlusCircle.vue"
 import IconReloadVue from "./IconReload.vue"
@@ -46,5 +48,7 @@ export const iconsSvg = [
     IconTelegramVue,
     IconViberVue,
     IconWhatsAppVue,
-    IconWhereVue
+    IconWhereVue,
+    IconEmailVue,
+    IconPhoneVue
 ]

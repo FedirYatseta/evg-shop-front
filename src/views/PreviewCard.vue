@@ -42,7 +42,10 @@
               ref="carousel"
             >
               <Slide v-for="(slide, index) in productEl.imageSrc" :key="slide">
-                <div @click="slideTo(index)" class="carousel__item px-2 max-h-[150px] md:max-h-fit">
+                <div
+                  @click="slideTo(index)"
+                  class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
+                >
                   <img
                     v-if="isImage(slide)"
                     class="opacity-10 rounded-md object-cover h-full"

@@ -137,6 +137,7 @@ import { event } from 'vue-gtag'
 interface IOrder {
   name: String
   phone: String
+  idShop: String
   order: [
     {
       count: Number
@@ -185,6 +186,7 @@ export default defineComponent({
       initialValues: {
         name: '',
         phone: '',
+        idShop: '',
         policy: false
       },
       validationSchema: schema
@@ -194,6 +196,7 @@ export default defineComponent({
       const newObj = {
         name: values.name,
         phone: values.phone,
+        idShop: store.state.product.shop,
         order: [...store.state.product.buyProduct]
       }
 
