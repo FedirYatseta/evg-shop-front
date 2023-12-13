@@ -5,7 +5,7 @@ import CategoryView from '@/views/CategoryView.vue'
 import PublicView from '@/views/PublicView.vue'
 import PreviewCard from '@/views/PreviewCard.vue'
 import OrderView from '@/views/OrderView.vue'
-import SuccessOrderVue from "@/views/SuccessOrder.vue";
+
 
 
 const routes = [
@@ -33,10 +33,7 @@ const routes = [
         path: "/category",
         component: CategoryView,
     },
-    {
-        path: "/order/done",
-        component: SuccessOrderVue,
-    },
+
     {
         path: "/public",
         component: PublicView,

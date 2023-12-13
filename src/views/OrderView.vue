@@ -16,7 +16,9 @@
                   <p class="text-lg">Розмір {{ item.size }}</p>
                 </div>
                 <icon-base
-                  class="absolute top-0 right-0 cursor-pointer"
+                  :width="35"
+                  :height="35"
+                  class="absolute top-0 right-0 cursor-pointer bg-white"
                   @click="deleteProduct(item.id)"
                 >
                   <icon-del></icon-del>
@@ -100,17 +102,10 @@
           </form>
         </div>
       </div>
-      <!-- <div
+      <div
         class="p-4 md:p-12 flex w-full flex-col items-center justify-center z-50 bg-white h-full"
-        v-if="!successOrder"
+        v-if="successOrder"
       >
-         <script>
-          gtag('event', 'conversion', {
-            send_to: 'AW-11432602863/DyrsCPvY7f0YEO_Zvssq',
-            transaction_id: ''
-          })
-        </script> 
-
         <div class="m-auto flex flex-col items-center justify-center">
           <div>
             <icon-bags />
@@ -128,7 +123,7 @@
         >
           <router-link to="/" class="text-sm text-white uppercase">На головгу</router-link>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -139,8 +134,8 @@ import { useStore } from 'vuex'
 import { useForm, Field } from 'vee-validate'
 import * as yup from 'yup'
 import { useRoute, useRouter } from 'vue-router'
-import { event } from 'vue-gtag'
-
+//import { event } from 'vue-gtag'
+import { gtag } from 'ga-gtag'
 export interface IOrder {
   name: String
   phone: String
@@ -169,14 +164,15 @@ export default defineComponent({
     const successOrder = ref(false)
     const router = useRouter()
     const route = useRoute()
+    const phoneNumberRegex = /^\+380 \(\d{2}\) \d{3} \d{2} \d{2}$/
 
-    const track = (body: any) => {
-      event('conversion', {
-        event_category: 'order',
-        event_label: 'Success',
-        value: body
-      })
-    }
+    // const track = (body: any) => {
+    //   event('conversion', {
+    //     event_category: 'order',
+    //     event_label: 'Success',
+    //     value: body
+    //   })
+    // }
     onMounted(async () => {
       await store.commit('product/setProductToOrder', route.params.id)
     })
@@ -188,7 +184,10 @@ export default defineComponent({
     })
     const schema = yup.object({
       name: yup.string().required("Вкажіть ваше І'мя"),
-      phone: yup.string().required('Вкажіть мобільний номер телефону'),
+      phone: yup
+        .string()
+        .required('Вкажіть мобільний номер телефону')
+        .matches(phoneNumberRegex, 'Не вірний формат мобільного номеру телефона'),
       policy: yup.boolean().required().isTrue(' ')
     })
     const { handleSubmit, defineInputBinds, errors, values } = useForm({
@@ -208,26 +207,13 @@ export default defineComponent({
         idShop: store.state.product.shop,
         order: [...store.state.product.buyProduct]
       }
-      let header = document.querySelector('head')
-
-      if (header) {
-        let newScript = document.createElement('script')
-
-        // Set the content for the script element
-        newScript.innerHTML = `
-  gtag('event', 'conversion', {
-    send_to: 'AW-11432602863/DyrsCPvY7f0YEO_Zvssq',
-    transaction_id: ''
-  });
-`
-        newScript.setAttribute('id', 'conversionScript')
-        // Append the new <script> element to the <head> section
-        header.appendChild(newScript)
-      }
-      // Append the new <script> element to the <head> section
-
       await store.dispatch('product/createOrder', newObj)
-      router.push('/order/done')
+      gtag('event', 'conversion', {
+        send_to: 'AW-11432602863/DyrsCPvY7f0YEO_Zvssq',
+        transaction_id: ''
+      })
+      store.commit('product/setClearBuyState')
+      successOrder.value = true
     })
 
     const name = defineInputBinds('name')

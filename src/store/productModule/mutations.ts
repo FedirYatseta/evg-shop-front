@@ -26,20 +26,9 @@ export const mutations: MutationTree<any, any> = {
         }
         state.selectedProduct = newObj
     },
-
-
-    // setSelectedProduct(state: any, payload: any) {
-
-    //     state.selectedProduct = []
-    //     const newObj = {
-    //         ...payload.data,
-    //         imageSrc: payload.data.videoUrl ? [...payload.data.imageSrc, payload.data.videoUrl] : [...payload.data.imageSrc]
-    //     }
-    //     state.selectedProduct = newObj
-
-
-    // },
-
+    setClearBuyState(state: any) {
+        state.buyProduct = []
+    },
 
     setProductToOrder(state: any, data: any) {
 
