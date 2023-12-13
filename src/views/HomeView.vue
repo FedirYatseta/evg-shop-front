@@ -206,7 +206,7 @@
           Відгуки наших покупців
         </h1>
         <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
-          Даруємо <strong>10%</strong> знижки за відмітку нас себе в соц. мережах "Іnstagram,
+          Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
           Facebook"
         </p>
         <div class="my-5">

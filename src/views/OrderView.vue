@@ -100,10 +100,17 @@
           </form>
         </div>
       </div>
-      <div
+      <!-- <div
         class="p-4 md:p-12 flex w-full flex-col items-center justify-center z-50 bg-white h-full"
-        v-if="successOrder"
+        v-if="!successOrder"
       >
+         <script>
+          gtag('event', 'conversion', {
+            send_to: 'AW-11432602863/DyrsCPvY7f0YEO_Zvssq',
+            transaction_id: ''
+          })
+        </script> 
+
         <div class="m-auto flex flex-col items-center justify-center">
           <div>
             <icon-bags />
@@ -121,7 +128,7 @@
         >
           <router-link to="/" class="text-sm text-white uppercase">На головгу</router-link>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -134,22 +141,23 @@ import * as yup from 'yup'
 import { useRoute, useRouter } from 'vue-router'
 import { event } from 'vue-gtag'
 
-interface IOrder {
+export interface IOrder {
   name: String
   phone: String
   idShop: String
-  order: [
-    {
-      count: Number
-      id: String
-      image: String
-      oldPrice: Number
-      price: Number
-      size: String
-      title: String
-    }
-  ]
+  order: IProduct[]
 }
+
+interface IProduct {
+  count: Number
+  id: String
+  image: String
+  oldPrice: Number
+  price: Number
+  size: String
+  title: String
+}
+
 export default defineComponent({
   name: 'order-form',
   components: {
@@ -161,11 +169,12 @@ export default defineComponent({
     const successOrder = ref(false)
     const router = useRouter()
     const route = useRoute()
-    const track = (id: IOrder) => {
+
+    const track = (body: any) => {
       event('conversion', {
         event_category: 'order',
         event_label: 'Success',
-        value: id
+        value: body
       })
     }
     onMounted(async () => {
@@ -192,18 +201,33 @@ export default defineComponent({
       validationSchema: schema
     })
 
-    const onSubmit = handleSubmit((values) => {
+    const onSubmit = handleSubmit(async (values) => {
       const newObj = {
         name: values.name,
         phone: values.phone,
         idShop: store.state.product.shop,
         order: [...store.state.product.buyProduct]
       }
+      let header = document.querySelector('head')
 
-      store.dispatch('product/createOrder', newObj)
-      track(newObj.order[0].id)
+      if (header) {
+        let newScript = document.createElement('script')
 
-      successOrder.value = true
+        // Set the content for the script element
+        newScript.innerHTML = `
+  gtag('event', 'conversion', {
+    send_to: 'AW-11432602863/DyrsCPvY7f0YEO_Zvssq',
+    transaction_id: ''
+  });
+`
+        newScript.setAttribute('id', 'conversionScript')
+        // Append the new <script> element to the <head> section
+        header.appendChild(newScript)
+      }
+      // Append the new <script> element to the <head> section
+
+      await store.dispatch('product/createOrder', newObj)
+      router.push('/order/done')
     })
 
     const name = defineInputBinds('name')

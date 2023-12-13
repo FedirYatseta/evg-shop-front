@@ -27,8 +27,6 @@ app
     .component('QuillEditor', QuillEditor)
     .use(VueGtag, {
         config: { id: 'AW-11432602863' }, // Замініть це значення на ваш ID Google Analytics
-        appName: 'Bags7',
-        enabled: true, // Увімкніть відстеження
     }, router)
     .use(VueTheMask)
     .use(store)
