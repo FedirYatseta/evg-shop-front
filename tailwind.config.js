@@ -10,7 +10,7 @@ module.exports = {
       'serif': ['Open Sans', 'sans-serif']
     },
     colors: {
-      main: '#372929',
+      main: '#000',
       white: '#ffffff',
       black: {
         0: '#000',

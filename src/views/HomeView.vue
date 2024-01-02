@@ -1,86 +1,61 @@
 <template>
   <div class="mt-[78px] md:mt-6">
-    <div class="w-full">
+    <section class="w-full">
       <div class="container mx-auto pt-4 pb-6">
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
-          <div class="pb-3 px-5 flex flex-col justify-center">
-            <h3
-              class="text-main font-bold text-4xl font-bold lg:text-[51px] xl:text-[71px] uppercase md:leading-[55.2px] xl:leading-[85.2px] mb-3 md:mb-9"
-            >
-              Характер в кожній сумці
-            </h3>
-            <p class="font-light text-main md:text-2xl lg:text-3xl md:mb-9">
-              Якісні шкіряні чоловічі сумки, які підкреслять твій стиль
-            </p>
-            <router-link
-              to="/category"
-              class="p-3 bg-brown-100 border-[1.4px] text-white uppercase w-max hidden md:block"
-            >
-              Переглянути каталог</router-link
-            >
-          </div>
-          <div
-            class="px-5 w-full h-full max-h-[250px] md:max-h-[350px] lg:max-h-[450px] xl:max-h-[550px]"
-          >
+          <div class="px-5 w-full h-full flex">
             <img
-              src="../image/image.webp"
+              src="../image/image.jpg"
               alt="main image"
-              class="w-full h-full object-cover lg:hidden"
+              class="w-full h-auto object-contain lg:hidden"
             />
             <img
-              src="../image/imageDesc.webp"
+              src="../image/image.jpg"
               alt="main image"
-              class="w-full h-full object-cover hidden lg:block"
+              class="w-full h-auto object-contain hidden lg:block"
+            />
+          </div>
+          <div class="flex flex-col justify-between px-5">
+            <div>
+              <p class="text-2xl font-bold md:text-2xl lg:text-2xl xl:text-5xl text-start mb-6">
+                Чоловічі шкіряні cумки та <br />
+                аксесуари, зі знижкою - 43%
+              </p>
+              <p class="text-start text-sm md:text-lg font-bold text-main xl:text-xl mb-6 md:mb-5">
+                Ми знаємо що таке стиль. Ласкаво просимо до нашого магазину. Ми впевнені, що Ви
+                знайдете сумку для себе або на подарунок. У нас великий вибір продукціії власного
+              </p>
+            </div>
+            <img
+              src="../image/image-section-1.jpg"
+              alt="main image"
+              class="w-full h-auto object-contain"
             />
           </div>
         </div>
       </div>
-    </div>
-    <div class="w-full">
-      <div class="border-t border-b border-black-50 mb-8 lg:mb-16 xl:mb-24">
-        <div class="container mx-auto">
-          <div class="grid grid-cols-2 md:grid-cols-1 justify-items-center gap-2 items-center p-5">
-            <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
-            <p class="text-sm md:text-lg lg:text-xl xl:text-2xl text-justify leading-6">
-              Сумки з натуральної шкіри та аксесуари, до 43% знижки!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="w-full">
+    </section>
+    <section class="w-full md:shadow-5xl py-12 mb-4 lg:mb-16">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10">
-          <p class="text-center font-bold text-2xl md:text-4xl xl:text-[53px] mb-2 md:mb-5">
-            Про якість наших сумок
-          </p>
-          <p class="text-center font-light text-xs md:text-lg xl:text-xl mb-8 lg:mb-16 xl:mb-20">
-            Або "Чому купити сумку саме у нас буде кращим рішенням?"
-          </p>
-          <div class="grid grid-col gap-3 md:gap-4 pb-6 md:px-4 lg:px-48 lg:mb-16">
+          <div class="grid grid-cols-2 items-center lg:px-8">
             <div
-              class="flex items-center justify-start pb-2 lg:pb-6 h-full px-4"
+              class="grid grid-cols-7 items-center gap-3 md:gap-4 pb-6 md:px-4 lg:mb-4"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
-              <div class="flex items-start justify-center relative h-full mr-3 xl:mr-10">
-                <div class="absolute block md:hidden rounded-full h-8 w-8 shadow-6xl"></div>
-                <div
-                  class="absolute hidden md:block xl:hidden rounded-full h-12 w-12 shadow-6xl"
-                ></div>
-                <div class="absolute hidden xl:block rounded-full h-20 w-20 shadow-6xl"></div>
-                <div
-                  class="text-white flex items-center justify-center text-center text-md md:text-2xl xl:text-4xl z-10 w-[32px] h-[32px] md:w-[48px] md:h-[48px] xl:w-[80px] xl:h-[80px]"
-                >
-                  <p>0{{ index + 1 }}</p>
-                </div>
+              <div class="block w-8 h-8 md:w-20 md:h-20 mr-3 xl:mr-10">
+                <img v-if="index === 0" src="../image/describe/2.png" class="object-contain" />
+                <img v-if="index === 1" src="../image/describe/1.png" class="object-contain" />
+                <img v-if="index === 2" src="../image/describe/4.png" class="object-contain" />
+                <img v-if="index === 3" src="../image/describe/3.png" class="object-contain" />
               </div>
-              <div>
-                <p
+              <div class="col-span-6">
+                <!-- <p
                   class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-2 lg:mb-3"
                 >
                   {{ val.title }}
-                </p>
+                </p> -->
                 <p class="font-light text-xs md:text-sm xl:text-2xl leading-none">
                   {{ val.description }}
                 </p>
@@ -89,12 +64,22 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="w-full shadow-5xl">
-      <div
-        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-3 md:mb-10 text-white bg-main p-5 md:p-10"
+    </section>
+    <section class="w-full">
+      <!-- <div
+        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-5 md:mb-10 text-white bg-main p-5 md:p-10"
       >
-        <p class="container mx-auto">Сумки з натуральної шкіри</p>
+        <p class="container mx-auto">Каталог сумок</p>
+      </div> -->
+      <div class="border-t border-b border-black-50 mb-8 lg:mb-16 xl:mb-24">
+        <div class="container mx-auto">
+          <div class="grid grid-col md:grid-cols-1 justify-items-center gap-2 items-center p-5">
+            <!-- <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div> -->
+            <p class="text-2xl font-bold md:text-lg lg:text-xl xl:text-2xl text-center leading-6">
+              Каталог сумок
+            </p>
+          </div>
+        </div>
       </div>
       <div class="container mx-auto my-10 md:px-12 xl:px-0">
         <div>
@@ -176,8 +161,24 @@
           </button>
         </div>
       </div>
-    </div>
-    <div class="w-full py-2 lg:py-10 mb-6">
+    </section>
+    <section class="w-full mb-12 lg:mb-16">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-2 lg:grid-cols-3">
+          <div v-for="item in items" :key="item.path" class="shadow-lg relative">
+            <router-link :to="item.path">
+              <img :src="item.image" :alt="item.path" />
+              <p
+                class="absolute w-full text-center top-2/4 left-2/4 -translate-x-2/4 text-white text-md md:text-2xl lg:text-4xl uppercase"
+              >
+                {{ item.name }}
+              </p>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="w-full py-2 lg:py-10 mb-6">
       <div class="container mx-auto px-5">
         <div
           class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-12"
@@ -198,23 +199,8 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto px-5">
-        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
-          Відгуки наших покупців
-        </h1>
-        <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
-          Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
-          Facebook"
-        </p>
-        <div class="my-5">
-          <basic-carousel />
-        </div>
-      </div>
-    </div>
-    <div id="question" class="w-full mb-12 lg:mb-16">
+    </section> -->
+    <section id="question" class="w-full mb-2 lg:mb-16">
       <div class="container mx-auto">
         <div class="px-5 grid grid-col gap-5">
           <div class="flex items-center justify-center">
@@ -257,23 +243,21 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="w-full">
-      <div class="container mx-auto">
-        <div class="grid grid-cols-2 lg:grid-cols-3">
-          <div v-for="item in items" :key="item.path" class="shadow-lg relative">
-            <router-link :to="item.path">
-              <img :src="item.image" :alt="item.path" />
-              <p
-                class="absolute w-full text-center top-2/4 left-2/4 -translate-x-2/4 text-white text-md md:text-2xl lg:text-4xl uppercase"
-              >
-                {{ item.name }}
-              </p>
-            </router-link>
-          </div>
+    </section>
+    <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
+      <div class="container mx-auto px-5">
+        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
+          Відгуки наших покупців
+        </h1>
+        <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
+          Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
+          Facebook"
+        </p>
+        <div class="my-5">
+          <basic-carousel />
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -307,7 +291,6 @@ export default defineComponent({
     const dataItems = ref<any>({
       pathConfigNew
     })
-
     const rotation = ref(45)
     const activeIndex = ref(-1)
     const questions = reactive<any>([]) // Початково порожній масив для питань

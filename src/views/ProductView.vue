@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mt-[70px] md:mt-2 py-10">
+  <section class="w-full mt-[70px] md:mt-2 py-10">
     <div class="container mx-auto px-2">
       <div class="grid grid-co gap-2 mb-3">
         <div>
@@ -63,7 +63,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

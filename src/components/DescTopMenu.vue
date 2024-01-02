@@ -12,7 +12,7 @@
             >
               <span class="mr-1">{{ item.name }}</span>
             </button>
-            <ul class="dropdown-menu absolute hidden bg-brown-50 pt-1 border border-white z-50">
+            <ul class="dropdown-menu absolute hidden bg-main pt-1 border border-white z-50">
               <li v-for="subItem in item.subPath" :key="subItem.name" class="p-2">
                 <router-link
                   :to="subItem.path"
@@ -37,9 +37,9 @@
         </li>
       </ul>
     </nav>
-    <div class="min-w-max xl:min-w-[200px] mx-2 lg:mx-10">
+    <!-- <div class="min-w-max xl:min-w-[200px] mx-2 lg:mx-10">
       <count-down :saleTime="saleTime" />
-    </div>
+    </div> -->
 
     <div class="flex flex-col justify-center">
       <a class="text-sm lg:text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>

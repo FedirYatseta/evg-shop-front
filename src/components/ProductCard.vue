@@ -73,12 +73,12 @@
         <div class="grid grid-col md:grid-cols-2 gap-2 md:gap-4 pt-1 md:pt-5">
           <router-link
             :to="'/preview/' + prod._id"
-            class="bg-brown-50 hover:bg-brown-50 text-white font-serif p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
+            class="bg-main hover:bg-brown-50 text-white font-serif p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
             >Детальніше</router-link
           >
           <router-link
             :to="'/order/' + prod._id"
-            class="bg-white hover:bg-slate-800 text-brown-50 border-brown-50 border font-serif p-1 lg:p-2 text-center uppercase text-xs md:text-lg xl:text-xl"
+            class="bg-white hover:bg-slate-800 text-main border-main border font-serif p-1 lg:p-2 text-center uppercase text-xs md:text-lg xl:text-xl"
             >Замовити</router-link
           >
         </div>

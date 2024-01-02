@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:mt-2 pb-10">
+  <section class="w-full md:mt-2 pb-10">
     <div class="container mx-auto pt-20 pb-24 lg:pb-64 lg:pt-0">
       <div class="grid grid-col gap-2 mx-auto px-2 md:px-16">
         <div class="flex justify-between items-center p-2 lg:py-10">
@@ -19,7 +19,7 @@
                     v-if="isImage(slide)"
                     :src="slide"
                     alt="image-product-slide"
-                    class="rounded-b-md"
+                    class="rounded-b-md w-full h-full object-contain"
                   />
                   <iframe
                     v-else
@@ -98,18 +98,18 @@
                   :readOnly="true"
                 />
               </div>
-              <div class="border-brown-50 border-t md:mt-16 mt-5"></div>
+              <div class="border-main border-t md:mt-16 mt-5"></div>
             </div>
             <router-link
               :to="'/order/' + productEl?._id"
-              class="text-white text-center border bg-brown-50 mt-5 px-24 py-4 lg:text-2xl"
+              class="text-white text-center border bg-main mt-5 px-24 py-4 lg:text-2xl"
               >Замовити</router-link
             >
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

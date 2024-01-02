@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:mt-2 py-10">
+  <section class="w-full md:mt-2 py-10">
     <div class="container mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0 relative">
       <div class="absolute top-5 w-full h-[51px] flex items-center justify-end px-3">
         <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
@@ -96,7 +96,7 @@
               </label>
             </div>
             <p class="text-start text-lg py-2 border-t border-brown-50">Всього: {{ total }} UAH</p>
-            <my-button class="bg-brown-50 hover:bg-brown-100 uppercase text-white p-3"
+            <my-button class="bg-main hover:bg-brown-100 uppercase text-white p-3"
               >Замовити</my-button
             >
           </form>
@@ -121,11 +121,11 @@
           class="w-full max-w-[520px] h-[33px] bg-brown-50 flex items-center justify-center px-3"
           @click="closeModal"
         >
-          <router-link to="/" class="text-sm text-white uppercase">На головгу</router-link>
+          <router-link to="/" class="text-sm text-white uppercase">На головну</router-link>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

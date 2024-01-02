@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-brown-50 p-5">
+  <div class="w-full bg-main p-5">
     <div class="container mx-auto">
       <div class="flex flex-col gap-4 my-5 justify-center">
         <div
