@@ -7,12 +7,11 @@
             <router-link
               class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[10px]"
               :class="{ 'shadow-3xl': path.path !== routePath }"
-              @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
               :to="path.path"
-              >{{ path.name }}</router-link
-            >
+              >{{ path.name }}
+            </router-link>
           </div>
         </div>
         <div class="px-5 flex justify-between py-2">
@@ -80,6 +79,15 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute()
+    const active = ref('')
+
+    watch(
+      () => route.fullPath,
+      (newPath) => {
+        active.value = newPath
+      }
+    )
+
     const dataItems = ref<any>({
       pathConfigNew
     })
@@ -163,7 +171,7 @@ export default defineComponent({
       activeIndex,
       nested,
       dataItems,
-      routePath: route.fullPath
+      routePath: active
     }
   },
   methods: {

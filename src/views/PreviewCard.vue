@@ -3,10 +3,13 @@
     <div class="container mx-auto pt-20 pb-24 lg:pb-64 lg:pt-0">
       <div class="grid grid-col gap-2 mx-auto px-2 md:px-16">
         <div class="flex justify-between items-center p-2 lg:py-10">
-          <div class="before:content-['←'] before:lg:text-2xl before:pr-1 flex uppercase text-xs">
-            <div @click="router.go(-1)" class="text-xs lg:text-2xl">Назад до каталогу</div>
+          <div
+            @click="router.go(-1)"
+            class="before:content-['←'] before:lg:text-2xl before:pr-1 flex uppercase text-xs cursor-pointer"
+          >
+            <div class="text-xs lg:text-2xl">Назад до каталогу</div>
           </div>
-          <div>
+          <div class="cursor-pointer">
             <icon-close @click="router.go(-1)" />
           </div>
         </div>
