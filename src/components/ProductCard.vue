@@ -10,24 +10,21 @@
           >
             <div v-if="prod.sale" class="relative my-1 px-2 h-5 w-12 lg:h-10 lg:w-24">
               <div
-                style="clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%)"
-                class="absolute inset-0 text-sm lg:text-3xl font-bold flex items-center justify-center bg-red h-full w-full"
+                class="absolute inset-0 text-sm lg:text-3xl font-bold flex items-center justify-center h-full w-full bg-black-0 border-t-4 border-l-4"
               >
                 sale
               </div>
             </div>
-            <div v-if="prod.newProduct" class="relative my-1 h-5 w-12 lg:h-8 lg:w-20">
+            <div v-if="prod.newProduct" class="relative my-1 h-5 w-12 lg:h-10 lg:w-24">
               <div
-                style="clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%)"
-                class="absolute inset-0 text-sm lg:text-2xl font-bold flex items-center justify-center bg-black-50 h-full w-full"
+                class="absolute inset-0 text-sm lg:text-2xl font-bold flex items-center justify-center bg-black-50 h-full w-full border-t-4 border-l-4"
               >
                 New
               </div>
             </div>
-            <div v-if="prod.hitProduct" class="relative my-1 h-5 w-12 lg:h-8 lg:w-20">
+            <div v-if="prod.hitProduct" class="relative my-1 h-5 w-12 lg:h-10 lg:w-24">
               <div
-                style="clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%)"
-                class="absolute inset-0 text-sm lg:text-2xl text-black-0 font-bold flex items-center justify-center bg-white h-full w-full"
+                class="absolute inset-0 text-sm lg:text-2xl text-black-0 font-bold flex items-center justify-center bg-white border-t-4 border-l-4 h-full w-full"
               >
                 Хіт
               </div>
@@ -53,9 +50,7 @@
           <p class="font-bold text-center text-sm md:text-lg lg:text-2xl pt-2 md:pt-5">
             {{ prod.title }}
           </p>
-          <p class="text-xs text-center md:text-lg text-black-150 lg:text-xl pt-1 md:pt-2">
-            Розмір <span> {{ prod.size + ' см' }}</span>
-          </p>
+
           <div class="flex md:pt-2 mb-1 justify-center">
             <span
               v-show="prod.oldPrice"
@@ -65,7 +60,7 @@
                 {{ prod.oldPrice }} UAH
               </p>
             </span>
-            <p class="text-base sm:text-lg md:text-2xl xl:text-3xl text-red">
+            <p class="text-base sm:text-lg md:text-2xl xl:text-3xl text-black-50">
               {{ prod.price }} UAH
             </p>
           </div>

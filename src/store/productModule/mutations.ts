@@ -3,6 +3,7 @@ import MutationTree from 'vuex'
 
 export const mutations: MutationTree<any, any> = {
     setProduct(state: any, prod: any) {
+        console.log('prod', prod)
         state.product = prod.data
     },
 
@@ -18,13 +19,10 @@ export const mutations: MutationTree<any, any> = {
     },
 
     setProductId(state: any, id: any) {
-
         const product = state.product.find(val => val._id === id)
-        const newObj = {
-            ...product,
-            imageSrc: product.videoUrl ? [...product.imageSrc, product.videoUrl] : [...product.imageSrc]
-        }
-        state.selectedProduct = newObj
+        console.log('product', product)
+
+        state.selectedProduct = product
     },
     setClearBuyState(state: any) {
         state.buyProduct = []

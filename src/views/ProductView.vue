@@ -5,7 +5,8 @@
         <div>
           <div class="w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[70px] shadow-3xl"
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[10px]"
+              :class="{ 'shadow-3xl': path.path !== routePath }"
               @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
@@ -155,7 +156,15 @@ export default defineComponent({
         }
       })
     }
-    return { fetchNextProduct, handleAccordion, rotation, activeIndex, nested, dataItems }
+    return {
+      fetchNextProduct,
+      handleAccordion,
+      rotation,
+      activeIndex,
+      nested,
+      dataItems,
+      routePath: route.fullPath
+    }
   },
   methods: {
     ...mapMutations({

@@ -16,24 +16,13 @@
               <Slide v-for="slide in productEl.imageSrc" :key="slide">
                 <div class="carousel__item">
                   <img
-                    v-if="isImage(slide)"
                     :src="slide"
                     alt="image-product-slide"
                     class="rounded-b-md w-full h-full object-contain"
                   />
-                  <iframe
-                    v-else
-                    class="rounded-b-md w-full h-full"
-                    :src="slide"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-                    allowfullscreen
-                  ></iframe>
                 </div>
               </Slide>
             </Carousel>
-
             <Carousel
               id="thumbnails"
               :breakpoints="breakpoints"
@@ -47,23 +36,11 @@
                   class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
                 >
                   <img
-                    v-if="isImage(slide)"
                     class="opacity-10 rounded-md object-cover h-full"
                     :src="slide"
                     alt="image-product-slide"
                     :class="{ 'opacity-100': index === currentSlide }"
                   />
-                  <div v-else class="w-[90%] h-full">
-                    <div class="absolute inset-0 z-50"></div>
-                    <iframe
-                      :src="slide"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allowfullscreen
-                      class="opacity-10 rounded-md w-full h-full"
-                      :class="{ 'opacity-100': index === currentSlide }"
-                    ></iframe>
-                  </div>
                 </div>
               </Slide>
             </Carousel>
@@ -87,6 +64,13 @@
                       {{ productEl?.price }} UAH
                     </p>
                   </div>
+                  <div class="py-5 flex justify-center">
+                    <router-link
+                      :to="'/order/' + productEl?._id"
+                      class="text-white text-center border bg-main px-24 py-4 lg:text-2xl w-full"
+                      >Замовити</router-link
+                    >
+                  </div>
                 </div>
               </div>
 
@@ -98,14 +82,19 @@
                   :readOnly="true"
                 />
               </div>
-              <div class="border-main border-t md:mt-16 mt-5"></div>
             </div>
-            <router-link
-              :to="'/order/' + productEl?._id"
-              class="text-white text-center border bg-main mt-5 px-24 py-4 lg:text-2xl"
-              >Замовити</router-link
-            >
           </div>
+        </div>
+        <div class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto">Відео огляд</div>
+        <div class="mt-5 mx-auto w-full max-w-[620px] h-full min-h-[300px]">
+          <iframe
+            class="rounded w-full h-full"
+            :src="productEl.videoUrl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+            allowfullscreen
+          />
         </div>
       </div>
     </div>

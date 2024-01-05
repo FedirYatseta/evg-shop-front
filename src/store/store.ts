@@ -7,7 +7,8 @@ export interface State {
 }
 
 const orderProduct = createPersistedState({
-    paths: ['product.buyProduct', 'product.selectedProduct'] // Якщо ви хочете зберігати лише певні поля стану
+    key: 'product',
+    paths: ['product.buyProduct', 'product.selectedProduct', 'product.product'] // Якщо ви хочете зберігати лише певні поля стану
 })
 const productModule = {
     namespaced: true,

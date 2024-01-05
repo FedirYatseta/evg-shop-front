@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[78px] md:mt-6">
     <section class="w-full">
-      <div class="container mx-auto pt-4 pb-6">
+      <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8">
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
           <div class="px-5 w-full h-full flex">
             <img
@@ -26,25 +26,21 @@
                 знайдете сумку для себе або на подарунок. У нас великий вибір продукціії власного
               </p>
             </div>
-            <img
-              src="../image/image-section-1.jpg"
-              alt="main image"
-              class="w-full h-auto object-contain"
-            />
+            <img src="../image/header.jpg" alt="main image" class="w-full h-auto object-contain" />
           </div>
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-5xl py-12 mb-4 lg:mb-16">
+    <section class="w-full md:shadow-5xl pt-6 mb-4 lg:mb-10">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10">
-          <div class="grid grid-cols-2 items-center lg:px-8">
+          <div class="grid grid-col md:grid-cols-2 items-center lg:px-8">
             <div
               class="grid grid-cols-7 items-center gap-3 md:gap-4 pb-6 md:px-4 lg:mb-4"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
-              <div class="block w-8 h-8 md:w-20 md:h-20 mr-3 xl:mr-10">
+              <div class="block w-12 h-12 lg:w-20 lg:h-20 mr-3 xl:mr-10 col-span-1">
                 <img v-if="index === 0" src="../image/describe/2.png" class="object-contain" />
                 <img v-if="index === 1" src="../image/describe/1.png" class="object-contain" />
                 <img v-if="index === 2" src="../image/describe/4.png" class="object-contain" />
@@ -56,7 +52,7 @@
                 >
                   {{ val.title }}
                 </p> -->
-                <p class="font-light text-xs md:text-sm xl:text-2xl leading-none">
+                <p class="lg:ml-4 font-light text-base md:text-sm xl:text-2xl leading-none">
                   {{ val.description }}
                 </p>
               </div>
@@ -71,7 +67,7 @@
       >
         <p class="container mx-auto">Каталог сумок</p>
       </div> -->
-      <div class="border-t border-b border-black-50 mb-8 lg:mb-16 xl:mb-24">
+      <div class="mb-4 lg:mb-16 xl:mb-24">
         <div class="container mx-auto">
           <div class="grid grid-col md:grid-cols-1 justify-items-center gap-2 items-center p-5">
             <!-- <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div> -->
@@ -81,11 +77,12 @@
           </div>
         </div>
       </div>
-      <div class="container mx-auto my-10 md:px-12 xl:px-0">
+      <div class="container mx-auto mb-10 md:px-12 xl:px-0">
         <div>
           <div class="px-2 w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[70px] shadow-3xl"
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[10px]"
+              :class="{ 'shadow-3xl': path.path !== routePath }"
               @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
@@ -162,7 +159,7 @@
         </div>
       </div>
     </section>
-    <section class="w-full mb-12 lg:mb-16">
+    <!-- <section class="w-full mb-12 lg:mb-16">
       <div class="container mx-auto">
         <div class="grid grid-cols-2 lg:grid-cols-3">
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
@@ -177,7 +174,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- <section class="w-full py-2 lg:py-10 mb-6">
       <div class="container mx-auto px-5">
         <div
@@ -267,6 +264,7 @@ import { Collapse } from 'vue-collapsed'
 import { categoryProduct, pathConfigNew } from '@/config/path'
 import { useStore, mapGetters } from 'vuex'
 import useScrollToElement from '@/hooks/useScrollToElement'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   components: {
@@ -275,6 +273,8 @@ export default defineComponent({
 
   setup() {
     const { handleReviewsClick } = useScrollToElement()
+    const route = useRoute()
+
     const stages = ref([
       { image: 'icon-order' }, // Функція, що імпортує Vue компонент
       { image: 'icon-money' },
@@ -353,7 +353,8 @@ export default defineComponent({
       processTextWithEmojis,
       items,
       stages,
-      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime)
+      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
+      routePath: route.fullPath
     }
   },
   computed: {
