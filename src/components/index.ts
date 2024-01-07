@@ -6,6 +6,7 @@ import DescTopMenuVue from "./DescTopMenu.vue"
 import MobileMenuVue from "./MobileMenu.vue"
 import MyFooterVue from "./MyFooter.vue"
 import ProductCardVue from "./ProductCard.vue"
+import ProductSameVue from './ProductSame.vue'
 
 export const components = [
     BasicCarouselVue,
@@ -14,5 +15,6 @@ export const components = [
     DescTopMenuVue,
     MobileMenuVue,
     MyFooterVue,
-    ProductCardVue
+    ProductCardVue,
+    ProductSameVue
 ]

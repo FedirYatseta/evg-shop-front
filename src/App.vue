@@ -41,11 +41,7 @@ export default defineComponent({
         class="fixed flex md:hidden w-full justify-between items-center bg-main top-0 items-end py-2 px-6 z-50"
       >
         <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[100px]">
-          <img
-            src="@/image/bags7.shop.png"
-            alt="logo-header"
-            class="w-full h-full object-contain"
-          />
+          <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
         </router-link>
         <burger-btn @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <mobile-menu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />

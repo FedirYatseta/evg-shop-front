@@ -1,8 +1,10 @@
 <template>
   <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
-    <Slide v-for="slide in array" :key="slide.image">
+    <Slide v-for="slide in text" :key="slide.name">
       <div class="px-2">
-        <img :src="slide.image" class="carousel__item" alt="slider image" />
+        <p>{{ slide.name }}</p>
+        <p>{{ slide.city }}</p>
+        <p>{{ slide.descr }}</p>
       </div>
     </Slide>
 
@@ -26,9 +28,24 @@ export default defineComponent({
     Pagination
   },
   setup() {
+    const init = [
+      {
+        name: 'Cаша',
+        city: 'Миколаїв',
+        descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
+      },
+      {
+        name: 'Cаша',
+        city: 'Миколаїв',
+        descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
+      }
+    ]
+
     const array = ref(feedback)
+    const text = ref(init)
     return {
-      array
+      array,
+      text
     }
   },
   data: () => ({

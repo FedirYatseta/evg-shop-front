@@ -1,9 +1,9 @@
 <template>
   <div class="flex w-full h-full items-center justify-center container mx-auto px-14 py-3">
     <router-link to="/" class="w-full h-auto min-w-[140px] max-w-[200px]">
-      <img src="@/image/bags7.shop.png" alt="logo-header" class="w-full h-full object-contain" />
+      <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
     </router-link>
-    <nav class="flex mx-auto w-full h-full justify-center">
+    <nav class="flex mx-auto w-full h-full justify-end">
       <ul class="flex justify-center py-3 relative h-full">
         <li v-for="item in pathFooter" :key="item.path">
           <div class="dropdown inline-block relative" v-if="item.subPath">
@@ -41,9 +41,9 @@
       <count-down :saleTime="saleTime" />
     </div> -->
 
-    <div class="flex flex-col justify-center">
+    <!-- <div class="flex flex-col justify-center">
       <a class="text-sm lg:text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
-    </div>
+    </div> -->
   </div>
 </template>
 

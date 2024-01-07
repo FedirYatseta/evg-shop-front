@@ -3,7 +3,7 @@
     <section class="w-full">
       <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8">
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
-          <div class="px-5 w-full h-full flex">
+          <div class="px-5 w-full h-full flex mb-4">
             <img
               src="../image/image.jpg"
               alt="main image"
@@ -16,31 +16,34 @@
             />
           </div>
           <div class="flex flex-col justify-between px-5">
-            <div>
-              <p class="text-2xl font-bold md:text-2xl lg:text-2xl xl:text-5xl text-start mb-6">
-                Чоловічі шкіряні cумки та <br />
-                аксесуари, зі знижкою - 43%
-              </p>
-              <p class="text-start text-sm md:text-lg font-bold text-main xl:text-xl mb-6 md:mb-5">
-                Ми знаємо що таке стиль. Ласкаво просимо до нашого магазину. Ми впевнені, що Ви
-                знайдете сумку для себе або на подарунок. У нас великий вибір продукціії власного
-              </p>
-            </div>
+            <p
+              class="text-xl font-bold md:text-2xl lg:text-2xl xl:text-5xl text-center md:text-start mb-6"
+            >
+              Чоловічі шкіряні cумки та аксесуари зі знижкою <br />
+              до - 43% напряму від виробника
+            </p>
+            <p
+              class="text-center md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5"
+            >
+              Ми знаємо що таке стиль. Ласкаво просимо до нашого магазину. Ми впевнені, що Ви
+              знайдете сумку для себе або на подарунок. У нас великий вибір продукціії власного
+            </p>
+
             <img src="../image/header.jpg" alt="main image" class="w-full h-auto object-contain" />
           </div>
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-5xl pt-6 mb-4 lg:mb-10">
+    <section class="w-full md:shadow-3xl pt-6 mb-4 lg:mb-10">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10">
-          <div class="grid grid-col md:grid-cols-2 items-center lg:px-8">
+          <div class="grid grid-col md:grid-cols-2 items-center lg:px-20">
             <div
-              class="grid grid-cols-7 items-center gap-3 md:gap-4 pb-6 md:px-4 lg:mb-4"
+              class="grid grid-cols-8 items-center gap-3 md:gap-4 pb-6 md:px-4 lg:mb-4"
               v-for="(val, index) in conf[0]?.quality"
               :key="val.title"
             >
-              <div class="block w-12 h-12 lg:w-20 lg:h-20 mr-3 xl:mr-10 col-span-1">
+              <div class="block w-20 h-20 lg:w-28 lg:h-28 mr-3 xl:mr-10 col-span-2">
                 <img v-if="index === 0" src="../image/describe/2.png" class="object-contain" />
                 <img v-if="index === 1" src="../image/describe/1.png" class="object-contain" />
                 <img v-if="index === 2" src="../image/describe/4.png" class="object-contain" />
@@ -67,21 +70,23 @@
       >
         <p class="container mx-auto">Каталог сумок</p>
       </div> -->
-      <div class="mb-4 lg:mb-16 xl:mb-24">
+      <div class="mb-4 lg:mb-16 xl:mb-10">
         <div class="container mx-auto">
           <div class="grid grid-col md:grid-cols-1 justify-items-center gap-2 items-center p-5">
             <!-- <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div> -->
-            <p class="text-2xl font-bold md:text-lg lg:text-xl xl:text-2xl text-center leading-6">
-              Каталог сумок
+            <p
+              class="text-2xl font-bold md:text-lg lg:text-xl xl:text-3xl text-center leading-6 uppercase"
+            >
+              Навігаційне меню
             </p>
           </div>
         </div>
       </div>
-      <div class="container mx-auto mb-10 md:px-12 xl:px-0">
+      <div class="container mx-auto mb-10 md:px-12 xl:px-20">
         <div>
           <div class="px-2 w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[10px]"
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-2xl font-semibold md:font-bold rounded-[10px]"
               :class="{ 'shadow-3xl': path.path !== routePath }"
               @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
@@ -243,15 +248,68 @@
     </section>
     <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
       <div class="container mx-auto px-5">
-        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
+        <h1 class="text-center text-2xl md:text-4xl xl:text-4xl font-bold text-brown-50 pt-4">
           Відгуки наших покупців
+        </h1>
+        <div class="my-5">
+          <basic-carousel />
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-5 mb-4 lg:mb-16">
+      <div class="container mx-auto px-5">
+        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
+          Зворотній звязок
         </h1>
         <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
           Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
           Facebook"
         </p>
-        <div class="my-5">
-          <basic-carousel />
+        <div class="my-5 w-full">
+          <form
+            @submit.prevent
+            @submit="onSubmit"
+            class="flex flex-col items-center w-full mx-auto max-w-[500px]"
+          >
+            <div class="my-2 w-full">
+              <label for="name" class="text-sm font-light text-brown">Ім’я </label>
+              <my-input
+                placeholder="Ваше І'мя"
+                v-bind="name"
+                name="name"
+                id="name"
+                class="border border-solid border-brown h-8 md:h-10 px-2"
+              />
+              <p class="text-red">{{ errors.name }}</p>
+            </div>
+            <div class="my-2 w-full">
+              <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
+              <my-input
+                placeholder="+380 (99) 999 99 99"
+                v-bind="phone"
+                name="phone"
+                id="phone"
+                type="tel"
+                v-mask="'+380 (##) ### ## ##'"
+                class="border border-solid border-brown-50 h-8 md:h-10 px-2"
+              />
+              <p class="text-red">{{ errors.phone }}</p>
+            </div>
+            <div class="my-2 w-full">
+              <label for="describe" class="text-sm font-light text-brown">Опис*</label>
+              <my-textarea
+                v-bind="describe"
+                name="describe"
+                id="describe"
+                rows="4"
+                class="border border-solid border-brown-50 px-2"
+              />
+              <p class="text-red">{{ errors.describe }}</p>
+            </div>
+            <my-button class="bg-main hover:bg-brown-100 uppercase text-white p-3 w-64"
+              >Відправити</my-button
+            >
+          </form>
         </div>
       </div>
     </section>
@@ -265,6 +323,8 @@ import { categoryProduct, pathConfigNew } from '@/config/path'
 import { useStore, mapGetters } from 'vuex'
 import useScrollToElement from '@/hooks/useScrollToElement'
 import { useRoute } from 'vue-router'
+import { useForm } from 'vee-validate'
+import * as yup from 'yup'
 
 export default defineComponent({
   components: {
@@ -274,7 +334,26 @@ export default defineComponent({
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     const route = useRoute()
+    const phoneNumberRegex = /^\+380 \(\d{2}\) \d{3} \d{2} \d{2}$/
 
+    const schema = yup.object({
+      name: yup.string().required("Вкажіть ваше І'мя"),
+      phone: yup
+        .string()
+        .required('Вкажіть мобільний номер телефону')
+        .matches(phoneNumberRegex, 'Не вірний формат мобільного номеру телефона'),
+      describe: yup.string().required('Напишіть мінімум 3 слова')
+    })
+
+    const { handleSubmit, defineInputBinds, errors, values } = useForm({
+      initialValues: {
+        name: '',
+        phone: '',
+        idShop: '',
+        describe: ''
+      },
+      validationSchema: schema
+    })
     const stages = ref([
       { image: 'icon-order' }, // Функція, що імпортує Vue компонент
       { image: 'icon-money' },
@@ -334,6 +413,21 @@ export default defineComponent({
       const { _id } = store.state.product.product[store.state.product.product.length - 1]
       store.dispatch('product/fetchProduct', { limit: 10, cursor: _id })
     }
+
+    const name = defineInputBinds('name')
+    const phone = defineInputBinds('phone')
+    const describe = defineInputBinds('describe')
+
+    const onSubmit = handleSubmit(async (values) => {
+      const newObj = {
+        name: values.name,
+        phone: values.phone,
+        idShop: store.state.product.shop,
+        describe: values.describe
+      }
+
+      await store.dispatch('product/createMessage', newObj)
+    })
     return {
       dataItems,
       handleAccordion,
@@ -354,7 +448,13 @@ export default defineComponent({
       items,
       stages,
       saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
-      routePath: route.fullPath
+      routePath: route.fullPath,
+      name,
+      phone,
+      describe,
+      errors,
+      values,
+      onSubmit
     }
   },
   computed: {

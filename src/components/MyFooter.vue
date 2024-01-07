@@ -5,23 +5,23 @@
         <div
           class="grid grid-col md:grid-cols-3 gap-2 md:gap-y-10 align-items-start justify-items-center mb-4"
         >
-          <img src="@/image/bags7.shop.png" alt="logo-site" />
-          <ul class="flex flex-col gap-1 md:gap-4 lg:gap-4 text-center md:text-start mb-4">
+          <img src="@/image/logo.png" alt="logo-site" class="p-8 md:pr-8" />
+          <ul class="flex flex-col gap-1 md:gap-3 lg:gap-3 text-center md:text-start mb-4">
             <li v-for="item in mainUrlOfFooter" :key="item.path">
               <router-link
                 @click="handleReviewsClick(item)"
                 :to="item.path"
-                class="text-white text-lg md:text-lg lg:text-xl font-serif uppercase whitespace-nowrap"
+                class="text-white text-sm md:text-lg lg:text-lg font-serif uppercase whitespace-nowrap"
                 >{{ item.name }}</router-link
               >
             </li>
           </ul>
           <ul
-            class="flex flex-col items-center md:items-start gap-1 md:gap-4 lg:gap-4 md:text-center text-[10px] md:text-xs lg:text-sm xl:text-xl uppercase whitespace-nowrap"
+            class="flex flex-col items-center md:items-start gap-1 md:gap-3 lg:gap-3 md:text-center text-[10px] md:text-xs lg:text-sm xl:text-xl uppercase whitespace-nowrap"
           >
             <li>
-              <div class="flex items-center h-[100%]">
-                <p class="text-white font-serif text-lg">Наші контакти:</p>
+              <div class="flex items-center h-[100%] mb-4 md:mb-0">
+                <p class="text-white font-serif text-sm text-lg">Наші контакти:</p>
               </div>
             </li>
             <li>
@@ -29,7 +29,7 @@
                 <a
                   href="mailto:bags7@urk.net"
                   aria-label="Email"
-                  class="text-white font-serif text-lg"
+                  class="text-white font-serif text-xs md:text-base"
                 >
                   bags7.ukr@gmail.com
                 </a>
@@ -39,36 +39,24 @@
               <a
                 href="tel:+380632563677"
                 aria-label="Phone number"
-                class="text-white font-serif flex items-center"
+                class="text-white font-serif flex items-center md:-mt-2"
               >
-                <p class="text-white font-serif text-lg">+380632563677</p>
+                <p class="text-white font-serif text-xs md:text-base">+380632563677</p>
               </a>
             </li>
-            <!-- <li>
-              <a
-                href="viber://chat?number=+380632563677"
-                aria-label="Viber number"
-                class="flex items-center"
-              >
-                <p class="text-white font-serif">Viber</p>
-              </a>
-            </li> -->
-            <!-- <li>
-              <a
-                href="https://t.me/moiseev_stom"
-                aria-label="Telegram number"
-                class="flex items-center"
-              >
-                <p class="text-white font-serif">Telegram</p>
-              </a>
-            </li> -->
           </ul>
         </div>
+        <div class="flex items-center gap-2 md:gap-4 justify-center md:justify-start">
+          <img src="@/image/visa.svg" alt="logo-site" class="w-8 h-8 md:w-12 md:h-12" />
+          <img src="@/image/mastercard-4.svg" alt="logo-site" class="w-8 h-8 md:w-12 md:h-12" />
+          <img src="@/image/site-ua-logo.svg" alt="logo-site" class="w-28 h-6 md:w-32 md:h-12" />
+          <img
+            src="@/image/Nova_Poshta_2014_logo.svg"
+            alt="logo-site"
+            class="w-20 h-6 md:w-28 md:h-10"
+          />
+        </div>
         <div class="text-center my-2">
-          <!-- <p class="text-white uppercase lg:pb-2 text-xs lg:text-base">
-            <strong>© Магазин сумок, 2023</strong>
-          </p> -->
-
           <router-link
             to="/public"
             class="font-serif text-white text-xs lg:text-base underline underline-offset-8"

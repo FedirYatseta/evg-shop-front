@@ -4,13 +4,13 @@
       <div class="grid grid-col gap-2 mx-auto px-2 md:px-16">
         <div class="flex justify-between items-center p-2 lg:py-10">
           <div
-            @click="router.go(-1)"
+            @click="goBack"
             class="before:content-['←'] before:lg:text-2xl before:pr-1 flex uppercase text-xs cursor-pointer"
           >
             <div class="text-xs lg:text-2xl">Назад до каталогу</div>
           </div>
           <div class="cursor-pointer">
-            <icon-close @click="router.go(-1)" />
+            <icon-close @click="goBack" />
           </div>
         </div>
         <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 lg:gap-10">
@@ -39,10 +39,9 @@
                   class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
                 >
                   <img
-                    class="opacity-10 rounded-md object-cover h-full"
+                    class="opacity-1000 rounded-md object-cover h-full"
                     :src="slide"
                     alt="image-product-slide"
-                    :class="{ 'opacity-100': index === currentSlide }"
                   />
                 </div>
               </Slide>
@@ -52,18 +51,20 @@
             <div class="pt-8 lg:pt-0">
               <div class="grid grid-col gap-4">
                 <div class="w-full">
-                  <div class="text-xl lg:text-4xl font-bold mb-2 lg:mb-5">
+                  <div class="text-xl lg:text-4xl font-bold mb-2 lg:mb-5 text-center md:text-start">
                     {{ productEl?.title }}
                   </div>
-                  <div class="flex lg:px-2 flex-wrap mb-2 lg:mb-5 items-center">
+                  <div
+                    class="flex lg:px-2 flex-wrap mb-2 lg:mb-5 items-center justify-center md:justify-start"
+                  >
                     <span
                       class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-4"
                     >
-                      <p class="text-black-200 text-xl md:text-lg xl:text-3xl">
+                      <p class="text-black-200 text-xl md:text-lg lg:text-3xl xl:text-4xl">
                         {{ productEl?.oldPrice }} UAH
                       </p>
                     </span>
-                    <p class="text-2xl md:text-lg xl:text-4xl text-red">
+                    <p class="text-2xl md:text-lg lg:text-3xl xl:text-5xl text-black-50">
                       {{ productEl?.price }} UAH
                     </p>
                   </div>
@@ -88,8 +89,10 @@
             </div>
           </div>
         </div>
-        <div class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto">Відео огляд</div>
-        <div class="mt-5 mx-auto w-full max-w-[620px] h-full min-h-[300px]">
+        <div v-if="productEl.videoUrl" class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto">
+          Відео огляд
+        </div>
+        <div v-if="productEl.videoUrl" class="mx-auto w-full max-w-[620px] h-full min-h-[300px]">
           <iframe
             class="rounded w-full h-full"
             :src="productEl.videoUrl"
@@ -99,13 +102,17 @@
             allowfullscreen
           />
         </div>
+        <div class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto mt-20">Схожі товари</div>
+        <div>
+          <product-same :products="sameProduct" />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, onMounted } from 'vue'
+import { defineComponent, computed, ref, onMounted, watch } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
@@ -122,14 +129,30 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
+    console.log('route', route)
+
     const currentSlide = ref<any>(0)
+    const sameProduct = ref<any>()
+
     const isImage = (src) => {
       return /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(src)
     }
 
-    onMounted(async () => {
-      await store.commit('product/setProductId', route.params.id)
+    onMounted(() => {
+      store.commit('product/setProductId', route.params.id)
+      const data = store.state.product.product.filter(
+        (x) => x.type === store.state.product.selectedProduct.type
+      )
+
+      sameProduct.value = data
     })
+
+    watch(
+      () => route.matched,
+      () => {
+        store.commit('product/setProductId', route.params.id)
+      }
+    )
 
     const breakpoints = ref({
       250: {
@@ -149,7 +172,7 @@ export default defineComponent({
     })
 
     const goBack = () => {
-      router.go(-1)
+      router.push('/product/' + store.state.product.selectedProduct.type)
     }
     const slideTo = (val) => {
       currentSlide.value = val
@@ -170,6 +193,7 @@ export default defineComponent({
       productEl: computed(() => store.state.product.selectedProduct),
       buyProduct: (id: string) => store.commit('product/setProductToOrder', id),
       setShowModal: () => store.commit('product/setShowModal'),
+      sameProduct: sameProduct,
       goToBuy,
       stopVideo,
       breakpoints,
