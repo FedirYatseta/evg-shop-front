@@ -2,7 +2,27 @@
   <div class="mt-[78px] md:mt-6">
     <section class="w-full">
       <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8">
-        <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center">
+        <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center px-10">
+          <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
+            <p
+              class="text-xl uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start mb-6"
+            >
+              Шукаєш стильну та якісну сумку для себе або на подарунок ?
+            </p>
+            <p
+              class="text-center uppercase md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5"
+            >
+              Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму
+              від виробника
+            </p>
+            <div class="w-full max-w-20 mx-auto flex justify-center">
+              <router-link
+                :to="'/preview/'"
+                class="bg-main hover:bg-brown-50 text-white w-[150px] font-serif p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
+                >Каталог</router-link
+              >
+            </div>
+          </div>
           <div class="px-5 w-full h-full flex mb-4">
             <img
               src="../image/image.jpg"
@@ -15,50 +35,39 @@
               class="w-full h-auto object-contain hidden lg:block"
             />
           </div>
-          <div class="flex flex-col justify-between px-5">
-            <p
-              class="text-xl font-bold md:text-2xl lg:text-2xl xl:text-5xl text-center md:text-start mb-6"
-            >
-              Чоловічі шкіряні cумки та аксесуари зі знижкою <br />
-              до - 43% напряму від виробника
-            </p>
-            <p
-              class="text-center md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5"
-            >
-              Ми знаємо що таке стиль. Ласкаво просимо до нашого магазину. Ми впевнені, що Ви
-              знайдете сумку для себе або на подарунок. У нас великий вибір продукціії власного
-            </p>
-
-            <img src="../image/header.jpg" alt="main image" class="w-full h-auto object-contain" />
-          </div>
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-3xl pt-6 mb-4 lg:mb-10">
+    <section class="w-full md:shadow-3xl py-16 lg:mb-10">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10">
-          <div class="grid grid-col md:grid-cols-2 items-center lg:px-20">
-            <div
-              class="grid grid-cols-8 items-center gap-3 md:gap-4 pb-6 md:px-4 lg:mb-4"
-              v-for="(val, index) in conf[0]?.quality"
-              :key="val.title"
-            >
-              <div class="block w-20 h-20 lg:w-28 lg:h-28 mr-3 xl:mr-10 col-span-2">
-                <img v-if="index === 0" src="../image/describe/2.png" class="object-contain" />
-                <img v-if="index === 1" src="../image/describe/1.png" class="object-contain" />
-                <img v-if="index === 2" src="../image/describe/4.png" class="object-contain" />
-                <img v-if="index === 3" src="../image/describe/3.png" class="object-contain" />
-              </div>
-              <div class="col-span-6">
-                <!-- <p
-                  class="font-bold text-sm md:text-xl xl:text-[42px] normal-case leading-none xl:leading-10 mb-2 lg:mb-3"
-                >
-                  {{ val.title }}
-                </p> -->
-                <p class="lg:ml-4 font-light text-base md:text-sm xl:text-2xl leading-none">
-                  {{ val.description }}
-                </p>
-              </div>
+          <div class="grid grid-col md:grid-cols-2 items-center lg:px-10">
+            <div class="px-5 w-full h-full flex mb-4">
+              <img
+                src="../image/image2.jpg"
+                alt="main image"
+                class="w-full h-auto object-contain lg:hidden"
+              />
+              <img
+                src="../image/image2.jpg"
+                alt="main image"
+                class="w-full h-auto object-contain hidden lg:block"
+              />
+            </div>
+            <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
+              <p
+                class="text-xl font-bold md:text-2xl lg:text-3xl xl:text-5xl uppercase text-center md:text-start mb-2"
+              >
+                Чому саме ми?
+              </p>
+              <ul class="flex flex-col gap-4">
+                <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
+                <li>- ГАРАНТІЯ 1 РІК</li>
+                <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
+                <li>- ПОВЕРНЕННЯ ТА ОБМІН</li>
+                <li>- КОЖЕН ДРУГИЙ КЛІЄНТ КУПУЄ В НАС ПОВТОРНО</li>
+                <li>- БІЛЬШЕ 350 ЗАМОВЛЕНЬ ЗА МИНУЛИЙ МІСЯЦЬ</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -82,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="container mx-auto mb-10 md:px-12 xl:px-20">
+      <div class="container mx-auto mb-10 px-4 md:px-12 xl:px-20">
         <div>
           <div class="px-2 w-full text-center pb-3">
             <router-link
