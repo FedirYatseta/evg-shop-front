@@ -1,10 +1,15 @@
 <template>
-  <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
+  <Carousel :wrap-around="true" :breakpoints="breakpoints">
     <Slide v-for="slide in text" :key="slide.name">
-      <div class="px-2">
-        <p>{{ slide.name }}</p>
-        <p>{{ slide.city }}</p>
-        <p>{{ slide.descr }}</p>
+      <div class="px-2 flex gap-2">
+        <div>
+          <img :src="slide.image" :alt="slide.name" />
+        </div>
+        <div class="flex flex-col items-start text-start">
+          <p class="text-xs">{{ slide.name }}</p>
+          <p class="text-base mb-2">{{ slide.city }}</p>
+          <p class="text-sm">{{ slide.descr }}</p>
+        </div>
       </div>
     </Slide>
 
@@ -13,13 +18,13 @@
     </template>
   </Carousel>
 </template>
-
+//:autoplay="3000"
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import { feedback } from '@/config/path'
 import 'vue3-carousel/dist/carousel.css'
-
+import icon1 from '../image/iconfeedback.png'
 export default defineComponent({
   name: 'basic-carousel',
   components: {
@@ -30,13 +35,15 @@ export default defineComponent({
   setup() {
     const init = [
       {
-        name: 'Cаша',
-        city: 'Миколаїв',
+        image: icon1,
+        name: '1.02.2023',
+        city: 'Роман Черненко',
         descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
       },
       {
-        name: 'Cаша',
-        city: 'Миколаїв',
+        image: icon1,
+        name: '1.02.2023',
+        city: 'Роман Черненко',
         descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
       }
     ]

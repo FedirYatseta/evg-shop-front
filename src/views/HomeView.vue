@@ -5,12 +5,12 @@
         <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center px-10">
           <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
             <p
-              class="text-xl uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start mb-6"
+              class="text-xl uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start mb-6 leading-12"
             >
               Шукаєш стильну та якісну сумку для себе або на подарунок ?
             </p>
             <p
-              class="text-center uppercase md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5"
+              class="text-center uppercase md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5 leading-12"
             >
               Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму
               від виробника
@@ -74,15 +74,16 @@
       </div>
     </section>
     <section class="w-full">
-      <!-- <div
-        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-5 md:mb-10 text-white bg-main p-5 md:p-10"
+      <div
+        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-5 md:mb-10 text-white bg-main p-5 md:p-5"
       >
-        <p class="container mx-auto">Каталог сумок</p>
-      </div> -->
-      <div class="mb-4 lg:mb-16 xl:mb-10">
+        <p class="container mx-auto">Каталог</p>
+      </div>
+
+      <!-- <div class="mb-4 lg:mb-16 xl:mb-10">
         <div class="container mx-auto">
           <div class="grid grid-col md:grid-cols-1 justify-items-center gap-2 items-center p-5">
-            <!-- <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div> -->
+            <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
             <p
               class="text-2xl font-bold md:text-lg lg:text-xl xl:text-3xl text-center leading-6 uppercase"
             >
@@ -171,24 +172,26 @@
             Завантажити ще...
           </button>
         </div>
-      </div>
+      </div> -->
     </section>
-    <!-- <section class="w-full mb-12 lg:mb-16">
-      <div class="container mx-auto">
-        <div class="grid grid-cols-2 lg:grid-cols-3">
+    <section class="w-full mb-12 lg:mb-16">
+      <div class="container mx-auto px-2">
+        <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-3 gap-4">
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
-            <router-link :to="item.path">
-              <img :src="item.image" :alt="item.path" />
-              <p
-                class="absolute w-full text-center top-2/4 left-2/4 -translate-x-2/4 text-white text-md md:text-2xl lg:text-4xl uppercase"
-              >
-                {{ item.name }}
-              </p>
+            <router-link :to="item.path" class="flex flex-col h-full justify-between relative">
+              <img :src="item.image" :alt="item.path" class="w-full h-full" />
+              <div class="bg-black-50 h-10 md:h-14 p-2 flex items-center">
+                <p
+                  class="w-full text-center text-white text-[10px] md:text-1xl lg:text-sm uppercase"
+                >
+                  {{ item.name }}
+                </p>
+              </div>
             </router-link>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- <section class="w-full py-2 lg:py-10 mb-6">
       <div class="container mx-auto px-5">
         <div
@@ -266,59 +269,68 @@
       </div>
     </section>
     <section class="w-full py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto px-5">
-        <h1 class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4">
-          Зворотній звязок
-        </h1>
-        <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
-          Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
-          Facebook"
-        </p>
-        <div class="my-5 w-full">
-          <form
-            @submit.prevent
-            @submit="onSubmit"
-            class="flex flex-col items-center w-full mx-auto max-w-[500px]"
-          >
-            <div class="my-2 w-full">
-              <label for="name" class="text-sm font-light text-brown">Ім’я </label>
-              <my-input
-                placeholder="Ваше І'мя"
-                v-bind="name"
-                name="name"
-                id="name"
-                class="border border-solid border-brown h-8 md:h-10 px-2"
-              />
-              <p class="text-red">{{ errors.name }}</p>
-            </div>
-            <div class="my-2 w-full">
-              <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
-              <my-input
-                placeholder="+380 (99) 999 99 99"
-                v-bind="phone"
-                name="phone"
-                id="phone"
-                type="tel"
-                v-mask="'+380 (##) ### ## ##'"
-                class="border border-solid border-brown-50 h-8 md:h-10 px-2"
-              />
-              <p class="text-red">{{ errors.phone }}</p>
-            </div>
-            <div class="my-2 w-full">
-              <label for="describe" class="text-sm font-light text-brown">Опис*</label>
-              <my-textarea
-                v-bind="describe"
-                name="describe"
-                id="describe"
-                rows="4"
-                class="border border-solid border-brown-50 px-2"
-              />
-              <p class="text-red">{{ errors.describe }}</p>
-            </div>
-            <my-button class="bg-main hover:bg-brown-100 uppercase text-white p-3 w-64"
-              >Відправити</my-button
+      <div class="container mx-auto">
+        <div class="grid grid-col md:grid-cols-2 gap-4 px-3">
+          <div>
+            <img src="../image/6.jpg" alt="bug" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h1
+              class="text-center text-2xl md:text-4xl xl:text-[53px] font-bold text-brown-50 pt-4"
             >
-          </form>
+              Зворотній звязок
+            </h1>
+            <p class="text-center text-brown-50 pt-5 text-base lg:text-lg">
+              Даруємо <strong>10%</strong> знижки за відмітку нас у себе в соц. мережах "Іnstagram,
+              Facebook"
+            </p>
+            <div class="my-5 w-full">
+              <form
+                @submit.prevent
+                @submit="onSubmit"
+                class="flex flex-col items-center w-full mx-auto max-w-[500px]"
+              >
+                <div class="my-2 w-full">
+                  <label for="name" class="text-sm font-light text-brown">Ім’я </label>
+                  <my-input
+                    placeholder="Ваше І'мя"
+                    v-bind="name"
+                    name="name"
+                    id="name"
+                    class="border border-solid border-brown h-8 md:h-10 px-2"
+                  />
+                  <p class="text-red">{{ errors.name }}</p>
+                </div>
+                <div class="my-2 w-full">
+                  <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
+                  <my-input
+                    placeholder="+380 (99) 999 99 99"
+                    v-bind="phone"
+                    name="phone"
+                    id="phone"
+                    type="tel"
+                    v-mask="'+380 (##) ### ## ##'"
+                    class="border border-solid border-brown-50 h-8 md:h-10 px-2"
+                  />
+                  <p class="text-red">{{ errors.phone }}</p>
+                </div>
+                <div class="my-2 w-full">
+                  <label for="describe" class="text-sm font-light text-brown">Опис*</label>
+                  <my-textarea
+                    v-bind="describe"
+                    name="describe"
+                    id="describe"
+                    rows="4"
+                    class="border border-solid border-brown-50 px-2"
+                  />
+                  <p class="text-red">{{ errors.describe }}</p>
+                </div>
+                <my-button class="bg-main hover:bg-brown-100 uppercase text-white p-3 w-64"
+                  >Відправити</my-button
+                >
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

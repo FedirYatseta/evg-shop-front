@@ -13,12 +13,14 @@ import fedback12 from '@/image/fedback12.webp'
 import fedback13 from '@/image/fedback13.webp'
 import fedback14 from '@/image/fedback14.webp'
 import fedback15 from '@/image/fedback15.webp'
-import icon1 from '@/image/1.webp'
-import icon2 from '@/image/2.webp'
-import icon3 from '@/image/3.webp'
-import icon4 from '@/image/4.webp'
-import icon5 from '@/image/5.webp'
-import icon6 from '@/image/6.webp'
+import icon1 from '@/image/1.jpg'
+import icon2 from '@/image/2.jpg'
+import icon3 from '@/image/3.jpg'
+import icon4 from '@/image/4.jpg'
+import icon5 from '@/image/5.jpg'
+import icon6 from '@/image/6.jpg'
+import icon7 from '@/image/7.jpg'
+import icon8 from '@/image/8.jpg'
 
 export const pathConfig = [
     { name: 'Головна', path: '/', },
@@ -71,11 +73,14 @@ export const mainUrlOfFooter = [
 
 export const categoryProduct = [
     { name: 'Новинки', path: '/product/new', image: icon3 },
-    { name: 'Хіти', path: '/product/hit', image: icon4 },
-    { name: 'Бананки', path: '/product/bana', image: icon1 },
+    { name: 'Хіти продажів', path: '/product/hit', image: icon4 },
+    { name: 'Бананки  / сумки на пояс', path: '/product/bana', image: icon1 },
     { name: 'Слінги', path: '/product/sling', image: icon2 },
     { name: 'Месенджери', path: '/product/mess', image: icon6 },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon5 },
+    { name: 'Рюкзаки', path: '/product/wallet', image: icon5 },
+    { name: 'Сумки для документів/ноутбука', path: '/product/wallet', image: icon6 },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon7 },
+    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon8 },
 ]
 
 export const feedback = [
