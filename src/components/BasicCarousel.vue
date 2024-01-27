@@ -1,5 +1,5 @@
 <template>
-  <Carousel :wrap-around="true" :breakpoints="breakpoints">
+  <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
     <Slide v-for="slide in text" :key="slide.name">
       <div class="px-2 flex gap-2">
         <div>
@@ -18,7 +18,7 @@
     </template>
   </Carousel>
 </template>
-//:autoplay="3000"
+//
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'

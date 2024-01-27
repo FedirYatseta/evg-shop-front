@@ -1,29 +1,36 @@
 <template>
-  <div class="mt-[78px] md:mt-6">
+  <div class="mt-[53px] md:mt-6">
     <section class="w-full">
-      <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8">
-        <div class="grid grid-col md:grid-cols-2 gap-2 justify-items-center px-10">
-          <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
+      <div class="container mx-auto">
+        <div class="px-6 lg:px-10 flex w-full">
+          <count-down :textColor="true" :saleTime="saleTime" />
+        </div>
+      </div>
+    </section>
+    <section class="w-full">
+      <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8 px-4 md:px-10">
+        <div class="flex flex-col-reverse gap-1 justify-items-center">
+          <div class="flex flex-col justify-center md:px-5 gap-4 px-3 md:gap-2 lg:gap-5 xl:gap-20">
             <p
-              class="text-xl uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start mb-6 leading-12"
+              class="text-base uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start"
             >
               Шукаєш стильну та якісну сумку для себе або на подарунок ?
             </p>
             <p
-              class="text-center uppercase md:text-start text-sm md:text-lg md:font-bold text-main xl:text-2xl mb-6 md:mb-5 leading-12"
+              class="text-center uppercase md:text-start text-xs md:text-lg md:font-bold text-main xl:text-2xl md:mb-5"
             >
               Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму
               від виробника
             </p>
-            <div class="w-full max-w-20 mx-auto flex justify-center">
+            <div class="w-full max-w-20 mx-auto flex justify-center mb-8 hidden">
               <router-link
-                :to="'/preview/'"
+                :to="'/product/'"
                 class="bg-main hover:bg-brown-50 text-white w-[150px] font-serif p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
                 >Каталог</router-link
               >
             </div>
           </div>
-          <div class="px-5 w-full h-full flex mb-4">
+          <div class="px-5 w-full h-full max-h-[450px] flex mb-4">
             <img
               src="../image/image.jpg"
               alt="main image"
@@ -38,13 +45,13 @@
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-3xl py-16 lg:mb-10">
+    <section class="w-full md:shadow-3xl my-8 md:py-16 lg:mb-10">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10">
-          <div class="grid grid-col md:grid-cols-2 items-center lg:px-10">
-            <div class="px-5 w-full h-full flex mb-4">
+          <div class="flex flex-col items-center lg:px-10">
+            <div class="px-5 w-full h-full flex my-4 max-h-[250px] md:flex">
               <img
-                src="../image/image2.jpg"
+                src="../image/photo_2024-01-25_18-56-59.jpg"
                 alt="main image"
                 class="w-full h-auto object-contain lg:hidden"
               />
@@ -56,11 +63,11 @@
             </div>
             <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
               <p
-                class="text-xl font-bold md:text-2xl lg:text-3xl xl:text-5xl uppercase text-center md:text-start mb-2"
+                class="text-xl font-bold md:text-2xl lg:text-3xl xl:text-5xl uppercase text-center md:text-start mb-7"
               >
                 Чому саме ми?
               </p>
-              <ul class="flex flex-col gap-4">
+              <ul class="flex flex-col gap-3 text-sm md:text-base">
                 <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
                 <li>- ГАРАНТІЯ 1 РІК</li>
                 <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
@@ -75,24 +82,12 @@
     </section>
     <section class="w-full">
       <div
-        class="inline-block w-full text-2xl md:text-4xl xl:text-[53px] text-center mb-5 md:mb-10 text-white bg-main p-5 md:p-5"
+        class="inline-block w-full text-base md:text-3xl xl:text-4xl text-center mb-5 md:mb-10 text-white bg-main p-2 md:p-5"
       >
         <p class="container mx-auto">Каталог</p>
       </div>
 
-      <!-- <div class="mb-4 lg:mb-16 xl:mb-10">
-        <div class="container mx-auto">
-          <div class="grid grid-col md:grid-cols-1 justify-items-center gap-2 items-center p-5">
-            <div class="md:hidden"><count-down :textColor="false" :saleTime="saleTime" /></div>
-            <p
-              class="text-2xl font-bold md:text-lg lg:text-xl xl:text-3xl text-center leading-6 uppercase"
-            >
-              Навігаційне меню
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="container mx-auto mb-10 px-4 md:px-12 xl:px-20">
+      <!-- <div class="container mx-auto mb-10 px-4 md:px-12 xl:px-20">
         <div>
           <div class="px-2 w-full text-center pb-3">
             <router-link
@@ -175,8 +170,8 @@
       </div> -->
     </section>
     <section class="w-full mb-12 lg:mb-16">
-      <div class="container mx-auto px-2">
-        <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-3 gap-4">
+      <div class="container mx-auto px-8 md:px-16">
+        <div class="grid grid-col lg:grid-cols-4 xl:grid-cols-3 gap-4">
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
             <router-link :to="item.path" class="flex flex-col h-full justify-between relative">
               <img :src="item.image" :alt="item.path" class="w-full h-full" />
@@ -192,14 +187,38 @@
         </div>
       </div>
     </section>
-    <!-- <section class="w-full py-2 lg:py-10 mb-6">
+    <section class="w-full py-2 lg:py-10 mb-6">
       <div class="container mx-auto px-5">
         <div
           class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-12"
         >
-          Этапи оформлення замовлення
+          Про нас
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+        <div class="flex flex-col items-center lg:px-10">
+          <div class="px-5 w-full h-full flex my-4 md:flex">
+            <img
+              src="../image/IMG_20240118_195008_325.jpg"
+              alt="main image"
+              class="w-full h-full lg:hidden"
+            />
+          </div>
+          <div class="flex flex-col justify-center px-5 gap-2 md:gap-4 lg:gap-5 xl:gap-20">
+            <p
+              class="text-sm font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start mb-4"
+            >
+              "Ми знаємо що таке стиль"
+            </p>
+            <p
+              class="text-sm font-bold md:text-2xl lg:text-3xl xl:text-5xl text-justify md:text-start mb-7"
+            >
+              Ласкаво просимо до нашого магазину. Ми впевнені що Ви знайдете сумку для себе або на
+              подарунок від українського виробника. Всі наші сумки викготовлені з високоякісної
+              шкіри та фурнітури, через що наші сумки будуть слугувати вам роками без втрат свого
+              стартового вигляду.
+            </p>
+          </div>
+        </div>
+        <!-- <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
           <div v-for="(item, index) in stages" :key="index" class="flex flex-col items-center">
             <div class="w-16 h-16 xl:w-24 xl:h-24 mb-6">
               <component :is="item.image" />
@@ -211,56 +230,63 @@
               {{ conf[0]?.condition[index].description }}
             </p>
           </div>
-        </div>
+        </div>-->
       </div>
-    </section> -->
+    </section>
     <section id="question" class="w-full mb-2 lg:mb-16">
-      <div class="container mx-auto">
+      <div class="container mx-auto px-4 md:px-16">
         <div class="px-5 grid grid-col gap-5">
           <div class="flex items-center justify-center">
             <p
-              class="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-brown-50 md:leading-[63px] md:mb-5"
+              class="text-center text-2xl md:text-3xl xl:text-4xl font-bold text-brown-50 md:leading-[63px] md:mb-5"
             >
               Часті питання від наших клієнтів:
             </p>
           </div>
           <div>
-            <div v-for="(question, index) in questions" :key="index" class="w-full my-3">
-              <div
-                class="bg-stone-100 w-full border"
-                :class="[question.isExpanded ? 'border-b-0 ' : '']"
-              >
-                <button
-                  :class="['flex w-full  justify-between p-3 items-center text-start ']"
-                  @click="() => handleAccordion(index)"
-                >
-                  <p class="text-sm md:text-2xl font-bold w-full text-center">
-                    {{ question.title }}
-                  </p>
-                  <div class="panel__icon">
-                    <icon-plus
-                      :style="{
-                        transform: `rotate(${question.isExpanded ? rotation : 0}deg)`,
-                        transition: `transform 0.3s`
-                      }"
-                    />
-                  </div>
-                </button>
+            <div class="flex flex-col md:flex-row items-start justify-between gap-4 px-3">
+              <div class="md:max-h-[450px] md:max-w-[300px] mt-3">
+                <img src="../image/image3.jpg" alt="bug" class="w-full h-full object-contain" />
               </div>
-              <Collapse as="section" :when="question.isExpanded">
-                <div
-                  class="p-3 bg-stone-100 md:text-2xl w-full border-b border-l border-r"
-                  v-html="processTextWithEmojis(question.description)"
-                ></div>
-              </Collapse>
+              <div class="w-full">
+                <div v-for="(question, index) in questions" :key="index" class="w-full my-3">
+                  <div
+                    class="bg-stone-100 w-full border"
+                    :class="[question.isExpanded ? 'border-b-0 ' : '']"
+                  >
+                    <button
+                      :class="['flex w-full  justify-between p-2 items-center text-start ']"
+                      @click="() => handleAccordion(index)"
+                    >
+                      <p class="text-sm md:text-2xl font-bold w-full text-center">
+                        {{ question.title }}
+                      </p>
+                      <div class="panel__icon">
+                        <icon-plus
+                          :style="{
+                            transform: `rotate(${question.isExpanded ? rotation : 0}deg)`,
+                            transition: `transform 0.3s`
+                          }"
+                        />
+                      </div>
+                    </button>
+                  </div>
+                  <Collapse as="section" :when="question.isExpanded">
+                    <div
+                      class="p-3 bg-stone-100 md:text-lg w-full border-b border-l border-r"
+                      v-html="processTextWithEmojis(question.description)"
+                    ></div>
+                  </Collapse>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto px-5">
-        <h1 class="text-center text-2xl md:text-4xl xl:text-4xl font-bold text-brown-50 pt-4">
+      <div class="container mx-auto px-4 md:px-16">
+        <h1 class="text-center text-2xl md:text-4xl xl:text-4xl font-bold text-brown-50 pt-4 mb-12">
           Відгуки наших покупців
         </h1>
         <div class="my-5">
@@ -269,10 +295,10 @@
       </div>
     </section>
     <section class="w-full py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto">
+      <div class="container mx-auto px-4 md:px-16">
         <div class="grid grid-col md:grid-cols-2 gap-4 px-3">
-          <div>
-            <img src="../image/6.jpg" alt="bug" class="w-full h-full object-cover" />
+          <div class="max-h-[550px]">
+            <img src="../image/6.jpg" alt="bug" class="w-full h-full object-contain" />
           </div>
           <div>
             <h1

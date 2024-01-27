@@ -1,23 +1,33 @@
 <template>
-  <div class="text-center flex flex-col items-center justify-center bg-brown-50 rounded p-3">
+  <div class="text-center flex items-center justify-between rounded py-1 w-full">
     <p
       :class="textColor ? 'text-brown-50' : 'text-white'"
-      class="uppercase font-bold lg:text-xl xl:text-2xl"
+      class="uppercase font-bold text-xs xl:text-2xl max-w-[180px]"
     >
-      До кінця Акції
+      Зимовий розпродаж до -43% До кінця акції:
     </p>
-    <div class="grid grid-cols-3 gap-2 xl:gap-3 text-white">
-      <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold xl:text-xl leading-6">{{ countdown.days }}</div>
-        <div class="text-xs md:text-md xl:text-xl leading-4">дн.</div>
+    <div class="grid grid-cols-4 gap-1 xl:gap-3 text-white">
+      <div class="rounded-md p-1 md:py-1">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">{{ countdown.days }}</div>
+        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">days</div>
       </div>
-      <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold xl:text-xl leading-6">{{ countdown.hours }}</div>
-        <div class="text-xs md:text-md xl:text-xl leading-4">год.</div>
+      <div class="rounded-md p-1 md:py-1">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+          {{ countdown.hours }}
+        </div>
+        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">hrs</div>
       </div>
-      <div class="bg-brown-100 rounded-md p-2 md:py-1">
-        <div class="text-md font-bold xl:text-xl leading-6">{{ countdown.minutes }}</div>
-        <div class="text-xs md:text-md xl:text-xl leading-4">хв.</div>
+      <div class="rounded-md p-1 md:py-1">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+          {{ countdown.minutes }}
+        </div>
+        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">mins</div>
+      </div>
+      <div class="rounded-md p-1 md:py-1">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+          {{ countdown.seconds }}
+        </div>
+        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">secs</div>
       </div>
     </div>
   </div>
@@ -30,6 +40,7 @@ interface Countdown {
   days: number
   hours: number
   minutes: number
+  seconds: number
 }
 export default defineComponent({
   name: 'count-down',
@@ -45,7 +56,7 @@ export default defineComponent({
     const date = ref(props.saleTime)
 
     const currentTime = ref(new Date())
-    const countdown = ref<Countdown>({ days: 0, hours: 0, minutes: 0 })
+    const countdown = ref<Countdown>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
     const startTimer = () => {
       if (!date.value) return // Перевірка наявності значення date перед запуском таймера
@@ -58,18 +69,20 @@ export default defineComponent({
         if (timeDiff <= 0) {
           // Якщо час вже минув, зупиняємо таймер
           //clearInterval(timerInterval)
-          countdown.value = { days: 0, hours: 0, minutes: 0 }
+          countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
           return
         }
 
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000)
 
         countdown.value = {
           days: addLeadingZero(days),
           hours: addLeadingZero(hours),
-          minutes: addLeadingZero(minutes)
+          minutes: addLeadingZero(minutes),
+          seconds: addLeadingZero(seconds)
         }
       }, 1000)
     }

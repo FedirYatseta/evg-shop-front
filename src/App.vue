@@ -38,13 +38,16 @@ export default defineComponent({
   <header class="block" id="home">
     <div class="block h-full">
       <div
-        class="fixed flex md:hidden w-full justify-between items-center bg-main top-0 items-end py-2 px-6 z-50"
+        class="fixed flex md:hidden w-full justify-between items-center bg-main top-0 items-end py-1 px-4 z-50"
       >
-        <router-link to="/" class="w-full h-auto min-w-[100px] max-w-[100px]">
-          <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
-        </router-link>
         <burger-btn @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <mobile-menu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
+        <router-link to="/" class="w-full h-auto w-[80px]">
+          <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
+        </router-link>
+        <div class="w-[30px]">
+          <img src="@/image/bags.png" alt="logo-header" class="w-full h-full object-contain" />
+        </div>
       </div>
       <div class="hidden md:block bg-main">
         <desc-menu />
@@ -53,6 +56,7 @@ export default defineComponent({
   </header>
   <main>
     <router-view> </router-view>
+    <!-- <img src="./page1.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
   </main>
   <footer>
     <my-footer />

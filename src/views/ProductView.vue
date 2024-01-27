@@ -5,7 +5,7 @@
         <div>
           <div class="w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base 2xl:text-3xl font-semibold md:font-bold rounded-[10px]"
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-xl font-semibold md:font-bold rounded-[10px]"
               :class="{ 'shadow-3xl': path.path !== routePath }"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"

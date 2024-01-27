@@ -72,14 +72,13 @@ export const mainUrlOfFooter = [
 ]
 
 export const categoryProduct = [
-    { name: 'Новинки', path: '/product/new', image: icon3 },
-    { name: 'Хіти продажів', path: '/product/hit', image: icon4 },
-    { name: 'Бананки  / сумки на пояс', path: '/product/bana', image: icon1 },
-    { name: 'Слінги', path: '/product/sling', image: icon2 },
-    { name: 'Месенджери', path: '/product/mess', image: icon6 },
-    { name: 'Рюкзаки', path: '/product/wallet', image: icon5 },
-    { name: 'Сумки для документів/ноутбука', path: '/product/wallet', image: icon6 },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon7 },
+    { name: 'Новинки', path: '/product/new', image: icon1 },
+    { name: 'Хіти продажів', path: '/product/hit', image: icon2 },
+    { name: 'Бананки  / сумки на пояс', path: '/product/bana', image: icon3 },
+    { name: 'Слінги', path: '/product/sling', image: icon4 },
+    { name: 'Месенджери', path: '/product/mess', image: icon5 },
+    { name: 'Рюкзаки', path: '/product/wallet', image: icon6 },
+    { name: 'Сумки для документів/ноутбука', path: '/product/wallet', image: icon7 },
     { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon8 },
 ]
 

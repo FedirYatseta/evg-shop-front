@@ -16,7 +16,7 @@
         <div class="grid grid-col md:grid-cols-2 py-5 md:pt-0 lg:gap-10">
           <div class="grid grid-col gap-4 mx-auto">
             <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
-              <Slide v-for="slide in productEl.imageSrc" :key="slide">
+              <Slide v-for="slide in productEl?.imageSrc" :key="slide">
                 <div class="carousel__item">
                   <img
                     :src="slide"
@@ -33,7 +33,7 @@
               v-model="currentSlide"
               ref="carousel"
             >
-              <Slide v-for="(slide, index) in productEl.imageSrc" :key="slide">
+              <Slide v-for="(slide, index) in productEl?.imageSrc" :key="slide">
                 <div
                   @click="slideTo(index)"
                   class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
@@ -89,10 +89,10 @@
             </div>
           </div>
         </div>
-        <div v-if="productEl.videoUrl" class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto">
+        <div v-if="productEl?.videoUrl" class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto">
           Відео огляд
         </div>
-        <div v-if="productEl.videoUrl" class="mx-auto w-full max-w-[620px] h-full min-h-[300px]">
+        <div v-if="productEl?.videoUrl" class="mx-auto w-full max-w-[620px] h-full min-h-[300px]">
           <iframe
             class="rounded w-full h-full"
             :src="productEl.videoUrl"
@@ -103,9 +103,8 @@
           />
         </div>
         <div class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-5 mx-auto mt-20">Схожі товари</div>
-        <div>
-          <product-same :products="sameProduct" />
-        </div>
+
+        <product-same :products="sameProduct" />
       </div>
     </div>
   </section>
@@ -141,7 +140,7 @@ export default defineComponent({
     onMounted(() => {
       store.commit('product/setProductId', route.params.id)
       const data = store.state.product.product.filter(
-        (x) => x.type === store.state.product.selectedProduct.type
+        (x) => x.type === store.state.product.selectedProduct?.type
       )
 
       sameProduct.value = data

@@ -5,7 +5,7 @@
         <div
           class="grid grid-col md:grid-cols-3 gap-2 md:gap-y-10 align-items-start justify-items-center mb-4"
         >
-          <img src="@/image/logo.png" alt="logo-site" class="p-8 md:pr-8" />
+          <img src="@/image/logo.png" alt="logo-site" class="p-8 md:pr-8 max-h-[130px]" />
           <ul class="flex flex-col gap-1 md:gap-3 lg:gap-3 text-center md:text-start mb-4">
             <li v-for="item in mainUrlOfFooter" :key="item.path">
               <router-link
