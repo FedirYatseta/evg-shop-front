@@ -58,7 +58,7 @@
           <div class="flex md:pt-2 mb-1 justify-center">
             <span
               v-show="prod.oldPrice"
-              class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-2"
+              class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:bg-main relative inline-block mr-2"
             >
               <p class="text-black-200 text-xl md:text-2xl xl:text-3xl">{{ prod.oldPrice }} UAH</p>
             </span>
@@ -67,18 +67,19 @@
             </p>
           </div>
         </div>
-        <!-- <div class="grid grid-col md:grid-cols-2 gap-2 md:gap-4 pt-1 md:pt-5">
-          <router-link
-            :to="'/preview/' + prod._id"
-            class="bg-main hover:bg-brown-50 text-white font-serif p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
-            >Детальніше</router-link
-          >
+        <div class="grid grid-col md:grid-cols-2 gap-2 md:gap-4 pt-1 md:pt-5">
           <router-link
             :to="'/order/' + prod._id"
-            class="bg-white hover:bg-slate-800 text-main border-main border font-serif p-1 lg:p-2 text-center uppercase text-xs md:text-lg xl:text-xl"
-            >Замовити</router-link
+            class="bg-main hover:bg-brown-50 font-bold text-white p-1 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-lg xl:text-xl"
+            >Купити</router-link
           >
-        </div> -->
+          <router-link
+            :to="'/preview/' + prod._id"
+            class="bg-white hover:bg-slate-800 text-main underline-offset-4 underline decoration-2 decoration-dashed font-bold p-1 lg:p-2 text-center uppercase text-xs md:text-lg xl:text-xl"
+          >
+            Детальніше</router-link
+          >
+        </div>
       </div>
     </TransitionGroup>
   </div>

@@ -10,6 +10,8 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { iconsSvg } from './assets';
 import VueGtag from 'vue-gtag';
 import { componentsUI } from './UI';
+import BackToTop from 'vue-backtotop'
+
 const app = createApp(App)
 
 components.forEach(component => {
@@ -30,5 +32,6 @@ app
     }, router)
     .use(VueTheMask)
     .use(store)
+    .use(BackToTop)
     .use(router)
     .mount('#app')

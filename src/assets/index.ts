@@ -20,6 +20,7 @@ import IconReloadVue from "./IconReload.vue"
 import IconSearchVue from "./IconSearch.vue"
 import IconTelegVue from "./IconTeleg.vue"
 import IconTelegramVue from "./IconTelegram.vue"
+import IconToTopVue from "./IconToTop.vue"
 import IconViberVue from "./IconViber.vue"
 import IconWhatsAppVue from "./IconWhatsApp.vue"
 import IconWhereVue from "./IconWhere.vue"
@@ -50,5 +51,6 @@ export const iconsSvg = [
     IconWhatsAppVue,
     IconWhereVue,
     IconEmailVue,
-    IconPhoneVue
+    IconPhoneVue,
+    IconToTopVue
 ]

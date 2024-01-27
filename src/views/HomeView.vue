@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[53px] md:mt-6">
-    <section class="w-full">
+    <section class="w-full bg-black-400">
       <div class="container mx-auto">
         <div class="px-6 lg:px-10 flex w-full">
           <count-down :textColor="true" :saleTime="saleTime" />
@@ -169,7 +169,7 @@
         </div>
       </div> -->
     </section>
-    <section class="w-full mb-12 lg:mb-16">
+    <section class="w-full pb-8 mb-8 lg:mb-16 shadow-xl">
       <div class="container mx-auto px-8 md:px-16">
         <div class="grid grid-col lg:grid-cols-4 xl:grid-cols-3 gap-4">
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
@@ -187,10 +187,10 @@
         </div>
       </div>
     </section>
-    <section class="w-full py-2 lg:py-10 mb-6">
+    <section class="w-full py-2 lg:py-10 mb-6 shadow-xl">
       <div class="container mx-auto px-5">
         <div
-          class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-12"
+          class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-10 lg:mb-12 uppercase"
         >
           Про нас
         </div>
@@ -233,7 +233,7 @@
         </div>-->
       </div>
     </section>
-    <section id="question" class="w-full mb-2 lg:mb-16">
+    <section id="question" class="w-full pb-4 mb-4 lg:mb-16 shadow-xl">
       <div class="container mx-auto px-4 md:px-16">
         <div class="px-5 grid grid-col gap-5">
           <div class="flex items-center justify-center">
@@ -317,18 +317,16 @@
                 class="flex flex-col items-center w-full mx-auto max-w-[500px]"
               >
                 <div class="my-2 w-full">
-                  <label for="name" class="text-sm font-light text-brown">Ім’я </label>
                   <my-input
                     placeholder="Ваше І'мя"
                     v-bind="name"
                     name="name"
                     id="name"
-                    class="border border-solid border-brown h-8 md:h-10 px-2"
+                    class="bg-black-400 h-8 md:h-10 px-2 text-xs"
                   />
                   <p class="text-red">{{ errors.name }}</p>
                 </div>
                 <div class="my-2 w-full">
-                  <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
                   <my-input
                     placeholder="+380 (99) 999 99 99"
                     v-bind="phone"
@@ -336,18 +334,18 @@
                     id="phone"
                     type="tel"
                     v-mask="'+380 (##) ### ## ##'"
-                    class="border border-solid border-brown-50 h-8 md:h-10 px-2"
+                    class="bg-black-400 h-8 md:h-10 px-2 text-xs"
                   />
                   <p class="text-red">{{ errors.phone }}</p>
                 </div>
                 <div class="my-2 w-full">
-                  <label for="describe" class="text-sm font-light text-brown">Опис*</label>
                   <my-textarea
+                    placeholder="Введіть питання або повідомлення..."
                     v-bind="describe"
                     name="describe"
                     id="describe"
                     rows="4"
-                    class="border border-solid border-brown-50 px-2"
+                    class="bg-black-400 px-2 text-xs p-2"
                   />
                   <p class="text-red">{{ errors.describe }}</p>
                 </div>

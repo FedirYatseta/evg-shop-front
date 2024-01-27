@@ -2,6 +2,8 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import IconToTop from './assets/IconToTop.vue'
+import type IconBaseVue from './assets/IconBase.vue'
 
 export default defineComponent({
   name: 'my-app',
@@ -10,12 +12,10 @@ export default defineComponent({
     const router = useRouter()
     const urlParams = new URLSearchParams(window.location.search)
     const param1 = urlParams.get('name')
-
     const store = useStore()
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
     }
-
     router.afterEach((to, from) => {
       menuVisible.value = false
     })
@@ -25,12 +25,11 @@ export default defineComponent({
       } else {
         await store.dispatch('product/fetchProduct')
       }
-
       await store.dispatch('product/fetchConf')
     })
-
     return { menuVisible, toggleMenu }
-  }
+  },
+  components: { IconToTop, IconBaseVue }
 })
 </script>
 
@@ -42,10 +41,10 @@ export default defineComponent({
       >
         <burger-btn @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <mobile-menu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
-        <router-link to="/" class="w-full h-auto w-[80px]">
+        <router-link to="/" class="w-full w-[80px] h-[36px]">
           <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
         </router-link>
-        <div class="w-[30px]">
+        <div class="w-[30px] h-[30]">
           <img src="@/image/bags.png" alt="logo-header" class="w-full h-full object-contain" />
         </div>
       </div>
@@ -57,6 +56,11 @@ export default defineComponent({
   <main>
     <router-view> </router-view>
     <!-- <img src="./page1.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
+    <back-to-top text="Back to top" visibleoffset="500">
+      <button class="w-8 h-8">
+        <icon-base> <icon-to-top /> </icon-base>
+      </button>
+    </back-to-top>
   </main>
   <footer>
     <my-footer />
