@@ -1,14 +1,14 @@
 <template>
-  <div class="flex w-full h-full items-center justify-center container mx-auto px-14 py-3">
-    <router-link to="/" class="w-full h-auto min-w-[140px] max-w-[200px]">
+  <div class="flex w-full h-full items-center justify-center container mx-auto px-6 py-2 gap-4">
+    <router-link to="/" class="w-[150px] h-[25px]">
       <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
     </router-link>
     <nav class="flex mx-auto w-full h-full justify-end">
-      <ul class="flex justify-center py-3 relative h-full">
+      <ul class="flex justify-center relative h-full">
         <li v-for="item in pathFooter" :key="item.path">
           <div class="dropdown inline-block relative" v-if="item.subPath">
             <button
-              class="font-serif px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
+              class="px-2 text-[10px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
             >
               <span class="mr-1">{{ item.name }}</span>
             </button>
@@ -16,7 +16,7 @@
               <li v-for="subItem in item.subPath" :key="subItem.name" class="p-2">
                 <router-link
                   :to="subItem.path"
-                  class="block whitespace-no-wrap font-serif px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
+                  class="block whitespace-no-wrap px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
                   >{{ subItem.name }}</router-link
                 >
               </li>
@@ -31,19 +31,15 @@
                 handleReviewsClick(item)
               }
             "
-            class="font-serif px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
+            class="px-2 text-[10px] lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
             >{{ item.name }}</router-link
           >
         </li>
       </ul>
     </nav>
-    <!-- <div class="min-w-max xl:min-w-[200px] mx-2 lg:mx-10">
-      <count-down :saleTime="saleTime" />
-    </div> -->
-
-    <!-- <div class="flex flex-col justify-center">
-      <a class="text-sm lg:text-xl font-bold text-white" href="tel:+380632563677">+380632563677</a>
-    </div> -->
+    <router-link to="/order/" class="w-[35px] h-[35px]">
+      <img src="@/image/bags.png" alt="bags-header" class="w-full h-full object-contain" />
+    </router-link>
   </div>
 </template>
 

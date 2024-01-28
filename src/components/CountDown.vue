@@ -1,33 +1,37 @@
 <template>
-  <div class="text-center flex items-center justify-between rounded py-1 w-full">
+  <div
+    class="text-center flex items-center justify-between sm:justify-center sm:gap-3 rounded py-1 w-full"
+  >
     <p
       :class="textColor ? 'text-brown-50' : 'text-white'"
-      class="uppercase font-bold text-xs xl:text-2xl max-w-[180px]"
+      class="uppercase font-bold text-xs xl:text-2xl max-w-[180px] sm:max-w-fit"
     >
       Зимовий розпродаж до -43% До кінця акції:
     </p>
     <div class="grid grid-cols-4 gap-1 xl:gap-3 text-white">
-      <div class="rounded-md p-1 md:py-1">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">{{ countdown.days }}</div>
-        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">days</div>
+      <div class="rounded-md p-1 md:py-0">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
+          {{ countdown.days }}
+        </div>
+        <div class="text-[6px] xl:text-xl text-brown-50 uppercase">days</div>
       </div>
-      <div class="rounded-md p-1 md:py-1">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+      <div class="rounded-md p-1 md:py-0">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
           {{ countdown.hours }}
         </div>
-        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">hrs</div>
+        <div class="text-[6px] xl:text-xl text-brown-50 uppercase">hrs</div>
       </div>
-      <div class="rounded-md p-1 md:py-1">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+      <div class="rounded-md p-1 md:py-0">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
           {{ countdown.minutes }}
         </div>
-        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">mins</div>
+        <div class="text-[6px] xl:text-xl text-brown-50 uppercase">mins</div>
       </div>
-      <div class="rounded-md p-1 md:py-1">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6">
+      <div class="rounded-md p-1 md:py-0">
+        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
           {{ countdown.seconds }}
         </div>
-        <div class="text-[8px] md:text-sm xl:text-xl leading-4 text-brown-50 uppercase">secs</div>
+        <div class="text-[6px] xl:text-xl text-brown-50 uppercase">secs</div>
       </div>
     </div>
   </div>

@@ -22,6 +22,10 @@ const routes = [
         component: OrderView,
     },
     {
+        path: "/order/",
+        component: OrderView,
+    },
+    {
         path: "/product",
         component: ProductViewVue,
     },

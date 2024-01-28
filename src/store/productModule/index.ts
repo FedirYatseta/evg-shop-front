@@ -8,6 +8,7 @@ const state: ProductState = {
     product: [],
     selectedProduct: [],
     buyProduct: [],
+    showButton: true,
     selectedSort: 'hitProduct',
     searchQuery: '',
     shop: import.meta.env.VITE_SHOP_ID,

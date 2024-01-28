@@ -42,6 +42,7 @@
                   </div> -->
                   <div class="flex flex-wrap items-center">
                     <span
+                      v-if="item.oldPrice"
                       class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
                     >
                       <p class="text-black-200 text-base md:text-lg">{{ item.oldPrice }} UAH</p>

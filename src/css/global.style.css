@@ -50,6 +50,11 @@ strong {
   border: hidden !important;
 }
 
+.btn-to-top {
+  width: 80px;
+  height: 80px;
+}
+
 /* #gallery .carousel__item {
   height: 390px;
 }

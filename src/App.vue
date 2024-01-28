@@ -2,8 +2,6 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import IconToTop from './assets/IconToTop.vue'
-import type IconBaseVue from './assets/IconBase.vue'
 
 export default defineComponent({
   name: 'my-app',
@@ -28,8 +26,7 @@ export default defineComponent({
       await store.dispatch('product/fetchConf')
     })
     return { menuVisible, toggleMenu }
-  },
-  components: { IconToTop, IconBaseVue }
+  }
 })
 </script>
 
@@ -44,9 +41,9 @@ export default defineComponent({
         <router-link to="/" class="w-full w-[80px] h-[36px]">
           <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
         </router-link>
-        <div class="w-[30px] h-[30]">
-          <img src="@/image/bags.png" alt="logo-header" class="w-full h-full object-contain" />
-        </div>
+        <router-link to="/order/" class="w-[30px] h-[30]">
+          <img src="@/image/bags.png" alt="bags-header" class="w-full h-full object-contain" />
+        </router-link>
       </div>
       <div class="hidden md:block bg-main">
         <desc-menu />
@@ -55,10 +52,10 @@ export default defineComponent({
   </header>
   <main>
     <router-view> </router-view>
-    <!-- <img src="./page1.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
+    <!-- <img src="./product_768.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
     <back-to-top text="Back to top" visibleoffset="500">
-      <button class="w-8 h-8">
-        <icon-base> <icon-to-top /> </icon-base>
+      <button class="h-full w-full">
+        <icon-to-top />
       </button>
     </back-to-top>
   </main>

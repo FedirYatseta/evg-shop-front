@@ -2,7 +2,7 @@
   <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
     <Slide v-for="slide in text" :key="slide.name">
       <div class="px-2 flex gap-2">
-        <div>
+        <div class="w-36 h-36">
           <img :src="slide.image" :alt="slide.name" />
         </div>
         <div class="flex flex-col items-start text-start">
@@ -59,8 +59,8 @@ export default defineComponent({
     breakpoints: {
       // 700px and up
       700: {
-        itemsToShow: 3,
-        snapAlign: 'center'
+        itemsToShow: 2,
+        snapAlign: 'start'
       },
       // 1024 and up
       1024: {

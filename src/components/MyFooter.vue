@@ -1,17 +1,26 @@
 <template>
   <div class="w-full bg-main p-5">
     <div class="container mx-auto">
-      <div class="flex flex-col gap-4 my-5 justify-center">
+      <div class="flex flex-col gap-1 justify-center">
         <div
           class="grid grid-col md:grid-cols-3 gap-2 md:gap-y-10 align-items-start justify-items-center mb-4"
         >
-          <img src="@/image/logo.png" alt="logo-site" class="p-8 md:pr-8 max-h-[130px]" />
-          <ul class="flex flex-col gap-1 md:gap-3 lg:gap-3 text-center md:text-start mb-4">
+          <div>
+            <img src="@/image/logo.png" alt="logo-site" class="p-1 max-h-[70px]" />
+            <div class="sm:flex items-center gap-2 md:gap-4 justify-center md:justify-start hidden">
+              <img src="@/image/visa.svg" alt="logo-site" class="w-8 h-8" />
+              <img src="@/image/mastercard-4.svg" alt="logo-site" class="w-8 h-8" />
+              <img src="@/image/site-ua-logo.svg" alt="logo-site" class="w-28 h-6" />
+              <img src="@/image/Nova_Poshta_2014_logo.svg" alt="logo-site" class="w-20 h-6" />
+            </div>
+          </div>
+
+          <ul class="flex flex-col gap-1 sm:gap-2 lg:gap-3 text-center md:text-start mb-4">
             <li v-for="item in mainUrlOfFooter" :key="item.path">
               <router-link
                 @click="handleReviewsClick(item)"
                 :to="item.path"
-                class="text-white text-sm md:text-lg lg:text-lg font-serif uppercase whitespace-nowrap"
+                class="text-white text-sm sm:text-sm lg:text-lg font-serif uppercase whitespace-nowrap"
                 >{{ item.name }}</router-link
               >
             </li>
@@ -21,7 +30,7 @@
           >
             <li>
               <div class="flex items-center h-[100%] mb-4 md:mb-0">
-                <p class="text-white font-serif text-sm text-lg">Наші контакти:</p>
+                <p class="text-white text-sm sm:text-[10px]">Наші контакти:</p>
               </div>
             </li>
             <li>
@@ -29,7 +38,7 @@
                 <a
                   href="mailto:bags7@urk.net"
                   aria-label="Email"
-                  class="text-white font-serif text-xs md:text-base"
+                  class="text-white text-xs sm:text-[10px]"
                 >
                   bags7.ukr@gmail.com
                 </a>
@@ -46,7 +55,7 @@
             </li>
           </ul>
         </div>
-        <div class="flex items-center gap-2 md:gap-4 justify-center md:justify-start">
+        <div class="flex items-center gap-2 md:gap-4 justify-center md:justify-start sm:hidden">
           <img src="@/image/visa.svg" alt="logo-site" class="w-8 h-8 md:w-12 md:h-12" />
           <img src="@/image/mastercard-4.svg" alt="logo-site" class="w-8 h-8 md:w-12 md:h-12" />
           <img src="@/image/site-ua-logo.svg" alt="logo-site" class="w-28 h-6 md:w-32 md:h-12" />

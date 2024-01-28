@@ -1,6 +1,13 @@
 <template>
-  <section class="w-full mt-[70px] md:mt-2 py-10">
-    <div class="container mx-auto px-2">
+  <section class="w-full bg-black-400">
+    <div class="container mx-auto">
+      <div class="px-6 sm:px-10 flex w-full">
+        <count-down :textColor="true" :saleTime="saleTime" />
+      </div>
+    </div>
+  </section>
+  <section class="w-full md:mt-2 py-10">
+    <div class="container mx-auto px-2 sm:px-20">
       <div class="grid grid-co gap-2 mb-3">
         <div>
           <div class="w-full text-center pb-3">
@@ -54,7 +61,7 @@
       </div>
 
       <product-card :products="sortedAndSearchProducts" />
-      <div class="px-5 flex items-center justify-center my-5">
+      <div v-if="showButton" class="px-5 flex items-center justify-center my-5">
         <button
           @click="fetchNextProduct"
           class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
@@ -67,7 +74,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, watch, watchEffect } from 'vue'
+import { defineComponent, onMounted, reactive, ref, watch, watchEffect, computed } from 'vue'
 import { useStore } from 'vuex'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import { useRoute } from 'vue-router'
@@ -171,7 +178,9 @@ export default defineComponent({
       activeIndex,
       nested,
       dataItems,
-      routePath: active
+      routePath: active,
+      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
+      showButton: computed(() => store.state.product?.showButton)
     }
   },
   methods: {

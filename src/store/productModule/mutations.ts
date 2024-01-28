@@ -4,11 +4,15 @@ import MutationTree from 'vuex'
 export const mutations: MutationTree<any, any> = {
     setProduct(state: any, prod: any) {
         console.log('prod', prod)
+        state.showButton = true
         state.product = prod.data
     },
 
     setProductNew(state: any, prod: any) {
-        state.product = [...state.product, ...prod.data]
+        if (prod.data.length > 0)
+            state.product = [...state.product, ...prod.data]
+        else
+            state.showButton = false
     },
     setSelectedSort(state: any, selectedSort: any) {
 
@@ -21,8 +25,8 @@ export const mutations: MutationTree<any, any> = {
     setProductId(state: any, id: any) {
         const product = state.product.find(val => val._id === id)
         console.log('product', product)
-
-        state.selectedProduct = product
+        if (product)
+            state.selectedProduct = product
     },
     setClearBuyState(state: any) {
         state.buyProduct = []

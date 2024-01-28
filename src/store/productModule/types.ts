@@ -2,6 +2,7 @@ export interface ProductState {
 
     product: []
     shop: string
+    showButton: boolean
     selectedSort: string | number | boolean
     buyProduct: []
     searchQuery: string
