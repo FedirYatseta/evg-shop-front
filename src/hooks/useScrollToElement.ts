@@ -3,14 +3,10 @@ import { useRouter } from 'vue-router'
 const useScrollToElement = () => {
     const router = useRouter()
 
-
-
     const scrollToElement = (id) => {
         // Ваша логіка прокрутки до елемента з вказаним ID на сторінці "Головна"
         // Ви можете використовувати JavaScript, наприклад, такий метод:
         const element = document.getElementById(id)
-
-
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' })
         }
@@ -29,6 +25,24 @@ const useScrollToElement = () => {
 
             setTimeout(() => {
                 scrollToElement('feedback')
+            }, 500);
+
+        }
+        else if (item.id === 'aboutus') {
+
+            // Перехід до розділу з ID "feedback" на сторінці "Головна"
+
+            setTimeout(() => {
+                scrollToElement('aboutus')
+            }, 500);
+
+        }
+        else if (item.id === 'footer') {
+
+            // Перехід до розділу з ID "feedback" на сторінці "Головна"
+
+            setTimeout(() => {
+                scrollToElement('footer')
             }, 500);
 
         }

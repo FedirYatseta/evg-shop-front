@@ -1,10 +1,10 @@
 <template>
   <section class="w-full md:mt-2 py-10">
-    <div class="container mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0 relative">
-      <div class="absolute top-5 w-full h-[51px] flex items-center justify-end px-3">
-        <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
-      </div>
-      <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50">
+    <div class="mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0">
+      <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50 relative">
+        <div class="absolute top-0 right-10 h-[51px] flex items-center justify-end px-3">
+          <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
+        </div>
         <div class="text-xl font-bold border-brown-50 py-5">Кошик замовлень</div>
         <div class="grid grid-col md:grid-cols-2 gap-1 md:gap-8">
           <div class="border-t">
@@ -16,9 +16,9 @@
                   <p class="text-lg">Розмір {{ item.size }}</p>
                 </div>
                 <icon-base
-                  :width="35"
-                  :height="35"
-                  class="absolute top-0 right-0 cursor-pointer bg-white"
+                  :width="25"
+                  :height="25"
+                  class="absolute -top-5 right-0 cursor-pointer bg-white"
                   @click="deleteProduct(item.id)"
                 >
                   <icon-del></icon-del>

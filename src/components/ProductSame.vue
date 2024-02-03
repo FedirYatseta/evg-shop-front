@@ -21,7 +21,7 @@
                   class="w-full h-full"
                 />
               </div>
-              <!-- <p class="flex items-center font-bold text-center text-[10px] whitespace-pre">
+              <!-- <p class="flex items-center font-bold text-center text-xs10 whitespace-pre">
                 {{ prod.title }}
               </p> -->
             </router-link>

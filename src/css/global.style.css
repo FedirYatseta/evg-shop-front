@@ -85,7 +85,7 @@ strong {
     /* інші стилі для більших екранів */
   }
   #gallery .carousel__item {
-    height: 510px;
+    max-height: 510px;
     width: 100%;
   }
 }

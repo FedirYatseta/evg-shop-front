@@ -2,24 +2,24 @@
   <div class="mt-[53px] sm:mt-0">
     <section class="w-full bg-black-400">
       <div class="container mx-auto">
-        <div class="px-6 sm:px-10 flex w-full">
+        <div class="flex w-full">
           <count-down :textColor="true" :saleTime="saleTime" />
         </div>
       </div>
     </section>
     <section class="w-full">
-      <div class="container mx-auto pt-4 pb-6 mb-2 md:mb-8 px-4 md:px-10">
+      <div class="container pt-6 lg:pt-8">
         <div class="flex flex-col-reverse sm:flex-row gap-1 justify-items-center">
           <div
             class="flex flex-col justify-center sm:justify-start gap-4 px-3 sm:px-0 sm:gap-5 sm:pt-5 lg:gap-5 xl:gap-20"
           >
             <p
-              class="text-base uppercase font-bold md:text-2xl lg:text-3xl xl:text-5xl text-center md:text-start"
+              class="text-base uppercase font-bold md:text-2xl lg:text-2xl xl:text-5xl text-center md:text-start"
             >
               Шукаєш стильну та якісну сумку для себе або на подарунок ?
             </p>
             <p
-              class="text-center uppercase md:text-start text-xs sm:text-sm sm:mb-6 md:font-bold text-main xl:text-2xl"
+              class="text-center uppercase md:text-start text-xs font-bold sm:text-sm sm:mb-6 lg:mb-2 md:font-bold text-main xl:text-2xl"
             >
               Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму
               від виробника
@@ -32,7 +32,7 @@
               >
             </div>
           </div>
-          <div class="px-5 w-full h-full max-h-[450px] sm:max-h-[310px] flex mb-4">
+          <div class="w-full h-full max-h-[380px] flex mb-4">
             <img
               src="../image/image.jpg"
               alt="main image"
@@ -47,48 +47,46 @@
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-3xl my-8 sm:py-2 lg:mb-10">
-      <div class="container mx-auto">
-        <div class="px-6 lg:px-10">
-          <div class="flex flex-col sm:flex-row sm:gap-5 items-center sm:items-start lg:px-10">
-            <div class="px-5 w-full sm:w-96 h-full flex my-4 max-h-[250px] sm:flex sm:px-0">
-              <img
-                src="../image/photo_2024-01-25_18-56-59.jpg"
-                alt="main image"
-                class="w-full h-auto object-contain lg:hidden"
-              />
-              <img
-                src="../image/image2.jpg"
-                alt="main image"
-                class="w-full h-auto object-contain hidden lg:block"
-              />
-            </div>
-            <div
-              class="flex flex-col justify-center px-5 sm:px-0 gap-2 sm:flex-1 sm:w-32 sm:gap-4 lg:gap-5 xl:gap-20"
+    <section class="w-full md:shadow-3xl pt-8 sm:py-2 lg:mb-10">
+      <div class="container mx-auto py-4 lg:py-10">
+        <div class="flex flex-col sm:flex-row sm:gap-5 lg:gap-20 items-center sm:items-start">
+          <div class="px-5 w-full sm:w-96 h-full flex my-4 max-h-[250px] lg:w-100 sm:flex sm:px-0">
+            <img
+              src="../image/photo_2024-02-03_11-01-17.jpg"
+              alt="main image"
+              class="w-full h-auto object-contain lg:hidden"
+            />
+            <img
+              src="../image/photo_2024-02-03_11-01-17.jpg"
+              alt="main image"
+              class="w-full h-auto object-contain hidden lg:block"
+            />
+          </div>
+          <div
+            class="flex flex-col justify-center px-2 sm:px-0 gap-2 lg:gap-4 sm:flex-1 sm:w-32 sm:gap-4 lg:gap-5 xl:gap-20"
+          >
+            <p
+              class="text-xl font-bold sm:text-xl lg:text-xl xl:text-5xl uppercase text-center md:text-start mb-7 sm:mb-2 pt-2"
             >
-              <p
-                class="text-xl font-bold sm:text-xl lg:text-3xl xl:text-5xl uppercase text-center md:text-start mb-7 sm:mb-1"
-              >
-                Чому саме ми?
-              </p>
-              <ul class="flex flex-col gap-3 text-sm sm:text-xs">
-                <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
-                <li>- ГАРАНТІЯ 1 РІК</li>
-                <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
-                <li>- ПОВЕРНЕННЯ ТА ОБМІН</li>
-                <li>- КОЖЕН ДРУГИЙ КЛІЄНТ КУПУЄ В НАС ПОВТОРНО</li>
-                <li>- БІЛЬШЕ 350 ЗАМОВЛЕНЬ ЗА МИНУЛИЙ МІСЯЦЬ</li>
-              </ul>
-            </div>
+              Чому саме ми?
+            </p>
+            <ul class="flex flex-col gap-3 lg:gap-2 text-sm sm:text-xs">
+              <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
+              <li>- ГАРАНТІЯ 1 РІК</li>
+              <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
+              <li>- ПОВЕРНЕННЯ ТА ОБМІН</li>
+              <li>- КОЖЕН ДРУГИЙ КЛІЄНТ КУПУЄ В НАС ПОВТОРНО</li>
+              <li>- БІЛЬШЕ 250 ЗАМОВЛЕНЬ ЗА МИНУЛИЙ МІСЯЦЬ</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
     <section class="w-full">
       <div
-        class="inline-block w-full text-base sm:text-lg uppercase xl:text-4xl text-center mb-5 md:mb-10 text-white bg-main p-2 sm:p-1"
+        class="inline-block w-full text-base sm:text-lg font-bold uppercase xl:text-4xl text-center mb-5 md:mb-10 lg:mb-16 text-white bg-main p-3 sm:p-1 lg:p-3"
       >
-        <p class="container mx-auto">Каталог</p>
+        <p class="mx-auto">Каталог</p>
       </div>
 
       <!-- <div class="container mx-auto mb-10 px-4 md:px-12 xl:px-20">
@@ -173,16 +171,16 @@
         </div>
       </div> -->
     </section>
-    <section class="w-full pb-8 mb-8 lg:mb-16 shadow-xl">
-      <div class="container mx-auto px-8 sm:px-24">
-        <div class="grid grid-col sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-8">
+    <section class="w-full pb-8 lg:mb-16 shadow-xl">
+      <div class="container mx-auto">
+        <div
+          class="grid grid-col sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 lg:gap-x-10 lg:gap-y-6 px-6 pt-8 lg:px-0 lg:pt-0"
+        >
           <div v-for="item in items" :key="item.path" class="shadow-lg relative">
             <router-link :to="item.path" class="flex flex-col h-full justify-between relative">
               <img :src="item.image" :alt="item.path" class="w-full h-full" />
               <div class="bg-black-50 h-10 md:h-14 p-2 flex items-center">
-                <p
-                  class="w-full text-center text-white text-[10px] sm:text-base lg:text-sm uppercase"
-                >
+                <p class="w-full text-center text-white text-xs sm:text-base lg:text-sm uppercase">
                   {{ item.name }}
                 </p>
               </div>
@@ -191,34 +189,36 @@
         </div>
       </div>
     </section>
-    <section class="w-full py-2 lg:py-10 mb-6 shadow-xl sm:pb-12">
-      <div class="container mx-auto px-12">
+    <section id="aboutus" class="w-full py-2 lg:py-5 mb-6 shadow-xl sm:pb-12 lg:pb-24">
+      <div class="container mx-auto">
         <div
-          class="font-serif text-2xl md:text-4xl xl:text-5xl font-bold text-center sm:hidden mb-10 lg:mb-12 uppercase"
+          class="font-serif text-lg md:text-4xl xl:text-5xl font-bold text-center sm:hidden mb-6 lg:mb-12 uppercase"
         >
           Про нас
         </div>
-        <div class="flex flex-auto flex-col items-center sm:flex-row sm:gap-5 lg:px-10">
-          <div class="px-5 w-full h-full flex-1 my-4">
+        <div class="flex flex-auto flex-col items-center sm:flex-row sm:gap-5">
+          <div class="px-5 lg:w-1/2 h-full flex">
             <img
               src="../image/IMG_20240118_195008_325.jpg"
               alt="main image"
-              class="w-full h-auto lg:hidden object-contain"
+              class="w-full h-auto object-contain"
             />
           </div>
-          <div class="flex-1 flex-col justify-center px-5 gap-2 sm:gap-5 lg:gap-5 xl:gap-20">
+          <div
+            class="flex flex-col justify-start items-start px-5 gap-2 sm:gap-5 lg:gap-4 lg:w-1/2 pt-10"
+          >
             <div
-              class="text-2xl hidden sm:block sm:text-lg xl:text-5xl font-bold text-start mb-5 lg:mb-12 uppercase"
+              class="text-2xl hidden sm:block sm:text-lg lg:text-xl font-bold text-start lg:mb-2 uppercase"
             >
               Про нас
             </div>
             <p
-              class="text-sm font-bold sm:text-base lg:text-3xl xl:text-5xl text-center md:text-start mb-4"
+              class="text-sm font-bold sm:text-base lg:text-xl xl:text-2xl text-center md:text-start"
             >
               "Ми знаємо що таке стиль"
             </p>
             <p
-              class="text-sm font-bold sm:text-base lg:text-3xl xl:text-5xl text-justify md:text-start mb-7"
+              class="text-sm font-bold sm:text-base lg:text-lg xl:text-5xl text-justify md:text-start mb-7"
             >
               Ласкаво просимо до нашого магазину. Ми впевнені що Ви знайдете сумку для себе або на
               подарунок від українського виробника. Всі наші сумки викготовлені з високоякісної
@@ -243,20 +243,20 @@
       </div>
     </section>
     <section id="question" class="w-full pb-4 mb-4 lg:mb-16">
-      <div class="container mx-auto px-4 sm:px-14">
+      <div class="container mx-auto">
         <div class="px-5 sm:px-0 grid grid-col gap-5">
           <div class="flex items-center justify-center">
             <p
-              class="text-center text-2xl xl:text-4xl font-bold text-brown-50 md:leading-[63px] sm:mb-1"
+              class="text-center text-lg lg:text-base uppercase font-bold text-brown-50 sm:mb-1 lg:pt-8"
             >
-              Відповіді на часті запитання
+              Часті запитання
             </p>
           </div>
           <div class="flex flex-col md:flex-row items-start justify-between gap-4 sm:gap-8">
-            <div class="sm:max-w-[240px] mt-3">
-              <img src="../image/image3.jpg" alt="bug" class="w-full h-full object-contain" />
+            <div class="lg:w-1/3 mt-3">
+              <img src="../image/image3.jpg" alt="bug" class="w-full h-auto object-contain" />
             </div>
-            <div class="w-full">
+            <div class="w-full lg:w-2/3">
               <div v-for="(question, index) in questions" :key="index" class="w-full my-3">
                 <div
                   class="bg-stone-100 w-full border border-black-400"
@@ -292,11 +292,11 @@
       </div>
     </section>
     <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
-      <div class="container mx-auto px-4 md:px-14">
+      <div class="container mx-auto">
         <h1
-          class="text-center text-2xl sm:text-xl uppercase xl:text-4xl font-bold text-brown-50 pt-5 mb-10"
+          class="text-center text-xs sm:text-xl uppercase lg:text-base font-bold text-brown-50 pt-5 mb-10"
         >
-          Відгуки наших покупців
+          Відгуки наших клієнтів
         </h1>
         <div class="py-6">
           <basic-carousel />
@@ -304,18 +304,18 @@
       </div>
     </section>
     <section class="w-full py-5 mb-4 sm:mb-16">
-      <div class="container mx-auto px-4 sm:px-10">
+      <div class="container mx-auto">
         <div class="grid grid-col md:grid-cols-2 gap-4 px-3">
           <div class="max-h-[550px]">
             <img src="../image/6.jpg" alt="bug" class="w-full h-full object-contain" />
           </div>
           <div>
             <h1
-              class="text-center text-2xl sm:text-xs uppercase xl:text-[53px] font-bold text-brown-50 pt-4 sm:pt-12"
+              class="text-center text-xs sm:text-xs uppercase xl:text-[53px] font-bold text-brown-50 pt-4 sm:pt-12"
             >
               Зворотній звязок
             </h1>
-            <p class="text-center text-brown-50 text-base sm:text-[8px] font-bold uppercase">
+            <p class="text-center text-brown-50 text-xs10 sm:text-xs8 font-bold uppercase">
               Тут ви можете лишити свої коментарі, пропозиції та побажання
             </p>
             <div class="my-5 w-full">

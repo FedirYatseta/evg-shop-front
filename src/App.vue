@@ -52,7 +52,7 @@ export default defineComponent({
   </header>
   <main>
     <router-view> </router-view>
-    <!-- <img src="./product_768.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
+    <!-- <img src="./view1024.png" alt="1" class="absolute inset-0 opacity-50 z-50" /> -->
     <back-to-top text="Back to top" visibleoffset="500">
       <button class="h-full w-full">
         <icon-to-top />

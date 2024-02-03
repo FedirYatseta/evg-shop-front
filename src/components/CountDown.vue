@@ -1,34 +1,34 @@
 <template>
   <div
-    class="text-center flex items-center justify-between sm:justify-center sm:gap-3 rounded py-1 w-full"
+    class="text-center flex items-center justify-between sm:justify-center sm:gap-3 rounded py-1 lg:py-2 w-full"
   >
     <p
       :class="textColor ? 'text-brown-50' : 'text-white'"
-      class="uppercase font-bold text-xs xl:text-2xl max-w-[180px] sm:max-w-fit"
+      class="uppercase font-bold text-xs10 text-start sm:text-center w-1/2 sm:w-full"
     >
       Зимовий розпродаж до -43% До кінця акції:
     </p>
-    <div class="grid grid-cols-4 gap-1 xl:gap-3 text-white">
+    <div class="grid grid-cols-4 gap-1 xl:gap-3 text-white w-1/2">
       <div class="rounded-md p-1 md:py-0">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
+        <p class="bg-brown-50 text-xs font-bold xl:text-xl px-1">
           {{ countdown.days }}
-        </div>
+        </p>
         <div class="text-[6px] xl:text-xl text-brown-50 uppercase">days</div>
       </div>
       <div class="rounded-md p-1 md:py-0">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
+        <p class="bg-brown-50 text-xs font-bold xl:text-xl px-1">
           {{ countdown.hours }}
-        </div>
+        </p>
         <div class="text-[6px] xl:text-xl text-brown-50 uppercase">hrs</div>
       </div>
       <div class="rounded-md p-1 md:py-0">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
+        <div class="bg-brown-50 text-xs font-bold xl:text-xl px-1">
           {{ countdown.minutes }}
         </div>
         <div class="text-[6px] xl:text-xl text-brown-50 uppercase">mins</div>
       </div>
       <div class="rounded-md p-1 md:py-0">
-        <div class="bg-brown-50 text-sm font-bold xl:text-xl leading-6 px-1">
+        <div class="bg-brown-50 text-xs font-bold xl:text-xl px-1">
           {{ countdown.seconds }}
         </div>
         <div class="text-[6px] xl:text-xl text-brown-50 uppercase">secs</div>

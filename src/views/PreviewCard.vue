@@ -1,75 +1,83 @@
 <template>
   <section class="w-full md:mt-2 pb-10">
-    <div class="container mx-auto pt-20 sm:pt-4 pb-24 lg:pb-64 lg:pt-0">
+    <div class="mx-auto pt-20 sm:pt-4 pb-24 lg:pb-48 lg:pt-0">
       <div class="grid grid-col gap-2 mx-auto px-2 md:px-16">
         <div class="flex justify-between items-center p-2 lg:py-10">
           <div @click="goBack" class="flex gap-1 uppercase text-2xl cursor-pointer">
             <img src="../image/arrow.png" alt="1" class="w-8 object-contain rotate-180" />
-            <div class="text-xs lg:text-2xl font-bold">Назад до каталогу</div>
+            <div class="text-xs lg:text-lg font-bold">Назад до каталогу</div>
           </div>
           <div class="cursor-pointer">
             <icon-close @click="goBack" />
           </div>
         </div>
         <div class="grid grid-col sm:grid-cols-2 md:pt-0 sm:gap-4">
-          <div class="grid grid-col gap-4 mx-auto items-start">
-            <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
-              <Slide v-for="slide in productEl?.imageSrc" :key="slide">
-                <div class="carousel__item">
-                  <img
-                    :src="slide"
-                    alt="image-product-slide"
-                    class="rounded-b-md w-full h-full object-contain"
-                  />
-                </div>
-              </Slide>
-            </Carousel>
-            <Carousel
-              id="thumbnails"
-              :breakpoints="breakpoints"
-              :wrap-around="true"
-              v-model="currentSlide"
-              ref="carousel"
-            >
-              <Slide v-for="(slide, index) in productEl?.imageSrc" :key="slide">
-                <div
-                  @click="slideTo(index)"
-                  class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
-                >
-                  <img
-                    class="opacity-1000 rounded-md object-cover h-full"
-                    :src="slide"
-                    alt="image-product-slide"
-                  />
-                </div>
-              </Slide>
-            </Carousel>
+          <div class="grid grid-col gap-1 mx-auto items-start">
+            <div class="flex flex-col gap-3">
+              <Carousel id="gallery" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
+                <Slide v-for="slide in productEl?.imageSrc" :key="slide">
+                  <div class="carousel__item">
+                    <img
+                      :src="slide"
+                      alt="image-product-slide"
+                      class="rounded-b-md w-full h-full object-contain"
+                    />
+                  </div>
+                </Slide>
+              </Carousel>
+              <Carousel
+                id="thumbnails"
+                :breakpoints="breakpoints"
+                :wrap-around="true"
+                v-model="currentSlide"
+                ref="carousel"
+              >
+                <Slide v-for="(slide, index) in productEl?.imageSrc" :key="slide">
+                  <div
+                    @click="slideTo(index)"
+                    class="carousel__item px-2 max-h-[150px] md:max-h-[250px]"
+                  >
+                    <img
+                      class="opacity-1000 rounded-md object-cover h-full"
+                      :src="slide"
+                      alt="image-product-slide"
+                    />
+                  </div>
+                </Slide>
+              </Carousel>
+            </div>
           </div>
           <div class="flex flex-col justify-start mx-auto relative">
             <div class="pt-8 sm:pt-0">
               <div class="grid grid-col gap-1">
-                <div class="text-xl lg:text-4xl font-bold mb-2 lg:mb-5 text-center md:text-start">
+                <div class="text-xl lg:text-2xl font-bold mb-2 lg:mb-2 text-center md:text-start">
                   {{ productEl?.title }}
                 </div>
                 <div
-                  class="flex lg:px-2 flex-wrap mb-2 lg:mb-5 items-center justify-center md:justify-start"
+                  class="flex lg:px-2 flex-wrap mb-2 lg:mb-2 items-center justify-center md:justify-start"
                 >
                   <span
+                    v-if="productEl?.oldPrice"
                     class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:bg-main relative inline-block mr-4"
                   >
-                    <p class="text-black-200 text-xl md:text-lg lg:text-3xl xl:text-4xl">
+                    <p class="text-black-200 text-xl md:text-lg lg:text-xl xl:text-2xl">
                       {{ productEl?.oldPrice }} UAH
                     </p>
                   </span>
-                  <p class="text-2xl md:text-lg lg:text-3xl xl:text-5xl text-black-50">
+                  <p class="text-2xl md:text-lg lg:text-2xl xl:text-2xl text-black-50">
                     {{ productEl?.price }} UAH
                   </p>
                 </div>
-                <div class="py-5 flex justify-center">
+                <div class="py-5 flex flex-col sm:flex-row justify-center gap-2">
                   <router-link
                     :to="'/order/' + productEl?._id"
-                    class="text-white text-center border bg-main px-24 py-4 lg:text-2xl w-full"
-                    >Замовити</router-link
+                    class="text-white uppercase text-center border bg-main px-6 py-1 lg:text-base w-full"
+                    >Купити</router-link
+                  >
+                  <router-link
+                    :to="'/order/' + productEl?._id"
+                    class="text-white uppercase text-center border bg-main px-6 py-1 lg:text-base w-full"
+                    >В кошик</router-link
                   >
                 </div>
               </div>

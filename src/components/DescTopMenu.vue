@@ -1,15 +1,15 @@
 <template>
-  <div class="flex w-full h-full items-center justify-center container mx-auto px-6 py-2 gap-4">
+  <div
+    class="flex w-full h-full items-center justify-center container mx-auto sm:py-2 lg:px-6 lg:py-4 gap-4"
+  >
     <router-link to="/" class="w-[150px] h-[25px]">
       <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
     </router-link>
-    <nav class="flex mx-auto w-full h-full justify-end">
+    <nav class="flex mx-auto w-full h-full justify-end lg:mr-5">
       <ul class="flex justify-center relative h-full">
         <li v-for="item in pathFooter" :key="item.path">
           <div class="dropdown inline-block relative" v-if="item.subPath">
-            <button
-              class="px-2 text-[10px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
-            >
+            <button class="px-2 text-xs10 whitespace-nowrap font-light uppercase text-white">
               <span class="mr-1">{{ item.name }}</span>
             </button>
             <ul class="dropdown-menu absolute hidden bg-main pt-1 border border-white z-50">
@@ -31,13 +31,13 @@
                 handleReviewsClick(item)
               }
             "
-            class="px-2 text-[10px] lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
+            class="px-2 text-xs10 xl:text-xl whitespace-nowrap font-light uppercase text-white"
             >{{ item.name }}</router-link
           >
         </li>
       </ul>
     </nav>
-    <router-link to="/order/" class="w-[35px] h-[35px]">
+    <router-link to="/order/" class="w-[35px] h-[35px] lg:mr-6">
       <img src="@/image/bags.png" alt="bags-header" class="w-full h-full object-contain" />
     </router-link>
   </div>

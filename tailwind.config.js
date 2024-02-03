@@ -3,6 +3,28 @@ module.exports = {
   content: ["./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",],
   theme: {
+    fontSize: {
+      xs8: '0.5rem',
+      xs10: '0.6rem',
+      xs: '0.8rem',
+      sm: '0.9rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.563rem',
+      '3xl': '1.953rem',
+      '4xl': '2.441rem',
+      '5xl': '3.052rem',
+    },
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '8rem',
+        xl: '8rem',
+        '2xl': '8rem',
+      },
+    },
 
     fontFamily: {
       'sans': ['Ruda', 'sans-serif'],

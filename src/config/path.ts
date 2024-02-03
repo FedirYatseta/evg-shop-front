@@ -34,20 +34,22 @@ export const pathConfig = [
 ]
 
 export const pathFooter = [
-    { name: 'Головна', path: '/' },
+
     {
         name: 'Каталог', path: '/category', subPath: [
-            { name: 'Хіти', path: '/product/hit', },
             { name: 'Новинки', path: '/product/new', },
-            { name: 'Бананки', path: '/product/bana' },
+            { name: 'Хіти', path: '/product/hit', },
+            { name: 'Бананки/Сумки на пояс', path: '/product/bana' },
             { name: 'Слінги', path: '/product/sling' },
             { name: 'Месенджери', path: '/product/mess' },
-            { name: 'Клатчі та гаманці', path: '/product/wallet' },
-            { name: 'Ключчниці', path: '/product/klutch' },
+            { name: 'Рюкзаки', path: '/product/backpack' },
+            { name: 'Сумки для документів/ноутбуків', path: '/product/bagsfordocument' },
+            { name: 'Клатчі та гаманці', path: '/product/klutch' },
         ]
     },
-    { name: 'Відгуки', path: '/', id: 'feedback' },
-    { name: 'Часті питання', path: '/', id: 'question' }
+    { name: 'Про нас', path: '/', id: 'aboutus' },
+    { name: 'Часті питання', path: '/', id: 'question' },
+    { name: 'Контакти', path: '/', id: 'footer' }
 ]
 
 export const pathConfigNew = [
@@ -67,6 +69,7 @@ export const pathConfigNew = [
 export const mainUrlOfFooter = [
     { name: 'Головна', path: '/', id: 'home' },
     { name: 'Каталог', path: '/category', },
+    { name: 'Про нас', path: '/', id: 'aboutus' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
