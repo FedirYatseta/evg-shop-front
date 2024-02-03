@@ -4,7 +4,7 @@
   >
     <p
       :class="textColor ? 'text-brown-50' : 'text-white'"
-      class="uppercase font-bold text-xs10 text-start sm:text-center w-1/2 sm:w-full"
+      class="uppercase font-bold text-xs10 text-start sm:text-center xl:text-xl w-1/2 sm:w-full"
     >
       Зимовий розпродаж до -43% До кінця акції:
     </p>

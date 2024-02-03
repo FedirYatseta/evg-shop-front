@@ -9,14 +9,16 @@
       <ul class="flex justify-center relative h-full">
         <li v-for="item in pathFooter" :key="item.path">
           <div class="dropdown inline-block relative" v-if="item.subPath">
-            <button class="px-2 text-xs10 whitespace-nowrap font-light uppercase text-white">
+            <button
+              class="px-2 text-xs10 xl:text-base whitespace-nowrap font-light uppercase text-white"
+            >
               <span class="mr-1">{{ item.name }}</span>
             </button>
             <ul class="dropdown-menu absolute hidden bg-main pt-1 border border-white z-50">
               <li v-for="subItem in item.subPath" :key="subItem.name" class="p-2">
                 <router-link
                   :to="subItem.path"
-                  class="block whitespace-no-wrap px-2 md:text-xs lg:text-[14px] xl:text-xl whitespace-nowrap font-light uppercase text-white"
+                  class="block whitespace-no-wrap px-2 md:text-xs lg:text-xs xl:text-base whitespace-nowrap font-light uppercase text-white"
                   >{{ subItem.name }}</router-link
                 >
               </li>
@@ -31,7 +33,7 @@
                 handleReviewsClick(item)
               }
             "
-            class="px-2 text-xs10 xl:text-xl whitespace-nowrap font-light uppercase text-white"
+            class="px-2 text-xs10 xl:text-base whitespace-nowrap font-light uppercase text-white"
             >{{ item.name }}</router-link
           >
         </li>

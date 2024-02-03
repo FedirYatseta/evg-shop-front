@@ -175,7 +175,7 @@ export default defineComponent({
     })
 
     const goBack = () => {
-      router.push('/product/' + store.state.product.selectedProduct.type)
+      router.push('/' + store.state.product.selectedProduct.type)
     }
     const slideTo = (val) => {
       currentSlide.value = val

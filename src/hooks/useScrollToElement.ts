@@ -12,6 +12,7 @@ const useScrollToElement = () => {
         }
     }
     const handleReviewsClick = (item) => {
+        console.log('item', item)
 
 
         if (item.id === 'question') {
@@ -43,6 +44,15 @@ const useScrollToElement = () => {
 
             setTimeout(() => {
                 scrollToElement('footer')
+            }, 500);
+
+        }
+        else if (item.id === 'catalog') {
+
+            // Перехід до розділу з ID "feedback" на сторінці "Головна"
+
+            setTimeout(() => {
+                scrollToElement('catalog')
             }, 500);
 
         }

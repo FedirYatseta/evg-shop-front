@@ -14,6 +14,10 @@ const routes = [
         component: Home,
     },
     {
+        path: "/:id",
+        component: Home,
+    },
+    {
         path: "/preview/:id",
         component: PreviewCard,
     },
@@ -25,18 +29,18 @@ const routes = [
         path: "/order/",
         component: OrderView,
     },
-    {
-        path: "/product",
-        component: ProductViewVue,
-    },
-    {
-        path: "/product/:id",
-        component: ProductViewVue,
-    },
-    {
-        path: "/category",
-        component: CategoryView,
-    },
+    // {
+    //     path: "/product",
+    //     component: ProductViewVue,
+    // },
+    // {
+    //     path: "/product/:id",
+    //     component: ProductViewVue,
+    // },
+    // {
+    //     path: "/category",
+    //     component: CategoryView,
+    // },
 
     {
         path: "/public",
@@ -49,7 +53,10 @@ const router = createRouter({
     history: createWebHistory(),
     // strict: true,
     scrollBehavior(to, from, savedPosition) {
+        console.log('TOOO', to, savedPosition, from)
 
+        console.log('savedPosition', savedPosition,)
+        console.log('from', from)
 
         const isProductRoute = to.path.startsWith('/product/');
         const isPreviewRoute = to.path.startsWith('/preview/');
@@ -64,7 +71,7 @@ const router = createRouter({
         } else if (to.hash) {
             return { el: to.hash, behavior: 'smooth' };
         } else {
-            return { left: 0, top: 0 };
+            return;
         }
     }
 });

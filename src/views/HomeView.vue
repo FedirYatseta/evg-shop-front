@@ -8,13 +8,13 @@
       </div>
     </section>
     <section class="w-full">
-      <div class="container pt-6 lg:pt-8">
+      <div class="container mx-auto pt-6 lg:pt-8">
         <div class="flex flex-col-reverse sm:flex-row gap-1 justify-items-center">
           <div
-            class="flex flex-col justify-center sm:justify-start gap-4 px-3 sm:px-0 sm:gap-5 sm:pt-5 lg:gap-5 xl:gap-20"
+            class="flex flex-col justify-center sm:justify-start gap-4 px-3 sm:px-0 sm:gap-5 sm:pt-5 lg:gap-5 xl:gap-6"
           >
             <p
-              class="text-base uppercase font-bold md:text-2xl lg:text-2xl xl:text-5xl text-center md:text-start"
+              class="text-base uppercase font-bold md:text-2xl lg:text-2xl xl:text-3xl text-center md:text-start"
             >
               Шукаєш стильну та якісну сумку для себе або на подарунок ?
             </p>
@@ -26,7 +26,8 @@
             </p>
             <div class="w-full max-w-20 mx-auto flex justify-center hidden sm:block">
               <router-link
-                :to="'/product/'"
+                :to="'/'"
+                @click="() => handleReviewsClick({ id: 'catalog' })"
                 class="bg-main hover:bg-brown-50 text-white w-[150px] font-serif py-2 px-5 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-xs font-bold xl:text-xl"
                 >Каталог</router-link
               >
@@ -63,10 +64,10 @@
             />
           </div>
           <div
-            class="flex flex-col justify-center px-2 sm:px-0 gap-2 lg:gap-4 sm:flex-1 sm:w-32 sm:gap-4 lg:gap-5 xl:gap-20"
+            class="flex flex-col justify-center px-2 sm:px-0 gap-2 lg:gap-4 sm:flex-1 sm:w-32 sm:gap-4 lg:gap-5 xl:gap-6"
           >
             <p
-              class="text-xl font-bold sm:text-xl lg:text-xl xl:text-5xl uppercase text-center md:text-start mb-7 sm:mb-2 pt-2"
+              class="text-xl font-bold sm:text-xl lg:text-xl xl:text-2xl uppercase text-center md:text-start mb-7 sm:mb-2 pt-2"
             >
               Чому саме ми?
             </p>
@@ -84,84 +85,63 @@
     </section>
     <section class="w-full">
       <div
-        class="inline-block w-full text-base sm:text-lg font-bold uppercase xl:text-4xl text-center mb-5 md:mb-10 lg:mb-16 text-white bg-main p-3 sm:p-1 lg:p-3"
+        class="inline-block w-full text-base sm:text-lg font-bold uppercase xl:text-2xl text-center mb-5 md:mb-10 lg:mb-16 text-white bg-main p-3 sm:p-1 lg:p-3"
       >
         <p class="mx-auto">Каталог</p>
       </div>
-
-      <!-- <div class="container mx-auto mb-10 px-4 md:px-12 xl:px-20">
-        <div>
-          <div class="px-2 w-full text-center pb-3">
+      <div class="container mx-auto px-2 sm:px-20" id="catalog">
+        <div class="grid grid-co gap-2 mb-3">
+          <div class="w-full text-center pb-3">
             <router-link
-              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-2xl font-semibold md:font-bold rounded-[10px]"
+              class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-xl font-semibold md:font-bold rounded-[10px]"
               :class="{ 'shadow-3xl': path.path !== routePath }"
-              @click="handleReviewsClick(path)"
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
               :to="path.path"
-              >{{ path.name }}</router-link
-            >
+              >{{ path.name }}
+            </router-link>
           </div>
-        </div>
-        <div
-          id="search"
-          class="h-[41px] relative max-w-[661px] container mx-auto my-8 hidden md:flex"
-        >
-          <my-input
-            aria-labelledby="search"
-            placeholder="Пошук"
-            :model-value="searchQuery"
-            @update:model-value="setSearchQuery"
-            :shadow="true"
-            class="px-4 rounded-xl h-[41px]"
-          />
-          <div
-            class="absolute flex items-center justify-center inset-y-0 right-5 pointer-events-none"
-          >
-            <icon-search />
-          </div>
-        </div>
-        <div class="px-5 flex justify-between py-2">
-          <button class="flex items-center" @click="nested.first = !nested.first">
-            <div class="mr-2"><icon-filter /></div>
+          <div class="px-5 flex justify-between py-2">
+            <button class="flex items-center" @click="nested.first = !nested.first">
+              <div class="mr-2"><icon-filter /></div>
 
-            <p class="text-sm md:text-xl text-black-100">Фільтри</p>
-          </button>
-          <div class="relative md:hidden">
-            <my-input
-              :model-value="searchQuery"
-              @update:model-value="setSearchQuery"
-              class="md:hidden"
-            />
-            <div
-              class="absolute flex items-center justify-center inset-y-0 right-2 pointer-events-none"
-            >
-              <icon-search />
+              <p class="text-sm md:text-xl text-black-100">Фільтри</p>
+            </button>
+            <div class="relative">
+              <my-input
+                :model-value="searchQuery"
+                @update:model-value="setSearchQuery"
+                class="h-full"
+              />
+              <div
+                class="absolute flex items-center justify-center inset-y-0 right-2 pointer-events-none"
+              >
+                <icon-search />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="px-5 my-5">
-          <Collapse :when="nested.first">
-            <div class="border-t border-gray">
-              <button @click="nested.second = !nested.second" class="py-1 w-full text-start">
-                Сортування
-              </button>
-              <Collapse :when="nested.second">
-                <my-select
-                  class="max-w-xs shadow-4xl rounded-md appearance-none mb-2"
-                  :options="sortOptions"
-                  :selected="selectedSort"
-                  @update:selected="setSelectedSort"
-                />
-              </Collapse>
-            </div>
-            <div class="border-b border-gray"></div>
-          </Collapse>
+          <div class="px-5 my-5">
+            <Collapse :when="nested.first">
+              <div class="border-t border-gray">
+                <button @click="nested.second = !nested.second" class="py-1 w-full text-start">
+                  Сортування
+                </button>
+                <Collapse :when="nested.second">
+                  <my-select
+                    class="max-w-xs shadow-4xl rounded-md appearance-none mb-2"
+                    :options="sortOptions"
+                    :selected="selectedSort"
+                    @update:selected="setSelectedSort"
+                  />
+                </Collapse>
+              </div>
+              <div class="border-b border-gray"></div>
+            </Collapse>
+          </div>
         </div>
 
         <product-card :products="sortedAndSearchProducts" />
-
-        <div class="px-5 flex items-center justify-center py-5 lg:py-10">
+        <div v-if="showButton" class="px-5 flex items-center justify-center my-5">
           <button
             @click="fetchNextProduct"
             class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
@@ -169,9 +149,9 @@
             Завантажити ще...
           </button>
         </div>
-      </div> -->
+      </div>
     </section>
-    <section class="w-full pb-8 lg:mb-16 shadow-xl">
+    <!-- <section class="w-full pb-8 lg:mb-16 shadow-xl">
       <div class="container mx-auto">
         <div
           class="grid grid-col sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 lg:gap-x-10 lg:gap-y-6 px-6 pt-8 lg:px-0 lg:pt-0"
@@ -188,15 +168,15 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section id="aboutus" class="w-full py-2 lg:py-5 mb-6 shadow-xl sm:pb-12 lg:pb-24">
       <div class="container mx-auto">
         <div
-          class="font-serif text-lg md:text-4xl xl:text-5xl font-bold text-center sm:hidden mb-6 lg:mb-12 uppercase"
+          class="font-serif text-lg md:text-4xl xl:text-2xl font-bold text-center sm:hidden mb-6 lg:mb-12 uppercase"
         >
           Про нас
         </div>
-        <div class="flex flex-auto flex-col items-center sm:flex-row sm:gap-5">
+        <div class="flex flex-col items-start sm:flex-row sm:gap-5">
           <div class="px-5 lg:w-1/2 h-full flex">
             <img
               src="../image/IMG_20240118_195008_325.jpg"
@@ -208,7 +188,7 @@
             class="flex flex-col justify-start items-start px-5 gap-2 sm:gap-5 lg:gap-4 lg:w-1/2 pt-10"
           >
             <div
-              class="text-2xl hidden sm:block sm:text-lg lg:text-xl font-bold text-start lg:mb-2 uppercase"
+              class="text-2xl hidden sm:block sm:text-lg lg:text-xl xl:text-2xl font-bold text-start lg:mb-2 uppercase"
             >
               Про нас
             </div>
@@ -218,7 +198,7 @@
               "Ми знаємо що таке стиль"
             </p>
             <p
-              class="text-sm font-bold sm:text-base lg:text-lg xl:text-5xl text-justify md:text-start mb-7"
+              class="text-sm font-bold sm:text-base lg:text-lg xl:text-xl text-justify md:text-start mb-7"
             >
               Ласкаво просимо до нашого магазину. Ми впевнені що Ви знайдете сумку для себе або на
               подарунок від українського виробника. Всі наші сумки викготовлені з високоякісної
@@ -247,7 +227,7 @@
         <div class="px-5 sm:px-0 grid grid-col gap-5">
           <div class="flex items-center justify-center">
             <p
-              class="text-center text-lg lg:text-base uppercase font-bold text-brown-50 sm:mb-1 lg:pt-8"
+              class="text-center text-lg lg:text-base xl:text-2xl uppercase font-bold text-brown-50 sm:mb-1 lg:pt-8"
             >
               Часті запитання
             </p>
@@ -266,7 +246,7 @@
                     :class="['flex w-full  justify-between p-2 items-center text-start ']"
                     @click="() => handleAccordion(index)"
                   >
-                    <p class="text-sm sm:text-xs font-bold w-full text-start">
+                    <p class="text-sm sm:text-xs lg:text-base font-bold w-full text-start">
                       {{ question.title }}
                     </p>
                     <div class="panel__icon">
@@ -281,7 +261,7 @@
                 </div>
                 <Collapse as="section" :when="question.isExpanded">
                   <div
-                    class="p-3 bg-stone-100 sm:text-xs w-full border-b border-l border-r border-black-400"
+                    class="p-3 bg-stone-100 sm:text-xs lg:text-base w-full border-b border-l border-r border-black-400"
                     v-html="processTextWithEmojis(question.description)"
                   ></div>
                 </Collapse>
@@ -294,7 +274,7 @@
     <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
       <div class="container mx-auto">
         <h1
-          class="text-center text-xs sm:text-xl uppercase lg:text-base font-bold text-brown-50 pt-5 mb-10"
+          class="text-center text-xs sm:text-xl uppercase lg:text-base xl:text-2xl font-bold text-brown-50 pt-5 mb-10"
         >
           Відгуки наших клієнтів
         </h1>
@@ -311,7 +291,7 @@
           </div>
           <div>
             <h1
-              class="text-center text-xs sm:text-xs uppercase xl:text-[53px] font-bold text-brown-50 pt-4 sm:pt-12"
+              class="text-center text-xs sm:text-xs uppercase xl:text-2xl font-bold text-brown-50 pt-4 sm:pt-12"
             >
               Зворотній звязок
             </h1>
@@ -370,7 +350,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watchEffect, reactive, computed } from 'vue'
+import { defineComponent, ref, watchEffect, watch, reactive, computed } from 'vue'
 import { Collapse } from 'vue-collapsed'
 import { categoryProduct, pathConfigNew } from '@/config/path'
 import { useStore, mapGetters } from 'vuex'
@@ -423,6 +403,7 @@ export default defineComponent({
     const dataItems = ref<any>({
       pathConfigNew
     })
+    const active = ref('')
     const rotation = ref(45)
     const activeIndex = ref(-1)
     const questions = reactive<any>([]) // Початково порожній масив для питань
@@ -431,6 +412,13 @@ export default defineComponent({
       const paragraphs = lines.map((line) => `<p>${line}</p>`)
       return paragraphs.join('')
     }
+
+    watch(
+      () => route.fullPath,
+      (newPath) => {
+        active.value = newPath
+      }
+    )
 
     watchEffect(() => {
       // Викликається при зміні store.state.product.confShop
@@ -481,6 +469,22 @@ export default defineComponent({
 
       await store.dispatch('product/createMessage', newObj)
     })
+
+    watch(
+      () => route.params.id,
+      async (newId, oldId) => {
+        if (newId !== oldId) {
+          let param = {}
+          if (route.params.id === 'hit' || route.params.id === 'new' || route.params.id === 'sale')
+            param[route.params.id] = true
+          else {
+            param = { type: route.params.id, limit: 10 }
+          }
+          // Викликаємо метод при зміні шляху
+          await store.dispatch('product/fetchProduct', param)
+        }
+      }
+    )
     return {
       dataItems,
       handleAccordion,
@@ -501,13 +505,15 @@ export default defineComponent({
       items,
       stages,
       saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
-      routePath: route.fullPath,
+      routePath: active,
       name,
       phone,
       describe,
       errors,
       values,
-      onSubmit
+      onSubmit,
+
+      showButton: computed(() => store.state.product?.showButton)
     }
   },
   computed: {

@@ -6,7 +6,7 @@
       <div
         class="p-3 md:p-1 flex flex-col justify-between"
         v-for="prod in products"
-        :key="prod.title"
+        :key="prod._id"
       >
         <div class="block text-start relative cursor-pointer">
           <div
@@ -51,7 +51,7 @@
               />
             </div>
           </router-link>
-          <p class="font-bold text-center text-xl sm:text-sm lg:text-2xl pt-2 sm:pt-2">
+          <p class="font-bold text-center text-xl sm:text-sm lg:text-base pt-2 sm:pt-2">
             {{ prod.title }}
           </p>
 
@@ -60,24 +60,24 @@
               v-show="prod.oldPrice"
               class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:bg-main relative inline-block mr-2"
             >
-              <p class="text-black-200 text-xl sm:text-lg md:text-xl xl:text-3xl">
+              <p class="text-black-200 text-xl sm:text-lg md:text-xl lg:text-base">
                 {{ prod.oldPrice }} UAH
               </p>
             </span>
-            <p class="text-xl sm:text-lg md:text-xl xl:text-3xl text-black-50">
+            <p class="text-xl sm:text-lg md:text-xl lg:text-base text-black-50">
               {{ prod.price }} UAH
             </p>
           </div>
         </div>
-        <div class="grid grid-col xl:grid-cols-2 gap-2 md:gap-4 pt-1 sm:pt-2">
+        <div class="grid grid-col gap-2 md:gap-2 pt-1 sm:pt-2">
           <router-link
             :to="'/order/' + prod._id"
-            class="bg-main hover:bg-brown-50 font-bold text-white p-2 lg:p-2 text-center uppercase border border-brown-50 text-xs sm:text-sm xl:text-xl"
+            class="bg-main hover:bg-brown-50 font-bold text-white p-2 lg:p-2 text-center uppercase border border-brown-50 text-xs sm:text-sm xl:text-lg"
             >Купити</router-link
           >
           <router-link
             :to="'/preview/' + prod._id"
-            class="bg-white hover:bg-slate-800 text-main underline-offset-4 underline decoration-2 decoration-dashed font-bold p-1 lg:p-2 text-center uppercase text-xs sm:text-sm xl:text-xl"
+            class="bg-white hover:bg-slate-800 text-main underline-offset-4 underline decoration-2 decoration-dashed font-bold p-1 lg:p-2 text-center uppercase text-xs sm:text-sm xl:text-lg"
           >
             Детальніше</router-link
           >

@@ -24,11 +24,13 @@ import icon8 from '@/image/8.jpg'
 
 export const pathConfig = [
     { name: 'Головна', path: '/', },
-    { name: 'Бананки', path: '/product/bana', },
-    { name: 'Слінги', path: '/product/sling', },
-    { name: 'Месенджери', path: '/product/mess', },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', },
-    { name: 'Ключчниці', path: '/product/klutch', },
+    { name: 'Бананки', path: '/bana', },
+    { name: 'Слінги', path: '/sling', },
+    { name: 'Месенджери', path: '/mess', },
+    { name: 'Клатчі та гаманці', path: '/wallet', },
+    { name: 'Ключчниці', path: '/klutch', },
+    { name: 'Рюкзаки', path: '/backpack' },
+    { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
@@ -37,14 +39,14 @@ export const pathFooter = [
 
     {
         name: 'Каталог', path: '/category', subPath: [
-            { name: 'Новинки', path: '/product/new', },
-            { name: 'Хіти', path: '/product/hit', },
-            { name: 'Бананки/Сумки на пояс', path: '/product/bana' },
-            { name: 'Слінги', path: '/product/sling' },
-            { name: 'Месенджери', path: '/product/mess' },
-            { name: 'Рюкзаки', path: '/product/backpack' },
-            { name: 'Сумки для документів/ноутбуків', path: '/product/bagsfordocument' },
-            { name: 'Клатчі та гаманці', path: '/product/klutch' },
+            { name: 'Новинки', path: '/new', },
+            { name: 'Хіти', path: '/hit', },
+            { name: 'Бананки/Сумки на пояс', path: '/bana' },
+            { name: 'Слінги', path: '/sling' },
+            { name: 'Месенджери', path: '/mess' },
+            { name: 'Рюкзаки', path: '/backpack' },
+            { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
+            { name: 'Клатчі та гаманці', path: '/klutch' },
         ]
     },
     { name: 'Про нас', path: '/', id: 'aboutus' },
@@ -54,14 +56,16 @@ export const pathFooter = [
 
 export const pathConfigNew = [
     { name: 'Головна', path: '/' },
-    { name: 'Хіти', path: '/product/hit' },
-    { name: 'Новинки', path: '/product/new' },
-    { name: 'Знижки', path: '/product/sale' },
-    { name: 'Бананки', path: '/product/bana' },
-    { name: 'Слінги', path: '/product/sling' },
-    { name: 'Месенджери', path: '/product/mess' },
-    { name: 'Клатчі та гаманці', path: '/product/wallet' },
-    { name: 'Ключчниці', path: '/product/klutch', },
+    { name: 'Хіти', path: '/hit', id: 'catalog' },
+    { name: 'Новинки', path: '/new', id: 'catalog' },
+    { name: 'Знижки', path: '/sale', id: 'catalog' },
+    { name: 'Бананки', path: '/bana', id: 'catalog' },
+    { name: 'Слінги', path: '/sling', id: 'catalog' },
+    { name: 'Месенджери', path: '/mess', id: 'catalog' },
+    { name: 'Клатчі та гаманці', path: '/wallet', id: 'catalog' },
+    { name: 'Ключчниці', path: '/klutch', id: 'catalog' },
+    { name: 'Рюкзаки', path: '/backpack' },
+    { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
@@ -75,14 +79,14 @@ export const mainUrlOfFooter = [
 ]
 
 export const categoryProduct = [
-    { name: 'Новинки', path: '/product/new', image: icon1 },
-    { name: 'Хіти продажів', path: '/product/hit', image: icon2 },
-    { name: 'Бананки  / сумки на пояс', path: '/product/bana', image: icon3 },
-    { name: 'Слінги', path: '/product/sling', image: icon4 },
-    { name: 'Месенджери', path: '/product/mess', image: icon5 },
-    { name: 'Рюкзаки', path: '/product/wallet', image: icon6 },
-    { name: 'Сумки для документів/ноутбука', path: '/product/wallet', image: icon7 },
-    { name: 'Клатчі та гаманці', path: '/product/wallet', image: icon8 },
+    { name: 'Новинки', path: '/new', image: icon1 },
+    { name: 'Хіти продажів', path: '/hit', image: icon2 },
+    { name: 'Бананки  / сумки на пояс', path: '/bana', image: icon3 },
+    { name: 'Слінги', path: '/sling', image: icon4 },
+    { name: 'Месенджери', path: '/mess', image: icon5 },
+    { name: 'Рюкзаки', path: '/wallet', image: icon6 },
+    { name: 'Сумки для документів/ноутбука', path: '/wallet', image: icon7 },
+    { name: 'Клатчі та гаманці', path: '/wallet', image: icon8 },
 ]
 
 export const feedback = [
