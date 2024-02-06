@@ -24,13 +24,13 @@ import icon8 from '@/image/8.jpg'
 
 export const pathConfig = [
     { name: 'Головна', path: '/', },
-    { name: 'Бананки', path: '/bana', },
-    { name: 'Слінги', path: '/sling', },
-    { name: 'Месенджери', path: '/mess', },
-    { name: 'Клатчі та гаманці', path: '/wallet', },
-    { name: 'Ключчниці', path: '/klutch', },
-    { name: 'Рюкзаки', path: '/backpack' },
-    { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
+    { name: 'Бананки', path: '/bana', id: 'catalog' },
+    { name: 'Слінги', path: '/sling', id: 'catalog' },
+    { name: 'Месенджери', path: '/mess', id: 'catalog' },
+    { name: 'Клатчі та гаманці', path: '/wallet', id: 'catalog' },
+    { name: 'Ключчниці', path: '/klutch', id: 'catalog' },
+    { name: 'Рюкзаки', path: '/backpack', id: 'catalog' },
+    { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument', id: 'catalog' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]
@@ -39,14 +39,14 @@ export const pathFooter = [
 
     {
         name: 'Каталог', path: '/category', subPath: [
-            { name: 'Новинки', path: '/new', },
-            { name: 'Хіти', path: '/hit', },
-            { name: 'Бананки/Сумки на пояс', path: '/bana' },
-            { name: 'Слінги', path: '/sling' },
-            { name: 'Месенджери', path: '/mess' },
-            { name: 'Рюкзаки', path: '/backpack' },
-            { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
-            { name: 'Клатчі та гаманці', path: '/klutch' },
+            { name: 'Новинки', path: '/new', id: 'catalog' },
+            { name: 'Хіти', path: '/hit', id: 'catalog' },
+            { name: 'Бананки/Сумки на пояс', path: '/bana', id: 'catalog' },
+            { name: 'Слінги', path: '/sling', id: 'catalog' },
+            { name: 'Месенджери', path: '/mess', id: 'catalog' },
+            { name: 'Рюкзаки', path: '/backpack', id: 'catalog' },
+            { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument', id: 'catalog' },
+            { name: 'Клатчі та гаманці', path: '/klutch', id: 'catalog' },
         ]
     },
     { name: 'Про нас', path: '/', id: 'aboutus' },
@@ -55,24 +55,20 @@ export const pathFooter = [
 ]
 
 export const pathConfigNew = [
-    { name: 'Головна', path: '/' },
+
     { name: 'Хіти', path: '/hit', id: 'catalog' },
     { name: 'Новинки', path: '/new', id: 'catalog' },
     { name: 'Знижки', path: '/sale', id: 'catalog' },
     { name: 'Бананки', path: '/bana', id: 'catalog' },
     { name: 'Слінги', path: '/sling', id: 'catalog' },
     { name: 'Месенджери', path: '/mess', id: 'catalog' },
-    { name: 'Клатчі та гаманці', path: '/wallet', id: 'catalog' },
-    { name: 'Ключчниці', path: '/klutch', id: 'catalog' },
     { name: 'Рюкзаки', path: '/backpack' },
     { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument' },
-    { name: 'Відгуки', path: '/', id: 'feedback' },
-    { name: 'Часті питання', path: '/', id: 'question' }
+
 ]
 
 export const mainUrlOfFooter = [
     { name: 'Головна', path: '/', id: 'home' },
-    { name: 'Каталог', path: '/category', },
     { name: 'Про нас', path: '/', id: 'aboutus' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }

@@ -1,14 +1,14 @@
 <template>
-  <Carousel :wrap-around="true" :autoplay="3000" :breakpoints="breakpoints">
+  <Carousel :wrap-around="true" :breakpoints="breakpoints">
     <Slide v-for="slide in text" :key="slide.name">
       <div class="px-2 flex gap-2">
-        <div class="w-36 h-36">
-          <img :src="slide.image" :alt="slide.name" />
+        <div class="w-16 h-16 contents">
+          <img :src="slide.image" :alt="slide.name" class="w-16 h-16 rounded-full" />
         </div>
         <div class="flex flex-col items-start text-start">
-          <p class="text-xs">{{ slide.name }}</p>
-          <p class="text-base mb-2">{{ slide.city }}</p>
-          <p class="text-sm">{{ slide.descr }}</p>
+          <p class="text-base font-bold">{{ slide.name }}</p>
+          <p class="text-xs mb-2">{{ slide.city }}</p>
+          <p class="text-sm italic">{{ slide.descr }}</p>
         </div>
       </div>
     </Slide>
@@ -24,7 +24,11 @@ import { defineComponent, ref } from 'vue'
 import { Carousel, Slide, Pagination } from 'vue3-carousel'
 import { feedback } from '@/config/path'
 import 'vue3-carousel/dist/carousel.css'
-import icon1 from '../image/iconfeedback.png'
+import icon1 from '../image/feedback/photo_1_2024-02-04_19-30-59.jpg'
+import icon2 from '../image/feedback/photo_2_2024-02-04_19-30-59.jpg'
+import icon3 from '../image/feedback/photo_3_2024-02-04_19-30-59.jpg'
+import icon4 from '../image/feedback/photo_4_2024-02-04_19-30-59.jpg'
+import icon5 from '../image/feedback/photo_5_2024-02-04_19-30-59.jpg'
 export default defineComponent({
   name: 'basic-carousel',
   components: {
@@ -36,15 +40,38 @@ export default defineComponent({
     const init = [
       {
         image: icon1,
-        name: '1.02.2023',
-        city: 'Роман Черненко',
-        descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
+        name: 'Ольга Лазутіна, 44 роки',
+        city: 'м. Одеса',
+        descr:
+          '"Купувала шкіряний месенджер на подарунок чоловіку. Все просто супер, сумка крутецька, чоловіку дуже сильно подобається нова обновка!" '
       },
       {
-        image: icon1,
-        name: '1.02.2023',
-        city: 'Роман Черненко',
-        descr: 'Дуже задоволена покупкою, все супер, купувала чоловіку на подарунок! Рекомендую!'
+        image: icon2,
+        name: 'Євген Горов, 26 років',
+        city: 'м. Миколаїв',
+        descr:
+          '" Привіт! Купував сумку для макбуку в цьому інтернет - магазині, порекомендували друзі, то скажу що якість дійсно на високому рівні, дуже приємний менеджер який підібрав саме той розмір який мені підійшов. Рекомендую цей магазин."'
+      },
+      {
+        image: icon3,
+        name: 'Романов Олександр, 31 рік',
+        city: 'м. Львів',
+        descr:
+          ' " Хочу лишити  позитивний відгук цьому магазину! Купую в них вже другу сумку, спочатку була бананка, яка через рік виглядає як нова, та й зараз замовив рюкзак ручної роботи, якість просто мега бомба, дякую вам за те що продаєте дійсно якісні речі!"'
+      },
+      {
+        image: icon4,
+        name: 'Саванчук Сергій, 29 років',
+        city: 'м. Вінниця ',
+        descr:
+          '"Доброго дня! Купував у вас слінг, хожду з ним вже 2 тижня, все подобається, стильно та якісно, магазин цей рекомендую на 100%"  '
+      },
+      {
+        image: icon5,
+        name: 'Чокова Катерина, 27 років',
+        city: 'м. Полтава ',
+        descr:
+          '"Купувала своєму хлопцю на День народження шкіряний рюкзак в цьому магазині і я скажу що тут дуже круті , гарні та високої якості сумки! Я однозначно рекомендую цей магазин та наступну сумку купуватиму також тільки тут." '
       }
     ]
 

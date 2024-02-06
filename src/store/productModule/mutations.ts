@@ -23,6 +23,8 @@ export const mutations: MutationTree<any, any> = {
     },
 
     setProductId(state: any, id: any) {
+        console.log('id', id)
+
         const product = state.product.find(val => val._id === id)
         console.log('product', product)
         if (product)

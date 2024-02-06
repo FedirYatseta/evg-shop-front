@@ -53,24 +53,23 @@ const router = createRouter({
     history: createWebHistory(),
     // strict: true,
     scrollBehavior(to, from, savedPosition) {
-        console.log('TOOO', to, savedPosition, from)
 
-        console.log('savedPosition', savedPosition,)
-        console.log('from', from)
 
         const isProductRoute = to.path.startsWith('/product/');
         const isPreviewRoute = to.path.startsWith('/preview/');
         const isOrderRoute = to.path.startsWith('/order/');
 
         if (isProductRoute || isPreviewRoute || isOrderRoute) {
+            console.log(1)
             return { top: 0 };
         }
         else if (savedPosition) {
-
+            console.log(2)
             return savedPosition;
         } else if (to.hash) {
             return { el: to.hash, behavior: 'smooth' };
         } else {
+            console.log(3)
             return;
         }
     }

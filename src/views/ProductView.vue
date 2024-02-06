@@ -2,7 +2,7 @@
   <section class="w-full bg-black-400">
     <div class="container mx-auto">
       <div class="px-6 sm:px-10 flex w-full">
-        <count-down :textColor="true" :saleTime="saleTime" />
+        <count-down :textColor="true" :time="saleTime" />
       </div>
     </div>
   </section>

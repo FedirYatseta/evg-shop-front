@@ -55,25 +55,14 @@ strong {
   height: 80px;
 }
 
-/* #gallery .carousel__item {
-  height: 390px;
-}
-
-#thumbnails .carousel__item {
-  min-height: 100px;
-  cursor: pointer;
-} */
-
 @media screen and (min-width: 767px) {
   .ql-editor.ql-blank {
     font-size: 14px;
     /* інші стилі для маленьких екранів */
   }
   #gallery .carousel__item {
-    height: 390px;
   }
   #thumbnails .carousel__item {
-    min-height: 100px;
     cursor: pointer;
   }
 }
@@ -85,7 +74,6 @@ strong {
     /* інші стилі для більших екранів */
   }
   #gallery .carousel__item {
-    max-height: 510px;
     width: 100%;
   }
 }
@@ -96,7 +84,6 @@ strong {
     /* інші стилі для більших екранів */
   }
   #gallery .carousel__item {
-    height: 610px;
     width: 100%;
   }
 }

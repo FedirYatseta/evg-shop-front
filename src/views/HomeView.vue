@@ -3,15 +3,15 @@
     <section class="w-full bg-black-400">
       <div class="container mx-auto">
         <div class="flex w-full">
-          <count-down :textColor="true" :saleTime="saleTime" />
+          <count-down :textColor="true" :time="time" />
         </div>
       </div>
     </section>
     <section class="w-full">
-      <div class="container mx-auto pt-6 lg:pt-8">
+      <div class="container mx-auto py-6 lg:py-8">
         <div class="flex flex-col-reverse sm:flex-row gap-1 justify-items-center">
           <div
-            class="flex flex-col justify-center sm:justify-start gap-4 px-3 sm:px-0 sm:gap-5 sm:pt-5 lg:gap-5 xl:gap-6"
+            class="flex flex-col justify-center sm:justify-start xl:justify-center gap-4 px-3 sm:px-0 sm:gap-5 sm:pt-5 lg:gap-5 xl:gap-6"
           >
             <p
               class="text-base uppercase font-bold md:text-2xl lg:text-2xl xl:text-3xl text-center md:text-start"
@@ -19,7 +19,7 @@
               Шукаєш стильну та якісну сумку для себе або на подарунок ?
             </p>
             <p
-              class="text-center uppercase md:text-start text-xs font-bold sm:text-sm sm:mb-6 lg:mb-2 md:font-bold text-main xl:text-2xl"
+              class="text-center uppercase md:text-start text-xs font-bold sm:text-sm sm:mb-6 lg:mb-2 md:font-bold text-main xl:text-xl"
             >
               Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму
               від виробника
@@ -33,7 +33,7 @@
               >
             </div>
           </div>
-          <div class="w-full h-full max-h-[380px] flex mb-4">
+          <div class="w-full h-full max-h-[380px] xl:max-h-[480px] flex mb-4">
             <img
               src="../image/image.jpg"
               alt="main image"
@@ -48,10 +48,10 @@
         </div>
       </div>
     </section>
-    <section class="w-full md:shadow-3xl pt-8 sm:py-2 lg:mb-10">
+    <section class="w-full shadow-3xl pt-8 sm:py-2 lg:pb-10">
       <div class="container mx-auto py-4 lg:py-10">
         <div class="flex flex-col sm:flex-row sm:gap-5 lg:gap-20 items-center sm:items-start">
-          <div class="px-5 w-full sm:w-96 h-full flex my-4 max-h-[250px] lg:w-100 sm:flex sm:px-0">
+          <div class="px-5 w-full md:w-1/2 h-full flex my-4 max-h-[250px] lg:w-100 sm:flex sm:px-0">
             <img
               src="../image/photo_2024-02-03_11-01-17.jpg"
               alt="main image"
@@ -64,14 +64,16 @@
             />
           </div>
           <div
-            class="flex flex-col justify-center px-2 sm:px-0 gap-2 lg:gap-4 sm:flex-1 sm:w-32 sm:gap-4 lg:gap-5 xl:gap-6"
+            class="flex flex-col justify-center px-2 sm:px-0 gap-2 lg:gap-4 w-full md:w-1/2 sm:gap-4 lg:gap-5 xl:gap-6"
           >
             <p
               class="text-xl font-bold sm:text-xl lg:text-xl xl:text-2xl uppercase text-center md:text-start mb-7 sm:mb-2 pt-2"
             >
               Чому саме ми?
             </p>
-            <ul class="flex flex-col gap-3 lg:gap-2 text-sm sm:text-xs">
+            <ul
+              class="flex flex-col gap-3 lg:gap-2 text-sm sm:text-xs lg:text-xs xl:text-base px-8 md:px-0"
+            >
               <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
               <li>- ГАРАНТІЯ 1 РІК</li>
               <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
@@ -367,6 +369,7 @@ export default defineComponent({
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     const route = useRoute()
+    const store = useStore()
     const phoneNumberRegex = /^\+380 \(\d{2}\) \d{3} \d{2} \d{2}$/
 
     const schema = yup.object({
@@ -394,7 +397,7 @@ export default defineComponent({
       { image: 'icon-reload' }
     ])
     const items = ref(categoryProduct)
-    const store = useStore()
+
     const nested = reactive({
       first: false, // Initial value
       second: false,
@@ -485,6 +488,7 @@ export default defineComponent({
         }
       }
     )
+
     return {
       dataItems,
       handleAccordion,
@@ -504,7 +508,7 @@ export default defineComponent({
       processTextWithEmojis,
       items,
       stages,
-      saleTime: computed(() => store.state.product?.confShop[0]?.saleTime),
+      time: computed(() => store.state.product?.confShop[0]?.saleTime),
       routePath: active,
       name,
       phone,

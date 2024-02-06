@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
@@ -25,7 +25,11 @@ export default defineComponent({
       }
       await store.dispatch('product/fetchConf')
     })
-    return { menuVisible, toggleMenu }
+    return {
+      menuVisible,
+      toggleMenu,
+      countProduct: computed(() => store.state.product?.buyProduct.length)
+    }
   }
 })
 </script>
@@ -41,7 +45,13 @@ export default defineComponent({
         <router-link to="/" class="w-full w-[80px] h-[36px]">
           <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
         </router-link>
-        <router-link to="/order/" class="w-[30px] h-[30]">
+        <router-link to="/order/" class="w-[30px] h-[30] relative">
+          <div
+            class="absolute flex items-center justify-center rounded-full h-4 w-4 -left-5 -top-1 bg-white"
+          >
+            <span class="text-xs10 font-bold">{{ countProduct }}</span>
+          </div>
+
           <img src="@/image/bags.png" alt="bags-header" class="w-full h-full object-contain" />
         </router-link>
       </div>

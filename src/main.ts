@@ -11,7 +11,7 @@ import { iconsSvg } from './assets';
 import VueGtag from 'vue-gtag';
 import { componentsUI } from './UI';
 import BackToTop from 'vue-backtotop'
-
+import Countdown from 'vue3-flip-countdown'
 const app = createApp(App)
 
 components.forEach(component => {
@@ -31,7 +31,9 @@ app
         config: { id: 'AW-11432602863' }, // Замініть це значення на ваш ID Google Analytics
     }, router)
     .use(VueTheMask)
+    .use(Countdown)
     .use(store)
     .use(BackToTop)
     .use(router)
+
     .mount('#app')

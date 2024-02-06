@@ -2,10 +2,11 @@
   <section class="w-full md:mt-2 py-10">
     <div class="mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0">
       <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50 relative">
-        <div class="absolute top-0 right-10 h-[51px] flex items-center justify-end px-3">
+        <div class="h-[51px] flex items-center justify-between px-3">
+          <div class="text-xl font-bold border-brown-50 py-5">Кошик замовлень</div>
           <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
         </div>
-        <div class="text-xl font-bold border-brown-50 py-5">Кошик замовлень</div>
+
         <div class="grid grid-col md:grid-cols-2 gap-1 md:gap-8">
           <div class="border-t">
             <div v-for="item in items" :key="item.id" class="flex py-10 border-b border-brown-50">
@@ -78,6 +79,28 @@
                 class="border border-solid border-brown-50 h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.phone }}</p>
+            </div>
+            <div class="my-2">
+              <label for="name" class="text-sm font-light text-brown">Відділення НП </label>
+              <my-input
+                placeholder="№ Відділення"
+                v-bind="np"
+                name="np"
+                id="np"
+                class="border border-solid border-brown h-8 md:h-10 px-2"
+              />
+              <p class="text-red">{{ errors.name }}</p>
+            </div>
+            <div class="my-2">
+              <label for="name" class="text-sm font-light text-brown">Адреса</label>
+              <my-input
+                placeholder="Адреса"
+                v-bind="address"
+                name="address"
+                id="address"
+                class="border border-solid border-brown h-8 md:h-10 px-2"
+              />
+              <p class="text-red">{{ errors.address }}</p>
             </div>
             <div class="my-2 flex items-center relative">
               <Field
@@ -195,6 +218,8 @@ export default defineComponent({
       initialValues: {
         name: '',
         phone: '',
+        address: '',
+        np: '',
         idShop: '',
         policy: false
       },
@@ -205,6 +230,8 @@ export default defineComponent({
       const newObj = {
         name: values.name,
         phone: values.phone,
+        address: values.address,
+        np: values.np,
         idShop: store.state.product.shop,
         order: [...store.state.product.buyProduct]
       }
@@ -219,6 +246,8 @@ export default defineComponent({
 
     const name = defineInputBinds('name')
     const phone = defineInputBinds('phone')
+    const np = defineInputBinds('np')
+    const address = defineInputBinds('address')
     const policy = defineInputBinds('policy')
     return {
       items: computed(() => store.state.product.buyProduct),
@@ -234,6 +263,8 @@ export default defineComponent({
       policy,
       errors,
       values,
+      np,
+      address,
       successOrder
     }
   }
