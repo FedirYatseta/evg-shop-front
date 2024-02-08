@@ -9,7 +9,7 @@ export const actions: ActionTree<any, any> = {
         try {
             const response = await apiServices.instance.get(`${PRODUCTS_URL}/${state.shop || ''}`, {
                 params: {
-                    limit: 12,
+                    limit: 14,
                     ...query
                 }
             })

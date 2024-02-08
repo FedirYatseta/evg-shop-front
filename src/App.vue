@@ -42,10 +42,10 @@ export default defineComponent({
       >
         <burger-btn @toggle-menu="toggleMenu" :menuVisible="menuVisible" />
         <mobile-menu :menuVisible="menuVisible" @toggle-menu="toggleMenu" />
-        <router-link to="/" class="w-full w-[80px] h-[36px]">
+        <router-link to="/" class="h-[36px]">
           <img src="@/image/logo.png" alt="logo-header" class="w-full h-full object-contain" />
         </router-link>
-        <router-link to="/order/" class="w-[30px] h-[30] relative">
+        <router-link to="/order/" class="w-[30px] h-[30px] min-w-[30px] relative mx-2">
           <div
             class="absolute flex items-center justify-center rounded-full h-4 w-4 -left-5 -top-1 bg-white"
           >

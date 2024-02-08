@@ -24,13 +24,19 @@ import icon8 from '@/image/8.jpg'
 
 export const pathConfig = [
     { name: 'Головна', path: '/', },
-    { name: 'Бананки', path: '/bana', id: 'catalog' },
-    { name: 'Слінги', path: '/sling', id: 'catalog' },
-    { name: 'Месенджери', path: '/mess', id: 'catalog' },
-    { name: 'Клатчі та гаманці', path: '/wallet', id: 'catalog' },
-    { name: 'Ключчниці', path: '/klutch', id: 'catalog' },
-    { name: 'Рюкзаки', path: '/backpack', id: 'catalog' },
-    { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument', id: 'catalog' },
+    {
+        name: 'Каталог', path: '/category', subPath: [
+            { name: 'Новинки', path: '/new', id: 'catalog' },
+            { name: 'Хіти', path: '/hit', id: 'catalog' },
+            { name: 'Бананки/Сумки на пояс', path: '/bana', id: 'catalog' },
+            { name: 'Слінги', path: '/sling', id: 'catalog' },
+            { name: 'Месенджери', path: '/mess', id: 'catalog' },
+            { name: 'Рюкзаки', path: '/backpack', id: 'catalog' },
+            { name: 'Сумки для документів/ноутбуків', path: '/bagsfordocument', id: 'catalog' },
+            { name: 'Клатчі та гаманці', path: '/klutch', id: 'catalog' },
+        ]
+    },
+    { name: 'Про нас', path: '/', id: 'aboutus' },
     { name: 'Відгуки', path: '/', id: 'feedback' },
     { name: 'Часті питання', path: '/', id: 'question' }
 ]

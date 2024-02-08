@@ -3,13 +3,13 @@
     <div class="mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0">
       <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50 relative">
         <div class="h-[51px] flex items-center justify-between px-3">
-          <div class="text-xl font-bold border-brown-50 py-5">Кошик замовлень</div>
+          <div class="text-xl font-bold border-black-50 py-5">Кошик замовлень</div>
           <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />
         </div>
 
         <div class="grid grid-col md:grid-cols-2 gap-1 md:gap-8">
           <div class="border-t">
-            <div v-for="item in items" :key="item.id" class="flex py-10 border-b border-brown-50">
+            <div v-for="item in items" :key="item.id" class="flex py-10 border-b border-black-50">
               <img :src="item.image" alt="product" class="w-16 h-16 rounded-md" />
               <div class="px-2 relative w-full flex flex-col">
                 <div>
@@ -27,7 +27,7 @@
                 <div class="flex items-center">
                   <!-- <div class="grid grid-cols-3 gap-2 items-center justify-items-center">
                     <my-button
-                      class="cursor-pointer w-6 h-6 md:w-7 md:h-7 p-0 bg-brown-100 text-white text-xl text-center rounded-full"
+                      class="cursor-pointer w-6 h-6 md:w-7 md:h-7 p-0 bg-black-50 text-white text-xl text-center rounded-full"
                       :disabled="item.count === 0"
                       @click="minusCount(item.id)"
                     >
@@ -35,7 +35,7 @@
                     </my-button>
                     <p class="px-2">{{ item.count }}</p>
                     <my-button
-                      class="cursor-pointer w-6 h-6 md:w-7 md:h-7 p-0 bg-brown-100 text-white text-xl text-center rounded-full leading-4"
+                      class="cursor-pointer w-6 h-6 md:w-7 md:h-7 p-0 bg-black-50 text-white text-xl text-center rounded-full leading-4"
                       @click="plusCount(item.id)"
                     >
                       <div class="leading-none">+</div>
@@ -44,7 +44,7 @@
                   <div class="flex flex-wrap items-center">
                     <span
                       v-if="item.oldPrice"
-                      class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:-rotate-6 before:bg-main relative inline-block mr-1"
+                      class="before:content:'' before:left-0 before:right-0 before:h-[1px] before:top-[50%] before:absolute before:bg-main relative inline-block mr-1"
                     >
                       <p class="text-black-200 text-base md:text-lg">{{ item.oldPrice }} UAH</p>
                     </span>
@@ -57,18 +57,18 @@
           </div>
           <form @submit.prevent @submit="onSubmit">
             <div class="my-2">
-              <label for="name" class="text-sm font-light text-brown">Ім’я </label>
+              <label for="name" class="text-sm font-light text-black">Ім’я </label>
               <my-input
                 placeholder="Ваше І'мя"
                 v-bind="name"
                 name="name"
                 id="name"
-                class="border border-solid border-brown h-8 md:h-10 px-2"
+                class="border border-solid border-black h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.name }}</p>
             </div>
             <div class="my-2">
-              <label for="phone" class="text-sm font-light text-brown">Телефон*</label>
+              <label for="phone" class="text-sm font-light text-black">Телефон*</label>
               <my-input
                 placeholder="+380 (99) 999 99 99"
                 v-bind="phone"
@@ -76,51 +76,51 @@
                 id="phone"
                 type="tel"
                 v-mask="'+380 (##) ### ## ##'"
-                class="border border-solid border-brown-50 h-8 md:h-10 px-2"
+                class="border border-solid border-black-50 h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.phone }}</p>
             </div>
-            <div class="my-2">
-              <label for="name" class="text-sm font-light text-brown">Відділення НП </label>
+            <!-- <div class="my-2">
+              <label for="name" class="text-sm font-light text-black">Відділення НП </label>
               <my-input
                 placeholder="№ Відділення"
                 v-bind="np"
                 name="np"
                 id="np"
-                class="border border-solid border-brown h-8 md:h-10 px-2"
+                class="border border-solid border-black h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.name }}</p>
             </div>
             <div class="my-2">
-              <label for="name" class="text-sm font-light text-brown">Адреса</label>
+              <label for="name" class="text-sm font-light text-black">Адреса</label>
               <my-input
                 placeholder="Адреса"
                 v-bind="address"
                 name="address"
                 id="address"
-                class="border border-solid border-brown h-8 md:h-10 px-2"
+                class="border border-solid border-black h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.address }}</p>
-            </div>
+            </div> -->
             <div class="my-2 flex items-center relative">
               <Field
                 name="policy"
                 type="checkbox"
                 id="policy"
                 :value="true"
-                class="border border-solid border-brown-50 h-10 w-10 lg:h-6 lg:w-6 mr-4"
+                class="border border-solid border-black-50 h-10 w-10 lg:h-6 lg:w-6 mr-4"
               />
 
               <label
                 for="policy"
                 class="text-xs md:text-sm font-light"
-                :class="errors.policy ? 'text-red' : 'text-brown-50'"
+                :class="errors.policy ? 'text-red' : 'text-black-50'"
               >
                 Я згоден(а) з Політикою конфіденційності та обробкою моїх персональних даних
               </label>
             </div>
-            <p class="text-start text-lg py-2 border-t border-brown-50">Всього: {{ total }} UAH</p>
-            <my-button class="bg-main hover:bg-brown-100 uppercase text-white p-3"
+            <p class="text-start text-lg py-2 border-t border-black-50">Всього: {{ total }} UAH</p>
+            <my-button class="bg-main hover:bg-black-50 uppercase text-white p-3"
               >Замовити</my-button
             >
           </form>
@@ -140,9 +140,9 @@
             уточнень.
           </p>
         </div>
-        <div class="border-t w-full border-brown-50 pb-5"></div>
+        <div class="border-t w-full border-black-50 pb-5"></div>
         <div
-          class="w-full max-w-[520px] h-[33px] bg-brown-50 flex items-center justify-center px-3"
+          class="w-full max-w-[520px] h-[33px] bg-black-50 flex items-center justify-center px-3"
           @click="closeModal"
         >
           <router-link to="/" class="text-sm text-white uppercase">На головну</router-link>
@@ -230,8 +230,8 @@ export default defineComponent({
       const newObj = {
         name: values.name,
         phone: values.phone,
-        address: values.address,
-        np: values.np,
+        // address: values.address,
+        // np: values.np,
         idShop: store.state.product.shop,
         order: [...store.state.product.buyProduct]
       }

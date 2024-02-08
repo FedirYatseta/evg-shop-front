@@ -24,6 +24,7 @@ import IconToTopVue from "./IconToTop.vue"
 import IconViberVue from "./IconViber.vue"
 import IconWhatsAppVue from "./IconWhatsApp.vue"
 import IconWhereVue from "./IconWhere.vue"
+import IconDoneNewVue from "./IconDoneNew.vue"
 
 
 export const iconsSvg = [
@@ -52,5 +53,6 @@ export const iconsSvg = [
     IconWhereVue,
     IconEmailVue,
     IconPhoneVue,
-    IconToTopVue
+    IconToTopVue,
+    IconDoneNewVue
 ]

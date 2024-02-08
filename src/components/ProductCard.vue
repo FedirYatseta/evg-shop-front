@@ -12,25 +12,30 @@
           <div
             class="text-white absolute uppercase top-1 lg:top-6 right-0 bg-stone-400 text-xs font-light flex flex-col items-end justify-center"
           >
-            <div v-if="prod.sale" class="relative my-1 px-2 h-5 w-12 lg:h-6 lg:w-20">
+            <div v-if="prod.sale" class="my-2 -mr-2 h-6 w-16 lg:h-6 lg:w-20">
               <div
-                class="absolute inset-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full bg-black-0 border-t-4 border-l-4"
+                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
               >
-                sale
+                <span class="absolute text-red">
+                  -{{ Math.round(((prod.oldPrice - prod.price) / prod.oldPrice) * 100) }}%</span
+                >
+                <img src="../image/bg-sale.png" alt="2" />
               </div>
             </div>
-            <div v-if="prod.newProduct" class="relative my-1 h-5 w-12 lg:h-6 lg:w-20">
+            <div v-if="prod.newProduct" class="my-2 -mr-2 h-5 w-16 lg:h-6 lg:w-20">
               <div
-                class="absolute inset-0 text-sm lg:text-xl font-bold flex items-center justify-center bg-black-50 h-full w-full border-t-4 border-l-4"
+                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
               >
-                New
+                <span class="absolute">New</span>
+                <img src="../image/bg-sale.png" alt="2" />
               </div>
             </div>
-            <div v-if="prod.hitProduct" class="relative my-1 h-5 w-12 lg:h-6 lg:w-20">
+            <div v-if="prod.hitProduct" class="-mr-2 my-2 h-5 w-16 lg:h-6 lg:w-20">
               <div
-                class="absolute inset-0 text-sm lg:text-xl text-black-0 font-bold flex items-center justify-center bg-white border-t-4 border-l-4 h-full w-full"
+                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
               >
-                Хіт
+                <span class="absolute">Хіт</span>
+                <img src="../image/bg-sale.png" alt="2" />
               </div>
             </div>
           </div>

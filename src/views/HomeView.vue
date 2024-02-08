@@ -74,12 +74,11 @@
             <ul
               class="flex flex-col gap-3 lg:gap-2 text-sm sm:text-xs lg:text-xs xl:text-base px-8 md:px-0"
             >
-              <li>- СЕРТИФІКОВАНА ПРОДУКЦІЯ</li>
-              <li>- ГАРАНТІЯ 1 РІК</li>
-              <li>- НАКЛАДЕНИЙ ПЛАТІЖ</li>
-              <li>- ПОВЕРНЕННЯ ТА ОБМІН</li>
-              <li>- КОЖЕН ДРУГИЙ КЛІЄНТ КУПУЄ В НАС ПОВТОРНО</li>
-              <li>- БІЛЬШЕ 250 ЗАМОВЛЕНЬ ЗА МИНУЛИЙ МІСЯЦЬ</li>
+              <li v-for="item in list" :key="item" class="flex items-center gap-2">
+                <icon-done-svg
+                  class="w-4 h-4 min-w-4 min-h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6"
+                /><span>{{ item }}</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -89,7 +88,7 @@
       <div
         class="inline-block w-full text-base sm:text-lg font-bold uppercase xl:text-2xl text-center mb-5 md:mb-10 lg:mb-16 text-white bg-main p-3 sm:p-1 lg:p-3"
       >
-        <p class="mx-auto">Каталог</p>
+        <p class="mx-auto">Вибери свою сумку</p>
       </div>
       <div class="container mx-auto px-2 sm:px-20" id="catalog">
         <div class="grid grid-co gap-2 mb-3">
@@ -100,9 +99,11 @@
               v-for="path in dataItems.pathConfigNew"
               :key="path.name"
               :to="path.path"
+              @click="() => handleSetPath(path.name)"
               >{{ path.name }}
             </router-link>
           </div>
+
           <div class="px-5 flex justify-between py-2">
             <button class="flex items-center" @click="nested.first = !nested.first">
               <div class="mr-2"><icon-filter /></div>
@@ -122,7 +123,7 @@
               </div>
             </div>
           </div>
-          <div class="px-5 my-5">
+          <div class="px-5">
             <Collapse :when="nested.first">
               <div class="border-t border-gray">
                 <button @click="nested.second = !nested.second" class="py-1 w-full text-start">
@@ -140,6 +141,7 @@
               <div class="border-b border-gray"></div>
             </Collapse>
           </div>
+          <span class="text-xl font-bold mx-auto p-2 uppercase">{{ selectedPath }}</span>
         </div>
 
         <product-card :products="sortedAndSearchProducts" />
@@ -273,7 +275,7 @@
         </div>
       </div>
     </section>
-    <section id="feedback" class="w-full md:shadow-5xl py-5 mb-4 lg:mb-16">
+    <section id="feedback" class="w-full shadow-5xl py-5 mb-4 lg:mb-16">
       <div class="container mx-auto">
         <h1
           class="text-center text-xs sm:text-xl uppercase lg:text-base xl:text-2xl font-bold text-brown-50 pt-5 mb-10"
@@ -360,7 +362,7 @@ import useScrollToElement from '@/hooks/useScrollToElement'
 import { useRoute } from 'vue-router'
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
-
+import { list } from '../config/config'
 export default defineComponent({
   components: {
     Collapse
@@ -369,9 +371,10 @@ export default defineComponent({
   setup() {
     const { handleReviewsClick } = useScrollToElement()
     const route = useRoute()
+
     const store = useStore()
     const phoneNumberRegex = /^\+380 \(\d{2}\) \d{3} \d{2} \d{2}$/
-
+    const selectedPath = ref<string>('')
     const schema = yup.object({
       name: yup.string().required("Вкажіть ваше І'мя"),
       phone: yup
@@ -455,7 +458,13 @@ export default defineComponent({
 
     const fetchNextProduct = () => {
       const { _id } = store.state.product.product[store.state.product.product.length - 1]
-      store.dispatch('product/fetchProduct', { limit: 10, cursor: _id })
+      const param = route.params.id
+      const params = {
+        limit: 20,
+        cursor: _id,
+        type: param
+      }
+      store.dispatch('product/fetchProduct', params)
     }
 
     const name = defineInputBinds('name')
@@ -489,6 +498,10 @@ export default defineComponent({
       }
     )
 
+    const handleSetPath = (e) => {
+      selectedPath.value = e
+    }
+
     return {
       dataItems,
       handleAccordion,
@@ -516,8 +529,11 @@ export default defineComponent({
       errors,
       values,
       onSubmit,
-
-      showButton: computed(() => store.state.product?.showButton)
+      handleSetPath,
+      showButton: computed(() => store.state.product?.showButton),
+      selectedPath,
+      list,
+      nameParams: route.params.id
     }
   },
   computed: {
