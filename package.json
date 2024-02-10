@@ -17,6 +17,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "axios": "^1.5.1",
     "ga-gtag": "^1.2.0",
+    "notiwind": "^2.0.2",
     "terser": "^5.24.0",
     "type-check": "^0.4.0",
     "uuid": "^9.0.1",

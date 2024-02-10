@@ -12,7 +12,7 @@
           <div
             class="text-white absolute uppercase top-1 lg:top-6 right-0 bg-stone-400 text-xs font-light flex flex-col items-end justify-center"
           >
-            <div v-if="prod.sale" class="my-2 -mr-2 h-6 w-16 lg:h-6 lg:w-20">
+            <div v-if="prod.sale && prod.oldPrice" class="my-2 -mr-2 h-6 w-16 lg:h-6 lg:w-20">
               <div
                 class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
               >

@@ -12,12 +12,19 @@ import VueGtag from 'vue-gtag';
 import { componentsUI } from './UI';
 import BackToTop from 'vue-backtotop'
 import Countdown from 'vue3-flip-countdown'
+import { viewComponents } from './views/component';
+
+import Notifications from 'notiwind'
 const app = createApp(App)
 
 components.forEach(component => {
     app.component(component.name, component)
 })
 componentsUI.forEach(component => {
+    app.component(component.name, component)
+})
+
+viewComponents.forEach(component => {
     app.component(component.name, component)
 })
 
@@ -30,6 +37,7 @@ app
     .use(VueGtag, {
         config: { id: 'AW-11432602863' }, // Замініть це значення на ваш ID Google Analytics
     }, router)
+    .use(Notifications)
     .use(VueTheMask)
     .use(Countdown)
     .use(store)

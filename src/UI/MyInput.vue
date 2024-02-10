@@ -1,10 +1,5 @@
 <template>
-  <input
-    :value="modelValue"
-    @input="updateInput"
-    class="px-15 w-full"
-    :class="shadow ? 'shadow-4xl rounded-xl' : 'shadow-none'"
-  />
+  <input :value="modelValue" @input="updateInput" class="px-15 h-10 w-full indent-2" />
 </template>
 
 <script lang="ts">

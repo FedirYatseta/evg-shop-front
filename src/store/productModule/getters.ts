@@ -3,6 +3,7 @@ import GetterTree from 'vuex'
 
 export const getters: GetterTree<any, any> = {
     sortedProducts(state: any) {
+        console.log('state', state)
 
 
         return [...state.product].sort((a, b) => {

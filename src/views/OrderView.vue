@@ -1,7 +1,7 @@
 <template>
   <section class="w-full md:mt-2 py-10">
-    <div class="mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0">
-      <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-50 relative">
+    <div class="container mx-auto pt-12 pb-24 lg:pb-32 lg:pt-0">
+      <div v-if="!successOrder" class="p-4 md:p-12 bg-white w-full flex flex-col z-20 relative">
         <div class="h-[51px] flex items-center justify-between px-3">
           <div class="text-xl font-bold border-black-50 py-5">Кошик замовлень</div>
           <icon-close @click="router.go(-1)" :color="'#000'" class="cursor-pointer" />

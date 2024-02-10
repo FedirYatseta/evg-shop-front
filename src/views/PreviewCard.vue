@@ -90,7 +90,7 @@
                   >
                   <div
                     @click="() => addProductToBag(productEl?._id)"
-                    class="text-white uppercase text-center border bg-main px-6 py-1 lg:text-base w-full"
+                    class="text-white cursor-pointer uppercase text-center border bg-main px-6 py-1 lg:text-base w-full"
                   >
                     додати в кошик
                   </div>
@@ -168,6 +168,7 @@ import { Collapse } from 'vue-collapsed'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import { text } from '@/config/config'
+import { notify } from 'notiwind'
 
 export default defineComponent({
   name: 'desc-product',
@@ -181,7 +182,6 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
-    console.log('route', route)
 
     const currentSlide = ref<any>(0)
     const sameProduct = ref<any>()
@@ -210,10 +210,14 @@ export default defineComponent({
     }
     const addProductToBag = (id: string) => {
       store.commit('product/setProductToOrder', id)
-      showModal.value = true
-      setTimeout(() => {
-        showModal.value = false
-      }, 1000)
+      notify(
+        {
+          group: 'foo',
+          title: 'Товар додано',
+          text: ''
+        },
+        4000
+      )
     }
 
     onMounted(() => {
