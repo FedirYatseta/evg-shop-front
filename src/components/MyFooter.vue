@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="flex flex-col gap-1 justify-center">
         <div
-          class="grid grid-col md:grid-cols-3 gap-2 md:gap-y-10 align-items-start justify-items-center mb-4 lg:pt-4 lg:mb-0"
+          class="grid grid-col md:grid-cols-3 gap-1 md:gap-y-10 align-items-start justify-items-center mb-4 lg:pt-4 lg:mb-0"
         >
           <div>
             <img src="@/image/logo.png" alt="logo-site" class="p-1 max-h-[70px]" />
@@ -15,34 +15,34 @@
             </div>
           </div>
 
-          <ul class="flex flex-col gap-1 sm:gap-2 lg:gap-0 xl:gap-2 text-center md:text-start mb-4">
+          <ul class="flex flex-col sm:gap-2 lg:gap-0 xl:gap-2 text-center md:text-start mb-4">
             <li v-for="item in mainUrlOfFooter" :key="item.path">
               <router-link
                 @click="handleReviewsClick(item)"
                 :to="item.path"
-                class="text-white text-sm sm:text-xs10 lg:text-xs8 xl:text-base font-serif uppercase whitespace-nowrap"
+                class="text-white text-xs10 sm:text-xs10 lg:text-xs8 xl:text-base font-serif uppercase whitespace-nowrap"
                 >{{ item.name }}</router-link
               >
             </li>
           </ul>
           <ul
-            class="flex flex-col items-center md:items-start gap-1 md:gap-3 lg:gap-1 md:text-center text-xs10 md:text-xs lg:text-sm xl:text-xl uppercase whitespace-nowrap"
+            class="flex flex-col items-center md:items-start gap-1 md:gap-3 lg:gap-1 md:text-center text-xs10 md:text-xs lg:text-xs10 xl:text-xl uppercase whitespace-nowrap"
           >
             <li>
-              <p class="text-white text-sm sm:text-xs8 xl:text-base pt-2">Контакти:</p>
+              <p class="text-white text-xs10 sm:text-xs8 xl:text-base pt-2">Контакти:</p>
             </li>
             <li>
               <a
                 href="mailto:bags7@urk.net"
                 aria-label="Email"
-                class="text-white text-xs sm:text-xs8 xl:text-base"
+                class="text-white text-xs10 sm:text-xs8 xl:text-base"
               >
                 bags7.ukr@gmail.com
               </a>
             </li>
             <li>
               <a href="tel:+380632563677" aria-label="Phone number" class="text-white md:-mt-2">
-                <p class="text-white text-xs sm:text-xs10 lg:text-xs8 xl:text-base">
+                <p class="text-white text-xs10 sm:text-xs10 lg:text-xs8 xl:text-base">
                   +38063 25 63 677
                 </p>
               </a>

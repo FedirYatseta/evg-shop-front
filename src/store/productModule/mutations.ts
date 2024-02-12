@@ -21,6 +21,9 @@ export const mutations: MutationTree<any, any> = {
     setSearchQuery(state: any, searchQuery: any) {
         state.searchQuery = searchQuery
     },
+    setPointNP(state: any, data: any) {
+        state.point = data
+    },
 
     setProductId(state: any, id: any) {
         console.log('id', id)

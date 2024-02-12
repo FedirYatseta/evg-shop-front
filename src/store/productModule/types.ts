@@ -8,7 +8,8 @@ export interface ProductState {
     searchQuery: string
     confShop: []
     selectedProduct: []
-    sortOptions: SortOption[]
+    sortOptions: SortOption[],
+    point: []
 
 }
 

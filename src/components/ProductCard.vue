@@ -10,11 +10,11 @@
       >
         <div class="block text-start relative cursor-pointer">
           <div
-            class="text-white absolute uppercase top-1 lg:top-6 right-0 bg-stone-400 text-xs font-light flex flex-col items-end justify-center"
+            class="text-white absolute uppercase top-1 lg:top-2 right-0 bg-stone-400 text-xs font-light flex flex-col items-end justify-center"
           >
-            <div v-if="prod.sale && prod.oldPrice" class="my-2 -mr-2 h-6 w-16 lg:h-6 lg:w-20">
+            <div v-if="prod.sale && prod.oldPrice" class="my-1 -mr-2 h-5 w-12 lg:h-6 lg:w-12">
               <div
-                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
+                class="relative text-black-0 text-xs10 lg:text-xs10 font-bold flex items-center justify-center h-full w-full"
               >
                 <span class="absolute text-red">
                   -{{ Math.round(((prod.oldPrice - prod.price) / prod.oldPrice) * 100) }}%</span
@@ -22,17 +22,17 @@
                 <img src="../image/bg-sale.png" alt="2" />
               </div>
             </div>
-            <div v-if="prod.newProduct" class="my-2 -mr-2 h-5 w-16 lg:h-6 lg:w-20">
+            <div v-if="prod.newProduct" class="mb-1 -mr-2 h-5 w-12 lg:h-6 lg:w-12">
               <div
-                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
+                class="relative text-black-0 text-xs10 lg:text-xs10 font-bold flex items-center justify-center h-full w-full"
               >
                 <span class="absolute">New</span>
                 <img src="../image/bg-sale.png" alt="2" />
               </div>
             </div>
-            <div v-if="prod.hitProduct" class="-mr-2 my-2 h-5 w-16 lg:h-6 lg:w-20">
+            <div v-if="prod.hitProduct" class="-mr-2 mb-1 h-5 w-12 lg:h-6 lg:w-12">
               <div
-                class="relative text-black-0 text-sm lg:text-xl font-bold flex items-center justify-center h-full w-full"
+                class="relative text-black-0 text-xs10 lg:text-xs10 font-bold flex items-center justify-center h-full w-full"
               >
                 <span class="absolute">Хіт</span>
                 <img src="../image/bg-sale.png" alt="2" />
@@ -74,7 +74,7 @@
             </p>
           </div>
         </div>
-        <div class="grid grid-col gap-2 md:gap-2 pt-1 sm:pt-2">
+        <div class="grid grid-col gap-2 md:gap-1 pt-1 sm:pt-2">
           <router-link
             :to="'/order/' + prod._id"
             class="bg-main hover:bg-brown-50 font-bold text-white p-2 lg:p-2 text-center uppercase border border-brown-50 text-xs sm:text-sm xl:text-lg"
@@ -82,7 +82,7 @@
           >
           <router-link
             :to="'/preview/' + prod._id"
-            class="bg-white hover:bg-slate-800 text-main underline-offset-4 underline decoration-2 decoration-dashed font-bold p-1 lg:p-2 text-center uppercase text-xs sm:text-sm xl:text-lg"
+            class="bg-white hover:bg-slate-800 text-main underline-offset-4 underline decoration-2 decoration-dashed font-bold p-1 lg:p-2 text-center uppercase text-xs sm:text-sm lg:text-xs10 xl:text-sm"
           >
             Детальніше</router-link
           >

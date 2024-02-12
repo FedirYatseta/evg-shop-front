@@ -13,6 +13,7 @@ const state: ProductState = {
     searchQuery: '',
     shop: import.meta.env.VITE_SHOP_ID,
     confShop: [],
+    point: [],
     sortOptions: [
         { value: 'price', name: 'По ціні' },
         { value: 'type', name: 'По типу' },

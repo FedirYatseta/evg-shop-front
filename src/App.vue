@@ -68,7 +68,7 @@ export default defineComponent({
       </button>
     </back-to-top>
     <NotificationGroup group="foo">
-      <div class="fixed inset-0 flex items-start justify-end p-6 px-4 py-6 pointer-events-none">
+      <div class="fixed inset-0 flex items-center justify-center p-6 px-4 py-6 pointer-events-none">
         <div class="w-full max-w-sm">
           <Notification
             v-slot="{ notifications }"

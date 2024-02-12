@@ -4,11 +4,12 @@
   >
     <p
       :class="textColor ? 'text-black-50' : 'text-white'"
-      class="uppercase font-bold text-xs10 text-start sm:text-center xl:text-lg w-1/2 sm:w-full"
+      class="uppercase font-bold text-xs10 text-start sm:text-center xl:text-lg w-3/4 sm:w-full"
     >
-      Зимовий розпродаж до -43% знижки! До кінця акції:
+      Зимовий розпродаж до -43% знижки! <br />
+      До кінця акції:
     </p>
-    <div class="w-1/2">
+    <div class="w-1/4">
       <vue3-flip-countdown
         v-if="time"
         countdownSize="0.9rem"

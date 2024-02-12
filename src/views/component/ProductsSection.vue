@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full">
+  <section class="w-full shadow-xl">
     <div
       class="inline-block w-full text-base sm:text-lg font-bold uppercase xl:text-2xl text-center mb-5 md:mb-10 lg:mb-16 text-white bg-main p-3 sm:p-1 lg:p-3"
     >
@@ -9,7 +9,7 @@
       <div class="grid grid-co gap-2 mb-3">
         <div class="w-full text-center pb-3">
           <router-link
-            class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-xl font-semibold md:font-bold rounded-[10px]"
+            class="m-1 px-4 xl:px-5 py-2 inline-flex text-sm md:text-base xl:text-xl font-semibold md:font-bold"
             :class="{ 'shadow-3xl': path.path !== routePath }"
             v-for="path in dataItems.pathConfigNew"
             :key="path.name"
@@ -18,13 +18,21 @@
             >{{ path.name }}
           </router-link>
         </div>
-        <div class="px-5 flex flex-col md:flex-row justify-end items-center gap-2">
-          <div class="relative w-full max-w-xs">
+        <div class="px-5 flex justify-between py-2">
+          <button
+            class="flex items-center"
+            :class="['Panel', { Active: nested.first }]"
+            @click="nested.first = !nested.first"
+          >
+            <div class="mr-2"><icon-filter /></div>
+
+            <p class="text-sm md:text-xl text-black-100">Фільтри</p>
+          </button>
+          <div class="relative">
             <my-input
-              placeholder="Пошук товарів"
               :model-value="searchQuery"
               @update:model-value="setSearchQuery"
-              class="border-black-0 border"
+              class="h-full"
             />
             <div
               class="absolute flex items-center justify-center inset-y-0 right-2 pointer-events-none"
@@ -32,18 +40,34 @@
               <icon-search />
             </div>
           </div>
-          <my-select
-            class="w-full max-w-xs border-black-0 border appearance-none"
-            :options="sortOptions"
-            :selected="selectedSort"
-            @update:selected="setSelectedSort"
-          />
+        </div>
+        <div class="px-5 my-5">
+          <Collapse :when="nested.first">
+            <div class="border-t border-gray">
+              <button
+                @click="nested.second = !nested.second"
+                class="py-1 w-full text-start"
+                :class="['Panel', { Active: nested.second }]"
+              >
+                Сортування
+              </button>
+              <Collapse :when="nested.second">
+                <my-select
+                  class="max-w-xs shadow-4xl appearance-none mb-2"
+                  :options="sortOptions"
+                  :selected="selectedSort"
+                  @update:selected="setSelectedSort"
+                />
+              </Collapse>
+            </div>
+            <div class="border-b border-gray"></div>
+          </Collapse>
         </div>
 
         <span class="text-xl font-bold mx-auto p-2 uppercase">{{ selectedPath }}</span>
       </div>
       <product-card :products="sortedAndSearchProducts" />
-      <div v-if="showButton" class="px-5 flex items-center justify-center my-5">
+      <div v-if="showButton" class="px-5 flex items-center justify-center my-5 pb-12">
         <button
           @click="fetchNextProduct"
           class="uppercase border rounded-[35px] border-[1.4px] px-7 py-2 text-sm"
@@ -57,21 +81,24 @@
 
 <script lang="ts">
 import { pathConfigNew } from '@/config/path'
-import { computed, defineComponent, reactive, ref, watch } from 'vue'
+import { computed, defineComponent, reactive, ref, watch, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore, mapGetters } from 'vuex'
+import { Collapse } from 'vue-collapsed'
+
 export default defineComponent({
   name: 'products-section',
+  components: {
+    Collapse
+  },
   setup() {
     const store = useStore()
     const selectedPath = ref<string>('')
     const active = ref('')
     const route = useRoute()
-    const activeIndex = ref(-1)
     const nested = reactive({
-      first: false, // Initial value
-      second: false,
-      third: false
+      first: true, // Initial value
+      second: false
     })
     const dataItems = ref<any>({
       pathConfigNew
@@ -112,6 +139,27 @@ export default defineComponent({
         }
       }
     )
+
+    const questions = reactive<any>([]) // Початково порожній масив для питань
+
+    watchEffect(() => {
+      // Викликається при зміні store.state.product.confShop
+      if (store.state.product.confShop.length > 0) {
+        // Якщо дані завантажені
+        questions.length = 0 // Очищаємо попередні питання
+        const confShop = store.state.product.confShop[0]
+        if (confShop && confShop.collapse) {
+          questions.push(
+            ...confShop.collapse.map(({ title, description }: any) => ({
+              title,
+              description,
+              isExpanded: false
+            }))
+          )
+        }
+      }
+    })
+
     return {
       dataItems,
       handleSetPath,
@@ -124,8 +172,7 @@ export default defineComponent({
       setSearchQuery: (e) => store.commit('product/setSearchQuery', e),
       selectedSort: computed(() => store.state.product.selectedSort),
       routePath: active,
-      selectedPath,
-      activeIndex
+      selectedPath
     }
   },
   computed: {
@@ -136,4 +183,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style></style>

@@ -3,62 +3,32 @@ import { useRouter } from 'vue-router'
 const useScrollToElement = () => {
     const router = useRouter()
 
+    // Об'єкт, що відображає відповідність між item.id та ID елементів на сторінці
+    const sections = {
+        question: 'question',
+        feedback: 'feedback',
+        aboutus: 'aboutus',
+        footer: 'footer',
+        home: 'home',
+        catalog: 'catalog',
+    }
+
     const scrollToElement = (id) => {
-        // Ваша логіка прокрутки до елемента з вказаним ID на сторінці "Головна"
-        // Ви можете використовувати JavaScript, наприклад, такий метод:
         const element = document.getElementById(id)
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' })
         }
     }
+
     const handleReviewsClick = (item) => {
-        console.log('item', item)
-
-
-        if (item.id === 'question') {
-            // Перехід до розділу з ID "question" на сторінці "Головна"
+        // Перевіряємо, чи існує відповідний ID елемента для item.id
+        if (sections[item.id]) {
+            // Якщо існує, прокручуємо до відповідного елемента
             setTimeout(() => {
-                scrollToElement('question')
+                scrollToElement(sections[item.id])
             }, 500);
-        } else if (item.id === 'feedback') {
-
-            // Перехід до розділу з ID "feedback" на сторінці "Головна"
-
-            setTimeout(() => {
-                scrollToElement('feedback')
-            }, 500);
-
-        }
-        else if (item.id === 'aboutus') {
-
-            // Перехід до розділу з ID "feedback" на сторінці "Головна"
-
-            setTimeout(() => {
-                scrollToElement('aboutus')
-            }, 500);
-
-        }
-        else if (item.id === 'footer') {
-
-            // Перехід до розділу з ID "feedback" на сторінці "Головна"
-
-            setTimeout(() => {
-                scrollToElement('footer')
-            }, 500);
-
-        }
-        else if (item.id === 'catalog') {
-
-            // Перехід до розділу з ID "feedback" на сторінці "Головна"
-
-            setTimeout(() => {
-                scrollToElement('catalog')
-            }, 500);
-
-        }
-        else {
-            // Зазвичай переход за маршрутом
-
+        } else {
+            // Якщо немає відповідного ID, виконуємо перехід за маршрутом
             router.push(item.path)
         }
     }

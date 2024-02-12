@@ -49,7 +49,7 @@
                       <p class="text-black-200 text-base md:text-lg">{{ item.oldPrice }} UAH</p>
                     </span>
 
-                    <p class="text-lg md:text-lg text-red">{{ item.price }} UAH</p>
+                    <p class="text-lg md:text-lg">{{ item.price }} UAH</p>
                   </div>
                 </div>
               </div>
@@ -101,6 +101,39 @@
                 class="border border-solid border-black h-8 md:h-10 px-2"
               />
               <p class="text-red">{{ errors.address }}</p>
+            </div> -->
+            <!-- <div class="my-2 relative">
+              <label for="name" class="text-sm font-light text-black">Область</label>
+              <select class="h-10 border w-full">
+                <option v-for="region in regionsOfUkraine" value="region.value" :key="region.name">
+                  {{ region.name }}
+                </option>
+              </select>
+            </div>
+            <div class="my-2 relative">
+              <label for="name" class="text-sm font-light text-black">Місто</label>
+              <input
+                type="text"
+                v-model="searchTerm"
+                @input="onSearchInput"
+                class="border border-solid border-black h-8 md:h-10 px-2 w-full"
+              />
+
+              <div
+                v-if="showOptions"
+                class="absolute left-0 mt-1 flex w-full overflow-auto h-64 z-10 bg-white border border-solid border-black"
+              >
+                <ul>
+                  <li
+                    v-for="branch in filteredBranches"
+                    :key="branch.id"
+                    @click="selectBranch(branch.Description)"
+                    class="cursor-pointer text-black-0 px-1 py-1"
+                  >
+                    {{ branch.Description }}
+                  </li>
+                </ul>
+              </div>
             </div> -->
             <div class="my-2 flex items-center relative">
               <Field
@@ -159,6 +192,8 @@ import { useForm, Field } from 'vee-validate'
 import * as yup from 'yup'
 import { useRoute, useRouter } from 'vue-router'
 //import { event } from 'vue-gtag'
+import debounce from 'lodash.debounce'
+import { regionsOfUkraine } from '../config/config'
 import { gtag } from 'ga-gtag'
 export interface IOrder {
   name: String
@@ -189,7 +224,10 @@ export default defineComponent({
     const router = useRouter()
     const route = useRoute()
     const phoneNumberRegex = /^\+380 \(\d{2}\) \d{3} \d{2} \d{2}$/
-
+    const searchTerm = ref('')
+    const branches = ref([])
+    const selectedBranch = ref('')
+    const showOptions = ref(false)
     // const track = (body: any) => {
     //   event('conversion', {
     //     event_category: 'order',
@@ -249,6 +287,33 @@ export default defineComponent({
     const np = defineInputBinds('np')
     const address = defineInputBinds('address')
     const policy = defineInputBinds('policy')
+
+    // const filteredBranches = computed(() => {
+    //   return store.state.product.point.data.filter((branch) => branch.Description)
+    // })
+
+    // const debouncedSearchBranches = debounce(async () => {
+    //   await store.dispatch('product/getPointNP', {
+    //     CityName: searchTerm.value,
+    //     Limit: '50',
+    //     Page: '1'
+    //   })
+    // }, 1000) // Час затримки для дебаунса (300 мс)
+
+    // const onSelectBranch = () => {
+    //   debouncedSearchBranches()
+    // }
+
+    // const onSearchInput = () => {
+    //   showOptions.value = true
+    //   onSelectBranch()
+    // }
+
+    // const selectBranch = (branch) => {
+    //   searchTerm.value = branch
+    //   showOptions.value = false
+    // }
+
     return {
       items: computed(() => store.state.product.buyProduct),
       minusCount: (id) => store.commit('product/setDecrease', id),
@@ -263,9 +328,14 @@ export default defineComponent({
       policy,
       errors,
       values,
+      searchTerm,
+      branches,
+      showOptions,
       np,
       address,
-      successOrder
+      successOrder,
+      selectedBranch,
+      regionsOfUkraine
     }
   }
 })

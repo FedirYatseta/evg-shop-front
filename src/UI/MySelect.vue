@@ -2,7 +2,7 @@
   <select
     v-model="localSelected"
     @change="changeOption"
-    class="appearance-none h-10 px-2 minimal"
+    class="h-10 px-2 minimal"
     aria-label="Фільтр"
   >
     <option selected value="">Сортування за замовчуванням</option>
@@ -60,6 +60,7 @@ select.minimal {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
+  background-color: #fff;
 }
 
 select.minimal:focus {

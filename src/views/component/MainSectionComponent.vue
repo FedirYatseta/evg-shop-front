@@ -16,11 +16,11 @@
             Ми знаємо як тобі допомогти! Чоловічі сумки та аксесуари зі знижкою до -43% напряму від
             виробника
           </p>
-          <div class="w-full max-w-20 mx-auto flex justify-center sm:hidden">
+          <div class="w-full max-w-20 mx-auto flex justify-center hidden md:block">
             <router-link
               :to="'/'"
               @click="() => handleReviewsClick({ id: 'catalog' })"
-              class="bg-main hover:bg-brown-50 text-white w-[150px] font-serif py-2 px-5 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-xs font-bold xl:text-xl"
+              class="bg-main hover:bg-brown-50 text-white w-[150px] font-serif py-2 px-5 lg:p-2 text-center uppercase border border-brown-50 text-xs md:text-xs10 font-bold xl:text-sm"
               >Каталог</router-link
             >
           </div>
